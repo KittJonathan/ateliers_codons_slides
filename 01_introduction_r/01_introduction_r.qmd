@@ -1,0 +1,466 @@
+---
+format:
+  revealjs:
+    theme: default
+    fontsize: 1.8em
+editor: visual
+title-slide-attributes: 
+  data-background-image: img/title.png
+  data-background-opacity: 50%
+---
+
+![](img/title.png){fig-align="center"}
+
+# Introduction
+
+## Qu'est-ce que R ?
+
+R est un **langage de programmation** et un **logiciel** utilisé pour réaliser des calculs statistiques et des graphiques.
+
+R a été conçu en 1992 par **Ross Ihaka** et **Robert Gentleman** comme implémentation open source du langage de programmation S et publié en 1995.
+
+Depuis, les utilisations de R se sont largement diversifiées :
+
+-   analyses statistiques et workflows de data science
+
+-   visualisations graphiques avancées
+
+-   rapports automatisés
+
+-   applications web
+
+-   diaporamas, livres, et pages web
+
+## Pourquoi (pas) R ?
+
+**Avantages :**
+
+-   libre, open source, et plateforme indépendant
+
+-   large variété d'extensions proposant des fonctionnalités supplémentaires
+
+-   compatible avec d'autres langages de programmation
+
+-   puissant pour l'analyse et la visualisation de données
+
+-   très large communauté en ligne
+
+-   souvent expérimenté comme étant *simple à coder* (pour un novice)
+
+**Inconvénients :**
+
+-   performance : évolutivité, mémoire et vitesse
+
+-   courbe d'apprentissage importante
+
+-   potentiels problèmes de sécurité (applications web)
+
+-   souvent expérimenté comme étant *étrange à coder* (pour un expert)
+
+# R versus RStudio
+
+## 
+
+![](img/r_vs_rstudio.png){fig-align="center"}
+
+-   **RStudio** est un environnement de développement intégré (IDE) open source
+
+-   IDE pour R le plus populaire depuis plusieurs années
+
+-   de nombreuses fonctionnalités et extensions pour faciliter les workflows (suivi de version, sommaire, add-ins, ...)
+
+-   projets R et RMarkdown/Quarto
+
+## Mise en pratique : installer R et RStudio
+
+::: {.callout-tip appearance="simple" icon="false"}
+-   Télécharger et installer R depuis cloud.r-project.org
+
+-   Télécharger et installer RStudio Desktop depuis posit.co/download/rstudio-desktop
+:::
+
+## 
+
+![](img/r_windows.png){fig-align="center"}
+
+## 
+
+![](img/r_studio_01.png){fig-align="center"}
+
+## 
+
+![](img/r_studio_02.png){fig-align="center"}
+
+## Mise en pratique : "Hello World!"
+
+::: {.callout-tip appearance="simple" icon="false"}
+-   Ouvrez **R** et tapez les commandes suivantes :
+
+    -   `"Hello World!"`
+
+    -   `1`
+
+-   Ouvrez **RStudio** et familiarisez-vous avec son environnement.
+
+    -   Cliquez sur `Help > Cheatsheets > RStudio IDE Cheat Sheet` et parcourez le document.
+
+    -   Cliquez sur `View > Panes > Pane Layout` et arrangez les panneaux selon votre préférence.
+
+    -   Ouvrez un script en cliquant sur `File > New File > R Script`, ajoutez les deux commandes précédentes et sauvegardez le script.
+
+    -   Exécutez les commandes en plaçant votre curseur à la fin de la première ligne du script et cliquez sur le bouton Run ou utilisez le raccourci clavier `Ctrl + Entrée`.
+
+    -   Sauvegardez le script.
+:::
+
+## La console
+
+Le code que vous exécutez apparaît dans la console - la ligne débute par un `>`.
+
+La console affiche également la sortie - la ligne débute par `[1]`.
+
+![](img/r_studio_03.png){fig-align="center"}
+
+## Les commentaires
+
+Les commentaires servent à :
+
+-   inactiver du code qu'on ne souhaite plus exécuter
+
+-   ajouter des commentaires qui expliquent notre raisonnement
+
+Dans R, les commentaires sont codés par un hash `#`.
+
+Tout ce qui suit sur la même ligne ne sera pas traité comme du code.
+
+Par convention, nous utilisons `#` pour commenter du code et `##` pour ajouter des commentaires :
+
+```{r, echo=TRUE, eval=TRUE}
+# "Hello world!"  ## Je n'ai plus besoin de ce code mais je préfère le conserver.
+```
+
+## 
+
+![](img/r_studio_04.png){fig-align="center"}
+
+## 
+
+![](img/r_studio_05.png){fig-align="center"}
+
+## 
+
+![](img/r_studio_06.png){fig-align="center"}
+
+## 
+
+![](img/r_studio_07.png){fig-align="center"}
+
+## Les projets R
+
+Les projets R (ou projets RStudio) vous fournissent un workflow robuste qui vous servira par la suite :
+
+-   ils s'appuient sur l'idée que tous les fichiers associés à votre projet devraient être stockés dans le même dossier
+
+    -   aide à trouver les fichiers
+
+    -   augmente la reproductibilité
+
+    -   facilite la collaboration
+
+-   le répertoire de travail est défini dans le dossier où se trouve le fichier .Rproj
+
+    -   assure un répertoire de travail correct
+
+    -   indépendant des paramètres d'opération et de l'arborescence des dossiers
+
+    -   limite les changements de répertoire lors de collaborations
+
+Pour créer un projet R : `File > New Project …`
+
+# Valeurs
+
+## Valeurs
+
+Tapez les commandes suivantes :
+
+`1`
+
+`"Hello World!"`
+
+`x`
+
+`pi`
+
+## Valeurs
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+1
+"Hello World!"
+x
+pi
+```
+
+# Fonctions
+
+## Mise en pratique : opérations arithmétiques
+
+::: {.callout-tip appearance="simple" icon="false"}
+-   Tapez `2 + 3 et exécutez.`
+
+-   Essayez d'autres opérateurs de calcul comme `-`, `*`, `/`, ou `^`.
+
+-   Calculez la racine carrée d'un nombre avec `sqrt()`.
+:::
+
+::: {.callout-caution appearance="simple" icon="false"}
+-   Quelle est la différence entre la valeur 5 obtenue à la première ligne et le calcul de la racine carrée à l'aide de `sqrt` ?
+:::
+
+## R est un calculateur !
+
+```{r, echo=TRUE, eval=TRUE}
+2 + 3
+(59 + 73 + 2) * 5
+1 / 200 * 30
+sin(pi / 2)
+10^12 * sqrt(4312)
+log(exp(5))
+```
+
+## Fonctions
+
+![](img/fonctions_01.png){fig-align="center"}
+
+## Fonctions
+
+![](img/fonctions_02.png){fig-align="center"}
+
+## Fonctions
+
+R possède une large collection de fonctions intégrées qu'on appelle comme ceci :
+
+```{r, echo=TRUE, eval=FALSE}
+function_name(arg1 = val1, arg2 = val2, ...)
+```
+
+Nous avons déjà vu certaines fonctions dans les exercices précédents :
+
+`+`, `-`, `*`, `^`, `sqrt()`, `log()` sont toutes des fonctions.
+
+## Fonctions
+
+```{r, echo=TRUE, eval=FALSE}
+sqrt()
+log()
+sin()
+exp()
+mean()
+```
+
+<br>
+
+```{r, echo=TRUE, eval=TRUE}
+sqrt(x = 25)
+```
+
+## Fonctions infixes
+
+```{r, echo=TRUE, eval=FALSE}
++
+-
+^
+%%
+%in%
+```
+
+<br>
+
+### Opérateur unaire
+
+```{r, echo=TRUE, eval=TRUE}
+-1
+```
+
+<br>
+
+### Opérateur binaire
+
+```{r, echo=TRUE, eval=TRUE}
+12 %% 5
+```
+
+## Corps d'une fonction
+
+```{r, echo=TRUE, eval=TRUE}
+log
+mean
+methods(mean)
+`+`
+read.csv
+```
+
+## Corps d'une fonction
+
+```{r, echo=TRUE, eval=TRUE}
+read.table
+```
+
+## Arguments d'une fonction
+
+```{r, echo=TRUE, eval=TRUE}
+log(x = 25)  ## `base = exp(1)` par défaut
+log(x = 25, base = 10)
+log10(x = 25)  ## équivalent de `log(x, base = 10)`
+log2(x = 25)  ## équivalent de `log(x, base = 2)`
+```
+
+## Apprendre à utiliser une fonction
+
+```{r, echo=TRUE, eval=FALSE}
+help(log)
+?log
+# curseur + F1
+```
+
+### Description
+
+`log` computes logarithms, by default natural logarithms, `log10` computes common (i.e., base 10) logarithms, and `log2` computes binary (i.e., base 2) logarithms. The general form `log(x, base)` computes logarithms with base `base`.
+
+## Apprendre à utiliser une fonction
+
+```{r, echo=TRUE, eval=FALSE}
+help(log)
+?log
+# curseur + F1
+```
+
+### Usage
+
+```{r, echo=TRUE, eval=FALSE}
+log(x, base = exp(1))
+logb(x, base = exp(1))
+log10(x)
+log2(x)
+
+log1p(x)
+
+exp(x)
+expm1(x)
+```
+
+## Apprendre à utiliser une fonction
+
+```{r, echo=TRUE, eval=FALSE}
+help(log)
+?log
+# curseur + F1
+```
+
+### Arguments
+
+`x` a numeric or complex vector.
+
+`base` a positive or complex number: the base with respect to which logarithms are computed. Defaults to `e = exp(1)`.
+
+## Arguments d'une fonction : assignation implicite
+
+```{r, echo=TRUE, eval=TRUE}
+log(x = 25, base = 5)
+log(25, 5)  ## le 1er argument est `x`, le 2nd `base`
+log(5, 25)  ## le 1er argument est `x`, le 2nd `base`
+log(25, base = 5)  ## le 1er argument est `x`
+log(base = 5, 25)  ## fonctionne, mais à éviter
+log(base = 5, x = 25)  ## soyez explicites si vous souhaitez modifier les positions des arguments
+```
+
+## Assignation implicite : attention !
+
+Noms d''arguments explicites :
+
+```{r, echo=TRUE, eval=TRUE}
+## l'exemple utilise des vecteurs (séquences de nombres entourées par `c()`)
+quantile(x = c(5, 1, 3), probs = c(0.25, 0.5, 0.75))
+```
+
+Assignation implicite par position :
+
+```{r, echo=TRUE, eval=TRUE}
+quantile(c(5, 1, 3), c(0.25, 0.5, 0.75))
+```
+
+Des erreurs dans la modification des positions peut engendrer tout un tas de problèmes :
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+quantile(c(0.25, 0.5, 0.75), c(5, 1, 3))
+quantile(c(0.25, 0.5, 0.75), c(0.95, 0.345, 1))
+```
+
+## Mise en pratique : arguments d'une fonction
+
+::: {.callout-caution appearance="simple" icon="false"}
+Quelles lignes de code ci-dessous vont fonctionner ?
+:::
+
+`log(x = 1)`
+
+`log(x = "1")`
+
+`log(x)`
+
+`log(value = 1)`
+
+`` log(`1`) ``
+
+`log(1)`
+
+# Assignation et objets
+
+## Mise en pratique : assignation et objets
+
+::: {.callout-tip appearance="simple" icon="false"}
+-   Tapez et exécutez `x <- 1` puis `x`.
+
+-   Exécutez `x + 2`.
+
+-   Exécutez `x <- 5` puis à nouveau `x + 2`.
+:::
+
+::: {.callout-caution appearance="simple" icon="false"}
+-   Pourquoi n'y a-t-il aucune sortie après exécution de `x <- 1` ?
+
+-   Que fait le symbole de la flèche `<-` ?
+
+-   Quelle est la valeur de `x` à la fin ?
+
+-   Que se passe-t-il si vous exécutez `y <- x` ? Et `y <- x <- 2` ?
+
+-   Tapez et exécutez `y <- 2 <- x`. Que se passe-t-il ?
+
+-   Pouvez-vous assigner une valeur et montrer le contenu de l'objet en même temps ?
+:::
+
+## Assignation et objets
+
+![](img/objets_01.png){fig-align="center"}
+
+## Assignation et objets
+
+```{r, echo=TRUE, eval=TRUE}
+x <- 1
+x
+x + 2
+x <- 5
+x + 2
+x
+```
+
+## Assignation et objets
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+y <- x
+y
+y <- x <- 2
+x
+y
+y <- 2 <- x
+```
