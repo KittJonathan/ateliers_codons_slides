@@ -464,3 +464,87 @@ x
 y
 y <- 2 <- x
 ```
+
+## L'environnement
+
+Par défaut, les objets assignés existent dans l'**environnenemt global** appelé `R_GlobalEnv`. L'aperçu de tout ce que vous avec défini se trouve dans le **panneau d'environnement**.
+
+![](img/rstudio_env_01.png){fig-align="center"}
+
+## Assigner et afficher des objets
+
+```{r, echo=TRUE, eval=TRUE}
+print(a <- 123)
+show(a <- 123)
+(a <- 123)
+```
+
+## Syntaxe des noms d'objets
+
+-   devrait être descriptif
+
+    -   équilibre entre l'effort pour taper et la précision
+
+-   doit commencer par une lettre
+
+    -   `val1` valide - `1val` et `.val1` non valides
+
+-   peut contenir d'autres symboles dans le nom
+
+    -   nombres, points, et/ou tirets \_ : `val_1`
+
+    -   pas de tiret - (ne pas utiliser le style kebab, voir diapo suivante)
+
+-   sensible à la casse
+
+    -   `myvalues`, `myValues` et `MyValues` sont des objets différents !
+
+-   doit dans l'idéal suivre une convention cohérente
+
+    -   ne pas mélanger différents styles : éviter `val1`, `val_2` et `val.3`
+
+-   ne peut pas utiliser des noms réservés qui ont une fonction dans R
+
+    -   `if`, `in`, `function`, `TRUE`, `FALSE`, `NA`, `NaN`
+
+## 
+
+![Illustration de [Allison Horst](https://allisonhorst.com/)](img/naming_conventions.png){fig-align="center"}
+
+## Syntaxe des noms d'objets
+
+C'est une question de lisibilité - décidez par vous-mêmes :
+
+```{r, echo=TRUE, eval=FALSE}
+i_prefer_snake_case
+```
+
+```{r, echo=TRUE, eval=FALSE}
+otherPeopleLikeToUseCamelCase
+```
+
+```{r, echo=TRUE, eval=FALSE}
+some.people.use.periods
+```
+
+```{r, echo=TRUE, eval=FALSE}
+And_aFew.PeopleRENOUNCEconvention
+```
+
+<br>
+
+```{r, echo=TRUE, eval=FALSE}
+df_population_us
+```
+
+```{r, echo=TRUE, eval=FALSE}
+dfPopulationUs
+```
+
+```{r, echo=TRUE, eval=FALSE}
+df.population.us
+```
+
+```{r, echo=TRUE, eval=FALSE}
+df_Population.US
+```

@@ -711,7 +711,7 @@
 <div class="cell-output cell-output-stdout">
 <pre><code>function (x, ...) 
 UseMethod("mean")
-&lt;bytecode: 0x000002031ac33b28&gt;
+&lt;bytecode: 0x00000259a4409c08&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">methods</span>(mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -730,7 +730,7 @@ see '?methods' for accessing help and source code</code></pre>
     fill = TRUE, comment.char = "", ...) 
 read.table(file = file, header = header, sep = sep, quote = quote, 
     dec = dec, fill = fill, comment.char = comment.char, ...)
-&lt;bytecode: 0x000002031bd70a28&gt;
+&lt;bytecode: 0x00000259a566df88&gt;
 &lt;environment: namespace:utils&gt;</code></pre>
 </div>
 </div>
@@ -956,7 +956,7 @@ read.table(file = file, header = header, sep = sep, quote = quote,
     attr(data, "row.names") &lt;- row.names
     data
 }
-&lt;bytecode: 0x0000020319b66038&gt;
+&lt;bytecode: 0x00000259a35ad378&gt;
 &lt;environment: namespace:utils&gt;</code></pre>
 </div>
 </div>
@@ -1181,6 +1181,91 @@ read.table(file = file, header = header, sep = sep, quote = quote,
 <div class="cell-output cell-output-error">
 <pre><code>Error in 2 &lt;- x: membre gauche de l'assignation (do_set) incorrect</code></pre>
 </div>
+</div>
+</section>
+<section id="lenvironnement" class="slide level2">
+<h2>L’environnement</h2>
+<p>Par défaut, les objets assignés existent dans l’<strong>environnenemt global</strong> appelé <code>R_GlobalEnv</code>. L’aperçu de tout ce que vous avec défini se trouve dans le <strong>panneau d’environnement</strong>.</p>
+
+<img data-src="img/rstudio_env_01.png" class="r-stretch quarto-figure-center"></section>
+<section id="assigner-et-afficher-des-objets" class="slide level2">
+<h2>Assigner et afficher des objets</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1"></a><span class="fu">print</span>(a <span class="ot">&lt;-</span> <span class="dv">123</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 123</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1"></a><span class="fu">show</span>(a <span class="ot">&lt;-</span> <span class="dv">123</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 123</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1"></a>(a <span class="ot">&lt;-</span> <span class="dv">123</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 123</code></pre>
+</div>
+</div>
+</section>
+<section id="syntaxe-des-noms-dobjets" class="slide level2">
+<h2>Syntaxe des noms d’objets</h2>
+<ul>
+<li><p>devrait être descriptif</p>
+<ul>
+<li>équilibre entre l’effort pour taper et la précision</li>
+</ul></li>
+<li><p>doit commencer par une lettre</p>
+<ul>
+<li><code>val1</code> valide - <code>1val</code> et <code>.val1</code> non valides</li>
+</ul></li>
+<li><p>peut contenir d’autres symboles dans le nom</p>
+<ul>
+<li><p>nombres, points, et/ou tirets _ : <code>val_1</code></p></li>
+<li><p>pas de tiret - (ne pas utiliser le style kebab, voir diapo suivante)</p></li>
+</ul></li>
+<li><p>sensible à la casse</p>
+<ul>
+<li><code>myvalues</code>, <code>myValues</code> et <code>MyValues</code> sont des objets différents !</li>
+</ul></li>
+<li><p>doit dans l’idéal suivre une convention cohérente</p>
+<ul>
+<li>ne pas mélanger différents styles : éviter <code>val1</code>, <code>val_2</code> et <code>val.3</code></li>
+</ul></li>
+<li><p>ne peut pas utiliser des noms réservés qui ont une fonction dans R</p>
+<ul>
+<li><code>if</code>, <code>in</code>, <code>function</code>, <code>TRUE</code>, <code>FALSE</code>, <code>NA</code>, <code>NaN</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="section-8" class="slide level2">
+<h2></h2>
+
+<img data-src="img/naming_conventions.png" class="r-stretch quarto-figure-center"><p class="caption">Illustration de <a href="https://allisonhorst.com/">Allison Horst</a></p></section>
+<section id="syntaxe-des-noms-dobjets-1" class="slide level2">
+<h2>Syntaxe des noms d’objets</h2>
+<p>C’est une question de lisibilité - décidez par vous-mêmes :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1"></a>i_prefer_snake_case</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1"></a>otherPeopleLikeToUseCamelCase</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1"></a>some.people.use.periods</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1"></a>And_aFew.PeopleRENOUNCEconvention</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1"></a>df_population_us</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1"></a>dfPopulationUs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1"></a>df.population.us</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1"></a>df_Population.US</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="footer footer-default">
 
