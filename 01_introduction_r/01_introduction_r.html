@@ -711,7 +711,7 @@
 <div class="cell-output cell-output-stdout">
 <pre><code>function (x, ...) 
 UseMethod("mean")
-&lt;bytecode: 0x00000225fbac9c08&gt;
+&lt;bytecode: 0x00000215b61fa088&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">methods</span>(mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -730,7 +730,7 @@ see '?methods' for accessing help and source code</code></pre>
     fill = TRUE, comment.char = "", ...) 
 read.table(file = file, header = header, sep = sep, quote = quote, 
     dec = dec, fill = fill, comment.char = comment.char, ...)
-&lt;bytecode: 0x00000225fd0c2b78&gt;
+&lt;bytecode: 0x00000215b8b4caf8&gt;
 &lt;environment: namespace:utils&gt;</code></pre>
 </div>
 </div>
@@ -956,7 +956,7 @@ read.table(file = file, header = header, sep = sep, quote = quote,
     attr(data, "row.names") &lt;- row.names
     data
 }
-&lt;bytecode: 0x00000225fac83f68&gt;
+&lt;bytecode: 0x00000215b53ad038&gt;
 &lt;environment: namespace:utils&gt;</code></pre>
 </div>
 </div>
@@ -1491,12 +1491,3335 @@ read.table(file = file, header = header, sep = sep, quote = quote,
 </div>
 </div>
 </section></section>
+<section>
 <section id="valeurs-manquantes" class="title-slide slide level1 center">
 <h1>Valeurs manquantes</h1>
+
+</section>
+<section id="not-available" class="slide level2">
+<h2>“Not available”</h2>
+<p>NA est une valeur spéciale utilisée pour représenter une donnée manquante on indéfinie.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb179"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb179-1"><a href="#cb179-1"></a><span class="fu">typeof</span>(<span class="cn">NA</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "logical"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb181"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb181-1"><a href="#cb181-1"></a><span class="fu">typeof</span>(<span class="cn">NA_character_</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb183"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb183-1"><a href="#cb183-1"></a><span class="fu">typeof</span>(<span class="cn">NA_integer_</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "integer"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb185"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb185-1"><a href="#cb185-1"></a><span class="fu">typeof</span>(<span class="cn">NA_real_</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "double"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb187"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb187-1"><a href="#cb187-1"></a><span class="fu">typeof</span>(<span class="cn">NA_complex_</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "complex"</code></pre>
+</div>
+</div>
+</section>
+<section id="not-a-number" class="slide level2">
+<h2>“Not a number”</h2>
+<p>La valeur NaN est une autre valeur spéciale utilisée pour représenter des valeurs indéfinies dans des opérations mathématiques :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb189"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb189-1"><a href="#cb189-1"></a><span class="cn">NaN</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NaN</code></pre>
+</div>
+</div>
+<p>… comme le résultat de la division de 0 par 0 :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb191"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb191-1"><a href="#cb191-1"></a><span class="dv">0</span> <span class="sc">/</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NaN</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb193"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb193-1"><a href="#cb193-1"></a><span class="fu">is.nan</span>(<span class="dv">0</span> <span class="sc">/</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb195"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb195-1"><a href="#cb195-1"></a><span class="fu">is.na</span>(<span class="dv">0</span> <span class="sc">/</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</section>
+<section id="valeurs-inconnues" class="slide level2">
+<h2>Valeurs inconnues</h2>
+<p>Comme elles sont inconnues, les valeurs spéciales NA et NaN ne sont égales à aucune autre valeur, y compris elles-mêmes :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb197"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb197-1"><a href="#cb197-1"></a><span class="cn">NA</span> <span class="sc">==</span> <span class="st">"Jo"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb199"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb199-1"><a href="#cb199-1"></a><span class="cn">NaN</span> <span class="sc">==</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb201"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb201-1"><a href="#cb201-1"></a><span class="cn">NA</span> <span class="sc">==</span> <span class="cn">NA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb203"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb203-1"><a href="#cb203-1"></a><span class="cn">NaN</span> <span class="sc">==</span> (<span class="dv">0</span> <span class="sc">/</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+<p>Vous ne pouvez assigner aucune valeur aux valeurs spéciales NA et NaN :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb205"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb205-1"><a href="#cb205-1"></a><span class="cn">NA</span> <span class="ot">&lt;-</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in NA &lt;- 1: membre gauche de l'assignation (do_set) incorrect</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="vecteurs" class="title-slide slide level1 center">
+<h1>Vecteurs</h1>
+
+</section>
+<section id="mise-en-pratique-calculer-des-moyennes" class="slide level2">
+<h2>Mise en pratique : calculer des moyennes</h2>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li>Calculez la moyenne de ces trois valeurs numériques : 140, 97, et 222</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb207"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb207-1"><a href="#cb207-1"></a><span class="fu">mean</span>(<span class="dv">140</span>, <span class="dv">97</span>, <span class="dv">222</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 140</code></pre>
+</div>
+</div>
+
+<img data-src="img/liar-mad.gif" class="r-stretch quarto-figure-center"></section>
+<section id="vecteurs-1" class="slide level2">
+<h2>Vecteurs</h2>
+
+<img data-src="img/vector_01.png" class="r-stretch quarto-figure-center"></section>
+<section id="mise-en-pratique-calculer-des-moyennes-1" class="slide level2">
+<h2>Mise en pratique : calculer des moyennes</h2>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li>Calculez la moyenne de ces trois valeurs numériques : 140, 97, et 222</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb209"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb209-1"><a href="#cb209-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">140</span>, <span class="dv">97</span>, <span class="dv">222</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 153</code></pre>
+</div>
+</div>
+</section>
+<section id="mise-en-pratique-calculer-des-moyennes-2" class="slide level2">
+<h2>Mise en pratique : calculer des moyennes</h2>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li>Calculez la moyenne de ces trois valeurs numériques : 140, 97, et 222</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb211"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb211-1"><a href="#cb211-1"></a>values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">140</span>, <span class="dv">97</span>, <span class="dv">222</span>)</span>
+<span id="cb211-2"><a href="#cb211-2"></a><span class="fu">mean</span>(values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 153</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb213"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb213-1"><a href="#cb213-1"></a>values <span class="ot">&lt;-</span> <span class="fu">c</span>(140L, 97L, 222L)</span>
+<span id="cb213-2"><a href="#cb213-2"></a><span class="fu">mean</span>(values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 153</code></pre>
+</div>
+</div>
+</section>
+<section id="mais-comment-suis-je-sensé-savoir" class="slide level2">
+<h2>Mais … Comment suis-je sensé savoir ?</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb215"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb215-1"><a href="#cb215-1"></a><span class="fu">help</span>(mean)</span>
+<span id="cb215-2"><a href="#cb215-2"></a>?mean</span>
+<span id="cb215-3"><a href="#cb215-3"></a><span class="co"># curseur + F1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<h3 id="usage-1">Usage</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb216"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb216-1"><a href="#cb216-1"></a><span class="fu">mean</span>(x, ...)</span>
+<span id="cb216-2"><a href="#cb216-2"></a></span>
+<span id="cb216-3"><a href="#cb216-3"></a><span class="do">## Default S3 method:</span></span>
+<span id="cb216-4"><a href="#cb216-4"></a><span class="fu">mean</span>(x, <span class="at">trim =</span> <span class="dv">0</span>, <span class="at">na.rm =</span> <span class="cn">FALSE</span>, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<h3 id="examples">Examples</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb217"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb217-1"><a href="#cb217-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">50</span>)</span>
+<span id="cb217-2"><a href="#cb217-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  0  1  2  3  4  5  6  7  8  9 10 50</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb219"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb219-1"><a href="#cb219-1"></a>xm <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
+<span id="cb219-2"><a href="#cb219-2"></a>xm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8.75</code></pre>
+</div>
+</div>
+</section>
+<section id="vecteurs-2" class="slide level2">
+<h2>Vecteurs</h2>
+<p>Comme c’est le cas pour les valeurs, les vecteurs peuvent être de différents types :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb221"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb221-1"><a href="#cb221-1"></a>ids <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb221-2"><a href="#cb221-2"></a>ids</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 3 4 5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb223"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb223-1"><a href="#cb223-1"></a><span class="fu">typeof</span>(ids)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "integer"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb225"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb225-1"><a href="#cb225-1"></a>names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Joe"</span>, <span class="st">"Jack"</span>, <span class="st">"William"</span>, <span class="st">"Averell"</span>, <span class="st">"Rantanplan"</span>)</span>
+<span id="cb225-2"><a href="#cb225-2"></a>names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Joe"        "Jack"       "William"    "Averell"    "Rantanplan"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb227"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb227-1"><a href="#cb227-1"></a><span class="fu">typeof</span>(names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+</section>
+<section id="vecteurs-nommés" class="slide level2">
+<h2>Vecteurs nommés</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb229"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb229-1"><a href="#cb229-1"></a>(couleurs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">vert =</span> <span class="st">"#28A87D"</span>, <span class="at">violet =</span> <span class="st">"#9C55E3"</span>, <span class="at">jaune =</span> <span class="st">"#EFAC00"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     vert    violet     jaune 
+"#28A87D" "#9C55E3" "#EFAC00" </code></pre>
+</div>
+</div>
+<p>Vous pouvez également créer un vecteur non nommé et ajouter les noms à l’aide de <code>names(x)</code> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb231"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb231-1"><a href="#cb231-1"></a>couleurs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#28A87D"</span>, <span class="st">"#9C55E3"</span>, <span class="st">"#EFAC00"</span>)</span>
+<span id="cb231-2"><a href="#cb231-2"></a><span class="fu">names</span>(couleurs) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"vert"</span>, <span class="st">"violet"</span>, <span class="st">"jaune"</span>)</span>
+<span id="cb231-3"><a href="#cb231-3"></a>couleurs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     vert    violet     jaune 
+"#28A87D" "#9C55E3" "#EFAC00" </code></pre>
+</div>
+</div>
+<p>Pour supprimer les noms, utilisez <code>unname()</code> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb233"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb233-1"><a href="#cb233-1"></a><span class="fu">unname</span>(couleurs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "#28A87D" "#9C55E3" "#EFAC00"</code></pre>
+</div>
+</div>
+</section>
+<section id="accéder-aux-éléments-de-vecteurs" class="slide level2">
+<h2>Accéder aux éléments de vecteurs</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb235"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb235-1"><a href="#cb235-1"></a>names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Joe"        "Jack"       "William"    "Averell"    "Rantanplan"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb237"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb237-1"><a href="#cb237-1"></a>names[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Joe"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb239"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb239-1"><a href="#cb239-1"></a>names[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Jack"    "William"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb241"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb241-1"><a href="#cb241-1"></a>names[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">4</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Joe"     "Jack"    "Averell"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb243"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb243-1"><a href="#cb243-1"></a>names[<span class="sc">-</span><span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Joe"        "William"    "Averell"    "Rantanplan"</code></pre>
+</div>
+</div>
+</section>
+<section id="accéder-aux-éléments-de-vecteurs-nommés" class="slide level2">
+<h2>Accéder aux éléments de vecteurs nommés</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb245"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb245-1"><a href="#cb245-1"></a>couleurs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     vert    violet     jaune 
+"#28A87D" "#9C55E3" "#EFAC00" </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb247"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb247-1"><a href="#cb247-1"></a>couleurs[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     vert     jaune 
+"#28A87D" "#EFAC00" </code></pre>
+</div>
+</div>
+<p>Les vecteurs nommés peuvent également être explorés par noms d’éléments :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb249"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb249-1"><a href="#cb249-1"></a>couleurs[<span class="st">"violet"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   violet 
+"#9C55E3" </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb251"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb251-1"><a href="#cb251-1"></a>couleurs[<span class="fu">c</span>(<span class="st">"vert"</span>, <span class="st">"jaune"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     vert     jaune 
+"#28A87D" "#EFAC00" </code></pre>
+</div>
+</div>
+</section>
+<section id="na-et-nan-dans-des-vecteurs" class="slide level2">
+<h2>NA et NaN dans des vecteurs</h2>
+<p>Quand il est utilisé dans un vecteur, le type de <code>NA</code> est déterminé par les types de données des autres valeurs - pas besoin de spécifier par exemple <code>NA_character_</code> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb253"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb253-1"><a href="#cb253-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">5</span>)</span>
+<span id="cb253-2"><a href="#cb253-2"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="cn">NA</span>, <span class="st">"D"</span>, <span class="st">"E"</span>)</span>
+<span id="cb253-3"><a href="#cb253-3"></a><span class="fu">typeof</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "double"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb255"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb255-1"><a href="#cb255-1"></a><span class="fu">typeof</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+</section>
+<section id="na-et-nan-dans-des-vecteurs-1" class="slide level2">
+<h2>NA et NaN dans des vecteurs</h2>
+<p>Comme ils sont inconnus, toute opération mathématique retournera <code>NA</code> ou <code>NaN</code> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb257"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb257-1"><a href="#cb257-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">12</span>, <span class="cn">NA</span>, <span class="dv">2</span>, <span class="dv">18</span>)</span>
+<span id="cb257-2"><a href="#cb257-2"></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb259"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb259-1"><a href="#cb259-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">23</span>, <span class="cn">NaN</span>, <span class="dv">2</span>, <span class="dv">18</span>)</span>
+<span id="cb259-2"><a href="#cb259-2"></a><span class="fu">mean</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NaN</code></pre>
+</div>
+</div>
+<p>Pour ignorer les valeurs inconnues, vous pouvez définir l’argument <code>na.rm</code> comme <code>TRUE</code> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb261"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb261-1"><a href="#cb261-1"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)  <span class="do">## par défaut `na.rm = FALSE`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 9.25</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb263"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb263-1"><a href="#cb263-1"></a><span class="fu">mean</span>(y, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12.25</code></pre>
+</div>
+</div>
+</section>
+<section id="extension-et-combinaison-de-vecteurs" class="slide level2">
+<h2>Extension et combinaison de vecteurs</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb265"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb265-1"><a href="#cb265-1"></a>couleurs_ext <span class="ot">&lt;-</span> <span class="fu">c</span>(couleurs, <span class="st">"#000000"</span>, <span class="st">"#ffffff"</span>)</span>
+<span id="cb265-2"><a href="#cb265-2"></a>couleurs_ext</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     vert    violet     jaune                     
+"#28A87D" "#9C55E3" "#EFAC00" "#000000" "#ffffff" </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb267"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb267-1"><a href="#cb267-1"></a>couleurs_ext <span class="ot">&lt;-</span> <span class="fu">c</span>(couleurs, <span class="fu">c</span>(<span class="at">noir =</span> <span class="st">"#000000"</span>, <span class="at">blanc =</span> <span class="st">"#ffffff"</span>))</span>
+<span id="cb267-2"><a href="#cb267-2"></a>couleurs_ext</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     vert    violet     jaune      noir     blanc 
+"#28A87D" "#9C55E3" "#EFAC00" "#000000" "#ffffff" </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb269"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb269-1"><a href="#cb269-1"></a>comb_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(ids, mean)</span>
+<span id="cb269-2"><a href="#cb269-2"></a>comb_vec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] 1
+
+[[2]]
+[1] 2
+
+[[3]]
+[1] 3
+
+[[4]]
+[1] 4
+
+[[5]]
+[1] 5
+
+[[6]]
+function (x, ...) 
+UseMethod("mean")
+&lt;bytecode: 0x00000215b61fa088&gt;
+&lt;environment: namespace:base&gt;</code></pre>
+</div>
+</div>
+<p>Notez que dans le dernier exemple <strong>toutes les valeurs prennent le même type de données</strong> (les vecteurs atomiques ne contiennent qu’un seul type de données)</p>
+</section>
+<section id="coercition" class="slide level2">
+<h2>Coercition</h2>
+<p>Les vecteurs atomiques ne contiennent qu’un seul type de données et <strong>toutes les valeurs sont implicitement contraintes à prendre le même type de données</strong> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb271"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb271-1"><a href="#cb271-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"ggplot2"</span>, <span class="dv">2023</span>, <span class="cn">TRUE</span>)</span>
+<span id="cb271-2"><a href="#cb271-2"></a>v1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "ggplot2" "2023"    "TRUE"   </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb273"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb273-1"><a href="#cb273-1"></a><span class="fu">typeof</span>(v1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb275"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb275-1"><a href="#cb275-1"></a>v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.2</span>, 1L, <span class="dv">3</span> <span class="sc">+</span> 0i)</span>
+<span id="cb275-2"><a href="#cb275-2"></a>v2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2+0i 1.0+0i 3.0+0i</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb277"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb277-1"><a href="#cb277-1"></a><span class="fu">typeof</span>(v2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "complex"</code></pre>
+</div>
+</div>
+</section>
+<section id="coercition-1" class="slide level2">
+<h2>Coercition</h2>
+<p>La règle de coercition est la suivante :</p>
+<p><code>logical ➙ integer ➙ double ➙ complex ➙ character</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb279"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb279-1"><a href="#cb279-1"></a><span class="fu">typeof</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "logical"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb281"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb281-1"><a href="#cb281-1"></a><span class="fu">typeof</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, 1L))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "integer"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb283"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb283-1"><a href="#cb283-1"></a><span class="fu">typeof</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, 1L, <span class="fl">0.2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "double"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb285"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb285-1"><a href="#cb285-1"></a><span class="fu">typeof</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, 1L, <span class="fl">0.2</span>, <span class="dv">1</span> <span class="sc">+</span> 0i))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "complex"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb287"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb287-1"><a href="#cb287-1"></a><span class="fu">typeof</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, 1L, <span class="fl">0.2</span>, <span class="dv">1</span> <span class="sc">+</span> 0i, <span class="st">"a"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+</section>
+<section id="coercition-explicite" class="slide level2">
+<h2>Coercition explicite</h2>
+<p>Il est possible de <strong>contraindre explicitement</strong> les valeurs d’un vecteur atomique à un type de données spécifique :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb289"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb289-1"><a href="#cb289-1"></a>v1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "ggplot2" "2023"    "TRUE"   </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb291"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb291-1"><a href="#cb291-1"></a><span class="fu">as.numeric</span>(v1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]   NA 2023   NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb293"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb293-1"><a href="#cb293-1"></a><span class="fu">as.logical</span>(v1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]   NA   NA TRUE</code></pre>
+</div>
+</div>
+</section>
+<section id="coercition-explicite-1" class="slide level2">
+<h2>Coercition explicite</h2>
+<p>Il est possible de <strong>contraindre explicitement</strong> les valeurs d’un vecteur atomique à un type de données spécifique :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb295"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb295-1"><a href="#cb295-1"></a>v1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "ggplot2" "2023"    "TRUE"   </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb297"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb297-1"><a href="#cb297-1"></a><span class="fu">as.numeric</span>(v1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]   NA 2023   NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb299"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb299-1"><a href="#cb299-1"></a><span class="fu">as.logical</span>(v1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]   NA   NA TRUE</code></pre>
+</div>
+</div>
+<p>Notez que tous les nombres à l’exception de <code>0</code> deviennent <code>TRUE</code> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb301"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb301-1"><a href="#cb301-1"></a><span class="fu">as.logical</span>(<span class="dv">2023</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<p>… et toutes les chaînes de caractères à l’exception de <code>"TRUE"</code>, <code>"FALSE"</code>, <code>"T"</code> et <code>"F"</code> deviennent <code>NA</code> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb303"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb303-1"><a href="#cb303-1"></a><span class="fu">as.logical</span>(<span class="st">"2023"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+</section>
+<section id="coercition-explicite-2" class="slide level2">
+<h2>Coercition explicite</h2>
+<p>Il est possible de <strong>contraindre explicitement</strong> les valeurs d’un vecteur atomique à un type de données spécifique :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb305"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb305-1"><a href="#cb305-1"></a>v2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2+0i 1.0+0i 3.0+0i</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb307"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb307-1"><a href="#cb307-1"></a><span class="fu">as.integer</span>(v2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0 1 3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb309"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb309-1"><a href="#cb309-1"></a><span class="fu">as.character</span>(v2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "0.2+0i" "1+0i"   "3+0i"  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb311"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb311-1"><a href="#cb311-1"></a><span class="fu">as.logical</span>(v2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE TRUE TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb313"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb313-1"><a href="#cb313-1"></a><span class="fu">as.logical</span>(<span class="fu">as.character</span>(v2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA NA NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb315"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb315-1"><a href="#cb315-1"></a><span class="fu">as.logical</span>(<span class="fu">as.integer</span>(v2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE  TRUE  TRUE</code></pre>
+</div>
+</div>
+</section>
+<section id="mise-en-pratique-coercition-de-vecteurs" class="slide level2">
+<h2>Mise en pratique : coercition de vecteurs</h2>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li><p>Sans exécuter le code, essayez de prévoir le résultat des lignes suivantes :</p>
+<ul>
+<li><p><code>a &lt;- c(1.7, "1.7")</code> et <code>as.numeric(a)</code></p></li>
+<li><p><code>b &lt;- c(TRUE, 2022, 1.375)</code> et <code>as.logical(as.complex(b))</code></p></li>
+<li><p><code>c &lt;- c(TRUE, "t", "TRUE", "T")</code> et <code>as.logical(c)</code></p></li>
+<li><p><code>as.integer(c(45L, 0.237, 4.9))</code></p></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-caution no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li>Que retourne le code as.factor(c(“rouge”, “bleu”)) ?</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="mise-en-pratique-coercition-de-vecteurs-1" class="slide level2">
+<h2>Mise en pratique : coercition de vecteurs</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb317"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb317-1"><a href="#cb317-1"></a>(a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.7</span>, <span class="st">"1.7"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "1.7" "1.7"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb319"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb319-1"><a href="#cb319-1"></a><span class="fu">as.numeric</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.7 1.7</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb321"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb321-1"><a href="#cb321-1"></a>(b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="dv">2022</span>, <span class="fl">1.375</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]    0.000 2022.000    1.375</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb323"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb323-1"><a href="#cb323-1"></a><span class="fu">as.logical</span>(<span class="fu">as.complex</span>(b))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE  TRUE  TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb325"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb325-1"><a href="#cb325-1"></a>c <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="st">"t"</span>, <span class="st">"TRUE"</span>, <span class="st">"T"</span>)</span>
+<span id="cb325-2"><a href="#cb325-2"></a><span class="fu">as.logical</span>(c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE   NA TRUE TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb327"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb327-1"><a href="#cb327-1"></a><span class="fu">as.integer</span>(<span class="fu">c</span>(45L, <span class="fl">0.237</span>, <span class="fl">4.9</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 45  0  4</code></pre>
+</div>
+</div>
+</section>
+<section id="mise-en-pratique-coercition-de-vecteurs-2" class="slide level2">
+<h2>Mise en pratique : coercition de vecteurs</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb329"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb329-1"><a href="#cb329-1"></a><span class="fu">c</span>(<span class="st">"rouge"</span>, <span class="st">"bleu"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "rouge" "bleu" </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb331"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb331-1"><a href="#cb331-1"></a><span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">"rouge"</span>, <span class="st">"bleu"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] rouge bleu 
+Levels: bleu rouge</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="facteurs" class="title-slide slide level1 center">
+<h1>Facteurs</h1>
+
+</section>
+<section id="facteurs-1" class="slide level2">
+<h2>Facteurs</h2>
+<p>Les facteurs représentent des données catégorielles dans un <strong>ordre spécifique</strong> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb333"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb333-1"><a href="#cb333-1"></a>(v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"bien"</span>, <span class="st">"neutre"</span>, <span class="st">"mauvais"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "bien"    "neutre"  "mauvais"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb335"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb335-1"><a href="#cb335-1"></a><span class="fu">as.factor</span>(v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] bien    neutre  mauvais
+Levels: bien mauvais neutre</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb337"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb337-1"><a href="#cb337-1"></a><span class="fu">factor</span>(v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] bien    neutre  mauvais
+Levels: bien mauvais neutre</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb339"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb339-1"><a href="#cb339-1"></a><span class="fu">factor</span>(v, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"bien"</span>, <span class="st">"neutre"</span>, <span class="st">"mauvais"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] bien    neutre  mauvais
+Levels: bien neutre mauvais</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb341"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb341-1"><a href="#cb341-1"></a><span class="fu">factor</span>(v, <span class="at">levels =</span> <span class="fu">rev</span>(v))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] bien    neutre  mauvais
+Levels: mauvais neutre bien</code></pre>
+</div>
+</div>
+</section>
+<section id="facteurs-2" class="slide level2">
+<h2>Facteurs</h2>
+<p>… même si la variable est encodée par des nombres :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb343"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb343-1"><a href="#cb343-1"></a>(n <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0 1 2 3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb345"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb345-1"><a href="#cb345-1"></a>(f <span class="ot">&lt;-</span> <span class="fu">factor</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0 1 2 3
+Levels: 0 1 2 3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb347"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb347-1"><a href="#cb347-1"></a>(f <span class="ot">&lt;-</span> <span class="fu">factor</span>(n, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">0</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0 1 2 3
+Levels: 1 2 3 0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb349"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb349-1"><a href="#cb349-1"></a><span class="fu">mean</span>(n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb351"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb351-1"><a href="#cb351-1"></a><span class="fu">mean</span>(f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+</section>
+<section id="niveaux-et-étiquettes-de-facteurs" class="slide level2">
+<h2>Niveaux et étiquettes de facteurs</h2>
+<p><code>levels()</code> retourne les niveaux uniques dans l’ordre spécifié :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb353"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb353-1"><a href="#cb353-1"></a><span class="fu">levels</span>(f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "1" "2" "3" "0"</code></pre>
+</div>
+</div>
+<p>Vous pouvez aussi préciser des étiquettes qui écrasent les valeurs d’origine :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb355"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb355-1"><a href="#cb355-1"></a>(ff <span class="ot">&lt;-</span> <span class="fu">factor</span>(n, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">0</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"mauvais"</span>, <span class="st">"neutre"</span>, <span class="st">"bien"</span>, <span class="st">"n/a"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] n/a     mauvais neutre  bien   
+Levels: mauvais neutre bien n/a</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb357"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb357-1"><a href="#cb357-1"></a><span class="fu">levels</span>(ff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "mauvais" "neutre"  "bien"    "n/a"    </code></pre>
+</div>
+</div>
+</section>
+<section id="coercition-de-facteurs" class="slide level2">
+<h2>Coercition de facteurs</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb359"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb359-1"><a href="#cb359-1"></a>ff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] n/a     mauvais neutre  bien   
+Levels: mauvais neutre bien n/a</code></pre>
+</div>
+</div>
+<p>Pour transformer un facteur en nombres, utilisez <code>as.numeric()</code> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb361"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb361-1"><a href="#cb361-1"></a><span class="fu">as.numeric</span>(ff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4 1 2 3</code></pre>
+</div>
+</div>
+<p>Notez que ceci retourne les éléments du facteur comme nombres selon les positions des niveaux !</p>
+<p>Pour transformer à nouveau en chaînes de caractères, utilisez <code>as.character()</code> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb363"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb363-1"><a href="#cb363-1"></a><span class="fu">as.character</span>(ff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "n/a"     "mauvais" "neutre"  "bien"   </code></pre>
+</div>
+</div>
+</section>
+<section id="coercition-de-facteurs-attention" class="slide level2">
+<h2>Coercition de facteurs : attention !</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb365"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb365-1"><a href="#cb365-1"></a>f</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0 1 2 3
+Levels: 1 2 3 0</code></pre>
+</div>
+</div>
+<p>Retourne des nombres selon les niveaux :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb367"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb367-1"><a href="#cb367-1"></a><span class="fu">as.numeric</span>(f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4 1 2 3</code></pre>
+</div>
+</div>
+<p>Retourne des nombres selon les éléments :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb369"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb369-1"><a href="#cb369-1"></a><span class="fu">as.numeric</span>(<span class="fu">as.character</span>(f))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0 1 2 3</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="packages" class="title-slide slide level1 center">
+<h1>Packages</h1>
+
+</section>
+<section id="quest-ce-quun-package" class="slide level2">
+<h2>Qu’est-ce qu’un package ?</h2>
+<p>Un package est une collection de fonctions, données, et autres objets qui sont conçus pour effectuer des taches spécifiques ou résoudre certains problèmes.</p>
+<p>Ces packages sont créés et maintenus par la communauté R, et sont souvent partagés sur le Comprehensive R Archive Network (CRAN) ou d’autres dépôts comme BioConductor.</p>
+</section>
+<section id="installer-des-packages-supplémentaires" class="slide level2">
+<h2>Installer des packages supplémentaires</h2>
+<p>Pour utiliser les fonctionnalités d’un package spécifique, vous pouvez installer le package sur votre ordinateur :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb371"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb371-1"><a href="#cb371-1"></a><span class="fu">install.packages</span>(<span class="st">"forcats"</span>)</span>
+<span id="cb371-2"><a href="#cb371-2"></a><span class="do">## fournit des fonctions pour travailler avec des facteurs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb372"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb372-1"><a href="#cb372-1"></a><span class="fu">install.packages</span>(<span class="st">"palmerpenguins"</span>)</span>
+<span id="cb372-2"><a href="#cb372-2"></a><span class="do">## contient des jeux de données utiles pour l'apprentissage</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="utiliser-des-packages-charger-les-librairies" class="slide level2">
+<h2>Utiliser des packages : charger les librairies</h2>
+<p>Pour utiliser les fonctionnalités d’un package installé, vous devez charger le package :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb373"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb373-1"><a href="#cb373-1"></a><span class="fu">library</span>(forcats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb374"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb374-1"><a href="#cb374-1"></a>f <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb374-2"><a href="#cb374-2"></a><span class="fu">levels</span>(f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "0"  "1"  "2"  "3"  "4"  "5"  "6"  "7"  "8"  "9"  "10"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb376"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb376-1"><a href="#cb376-1"></a><span class="fu">fct_rev</span>(f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 0  1  2  3  4  5  6  7  8  9  10
+Levels: 10 9 8 7 6 5 4 3 2 1 0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb378"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb378-1"><a href="#cb378-1"></a><span class="fu">fct_relevel</span>(f, <span class="st">"0"</span>, <span class="at">after =</span> <span class="cn">Inf</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 0  1  2  3  4  5  6  7  8  9  10
+Levels: 1 2 3 4 5 6 7 8 9 10 0</code></pre>
+</div>
+</div>
+</section>
+<section id="utiliser-des-packages-charger-les-librairies-1" class="slide level2">
+<h2>Utiliser des packages : charger les librairies</h2>
+<p>Pour utiliser les fonctionnalités d’un package installé, vous devez charger le package :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb380"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb380-1"><a href="#cb380-1"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb381"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb381-1"><a href="#cb381-1"></a>penguins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 8
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+ 1 Adelie  Torgersen           39.1          18.7               181        3750
+ 2 Adelie  Torgersen           39.5          17.4               186        3800
+ 3 Adelie  Torgersen           40.3          18                 195        3250
+ 4 Adelie  Torgersen           NA            NA                  NA          NA
+ 5 Adelie  Torgersen           36.7          19.3               193        3450
+ 6 Adelie  Torgersen           39.3          20.6               190        3650
+ 7 Adelie  Torgersen           38.9          17.8               181        3625
+ 8 Adelie  Torgersen           39.2          19.6               195        4675
+ 9 Adelie  Torgersen           34.1          18.1               193        3475
+10 Adelie  Torgersen           42            20.2               190        4250
+# ℹ 334 more rows
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="utiliser-des-packages-conflits" class="slide level2">
+<h2>Utiliser des packages : conflits</h2>
+<p>Notez que dans certains cas, plusieurs packages peuvent contenir des fonctions (ou des jeux de données) portant le même nom.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb383"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb383-1"><a href="#cb383-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb384"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb384-1"><a href="#cb384-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Si vous chargez deux fonctions portant le même nom, la fonction du package chargé en dernier sera utilisée !</p>
+</section>
+<section id="utiliser-des-packages-namespace" class="slide level2">
+<h2>Utiliser des packages : Namespace</h2>
+
+<img data-src="img/namespace.png" class="r-stretch quarto-figure-center"></section>
+<section id="utiliser-des-packages-namespace-1" class="slide level2">
+<h2>Utiliser des packages : Namespace</h2>
+<p>Pour éviter les conflits, il est possible de faire référence explicitement à des fonctions spécifiques à l’aide de namspaces :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb385"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb385-1"><a href="#cb385-1"></a><span class="fu">install.packages</span>(<span class="st">"stringr"</span>)</span>
+<span id="cb385-2"><a href="#cb385-2"></a><span class="do">## fournit des fonctions pour travailler avec des chaînes de caractères</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb386"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb386-1"><a href="#cb386-1"></a>stringr<span class="sc">::</span><span class="fu">str_to_sentence</span>(<span class="fu">c</span>(<span class="st">"cafe"</span>, <span class="st">"latte machiatto"</span>, <span class="st">"expresso"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Cafe"            "Latte machiatto" "Expresso"       </code></pre>
+</div>
+</div>
+<p>Les namespaces sont utiles dans les situations suivantes :</p>
+<ul>
+<li><p>résoudre les conflits dans les noms de fonctions</p></li>
+<li><p>utiliser des fonctions sans charger toutes les fonctionnalités d’un package</p></li>
+<li><p>être explicite pour les fonctions non basiques</p></li>
+</ul>
+</section></section>
+<section>
+<section id="données-tabulaires" class="title-slide slide level1 center">
+<h1>Données tabulaires</h1>
+
+</section>
+<section id="data-frames" class="slide level2">
+<h2>Data Frames</h2>
+<p>Vous pouvez stocker plusieurs vecteurs, avec différents types de données, comme données tabulaires dans des <strong>data frames</strong> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb388"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb388-1"><a href="#cb388-1"></a>(df_noms <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(ids, names))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  ids      names
+1   1        Joe
+2   2       Jack
+3   3    William
+4   4    Averell
+5   5 Rantanplan</code></pre>
+</div>
+</div>
+<p>Vous pouvez expliciter les noms des colonnes :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb390"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb390-1"><a href="#cb390-1"></a>(df_noms <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> ids, <span class="at">personnage =</span> names))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  id personnage
+1  1        Joe
+2  2       Jack
+3  3    William
+4  4    Averell
+5  5 Rantanplan</code></pre>
+</div>
+</div>
+</section>
+<section id="accéder-aux-éléments-dun-data-frame" class="slide level2">
+<h2>Accéder aux éléments d’un Data Frame</h2>
+<h3 id="lignes">Lignes :</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb392"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb392-1"><a href="#cb392-1"></a>df_noms[<span class="dv">2</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  id personnage
+2  2       Jack</code></pre>
+</div>
+</div>
+<h3 id="colonnes">Colonnes :</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb394"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb394-1"><a href="#cb394-1"></a>df_noms[, <span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Joe"        "Jack"       "William"    "Averell"    "Rantanplan"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb396"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb396-1"><a href="#cb396-1"></a>df_noms<span class="sc">$</span>personnage</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Joe"        "Jack"       "William"    "Averell"    "Rantanplan"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb398"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb398-1"><a href="#cb398-1"></a>df_noms[[<span class="dv">2</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Joe"        "Jack"       "William"    "Averell"    "Rantanplan"</code></pre>
+</div>
+</div>
+</section>
+<section id="accéder-aux-éléments-dun-data-frame-1" class="slide level2">
+<h2>Accéder aux éléments d’un Data Frame</h2>
+<h3 id="cellules">Cellules :</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb400"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb400-1"><a href="#cb400-1"></a>df_noms<span class="sc">$</span>personnages[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb402"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb402-1"><a href="#cb402-1"></a>df_noms[[<span class="dv">2</span>]][<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Jack"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb404"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb404-1"><a href="#cb404-1"></a>df_noms[, <span class="dv">2</span>][<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Jack"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb406"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb406-1"><a href="#cb406-1"></a>df_noms[<span class="dv">2</span>, <span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Jack"</code></pre>
+</div>
+</div>
+</section>
+<section id="accéder-aux-éléments-dun-data-frame-2" class="slide level2">
+<h2>Accéder aux éléments d’un Data Frame</h2>
+<p>Les Data Frames supportent la correspondance partielle :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb408"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb408-1"><a href="#cb408-1"></a>df_noms</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  id personnage
+1  1        Joe
+2  2       Jack
+3  3    William
+4  4    Averell
+5  5 Rantanplan</code></pre>
+</div>
+</div>
+<p><code>personnage</code> n’est pas une colonne de <code>df_noms</code> mais ressemble à <code>personnages</code> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb410"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb410-1"><a href="#cb410-1"></a>df_noms<span class="sc">$</span>personnage</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Joe"        "Jack"       "William"    "Averell"    "Rantanplan"</code></pre>
+</div>
+</div>
+</section>
+<section id="le-data-frame-moderne-le-tibble" class="slide level2">
+<h2>Le Data Frame moderne : le Tibble</h2>
+<blockquote>
+<p>Les Tibbles sont une refonte moderne du data.frame, conservant ce que le temps a montré être efficace, et supprimant ce qui ne l’était pas.</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb412"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb412-1"><a href="#cb412-1"></a><span class="fu">install.packages</span>(<span class="st">"tibble"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Le nom vient de la manière dont on créait ces objets à l’origine : tbl_df<code>()</code> , plus simple à prononcer “tibble diff” ou “tibble d.f.”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb413"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb413-1"><a href="#cb413-1"></a>(tbl_noms <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">id =</span> ids, <span class="at">personnages =</span> names))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+     id personnages
+  &lt;int&gt; &lt;chr&gt;      
+1     1 Joe        
+2     2 Jack       
+3     3 William    
+4     4 Averell    
+5     5 Rantanplan </code></pre>
+</div>
+</div>
+<p>Comme les fonctions utilisées précédemment, <code>tibble()</code> est une fonction. Alors que <code>mean()</code> et <code>+</code> sont des fonctions de base, <code>tibble()</code> appartient à un package ajouté qui s’appelle également {tibble}.</p>
+</section>
+<section id="data-frame-vs-tibble" class="slide level2">
+<h2>Data Frame vs Tibble</h2>
+<blockquote>
+<p>Les Tibbles sont une refonte moderne du data.frame, conservant ce que le temps a montré être efficace, et supprimant ce qui ne l’était pas.</p>
+</blockquote>
+<p>Les principales différences dans l’utilisation d’un data frame vs un tibble :</p>
+<ul>
+<li><p>les tibbles possèdent une méthode d’affichage affinée</p>
+<ul>
+<li><p>seules les 10 premières lignes sont affichées, et toutes les colonnes qui rentrent sur l’écran</p></li>
+<li><p>en plus de son nom, le type de chaque colonne est affiché</p></li>
+<li><p>le type de données et les dimensions sont également affichées</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="data-frame-vs-tibble-1" class="slide level2">
+<h2>Data Frame vs Tibble</h2>
+<p>Les Tibbles possèdent une méthode d’affichage affinée :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb415"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb415-1"><a href="#cb415-1"></a>df_long <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span> <span class="sc">%%</span> <span class="dv">10</span>, <span class="at">value =</span> <span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1000</span>))</span>
+<span id="cb415-2"><a href="#cb415-2"></a>tbl_long <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span> <span class="sc">%%</span> <span class="dv">10</span>, <span class="at">value =</span> <span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1000</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb416"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb416-1"><a href="#cb416-1"></a>df_long</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     id       value
+1     1  61.8281721
+2     2 981.2900904
+3     3  84.3436031
+4     4 946.2392889
+5     5 566.2875783
+6     6 677.5680990
+7     7 935.4265293
+8     8 920.2268703
+9     9 968.5670177
+10    0 440.8422175
+11    1 429.0735037
+12    2 718.4943031
+13    3 438.0507269
+14    4 886.4136552
+15    5 136.5100902
+16    6 954.3442719
+17    7 973.7027963
+18    8 358.7973632
+19    9 528.8923692
+20    0 646.4114953
+21    1 718.7647503
+22    2  36.5904646
+23    3 794.1117289
+24    4 867.2555084
+25    5  12.1126855
+26    6 458.9590882
+27    7 201.1391344
+28    8 318.2094509
+29    9 957.2743345
+30    0 189.7672962
+31    1 277.8950003
+32    2 578.4085155
+33    3 600.0889784
+34    4 299.4881619
+35    5 909.8571427
+36    6  35.9702173
+37    7 485.6195289
+38    8 199.2629957
+39    9 879.5952986
+40    0 118.9801591
+41    1 917.9588095
+42    2 430.5300806
+43    3 783.1566131
+44    4 770.5806997
+45    5 595.2059508
+46    6 159.6632258
+47    7 120.5628505
+48    8 236.9018877
+49    9 479.1325175
+50    0 164.2480539
+51    1 826.2863285
+52    2 253.7608775
+53    3 396.3394156
+54    4 708.5833133
+55    5 304.9002965
+56    6 794.5306012
+57    7 725.2515741
+58    8 551.6684444
+59    9 119.1674599
+60    0 188.1193542
+61    1 770.4117412
+62    2 511.0631541
+63    3 970.8108199
+64    4 835.3902576
+65    5 260.9800743
+66    6 190.3737776
+67    7 605.7528402
+68    8 647.1246486
+69    9 640.2385656
+70    0 714.7538709
+71    1 490.9417687
+72    2 113.1437579
+73    3 558.6014215
+74    4 460.6698635
+75    5 801.0696734
+76    6 342.7183456
+77    7 482.2310759
+78    8  84.4306282
+79    9 249.9641208
+80    0 240.8756472
+81    1 644.5959983
+82    2 519.1748589
+83    3 610.2051660
+84    4 986.5553512
+85    5 498.1590749
+86    6 115.9441036
+87    7  39.1956656
+88    8  99.1392483
+89    9 155.6470161
+90    0 938.4803248
+91    1 939.5105869
+92    2 949.7770867
+93    3 395.7966554
+94    4 391.4339405
+95    5 533.1393923
+96    6 514.8237103
+97    7 849.4800236
+98    8 480.3087001
+99    9 362.6242992
+100   0 115.0587844
+101   1 233.4744164
+102   2 477.6804049
+103   3 835.1292661
+104   4 839.6375286
+105   5 781.1886461
+106   6 689.4760537
+107   7 382.4849322
+108   8 291.8237529
+109   9 618.6181409
+110   0 208.9887622
+111   1 376.5693982
+112   2 847.9543191
+113   3  55.3676116
+114   4 639.3944845
+115   5 484.6164691
+116   6 157.8310588
+117   7 729.3435640
+118   8 605.3350009
+119   9 181.7649631
+120   0 485.2421598
+121   1 502.6511536
+122   2 930.7732210
+123   3 258.0702258
+124   4 728.9809196
+125   5 369.8235417
+126   6 347.6502385
+127   7 630.7556552
+128   8 775.6777129
+129   9 631.4280734
+130   0 376.7543756
+131   1  83.5662663
+132   2 871.1009149
+133   3 163.8341935
+134   4 930.7889657
+135   5 900.5107672
+136   6 834.3471277
+137   7 865.5657270
+138   8  30.3818113
+139   9 428.0821634
+140   0  86.1180399
+141   1 360.2222279
+142   2  94.8069897
+143   3 244.1453780
+144   4 881.6411539
+145   5 922.6282034
+146   6  78.3514010
+147   7 819.6554836
+148   8  21.6164775
+149   9   2.8304565
+150   0 886.2251614
+151   1 171.4333075
+152   2 166.8614019
+153   3 982.1801118
+154   4 294.7161249
+155   5 403.8151286
+156   6 364.2676857
+157   7 464.0524713
+158   8 175.1761439
+159   9 833.8660437
+160   0 158.5418331
+161   1 594.5632507
+162   2 611.9453409
+163   3 764.9290157
+164   4 885.4696224
+165   5 570.6646650
+166   6 685.1256187
+167   7 771.6392912
+168   8 612.7657625
+169   9 562.4950014
+170   0 571.7323760
+171   1 164.7563905
+172   2 330.8489991
+173   3 610.1005783
+174   4 981.3134621
+175   5 913.4766804
+176   6 340.2235587
+177   7 243.7381109
+178   8 954.1526143
+179   9 778.7722663
+180   0 660.2250715
+181   1 273.2601024
+182   2 428.5105912
+183   3 223.8045272
+184   4 917.9957721
+185   5 799.9840158
+186   6 193.4374310
+187   7 455.6011155
+188   8 730.2951033
+189   9 154.7482421
+190   0 404.4625126
+191   1 736.8923535
+192   2 750.4074485
+193   3 823.2420776
+194   4 836.4843125
+195   5 546.5865899
+196   6 688.5739681
+197   7 547.9950195
+198   8 505.0794575
+199   9 388.4370462
+200   0 688.8837887
+201   1 132.4673917
+202   2 616.8628812
+203   3 408.2879904
+204   4 165.3010631
+205   5 194.2972702
+206   6 655.8543395
+207   7 184.5780439
+208   8 376.1265555
+209   9 369.6584753
+210   0  90.1520341
+211   1 265.0937967
+212   2 993.7730110
+213   3 581.7011071
+214   4 264.9738635
+215   5 315.4979504
+216   6  74.0396909
+217   7 384.5032181
+218   8 961.5066680
+219   9 182.4201068
+220   0 477.5884773
+221   1 343.5681122
+222   2 458.0175008
+223   3 342.5102155
+224   4 408.1807467
+225   5 139.6159714
+226   6 720.4476728
+227   7 706.0842239
+228   8 549.8553778
+229   9 464.6546529
+230   0 316.9394187
+231   1 628.6918549
+232   2 888.8873099
+233   3 799.4062165
+234   4 194.2960895
+235   5 768.7970733
+236   6 928.2045697
+237   7 766.1193116
+238   8 912.8200857
+239   9 150.5407295
+240   0 748.6143906
+241   1 348.1319640
+242   2 763.9398137
+243   3 460.9035626
+244   4 316.9013259
+245   5 675.9280572
+246   6 912.9071557
+247   7 873.8494131
+248   8  17.8358399
+249   9 129.9148260
+250   0 394.0165453
+251   1 858.2307925
+252   2 644.6612272
+253   3 311.3085032
+254   4 306.4232562
+255   5 214.5544775
+256   6 728.4407031
+257   7  34.3733190
+258   8 972.8673545
+259   9 379.5235211
+260   0 708.7888871
+261   1 239.4652877
+262   2 379.4767419
+263   3 102.6839972
+264   4 258.2228465
+265   5 780.7585783
+266   6 598.8387077
+267   7 947.5533993
+268   8 916.8847995
+269   9  72.5708008
+270   0 925.0218242
+271   1 939.8731920
+272   2 663.0772855
+273   3 269.9769726
+274   4 269.5569431
+275   5 634.5455062
+276   6 636.3641568
+277   7 933.6800622
+278   8 644.9450145
+279   9 772.2281157
+280   0 679.0315004
+281   1 514.5006133
+282   2 219.6843447
+283   3 178.2840320
+284   4 638.7656708
+285   5  80.8099485
+286   6 132.7441963
+287   7 490.1741967
+288   8 356.1804937
+289   9 578.1398993
+290   0 668.1956910
+291   1  57.2783330
+292   2 781.1606117
+293   3 900.9067735
+294   4 172.7470842
+295   5 587.3450786
+296   6 208.7480510
+297   7 922.2451120
+298   8 468.3831353
+299   9 773.6414878
+300   0 676.1970194
+301   1  26.7279402
+302   2  88.6519295
+303   3 353.0315093
+304   4 117.4799893
+305   5 851.7682529
+306   6 565.5919004
+307   7 954.9769717
+308   8 545.3882506
+309   9 201.2321521
+310   0 294.1168759
+311   1 990.4369104
+312   2 122.8437766
+313   3 486.3167838
+314   4 519.3423934
+315   5 767.2711627
+316   6  44.9477849
+317   7 153.4406438
+318   8 817.2688300
+319   9  82.6310923
+320   0 398.9443604
+321   1 962.5707085
+322   2 248.2686881
+323   3  15.5661853
+324   4  19.4966302
+325   5 462.2947914
+326   6 498.0290884
+327   7 269.9739949
+328   8   0.9193877
+329   9 374.4524363
+330   0 770.5829451
+331   1 228.0863174
+332   2 285.5880565
+333   3 598.7231752
+334   4 203.3658982
+335   5 119.9069670
+336   6 420.8858153
+337   7 283.2014253
+338   8 129.8757808
+339   9  24.3708892
+340   0 287.1877402
+341   1 470.5542424
+342   2 905.2738643
+343   3 732.5443018
+344   4 741.5993419
+345   5 524.0030037
+346   6 123.7663969
+347   7 625.9449215
+348   8  27.5322585
+349   9 337.7891672
+350   0 963.8336718
+351   1 826.5764813
+352   2 191.2646738
+353   3  17.4563327
+354   4 287.4005267
+355   5 695.4252534
+356   6 119.6055228
+357   7 626.8774150
+358   8 218.7590913
+359   9 492.3197990
+360   0 442.8882608
+361   1 183.0194339
+362   2  43.2200525
+363   3 409.8086716
+364   4 133.3609354
+365   5 148.0910254
+366   6 800.1762815
+367   7 615.8242768
+368   8 302.0020109
+369   9 318.1438639
+370   0 521.2013894
+371   1 945.5135595
+372   2 375.5369971
+373   3 650.9094881
+374   4 754.5796605
+375   5 592.4284735
+376   6 621.4267595
+377   7 580.4908944
+378   8 908.7514495
+379   9 921.2846262
+380   0 492.4891680
+381   1 915.9685858
+382   2 163.9672648
+383   3 801.9217087
+384   4  22.0763958
+385   5  31.9618143
+386   6 134.5200457
+387   7 955.0149944
+388   8 542.2125629
+389   9 733.7981563
+390   0 967.5539827
+391   1 730.8098392
+392   2 152.8580713
+393   3  56.3112930
+394   4 623.4121528
+395   5 805.8156944
+396   6 481.6766384
+397   7 213.2496615
+398   8  40.3179629
+399   9 822.1466334
+400   0 999.4988239
+401   1 957.0381036
+402   2 416.8205226
+403   3 570.3012543
+404   4 803.6054715
+405   5  76.9918384
+406   6 746.3365430
+407   7 365.9923403
+408   8 784.6464857
+409   9 357.7560782
+410   0 180.5171233
+411   1 750.1199432
+412   2  56.0285572
+413   3 251.9443727
+414   4 772.4711974
+415   5 289.0776934
+416   6 223.7405546
+417   7 652.1240978
+418   8 773.2311890
+419   9 573.9685094
+420   0 376.0268651
+421   1 496.3697810
+422   2 501.6437673
+423   3 704.0145176
+424   4 122.6968993
+425   5 467.2830370
+426   6 601.3654890
+427   7 350.0707350
+428   8 638.8703270
+429   9 227.7532320
+430   0 404.9961648
+431   1 274.2000788
+432   2 713.9826496
+433   3 794.7354745
+434   4 591.8043419
+435   5  89.3699178
+436   6 206.1220463
+437   7 391.0680325
+438   8 877.9930624
+439   9 903.4422967
+440   0 302.2182914
+441   1 845.1329363
+442   2 777.9549630
+443   3 848.7436865
+444   4 426.5655265
+445   5 693.6319605
+446   6 233.6116428
+447   7 373.4292213
+448   8 181.3931917
+449   9 131.1032211
+450   0 933.8967125
+451   1 718.8360447
+452   2 210.2943910
+453   3 753.1662034
+454   4 221.9360280
+455   5 730.2919340
+456   6  65.5031281
+457   7 432.1954930
+458   8 435.9434615
+459   9 103.7829639
+460   0 867.1041967
+461   1 832.6747601
+462   2 696.8347216
+463   3 572.7234432
+464   4 681.0129378
+465   5 733.3069749
+466   6 225.1305918
+467   7 950.1160639
+468   8   6.7237332
+469   9 676.5779294
+470   0 591.6540625
+471   1 594.1959410
+472   2 294.1820077
+473   3 716.2399946
+474   4 110.2958419
+475   5 173.1099852
+476   6 250.8453880
+477   7 849.3552862
+478   8 707.7397616
+479   9 679.3396750
+480   0 467.9647672
+481   1 159.4933411
+482   2 189.9065089
+483   3 309.5154110
+484   4 174.7544939
+485   5 526.7807909
+486   6 334.8843833
+487   7 373.7100968
+488   8 977.9177757
+489   9 687.2856463
+490   0 303.6290768
+491   1 138.6629154
+492   2 681.5400987
+493   3 742.9648233
+494   4 766.6515729
+495   5 833.7425836
+496   6 447.6908355
+497   7 621.3582770
+498   8  91.3972473
+499   9 172.4882626
+500   0 468.8451288
+501   1 286.6137426
+502   2 619.0877936
+503   3 539.4489064
+504   4 992.2048817
+505   5 682.7811641
+506   6  41.4239676
+507   7 356.5092555
+508   8 127.1468289
+509   9 417.4514425
+510   0 611.0166116
+511   1 420.7495172
+512   2  73.3566312
+513   3 376.0582011
+514   4 901.0026366
+515   5  48.3953534
+516   6 748.5173498
+517   7 641.1775448
+518   8 305.5426548
+519   9 549.9482832
+520   0 997.1090162
+521   1 158.2779456
+522   2 240.0826158
+523   3 219.0666038
+524   4 903.0854085
+525   5 759.0838117
+526   6 162.8447548
+527   7 621.3553217
+528   8 934.8695008
+529   9  20.0440180
+530   0  30.0877371
+531   1 889.8412916
+532   2 101.1474365
+533   3 726.2784506
+534   4 203.1419638
+535   5 173.3565864
+536   6 407.7390889
+537   7 699.2679944
+538   8 370.9152753
+539   9 126.8903436
+540   0 764.8213531
+541   1 702.6381567
+542   2 150.6184391
+543   3  67.0550945
+544   4 860.7344134
+545   5 140.0420121
+546   6 421.3106052
+547   7 789.6597725
+548   8 267.1027251
+549   9  41.3641618
+550   0 188.2032980
+551   1 522.1908337
+552   2 351.2071511
+553   3 851.2136783
+554   4 388.0379228
+555   5 528.6163609
+556   6  19.5829871
+557   7 190.0442403
+558   8 185.8945803
+559   9 884.5297296
+560   0 466.5900429
+561   1 357.3945307
+562   2 559.1538281
+563   3  32.5262160
+564   4 561.2719243
+565   5 777.4870994
+566   6 346.2860205
+567   7 417.9352394
+568   8  57.2313808
+569   9 208.2373335
+570   0 952.8433490
+571   1 526.8672062
+572   2 836.6686043
+573   3 337.3683381
+574   4 235.2960613
+575   5 445.8038372
+576   6 953.3682086
+577   7 108.9673412
+578   8   3.1814114
+579   9 931.6290054
+580   0 828.5352434
+581   1   7.1715203
+582   2 878.0406204
+583   3 645.6505354
+584   4 635.8617246
+585   5 116.7680423
+586   6 186.1082930
+587   7 502.5533892
+588   8 904.2565154
+589   9 603.2178246
+590   0 740.9033501
+591   1 245.0996470
+592   2 357.7736614
+593   3 679.0955872
+594   4 726.2820052
+595   5 308.3134277
+596   6 523.8306236
+597   7 852.6109331
+598   8 524.8045779
+599   9  26.6474104
+600   0 836.1820229
+601   1 341.1543206
+602   2 171.0686346
+603   3 541.0961467
+604   4 412.7475219
+605   5 331.7372021
+606   6 320.7880678
+607   7 982.4229907
+608   8 344.4867439
+609   9 380.2791117
+610   0 498.7164326
+611   1 466.1991533
+612   2 271.7238916
+613   3 452.2894775
+614   4 393.6718444
+615   5 122.3274623
+616   6  48.1343896
+617   7 258.1861145
+618   8 958.7698164
+619   9 138.7563730
+620   0  65.6712328
+621   1 561.0804025
+622   2  38.1351747
+623   3 330.5777330
+624   4 184.7353228
+625   5  61.0780756
+626   6 426.3414550
+627   7 445.9789027
+628   8 701.9932431
+629   9 763.1748188
+630   0 610.7063233
+631   1  67.5384197
+632   2 452.6838730
+633   3 456.9583123
+634   4 353.5313809
+635   5 758.2941558
+636   6 685.4592792
+637   7 488.8162136
+638   8 936.6554094
+639   9 567.0893986
+640   0 821.2425730
+641   1 953.0878346
+642   2 768.2708730
+643   3 514.1674220
+644   4 227.7884493
+645   5 770.0744350
+646   6 908.5234771
+647   7 537.5361852
+648   8 165.0585765
+649   9 669.4881383
+650   0 905.9532064
+651   1 550.7624578
+652   2  13.4218489
+653   3 370.6414455
+654   4 751.5915758
+655   5 182.8428616
+656   6 858.4786372
+657   7 250.0835261
+658   8 801.6002194
+659   9 580.5351934
+660   0 806.8521677
+661   1 506.9451998
+662   2 141.3947537
+663   3 774.9489313
+664   4  79.2875898
+665   5 423.8107793
+666   6 454.0533449
+667   7 185.4836815
+668   8 199.2929357
+669   9 252.5924577
+670   0 384.6666520
+671   1 936.6338123
+672   2 281.7293617
+673   3  92.3867186
+674   4 139.1581369
+675   5 110.5542989
+676   6 695.7274496
+677   7 396.5788151
+678   8 195.7279146
+679   9  36.9607143
+680   0 665.2125942
+681   1 280.8461690
+682   2 343.2916279
+683   3 825.8852963
+684   4 600.8612399
+685   5 742.1460848
+686   6 957.8587050
+687   7 929.3072345
+688   8 168.2632330
+689   9 501.3975061
+690   0 553.7323803
+691   1 969.4773133
+692   2 298.8239594
+693   3  51.3814625
+694   4 461.6938878
+695   5 199.0087854
+696   6 437.9725999
+697   7 715.6766083
+698   8 359.5151438
+699   9 547.0338394
+700   0 237.8203063
+701   1 667.0155728
+702   2 835.4545701
+703   3  81.4196856
+704   4  91.4891416
+705   5 109.4738797
+706   6 926.8053423
+707   7 269.2027963
+708   8 798.4867750
+709   9 744.6879514
+710   0  82.5656198
+711   1 850.5072468
+712   2 925.6738073
+713   3 846.7364747
+714   4 497.2177991
+715   5  23.7147559
+716   6 977.0240847
+717   7 377.3510882
+718   8 991.2499376
+719   9 369.2640932
+720   0 264.1527620
+721   1 638.0546365
+722   2 572.0695204
+723   3 881.7806684
+724   4 730.8026506
+725   5 824.9817737
+726   6 958.2329532
+727   7 851.6620693
+728   8 971.1292086
+729   9 618.7666883
+730   0 411.4386039
+731   1 662.3182863
+732   2 395.1400958
+733   3 598.2489903
+734   4 670.3377448
+735   5 676.0345097
+736   6 410.2781301
+737   7 880.0728247
+738   8 750.2875456
+739   9 331.7696082
+740   0 595.1317218
+741   1 431.4078079
+742   2 903.7613170
+743   3 113.3888459
+744   4 753.4657405
+745   5 967.7385853
+746   6 347.5569251
+747   7 814.4418108
+748   8 699.2384822
+749   9 144.1579792
+750   0 287.2685408
+751   1 505.1164606
+752   2  93.8313855
+753   3 137.7586327
+754   4 521.5517201
+755   5 575.9761014
+756   6 500.5300022
+757   7 900.5548626
+758   8 552.7083057
+759   9 771.3310583
+760   0 897.6031444
+761   1 847.8085981
+762   2 985.1382051
+763   3 395.0017488
+764   4 278.2966939
+765   5 495.5837948
+766   6 157.8181526
+767   7 501.2235257
+768   8 317.5992407
+769   9 576.0795088
+770   0  77.7834971
+771   1 310.1348102
+772   2 375.0143743
+773   3 509.1385108
+774   4 141.6459621
+775   5 844.3279692
+776   6 983.9839451
+777   7 868.2760664
+778   8 942.6626961
+779   9 311.8001672
+780   0 379.9997277
+781   1 583.8478727
+782   2   3.1144347
+783   3 458.8888469
+784   4 848.4785194
+785   5 944.6232370
+786   6 216.6900197
+787   7 281.7065658
+788   8 485.8286870
+789   9 183.1962424
+790   0 149.7001282
+791   1 984.1809303
+792   2 343.5997127
+793   3 186.7062759
+794   4 276.1573105
+795   5 111.7554985
+796   6 786.6857592
+797   7 944.0832839
+798   8 587.2254781
+799   9 379.7159549
+800   0 783.6553289
+801   1 472.5587144
+802   2 397.1055185
+803   3  32.4758706
+804   4 839.4720724
+805   5 347.0057887
+806   6 129.4806160
+807   7 200.6180980
+808   8 140.5581790
+809   9 527.8554196
+810   0 132.2962134
+811   1 355.5207099
+812   2 600.0962462
+813   3 158.6599236
+814   4 912.2986519
+815   5   1.7472815
+816   6 544.9112772
+817   7  24.6441830
+818   8 840.4266105
+819   9 749.6632617
+820   0 423.3269608
+821   1 840.5700235
+822   2 707.2280613
+823   3 437.7635145
+824   4 465.3588911
+825   5 302.4277436
+826   6  42.3859006
+827   7 772.1411784
+828   8 555.7702561
+829   9 378.7563539
+830   0 758.8811175
+831   1 680.4491004
+832   2 423.5686967
+833   3 675.7405542
+834   4 392.2414649
+835   5 880.0812741
+836   6 852.2962362
+837   7 960.9538538
+838   8 747.7500329
+839   9  94.5896143
+840   0 108.7321946
+841   1 330.7509441
+842   2  37.3912826
+843   3 625.0096776
+844   4 453.3978077
+845   5 170.2850373
+846   6 527.0667458
+847   7 351.1256275
+848   8  15.1902777
+849   9  98.3658270
+850   0 357.4895924
+851   1 545.4588942
+852   2 218.7833251
+853   3 946.2999310
+854   4 271.0723972
+855   5 851.0110890
+856   6 285.5987507
+857   7 240.3528909
+858   8  29.9179438
+859   9 643.2828440
+860   0 261.6285600
+861   1 370.2569415
+862   2 220.0353555
+863   3 154.7814617
+864   4 462.7672175
+865   5 965.1198371
+866   6 314.5340122
+867   7 839.1348219
+868   8 644.7800621
+869   9 457.2512342
+870   0  63.0707359
+871   1 215.0296194
+872   2 164.4722242
+873   3 414.1951338
+874   4 367.7991841
+875   5 549.3050008
+876   6 924.6830407
+877   7 839.1306819
+878   8 686.7708578
+879   9 440.2519299
+880   0  81.4853192
+881   1 358.9153388
+882   2 290.4939887
+883   3 209.7731282
+884   4 994.9339179
+885   5 260.3198972
+886   6 459.6434010
+887   7 680.9941866
+888   8 488.0964011
+889   9 428.9367592
+890   0 705.9694077
+891   1 169.4090506
+892   2 695.6463133
+893   3 679.2536741
+894   4 912.7864640
+895   5 891.2090627
+896   6 969.7775017
+897   7   9.8031375
+898   8  74.1212990
+899   9 610.7977859
+900   0 363.9093577
+901   1 671.8656747
+902   2 917.2221569
+903   3 823.1187875
+904   4 597.1580090
+905   5 837.4303884
+906   6 268.8503501
+907   7 325.5934278
+908   8 309.3170996
+909   9 362.0936961
+910   0 349.7085513
+911   1  25.5146748
+912   2 241.9926720
+913   3  52.4474632
+914   4 838.3261571
+915   5 184.0695625
+916   6 406.8823492
+917   7  91.9189164
+918   8 724.2223439
+919   9 558.2552860
+920   0 664.7412993
+921   1 349.0668512
+922   2 189.8650280
+923   3 399.8944685
+924   4 338.8831378
+925   5 164.7424509
+926   6  40.8647060
+927   7 177.0545011
+928   8 225.5930558
+929   9 633.7503705
+930   0 362.5366895
+931   1 298.3492818
+932   2 911.3435994
+933   3  24.4856882
+934   4 457.1979200
+935   5 938.1335038
+936   6 336.6586370
+937   7 865.6905622
+938   8 844.3963155
+939   9 427.1865881
+940   0 639.0697611
+941   1 885.1400095
+942   2 275.0649136
+943   3 269.8033764
+944   4 892.4527077
+945   5 190.5211555
+946   6 707.0819607
+947   7 107.6553164
+948   8  75.2080944
+949   9 634.6185682
+950   0 430.5816879
+951   1 693.2957065
+952   2 975.3882450
+953   3 687.4377865
+954   4 976.3658035
+955   5 578.9628751
+956   6 617.1197689
+957   7 202.2702089
+958   8 219.4008396
+959   9 512.0287295
+960   0 355.2460698
+961   1 443.9186174
+962   2 384.0956087
+963   3  66.1231664
+964   4 752.5981818
+965   5 968.0919000
+966   6 629.7086987
+967   7 128.4985119
+968   8 884.6004431
+969   9 664.2986378
+970   0 738.7933554
+971   1 974.3421029
+972   2 322.6648066
+973   3 240.5182009
+974   4 172.6563040
+975   5 643.2221024
+976   6 253.6468110
+977   7 451.9037893
+978   8 424.9686780
+979   9 549.1837121
+980   0 842.0104415
+981   1 811.7247699
+982   2 136.9987056
+983   3 658.6491445
+984   4 591.4095552
+985   5 800.2528397
+986   6 973.4080748
+987   7 606.7942774
+988   8  31.1939840
+989   9 496.1744274
+990   0 356.9334729
+991   1 752.6733011
+992   2 363.5143889
+993   3 538.3932348
+994   4  36.0532468
+995   5 514.6786792
+996   6  96.1900942
+997   7 777.7547042
+998   8 381.0587244
+999   9 569.2059309
+1000  0 259.9705865</code></pre>
+</div>
+</div>
+</div><div class="column">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb418"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb418-1"><a href="#cb418-1"></a>tbl_long</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,000 × 2
+      id value
+   &lt;dbl&gt; &lt;dbl&gt;
+ 1     1  667.
+ 2     2  604.
+ 3     3  755.
+ 4     4  653.
+ 5     5  167.
+ 6     6  132.
+ 7     7  830.
+ 8     8  827.
+ 9     9  215.
+10     0  240.
+# ℹ 990 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-frame-vs-tibble-2" class="slide level2">
+<h2>Data Frame vs Tibble</h2>
+<p>Les Tibbles possèdent une méthode d’affichage affinée :</p>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb420"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb420-1"><a href="#cb420-1"></a><span class="fu">as.data.frame</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      species    island bill_length_mm bill_depth_mm flipper_length_mm
+1      Adelie Torgersen           39.1          18.7               181
+2      Adelie Torgersen           39.5          17.4               186
+3      Adelie Torgersen           40.3          18.0               195
+4      Adelie Torgersen             NA            NA                NA
+5      Adelie Torgersen           36.7          19.3               193
+6      Adelie Torgersen           39.3          20.6               190
+7      Adelie Torgersen           38.9          17.8               181
+8      Adelie Torgersen           39.2          19.6               195
+9      Adelie Torgersen           34.1          18.1               193
+10     Adelie Torgersen           42.0          20.2               190
+11     Adelie Torgersen           37.8          17.1               186
+12     Adelie Torgersen           37.8          17.3               180
+13     Adelie Torgersen           41.1          17.6               182
+14     Adelie Torgersen           38.6          21.2               191
+15     Adelie Torgersen           34.6          21.1               198
+16     Adelie Torgersen           36.6          17.8               185
+17     Adelie Torgersen           38.7          19.0               195
+18     Adelie Torgersen           42.5          20.7               197
+19     Adelie Torgersen           34.4          18.4               184
+20     Adelie Torgersen           46.0          21.5               194
+21     Adelie    Biscoe           37.8          18.3               174
+22     Adelie    Biscoe           37.7          18.7               180
+23     Adelie    Biscoe           35.9          19.2               189
+24     Adelie    Biscoe           38.2          18.1               185
+25     Adelie    Biscoe           38.8          17.2               180
+26     Adelie    Biscoe           35.3          18.9               187
+27     Adelie    Biscoe           40.6          18.6               183
+28     Adelie    Biscoe           40.5          17.9               187
+29     Adelie    Biscoe           37.9          18.6               172
+30     Adelie    Biscoe           40.5          18.9               180
+31     Adelie     Dream           39.5          16.7               178
+32     Adelie     Dream           37.2          18.1               178
+33     Adelie     Dream           39.5          17.8               188
+34     Adelie     Dream           40.9          18.9               184
+35     Adelie     Dream           36.4          17.0               195
+36     Adelie     Dream           39.2          21.1               196
+37     Adelie     Dream           38.8          20.0               190
+38     Adelie     Dream           42.2          18.5               180
+39     Adelie     Dream           37.6          19.3               181
+40     Adelie     Dream           39.8          19.1               184
+41     Adelie     Dream           36.5          18.0               182
+42     Adelie     Dream           40.8          18.4               195
+43     Adelie     Dream           36.0          18.5               186
+44     Adelie     Dream           44.1          19.7               196
+45     Adelie     Dream           37.0          16.9               185
+46     Adelie     Dream           39.6          18.8               190
+47     Adelie     Dream           41.1          19.0               182
+48     Adelie     Dream           37.5          18.9               179
+49     Adelie     Dream           36.0          17.9               190
+50     Adelie     Dream           42.3          21.2               191
+51     Adelie    Biscoe           39.6          17.7               186
+52     Adelie    Biscoe           40.1          18.9               188
+53     Adelie    Biscoe           35.0          17.9               190
+54     Adelie    Biscoe           42.0          19.5               200
+55     Adelie    Biscoe           34.5          18.1               187
+56     Adelie    Biscoe           41.4          18.6               191
+57     Adelie    Biscoe           39.0          17.5               186
+58     Adelie    Biscoe           40.6          18.8               193
+59     Adelie    Biscoe           36.5          16.6               181
+60     Adelie    Biscoe           37.6          19.1               194
+61     Adelie    Biscoe           35.7          16.9               185
+62     Adelie    Biscoe           41.3          21.1               195
+63     Adelie    Biscoe           37.6          17.0               185
+64     Adelie    Biscoe           41.1          18.2               192
+65     Adelie    Biscoe           36.4          17.1               184
+66     Adelie    Biscoe           41.6          18.0               192
+67     Adelie    Biscoe           35.5          16.2               195
+68     Adelie    Biscoe           41.1          19.1               188
+69     Adelie Torgersen           35.9          16.6               190
+70     Adelie Torgersen           41.8          19.4               198
+71     Adelie Torgersen           33.5          19.0               190
+72     Adelie Torgersen           39.7          18.4               190
+73     Adelie Torgersen           39.6          17.2               196
+74     Adelie Torgersen           45.8          18.9               197
+75     Adelie Torgersen           35.5          17.5               190
+76     Adelie Torgersen           42.8          18.5               195
+77     Adelie Torgersen           40.9          16.8               191
+78     Adelie Torgersen           37.2          19.4               184
+79     Adelie Torgersen           36.2          16.1               187
+80     Adelie Torgersen           42.1          19.1               195
+81     Adelie Torgersen           34.6          17.2               189
+82     Adelie Torgersen           42.9          17.6               196
+83     Adelie Torgersen           36.7          18.8               187
+84     Adelie Torgersen           35.1          19.4               193
+85     Adelie     Dream           37.3          17.8               191
+86     Adelie     Dream           41.3          20.3               194
+87     Adelie     Dream           36.3          19.5               190
+88     Adelie     Dream           36.9          18.6               189
+89     Adelie     Dream           38.3          19.2               189
+90     Adelie     Dream           38.9          18.8               190
+91     Adelie     Dream           35.7          18.0               202
+92     Adelie     Dream           41.1          18.1               205
+93     Adelie     Dream           34.0          17.1               185
+94     Adelie     Dream           39.6          18.1               186
+95     Adelie     Dream           36.2          17.3               187
+96     Adelie     Dream           40.8          18.9               208
+97     Adelie     Dream           38.1          18.6               190
+98     Adelie     Dream           40.3          18.5               196
+99     Adelie     Dream           33.1          16.1               178
+100    Adelie     Dream           43.2          18.5               192
+101    Adelie    Biscoe           35.0          17.9               192
+102    Adelie    Biscoe           41.0          20.0               203
+103    Adelie    Biscoe           37.7          16.0               183
+104    Adelie    Biscoe           37.8          20.0               190
+105    Adelie    Biscoe           37.9          18.6               193
+106    Adelie    Biscoe           39.7          18.9               184
+107    Adelie    Biscoe           38.6          17.2               199
+108    Adelie    Biscoe           38.2          20.0               190
+109    Adelie    Biscoe           38.1          17.0               181
+110    Adelie    Biscoe           43.2          19.0               197
+111    Adelie    Biscoe           38.1          16.5               198
+112    Adelie    Biscoe           45.6          20.3               191
+113    Adelie    Biscoe           39.7          17.7               193
+114    Adelie    Biscoe           42.2          19.5               197
+115    Adelie    Biscoe           39.6          20.7               191
+116    Adelie    Biscoe           42.7          18.3               196
+117    Adelie Torgersen           38.6          17.0               188
+118    Adelie Torgersen           37.3          20.5               199
+119    Adelie Torgersen           35.7          17.0               189
+120    Adelie Torgersen           41.1          18.6               189
+121    Adelie Torgersen           36.2          17.2               187
+122    Adelie Torgersen           37.7          19.8               198
+123    Adelie Torgersen           40.2          17.0               176
+124    Adelie Torgersen           41.4          18.5               202
+125    Adelie Torgersen           35.2          15.9               186
+126    Adelie Torgersen           40.6          19.0               199
+127    Adelie Torgersen           38.8          17.6               191
+128    Adelie Torgersen           41.5          18.3               195
+129    Adelie Torgersen           39.0          17.1               191
+130    Adelie Torgersen           44.1          18.0               210
+131    Adelie Torgersen           38.5          17.9               190
+132    Adelie Torgersen           43.1          19.2               197
+133    Adelie     Dream           36.8          18.5               193
+134    Adelie     Dream           37.5          18.5               199
+135    Adelie     Dream           38.1          17.6               187
+136    Adelie     Dream           41.1          17.5               190
+137    Adelie     Dream           35.6          17.5               191
+138    Adelie     Dream           40.2          20.1               200
+139    Adelie     Dream           37.0          16.5               185
+140    Adelie     Dream           39.7          17.9               193
+141    Adelie     Dream           40.2          17.1               193
+142    Adelie     Dream           40.6          17.2               187
+143    Adelie     Dream           32.1          15.5               188
+144    Adelie     Dream           40.7          17.0               190
+145    Adelie     Dream           37.3          16.8               192
+146    Adelie     Dream           39.0          18.7               185
+147    Adelie     Dream           39.2          18.6               190
+148    Adelie     Dream           36.6          18.4               184
+149    Adelie     Dream           36.0          17.8               195
+150    Adelie     Dream           37.8          18.1               193
+151    Adelie     Dream           36.0          17.1               187
+152    Adelie     Dream           41.5          18.5               201
+153    Gentoo    Biscoe           46.1          13.2               211
+154    Gentoo    Biscoe           50.0          16.3               230
+155    Gentoo    Biscoe           48.7          14.1               210
+156    Gentoo    Biscoe           50.0          15.2               218
+157    Gentoo    Biscoe           47.6          14.5               215
+158    Gentoo    Biscoe           46.5          13.5               210
+159    Gentoo    Biscoe           45.4          14.6               211
+160    Gentoo    Biscoe           46.7          15.3               219
+161    Gentoo    Biscoe           43.3          13.4               209
+162    Gentoo    Biscoe           46.8          15.4               215
+163    Gentoo    Biscoe           40.9          13.7               214
+164    Gentoo    Biscoe           49.0          16.1               216
+165    Gentoo    Biscoe           45.5          13.7               214
+166    Gentoo    Biscoe           48.4          14.6               213
+167    Gentoo    Biscoe           45.8          14.6               210
+168    Gentoo    Biscoe           49.3          15.7               217
+169    Gentoo    Biscoe           42.0          13.5               210
+170    Gentoo    Biscoe           49.2          15.2               221
+171    Gentoo    Biscoe           46.2          14.5               209
+172    Gentoo    Biscoe           48.7          15.1               222
+173    Gentoo    Biscoe           50.2          14.3               218
+174    Gentoo    Biscoe           45.1          14.5               215
+175    Gentoo    Biscoe           46.5          14.5               213
+176    Gentoo    Biscoe           46.3          15.8               215
+177    Gentoo    Biscoe           42.9          13.1               215
+178    Gentoo    Biscoe           46.1          15.1               215
+179    Gentoo    Biscoe           44.5          14.3               216
+180    Gentoo    Biscoe           47.8          15.0               215
+181    Gentoo    Biscoe           48.2          14.3               210
+182    Gentoo    Biscoe           50.0          15.3               220
+183    Gentoo    Biscoe           47.3          15.3               222
+184    Gentoo    Biscoe           42.8          14.2               209
+185    Gentoo    Biscoe           45.1          14.5               207
+186    Gentoo    Biscoe           59.6          17.0               230
+187    Gentoo    Biscoe           49.1          14.8               220
+188    Gentoo    Biscoe           48.4          16.3               220
+189    Gentoo    Biscoe           42.6          13.7               213
+190    Gentoo    Biscoe           44.4          17.3               219
+191    Gentoo    Biscoe           44.0          13.6               208
+192    Gentoo    Biscoe           48.7          15.7               208
+193    Gentoo    Biscoe           42.7          13.7               208
+194    Gentoo    Biscoe           49.6          16.0               225
+195    Gentoo    Biscoe           45.3          13.7               210
+196    Gentoo    Biscoe           49.6          15.0               216
+197    Gentoo    Biscoe           50.5          15.9               222
+198    Gentoo    Biscoe           43.6          13.9               217
+199    Gentoo    Biscoe           45.5          13.9               210
+200    Gentoo    Biscoe           50.5          15.9               225
+201    Gentoo    Biscoe           44.9          13.3               213
+202    Gentoo    Biscoe           45.2          15.8               215
+203    Gentoo    Biscoe           46.6          14.2               210
+204    Gentoo    Biscoe           48.5          14.1               220
+205    Gentoo    Biscoe           45.1          14.4               210
+206    Gentoo    Biscoe           50.1          15.0               225
+207    Gentoo    Biscoe           46.5          14.4               217
+208    Gentoo    Biscoe           45.0          15.4               220
+209    Gentoo    Biscoe           43.8          13.9               208
+210    Gentoo    Biscoe           45.5          15.0               220
+211    Gentoo    Biscoe           43.2          14.5               208
+212    Gentoo    Biscoe           50.4          15.3               224
+213    Gentoo    Biscoe           45.3          13.8               208
+214    Gentoo    Biscoe           46.2          14.9               221
+215    Gentoo    Biscoe           45.7          13.9               214
+216    Gentoo    Biscoe           54.3          15.7               231
+217    Gentoo    Biscoe           45.8          14.2               219
+218    Gentoo    Biscoe           49.8          16.8               230
+219    Gentoo    Biscoe           46.2          14.4               214
+220    Gentoo    Biscoe           49.5          16.2               229
+221    Gentoo    Biscoe           43.5          14.2               220
+222    Gentoo    Biscoe           50.7          15.0               223
+223    Gentoo    Biscoe           47.7          15.0               216
+224    Gentoo    Biscoe           46.4          15.6               221
+225    Gentoo    Biscoe           48.2          15.6               221
+226    Gentoo    Biscoe           46.5          14.8               217
+227    Gentoo    Biscoe           46.4          15.0               216
+228    Gentoo    Biscoe           48.6          16.0               230
+229    Gentoo    Biscoe           47.5          14.2               209
+230    Gentoo    Biscoe           51.1          16.3               220
+231    Gentoo    Biscoe           45.2          13.8               215
+232    Gentoo    Biscoe           45.2          16.4               223
+233    Gentoo    Biscoe           49.1          14.5               212
+234    Gentoo    Biscoe           52.5          15.6               221
+235    Gentoo    Biscoe           47.4          14.6               212
+236    Gentoo    Biscoe           50.0          15.9               224
+237    Gentoo    Biscoe           44.9          13.8               212
+238    Gentoo    Biscoe           50.8          17.3               228
+239    Gentoo    Biscoe           43.4          14.4               218
+240    Gentoo    Biscoe           51.3          14.2               218
+241    Gentoo    Biscoe           47.5          14.0               212
+242    Gentoo    Biscoe           52.1          17.0               230
+243    Gentoo    Biscoe           47.5          15.0               218
+244    Gentoo    Biscoe           52.2          17.1               228
+245    Gentoo    Biscoe           45.5          14.5               212
+246    Gentoo    Biscoe           49.5          16.1               224
+247    Gentoo    Biscoe           44.5          14.7               214
+248    Gentoo    Biscoe           50.8          15.7               226
+249    Gentoo    Biscoe           49.4          15.8               216
+250    Gentoo    Biscoe           46.9          14.6               222
+251    Gentoo    Biscoe           48.4          14.4               203
+252    Gentoo    Biscoe           51.1          16.5               225
+253    Gentoo    Biscoe           48.5          15.0               219
+254    Gentoo    Biscoe           55.9          17.0               228
+255    Gentoo    Biscoe           47.2          15.5               215
+256    Gentoo    Biscoe           49.1          15.0               228
+257    Gentoo    Biscoe           47.3          13.8               216
+258    Gentoo    Biscoe           46.8          16.1               215
+259    Gentoo    Biscoe           41.7          14.7               210
+260    Gentoo    Biscoe           53.4          15.8               219
+261    Gentoo    Biscoe           43.3          14.0               208
+262    Gentoo    Biscoe           48.1          15.1               209
+263    Gentoo    Biscoe           50.5          15.2               216
+264    Gentoo    Biscoe           49.8          15.9               229
+265    Gentoo    Biscoe           43.5          15.2               213
+266    Gentoo    Biscoe           51.5          16.3               230
+267    Gentoo    Biscoe           46.2          14.1               217
+268    Gentoo    Biscoe           55.1          16.0               230
+269    Gentoo    Biscoe           44.5          15.7               217
+270    Gentoo    Biscoe           48.8          16.2               222
+271    Gentoo    Biscoe           47.2          13.7               214
+272    Gentoo    Biscoe             NA            NA                NA
+273    Gentoo    Biscoe           46.8          14.3               215
+274    Gentoo    Biscoe           50.4          15.7               222
+275    Gentoo    Biscoe           45.2          14.8               212
+276    Gentoo    Biscoe           49.9          16.1               213
+277 Chinstrap     Dream           46.5          17.9               192
+278 Chinstrap     Dream           50.0          19.5               196
+279 Chinstrap     Dream           51.3          19.2               193
+280 Chinstrap     Dream           45.4          18.7               188
+281 Chinstrap     Dream           52.7          19.8               197
+282 Chinstrap     Dream           45.2          17.8               198
+283 Chinstrap     Dream           46.1          18.2               178
+284 Chinstrap     Dream           51.3          18.2               197
+285 Chinstrap     Dream           46.0          18.9               195
+286 Chinstrap     Dream           51.3          19.9               198
+287 Chinstrap     Dream           46.6          17.8               193
+288 Chinstrap     Dream           51.7          20.3               194
+289 Chinstrap     Dream           47.0          17.3               185
+290 Chinstrap     Dream           52.0          18.1               201
+291 Chinstrap     Dream           45.9          17.1               190
+292 Chinstrap     Dream           50.5          19.6               201
+293 Chinstrap     Dream           50.3          20.0               197
+294 Chinstrap     Dream           58.0          17.8               181
+295 Chinstrap     Dream           46.4          18.6               190
+296 Chinstrap     Dream           49.2          18.2               195
+297 Chinstrap     Dream           42.4          17.3               181
+298 Chinstrap     Dream           48.5          17.5               191
+299 Chinstrap     Dream           43.2          16.6               187
+300 Chinstrap     Dream           50.6          19.4               193
+301 Chinstrap     Dream           46.7          17.9               195
+302 Chinstrap     Dream           52.0          19.0               197
+303 Chinstrap     Dream           50.5          18.4               200
+304 Chinstrap     Dream           49.5          19.0               200
+305 Chinstrap     Dream           46.4          17.8               191
+306 Chinstrap     Dream           52.8          20.0               205
+307 Chinstrap     Dream           40.9          16.6               187
+308 Chinstrap     Dream           54.2          20.8               201
+309 Chinstrap     Dream           42.5          16.7               187
+310 Chinstrap     Dream           51.0          18.8               203
+311 Chinstrap     Dream           49.7          18.6               195
+312 Chinstrap     Dream           47.5          16.8               199
+313 Chinstrap     Dream           47.6          18.3               195
+314 Chinstrap     Dream           52.0          20.7               210
+315 Chinstrap     Dream           46.9          16.6               192
+316 Chinstrap     Dream           53.5          19.9               205
+317 Chinstrap     Dream           49.0          19.5               210
+318 Chinstrap     Dream           46.2          17.5               187
+319 Chinstrap     Dream           50.9          19.1               196
+320 Chinstrap     Dream           45.5          17.0               196
+321 Chinstrap     Dream           50.9          17.9               196
+322 Chinstrap     Dream           50.8          18.5               201
+323 Chinstrap     Dream           50.1          17.9               190
+324 Chinstrap     Dream           49.0          19.6               212
+325 Chinstrap     Dream           51.5          18.7               187
+326 Chinstrap     Dream           49.8          17.3               198
+327 Chinstrap     Dream           48.1          16.4               199
+328 Chinstrap     Dream           51.4          19.0               201
+329 Chinstrap     Dream           45.7          17.3               193
+330 Chinstrap     Dream           50.7          19.7               203
+331 Chinstrap     Dream           42.5          17.3               187
+332 Chinstrap     Dream           52.2          18.8               197
+333 Chinstrap     Dream           45.2          16.6               191
+334 Chinstrap     Dream           49.3          19.9               203
+335 Chinstrap     Dream           50.2          18.8               202
+336 Chinstrap     Dream           45.6          19.4               194
+337 Chinstrap     Dream           51.9          19.5               206
+338 Chinstrap     Dream           46.8          16.5               189
+339 Chinstrap     Dream           45.7          17.0               195
+340 Chinstrap     Dream           55.8          19.8               207
+341 Chinstrap     Dream           43.5          18.1               202
+342 Chinstrap     Dream           49.6          18.2               193
+343 Chinstrap     Dream           50.8          19.0               210
+344 Chinstrap     Dream           50.2          18.7               198
+    body_mass_g    sex year
+1          3750   male 2007
+2          3800 female 2007
+3          3250 female 2007
+4            NA   &lt;NA&gt; 2007
+5          3450 female 2007
+6          3650   male 2007
+7          3625 female 2007
+8          4675   male 2007
+9          3475   &lt;NA&gt; 2007
+10         4250   &lt;NA&gt; 2007
+11         3300   &lt;NA&gt; 2007
+12         3700   &lt;NA&gt; 2007
+13         3200 female 2007
+14         3800   male 2007
+15         4400   male 2007
+16         3700 female 2007
+17         3450 female 2007
+18         4500   male 2007
+19         3325 female 2007
+20         4200   male 2007
+21         3400 female 2007
+22         3600   male 2007
+23         3800 female 2007
+24         3950   male 2007
+25         3800   male 2007
+26         3800 female 2007
+27         3550   male 2007
+28         3200 female 2007
+29         3150 female 2007
+30         3950   male 2007
+31         3250 female 2007
+32         3900   male 2007
+33         3300 female 2007
+34         3900   male 2007
+35         3325 female 2007
+36         4150   male 2007
+37         3950   male 2007
+38         3550 female 2007
+39         3300 female 2007
+40         4650   male 2007
+41         3150 female 2007
+42         3900   male 2007
+43         3100 female 2007
+44         4400   male 2007
+45         3000 female 2007
+46         4600   male 2007
+47         3425   male 2007
+48         2975   &lt;NA&gt; 2007
+49         3450 female 2007
+50         4150   male 2007
+51         3500 female 2008
+52         4300   male 2008
+53         3450 female 2008
+54         4050   male 2008
+55         2900 female 2008
+56         3700   male 2008
+57         3550 female 2008
+58         3800   male 2008
+59         2850 female 2008
+60         3750   male 2008
+61         3150 female 2008
+62         4400   male 2008
+63         3600 female 2008
+64         4050   male 2008
+65         2850 female 2008
+66         3950   male 2008
+67         3350 female 2008
+68         4100   male 2008
+69         3050 female 2008
+70         4450   male 2008
+71         3600 female 2008
+72         3900   male 2008
+73         3550 female 2008
+74         4150   male 2008
+75         3700 female 2008
+76         4250   male 2008
+77         3700 female 2008
+78         3900   male 2008
+79         3550 female 2008
+80         4000   male 2008
+81         3200 female 2008
+82         4700   male 2008
+83         3800 female 2008
+84         4200   male 2008
+85         3350 female 2008
+86         3550   male 2008
+87         3800   male 2008
+88         3500 female 2008
+89         3950   male 2008
+90         3600 female 2008
+91         3550 female 2008
+92         4300   male 2008
+93         3400 female 2008
+94         4450   male 2008
+95         3300 female 2008
+96         4300   male 2008
+97         3700 female 2008
+98         4350   male 2008
+99         2900 female 2008
+100        4100   male 2008
+101        3725 female 2009
+102        4725   male 2009
+103        3075 female 2009
+104        4250   male 2009
+105        2925 female 2009
+106        3550   male 2009
+107        3750 female 2009
+108        3900   male 2009
+109        3175 female 2009
+110        4775   male 2009
+111        3825 female 2009
+112        4600   male 2009
+113        3200 female 2009
+114        4275   male 2009
+115        3900 female 2009
+116        4075   male 2009
+117        2900 female 2009
+118        3775   male 2009
+119        3350 female 2009
+120        3325   male 2009
+121        3150 female 2009
+122        3500   male 2009
+123        3450 female 2009
+124        3875   male 2009
+125        3050 female 2009
+126        4000   male 2009
+127        3275 female 2009
+128        4300   male 2009
+129        3050 female 2009
+130        4000   male 2009
+131        3325 female 2009
+132        3500   male 2009
+133        3500 female 2009
+134        4475   male 2009
+135        3425 female 2009
+136        3900   male 2009
+137        3175 female 2009
+138        3975   male 2009
+139        3400 female 2009
+140        4250   male 2009
+141        3400 female 2009
+142        3475   male 2009
+143        3050 female 2009
+144        3725   male 2009
+145        3000 female 2009
+146        3650   male 2009
+147        4250   male 2009
+148        3475 female 2009
+149        3450 female 2009
+150        3750   male 2009
+151        3700 female 2009
+152        4000   male 2009
+153        4500 female 2007
+154        5700   male 2007
+155        4450 female 2007
+156        5700   male 2007
+157        5400   male 2007
+158        4550 female 2007
+159        4800 female 2007
+160        5200   male 2007
+161        4400 female 2007
+162        5150   male 2007
+163        4650 female 2007
+164        5550   male 2007
+165        4650 female 2007
+166        5850   male 2007
+167        4200 female 2007
+168        5850   male 2007
+169        4150 female 2007
+170        6300   male 2007
+171        4800 female 2007
+172        5350   male 2007
+173        5700   male 2007
+174        5000 female 2007
+175        4400 female 2007
+176        5050   male 2007
+177        5000 female 2007
+178        5100   male 2007
+179        4100   &lt;NA&gt; 2007
+180        5650   male 2007
+181        4600 female 2007
+182        5550   male 2007
+183        5250   male 2007
+184        4700 female 2007
+185        5050 female 2007
+186        6050   male 2007
+187        5150 female 2008
+188        5400   male 2008
+189        4950 female 2008
+190        5250   male 2008
+191        4350 female 2008
+192        5350   male 2008
+193        3950 female 2008
+194        5700   male 2008
+195        4300 female 2008
+196        4750   male 2008
+197        5550   male 2008
+198        4900 female 2008
+199        4200 female 2008
+200        5400   male 2008
+201        5100 female 2008
+202        5300   male 2008
+203        4850 female 2008
+204        5300   male 2008
+205        4400 female 2008
+206        5000   male 2008
+207        4900 female 2008
+208        5050   male 2008
+209        4300 female 2008
+210        5000   male 2008
+211        4450 female 2008
+212        5550   male 2008
+213        4200 female 2008
+214        5300   male 2008
+215        4400 female 2008
+216        5650   male 2008
+217        4700 female 2008
+218        5700   male 2008
+219        4650   &lt;NA&gt; 2008
+220        5800   male 2008
+221        4700 female 2008
+222        5550   male 2008
+223        4750 female 2008
+224        5000   male 2008
+225        5100   male 2008
+226        5200 female 2008
+227        4700 female 2008
+228        5800   male 2008
+229        4600 female 2008
+230        6000   male 2008
+231        4750 female 2008
+232        5950   male 2008
+233        4625 female 2009
+234        5450   male 2009
+235        4725 female 2009
+236        5350   male 2009
+237        4750 female 2009
+238        5600   male 2009
+239        4600 female 2009
+240        5300   male 2009
+241        4875 female 2009
+242        5550   male 2009
+243        4950 female 2009
+244        5400   male 2009
+245        4750 female 2009
+246        5650   male 2009
+247        4850 female 2009
+248        5200   male 2009
+249        4925   male 2009
+250        4875 female 2009
+251        4625 female 2009
+252        5250   male 2009
+253        4850 female 2009
+254        5600   male 2009
+255        4975 female 2009
+256        5500   male 2009
+257        4725   &lt;NA&gt; 2009
+258        5500   male 2009
+259        4700 female 2009
+260        5500   male 2009
+261        4575 female 2009
+262        5500   male 2009
+263        5000 female 2009
+264        5950   male 2009
+265        4650 female 2009
+266        5500   male 2009
+267        4375 female 2009
+268        5850   male 2009
+269        4875   &lt;NA&gt; 2009
+270        6000   male 2009
+271        4925 female 2009
+272          NA   &lt;NA&gt; 2009
+273        4850 female 2009
+274        5750   male 2009
+275        5200 female 2009
+276        5400   male 2009
+277        3500 female 2007
+278        3900   male 2007
+279        3650   male 2007
+280        3525 female 2007
+281        3725   male 2007
+282        3950 female 2007
+283        3250 female 2007
+284        3750   male 2007
+285        4150 female 2007
+286        3700   male 2007
+287        3800 female 2007
+288        3775   male 2007
+289        3700 female 2007
+290        4050   male 2007
+291        3575 female 2007
+292        4050   male 2007
+293        3300   male 2007
+294        3700 female 2007
+295        3450 female 2007
+296        4400   male 2007
+297        3600 female 2007
+298        3400   male 2007
+299        2900 female 2007
+300        3800   male 2007
+301        3300 female 2007
+302        4150   male 2007
+303        3400 female 2008
+304        3800   male 2008
+305        3700 female 2008
+306        4550   male 2008
+307        3200 female 2008
+308        4300   male 2008
+309        3350 female 2008
+310        4100   male 2008
+311        3600   male 2008
+312        3900 female 2008
+313        3850 female 2008
+314        4800   male 2008
+315        2700 female 2008
+316        4500   male 2008
+317        3950   male 2008
+318        3650 female 2008
+319        3550   male 2008
+320        3500 female 2008
+321        3675 female 2009
+322        4450   male 2009
+323        3400 female 2009
+324        4300   male 2009
+325        3250   male 2009
+326        3675 female 2009
+327        3325 female 2009
+328        3950   male 2009
+329        3600 female 2009
+330        4050   male 2009
+331        3350 female 2009
+332        3450   male 2009
+333        3250 female 2009
+334        4050   male 2009
+335        3800   male 2009
+336        3525 female 2009
+337        3950   male 2009
+338        3650 female 2009
+339        3650 female 2009
+340        4000   male 2009
+341        3400 female 2009
+342        3775   male 2009
+343        4100   male 2009
+344        3775 female 2009</code></pre>
+</div>
+</div>
+</div><div class="column">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb422"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb422-1"><a href="#cb422-1"></a>tibble<span class="sc">::</span><span class="fu">as_tibble</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 8
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+ 1 Adelie  Torgersen           39.1          18.7               181        3750
+ 2 Adelie  Torgersen           39.5          17.4               186        3800
+ 3 Adelie  Torgersen           40.3          18                 195        3250
+ 4 Adelie  Torgersen           NA            NA                  NA          NA
+ 5 Adelie  Torgersen           36.7          19.3               193        3450
+ 6 Adelie  Torgersen           39.3          20.6               190        3650
+ 7 Adelie  Torgersen           38.9          17.8               181        3625
+ 8 Adelie  Torgersen           39.2          19.6               195        4675
+ 9 Adelie  Torgersen           34.1          18.1               193        3475
+10 Adelie  Torgersen           42            20.2               190        4250
+# ℹ 334 more rows
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-frame-vs-tibble-3" class="slide level2">
+<h2>Data Frame vs Tibble</h2>
+<blockquote>
+<p>Les Tibbles sont une refonte moderne du data.frame, conservant ce que le temps a montré être efficace, et supprimant ce qui ne l’était pas.</p>
+</blockquote>
+<p>Les principales différences dans l’utilisation d’un data frame vs un tibble :</p>
+<ul>
+<li><p>les tibbles possèdent une méthode d’affichage affinée</p>
+<ul>
+<li><p>seules les 10 premières lignes sont affichées, et toutes les colonnes qui rentrent sur l’écran</p></li>
+<li><p>en plus de son nom, le type de chaque colonne est affiché</p></li>
+<li><p>le type de données et les dimensions sont également affichées</p></li>
+</ul></li>
+<li><p>la sélection de données est plus stricte pour les tibbles</p></li>
+</ul>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb424"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb424-1"><a href="#cb424-1"></a>df_long<span class="sc">$</span>val</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   [1]  61.8281721 981.2900904  84.3436031 946.2392889 566.2875783 677.5680990
+   [7] 935.4265293 920.2268703 968.5670177 440.8422175 429.0735037 718.4943031
+  [13] 438.0507269 886.4136552 136.5100902 954.3442719 973.7027963 358.7973632
+  [19] 528.8923692 646.4114953 718.7647503  36.5904646 794.1117289 867.2555084
+  [25]  12.1126855 458.9590882 201.1391344 318.2094509 957.2743345 189.7672962
+  [31] 277.8950003 578.4085155 600.0889784 299.4881619 909.8571427  35.9702173
+  [37] 485.6195289 199.2629957 879.5952986 118.9801591 917.9588095 430.5300806
+  [43] 783.1566131 770.5806997 595.2059508 159.6632258 120.5628505 236.9018877
+  [49] 479.1325175 164.2480539 826.2863285 253.7608775 396.3394156 708.5833133
+  [55] 304.9002965 794.5306012 725.2515741 551.6684444 119.1674599 188.1193542
+  [61] 770.4117412 511.0631541 970.8108199 835.3902576 260.9800743 190.3737776
+  [67] 605.7528402 647.1246486 640.2385656 714.7538709 490.9417687 113.1437579
+  [73] 558.6014215 460.6698635 801.0696734 342.7183456 482.2310759  84.4306282
+  [79] 249.9641208 240.8756472 644.5959983 519.1748589 610.2051660 986.5553512
+  [85] 498.1590749 115.9441036  39.1956656  99.1392483 155.6470161 938.4803248
+  [91] 939.5105869 949.7770867 395.7966554 391.4339405 533.1393923 514.8237103
+  [97] 849.4800236 480.3087001 362.6242992 115.0587844 233.4744164 477.6804049
+ [103] 835.1292661 839.6375286 781.1886461 689.4760537 382.4849322 291.8237529
+ [109] 618.6181409 208.9887622 376.5693982 847.9543191  55.3676116 639.3944845
+ [115] 484.6164691 157.8310588 729.3435640 605.3350009 181.7649631 485.2421598
+ [121] 502.6511536 930.7732210 258.0702258 728.9809196 369.8235417 347.6502385
+ [127] 630.7556552 775.6777129 631.4280734 376.7543756  83.5662663 871.1009149
+ [133] 163.8341935 930.7889657 900.5107672 834.3471277 865.5657270  30.3818113
+ [139] 428.0821634  86.1180399 360.2222279  94.8069897 244.1453780 881.6411539
+ [145] 922.6282034  78.3514010 819.6554836  21.6164775   2.8304565 886.2251614
+ [151] 171.4333075 166.8614019 982.1801118 294.7161249 403.8151286 364.2676857
+ [157] 464.0524713 175.1761439 833.8660437 158.5418331 594.5632507 611.9453409
+ [163] 764.9290157 885.4696224 570.6646650 685.1256187 771.6392912 612.7657625
+ [169] 562.4950014 571.7323760 164.7563905 330.8489991 610.1005783 981.3134621
+ [175] 913.4766804 340.2235587 243.7381109 954.1526143 778.7722663 660.2250715
+ [181] 273.2601024 428.5105912 223.8045272 917.9957721 799.9840158 193.4374310
+ [187] 455.6011155 730.2951033 154.7482421 404.4625126 736.8923535 750.4074485
+ [193] 823.2420776 836.4843125 546.5865899 688.5739681 547.9950195 505.0794575
+ [199] 388.4370462 688.8837887 132.4673917 616.8628812 408.2879904 165.3010631
+ [205] 194.2972702 655.8543395 184.5780439 376.1265555 369.6584753  90.1520341
+ [211] 265.0937967 993.7730110 581.7011071 264.9738635 315.4979504  74.0396909
+ [217] 384.5032181 961.5066680 182.4201068 477.5884773 343.5681122 458.0175008
+ [223] 342.5102155 408.1807467 139.6159714 720.4476728 706.0842239 549.8553778
+ [229] 464.6546529 316.9394187 628.6918549 888.8873099 799.4062165 194.2960895
+ [235] 768.7970733 928.2045697 766.1193116 912.8200857 150.5407295 748.6143906
+ [241] 348.1319640 763.9398137 460.9035626 316.9013259 675.9280572 912.9071557
+ [247] 873.8494131  17.8358399 129.9148260 394.0165453 858.2307925 644.6612272
+ [253] 311.3085032 306.4232562 214.5544775 728.4407031  34.3733190 972.8673545
+ [259] 379.5235211 708.7888871 239.4652877 379.4767419 102.6839972 258.2228465
+ [265] 780.7585783 598.8387077 947.5533993 916.8847995  72.5708008 925.0218242
+ [271] 939.8731920 663.0772855 269.9769726 269.5569431 634.5455062 636.3641568
+ [277] 933.6800622 644.9450145 772.2281157 679.0315004 514.5006133 219.6843447
+ [283] 178.2840320 638.7656708  80.8099485 132.7441963 490.1741967 356.1804937
+ [289] 578.1398993 668.1956910  57.2783330 781.1606117 900.9067735 172.7470842
+ [295] 587.3450786 208.7480510 922.2451120 468.3831353 773.6414878 676.1970194
+ [301]  26.7279402  88.6519295 353.0315093 117.4799893 851.7682529 565.5919004
+ [307] 954.9769717 545.3882506 201.2321521 294.1168759 990.4369104 122.8437766
+ [313] 486.3167838 519.3423934 767.2711627  44.9477849 153.4406438 817.2688300
+ [319]  82.6310923 398.9443604 962.5707085 248.2686881  15.5661853  19.4966302
+ [325] 462.2947914 498.0290884 269.9739949   0.9193877 374.4524363 770.5829451
+ [331] 228.0863174 285.5880565 598.7231752 203.3658982 119.9069670 420.8858153
+ [337] 283.2014253 129.8757808  24.3708892 287.1877402 470.5542424 905.2738643
+ [343] 732.5443018 741.5993419 524.0030037 123.7663969 625.9449215  27.5322585
+ [349] 337.7891672 963.8336718 826.5764813 191.2646738  17.4563327 287.4005267
+ [355] 695.4252534 119.6055228 626.8774150 218.7590913 492.3197990 442.8882608
+ [361] 183.0194339  43.2200525 409.8086716 133.3609354 148.0910254 800.1762815
+ [367] 615.8242768 302.0020109 318.1438639 521.2013894 945.5135595 375.5369971
+ [373] 650.9094881 754.5796605 592.4284735 621.4267595 580.4908944 908.7514495
+ [379] 921.2846262 492.4891680 915.9685858 163.9672648 801.9217087  22.0763958
+ [385]  31.9618143 134.5200457 955.0149944 542.2125629 733.7981563 967.5539827
+ [391] 730.8098392 152.8580713  56.3112930 623.4121528 805.8156944 481.6766384
+ [397] 213.2496615  40.3179629 822.1466334 999.4988239 957.0381036 416.8205226
+ [403] 570.3012543 803.6054715  76.9918384 746.3365430 365.9923403 784.6464857
+ [409] 357.7560782 180.5171233 750.1199432  56.0285572 251.9443727 772.4711974
+ [415] 289.0776934 223.7405546 652.1240978 773.2311890 573.9685094 376.0268651
+ [421] 496.3697810 501.6437673 704.0145176 122.6968993 467.2830370 601.3654890
+ [427] 350.0707350 638.8703270 227.7532320 404.9961648 274.2000788 713.9826496
+ [433] 794.7354745 591.8043419  89.3699178 206.1220463 391.0680325 877.9930624
+ [439] 903.4422967 302.2182914 845.1329363 777.9549630 848.7436865 426.5655265
+ [445] 693.6319605 233.6116428 373.4292213 181.3931917 131.1032211 933.8967125
+ [451] 718.8360447 210.2943910 753.1662034 221.9360280 730.2919340  65.5031281
+ [457] 432.1954930 435.9434615 103.7829639 867.1041967 832.6747601 696.8347216
+ [463] 572.7234432 681.0129378 733.3069749 225.1305918 950.1160639   6.7237332
+ [469] 676.5779294 591.6540625 594.1959410 294.1820077 716.2399946 110.2958419
+ [475] 173.1099852 250.8453880 849.3552862 707.7397616 679.3396750 467.9647672
+ [481] 159.4933411 189.9065089 309.5154110 174.7544939 526.7807909 334.8843833
+ [487] 373.7100968 977.9177757 687.2856463 303.6290768 138.6629154 681.5400987
+ [493] 742.9648233 766.6515729 833.7425836 447.6908355 621.3582770  91.3972473
+ [499] 172.4882626 468.8451288 286.6137426 619.0877936 539.4489064 992.2048817
+ [505] 682.7811641  41.4239676 356.5092555 127.1468289 417.4514425 611.0166116
+ [511] 420.7495172  73.3566312 376.0582011 901.0026366  48.3953534 748.5173498
+ [517] 641.1775448 305.5426548 549.9482832 997.1090162 158.2779456 240.0826158
+ [523] 219.0666038 903.0854085 759.0838117 162.8447548 621.3553217 934.8695008
+ [529]  20.0440180  30.0877371 889.8412916 101.1474365 726.2784506 203.1419638
+ [535] 173.3565864 407.7390889 699.2679944 370.9152753 126.8903436 764.8213531
+ [541] 702.6381567 150.6184391  67.0550945 860.7344134 140.0420121 421.3106052
+ [547] 789.6597725 267.1027251  41.3641618 188.2032980 522.1908337 351.2071511
+ [553] 851.2136783 388.0379228 528.6163609  19.5829871 190.0442403 185.8945803
+ [559] 884.5297296 466.5900429 357.3945307 559.1538281  32.5262160 561.2719243
+ [565] 777.4870994 346.2860205 417.9352394  57.2313808 208.2373335 952.8433490
+ [571] 526.8672062 836.6686043 337.3683381 235.2960613 445.8038372 953.3682086
+ [577] 108.9673412   3.1814114 931.6290054 828.5352434   7.1715203 878.0406204
+ [583] 645.6505354 635.8617246 116.7680423 186.1082930 502.5533892 904.2565154
+ [589] 603.2178246 740.9033501 245.0996470 357.7736614 679.0955872 726.2820052
+ [595] 308.3134277 523.8306236 852.6109331 524.8045779  26.6474104 836.1820229
+ [601] 341.1543206 171.0686346 541.0961467 412.7475219 331.7372021 320.7880678
+ [607] 982.4229907 344.4867439 380.2791117 498.7164326 466.1991533 271.7238916
+ [613] 452.2894775 393.6718444 122.3274623  48.1343896 258.1861145 958.7698164
+ [619] 138.7563730  65.6712328 561.0804025  38.1351747 330.5777330 184.7353228
+ [625]  61.0780756 426.3414550 445.9789027 701.9932431 763.1748188 610.7063233
+ [631]  67.5384197 452.6838730 456.9583123 353.5313809 758.2941558 685.4592792
+ [637] 488.8162136 936.6554094 567.0893986 821.2425730 953.0878346 768.2708730
+ [643] 514.1674220 227.7884493 770.0744350 908.5234771 537.5361852 165.0585765
+ [649] 669.4881383 905.9532064 550.7624578  13.4218489 370.6414455 751.5915758
+ [655] 182.8428616 858.4786372 250.0835261 801.6002194 580.5351934 806.8521677
+ [661] 506.9451998 141.3947537 774.9489313  79.2875898 423.8107793 454.0533449
+ [667] 185.4836815 199.2929357 252.5924577 384.6666520 936.6338123 281.7293617
+ [673]  92.3867186 139.1581369 110.5542989 695.7274496 396.5788151 195.7279146
+ [679]  36.9607143 665.2125942 280.8461690 343.2916279 825.8852963 600.8612399
+ [685] 742.1460848 957.8587050 929.3072345 168.2632330 501.3975061 553.7323803
+ [691] 969.4773133 298.8239594  51.3814625 461.6938878 199.0087854 437.9725999
+ [697] 715.6766083 359.5151438 547.0338394 237.8203063 667.0155728 835.4545701
+ [703]  81.4196856  91.4891416 109.4738797 926.8053423 269.2027963 798.4867750
+ [709] 744.6879514  82.5656198 850.5072468 925.6738073 846.7364747 497.2177991
+ [715]  23.7147559 977.0240847 377.3510882 991.2499376 369.2640932 264.1527620
+ [721] 638.0546365 572.0695204 881.7806684 730.8026506 824.9817737 958.2329532
+ [727] 851.6620693 971.1292086 618.7666883 411.4386039 662.3182863 395.1400958
+ [733] 598.2489903 670.3377448 676.0345097 410.2781301 880.0728247 750.2875456
+ [739] 331.7696082 595.1317218 431.4078079 903.7613170 113.3888459 753.4657405
+ [745] 967.7385853 347.5569251 814.4418108 699.2384822 144.1579792 287.2685408
+ [751] 505.1164606  93.8313855 137.7586327 521.5517201 575.9761014 500.5300022
+ [757] 900.5548626 552.7083057 771.3310583 897.6031444 847.8085981 985.1382051
+ [763] 395.0017488 278.2966939 495.5837948 157.8181526 501.2235257 317.5992407
+ [769] 576.0795088  77.7834971 310.1348102 375.0143743 509.1385108 141.6459621
+ [775] 844.3279692 983.9839451 868.2760664 942.6626961 311.8001672 379.9997277
+ [781] 583.8478727   3.1144347 458.8888469 848.4785194 944.6232370 216.6900197
+ [787] 281.7065658 485.8286870 183.1962424 149.7001282 984.1809303 343.5997127
+ [793] 186.7062759 276.1573105 111.7554985 786.6857592 944.0832839 587.2254781
+ [799] 379.7159549 783.6553289 472.5587144 397.1055185  32.4758706 839.4720724
+ [805] 347.0057887 129.4806160 200.6180980 140.5581790 527.8554196 132.2962134
+ [811] 355.5207099 600.0962462 158.6599236 912.2986519   1.7472815 544.9112772
+ [817]  24.6441830 840.4266105 749.6632617 423.3269608 840.5700235 707.2280613
+ [823] 437.7635145 465.3588911 302.4277436  42.3859006 772.1411784 555.7702561
+ [829] 378.7563539 758.8811175 680.4491004 423.5686967 675.7405542 392.2414649
+ [835] 880.0812741 852.2962362 960.9538538 747.7500329  94.5896143 108.7321946
+ [841] 330.7509441  37.3912826 625.0096776 453.3978077 170.2850373 527.0667458
+ [847] 351.1256275  15.1902777  98.3658270 357.4895924 545.4588942 218.7833251
+ [853] 946.2999310 271.0723972 851.0110890 285.5987507 240.3528909  29.9179438
+ [859] 643.2828440 261.6285600 370.2569415 220.0353555 154.7814617 462.7672175
+ [865] 965.1198371 314.5340122 839.1348219 644.7800621 457.2512342  63.0707359
+ [871] 215.0296194 164.4722242 414.1951338 367.7991841 549.3050008 924.6830407
+ [877] 839.1306819 686.7708578 440.2519299  81.4853192 358.9153388 290.4939887
+ [883] 209.7731282 994.9339179 260.3198972 459.6434010 680.9941866 488.0964011
+ [889] 428.9367592 705.9694077 169.4090506 695.6463133 679.2536741 912.7864640
+ [895] 891.2090627 969.7775017   9.8031375  74.1212990 610.7977859 363.9093577
+ [901] 671.8656747 917.2221569 823.1187875 597.1580090 837.4303884 268.8503501
+ [907] 325.5934278 309.3170996 362.0936961 349.7085513  25.5146748 241.9926720
+ [913]  52.4474632 838.3261571 184.0695625 406.8823492  91.9189164 724.2223439
+ [919] 558.2552860 664.7412993 349.0668512 189.8650280 399.8944685 338.8831378
+ [925] 164.7424509  40.8647060 177.0545011 225.5930558 633.7503705 362.5366895
+ [931] 298.3492818 911.3435994  24.4856882 457.1979200 938.1335038 336.6586370
+ [937] 865.6905622 844.3963155 427.1865881 639.0697611 885.1400095 275.0649136
+ [943] 269.8033764 892.4527077 190.5211555 707.0819607 107.6553164  75.2080944
+ [949] 634.6185682 430.5816879 693.2957065 975.3882450 687.4377865 976.3658035
+ [955] 578.9628751 617.1197689 202.2702089 219.4008396 512.0287295 355.2460698
+ [961] 443.9186174 384.0956087  66.1231664 752.5981818 968.0919000 629.7086987
+ [967] 128.4985119 884.6004431 664.2986378 738.7933554 974.3421029 322.6648066
+ [973] 240.5182009 172.6563040 643.2221024 253.6468110 451.9037893 424.9686780
+ [979] 549.1837121 842.0104415 811.7247699 136.9987056 658.6491445 591.4095552
+ [985] 800.2528397 973.4080748 606.7942774  31.1939840 496.1744274 356.9334729
+ [991] 752.6733011 363.5143889 538.3932348  36.0532468 514.6786792  96.1900942
+ [997] 777.7547042 381.0587244 569.2059309 259.9705865</code></pre>
+</div>
+</div>
+</div><div class="column">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb426"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb426-1"><a href="#cb426-1"></a>tbl_long<span class="sc">$</span>val</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="explorer-un-jeu-de-données" class="slide level2">
+<h2>Explorer un jeu de données</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb428"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb428-1"><a href="#cb428-1"></a><span class="fu">View</span>(tbl_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="explorer-un-jeu-de-données-1" class="slide level2">
+<h2>Explorer un jeu de données</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb429"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb429-1"><a href="#cb429-1"></a><span class="fu">dim</span>(tbl_long)</span>
+<span id="cb429-2"><a href="#cb429-2"></a><span class="fu">str</span>(tbl_long)</span>
+<span id="cb429-3"><a href="#cb429-3"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(tbl_long)</span>
+<span id="cb429-4"><a href="#cb429-4"></a><span class="fu">summary</span>(tbl_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="explorer-un-jeu-de-données-2" class="slide level2">
+<h2>Explorer un jeu de données</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb430"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb430-1"><a href="#cb430-1"></a><span class="fu">mean</span>(tbl_long<span class="sc">$</span>value)</span>
+<span id="cb430-2"><a href="#cb430-2"></a><span class="fu">range</span>(tbl_long<span class="sc">$</span>value)</span>
+<span id="cb430-3"><a href="#cb430-3"></a><span class="fu">unique</span>(tbl_long<span class="sc">$</span>id)</span>
+<span id="cb430-4"><a href="#cb430-4"></a><span class="fu">sort</span>(<span class="fu">unique</span>(tbl_long<span class="sc">$</span>id))</span>
+<span id="cb430-5"><a href="#cb430-5"></a><span class="fu">length</span>(tbl_long<span class="sc">$</span>id)</span>
+<span id="cb430-6"><a href="#cb430-6"></a><span class="fu">length</span>(<span class="fu">unique</span>(tbl_long<span class="sc">$</span>id))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="mise-en-pratique-travailler-avec-des-données-tabulaires" class="slide level2">
+<h2>Mise en pratique : travailler avec des données tabulaires</h2>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li><p>Si ce n’est pas encore fait, installez et chargez le package {palmerpenguins}</p></li>
+<li><p>Explorez le jeu de données <code>penguins</code> :</p>
+<ul>
+<li><p>nombre d’observations</p></li>
+<li><p>comptez le nombre d’observations par sexe</p></li>
+<li><p>vérifiez les années de suivi des pingouins</p></li>
+<li><p>calculez la longueur moyenne des becs (bill length)</p></li>
+<li><p>affichez les quantiles des mesures de la longueur des ailes (flipper length)</p></li>
+<li><p>stockez la colonne de masse corporelle (body mass) dans un vecteur <code>penguin_weights</code></p></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="mise-en-pratique-travailler-avec-des-données-tabulaires-1" class="slide level2">
+<h2>Mise en pratique : travailler avec des données tabulaires</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb431"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb431-1"><a href="#cb431-1"></a><span class="fu">dim</span>(penguins)  <span class="do">## ou `nrow(penguins)`, `length(penguins$species)`, ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 344   8</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb433"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb433-1"><a href="#cb433-1"></a><span class="fu">summary</span>(penguins<span class="sc">$</span>sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>female   male   NA's 
+   165    168     11 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb435"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb435-1"><a href="#cb435-1"></a><span class="fu">unique</span>(penguins<span class="sc">$</span>year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2007 2008 2009</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb437"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb437-1"><a href="#cb437-1"></a><span class="fu">mean</span>(penguins<span class="sc">$</span>bill_length_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb439"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb439-1"><a href="#cb439-1"></a><span class="fu">mean</span>(penguins<span class="sc">$</span>bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 43.92193</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb441"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb441-1"><a href="#cb441-1"></a><span class="fu">quantile</span>(penguins<span class="sc">$</span>flipper_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  0%  25%  50%  75% 100% 
+ 172  190  197  213  231 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb443"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb443-1"><a href="#cb443-1"></a>penguins_weights <span class="ot">&lt;-</span> penguins<span class="sc">$</span>body_mass_g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="listes" class="slide level2">
+<h2>Listes</h2>
+<p>La liste est de loin la structure de données la plus flexible dans R. Une liste est une collection d’éléments sans aucune restriction de classe, longueur ou structure de chaque élément.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb444"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb444-1"><a href="#cb444-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">ids =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">names =</span> <span class="fu">c</span>(<span class="st">"Joe"</span>, <span class="st">"Jack"</span>, <span class="st">"William"</span>, <span class="st">"Averell"</span>, <span class="st">"Rantanplan"</span>))</span>
+<span id="cb444-2"><a href="#cb444-2"></a>my_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$ids
+[1] 1 2 3 4 5
+
+$names
+[1] "Joe"        "Jack"       "William"    "Averell"    "Rantanplan"</code></pre>
+</div>
+</div>
+<p>Notez que les data frames peuvent être également considérés comme des listes tabulaires simples.</p>
+</section>
+<section id="accéder-aux-éléments-dune-liste" class="slide level2">
+<h2>Accéder aux éléments d’une liste</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb446"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb446-1"><a href="#cb446-1"></a>my_list<span class="sc">$</span>names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Joe"        "Jack"       "William"    "Averell"    "Rantanplan"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb448"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb448-1"><a href="#cb448-1"></a>my_list<span class="sc">$</span>names[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Joe"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb450"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb450-1"><a href="#cb450-1"></a>my_list[[<span class="dv">2</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Joe"        "Jack"       "William"    "Averell"    "Rantanplan"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb452"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb452-1"><a href="#cb452-1"></a>my_list[[<span class="dv">2</span>]][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Joe"</code></pre>
+</div>
+</div>
+</section>
+<section id="listes-imbriquées" class="slide level2">
+<h2>Listes imbriquées</h2>
+<p>Habituellement, on entend par listes des structures de données imbriquées</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb454"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb454-1"><a href="#cb454-1"></a>my_nested_list <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb454-2"><a href="#cb454-2"></a>  <span class="at">ids =</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span>),</span>
+<span id="cb454-3"><a href="#cb454-3"></a>  <span class="at">names =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"Lucky Luke"</span>, <span class="st">"Joe"</span>, <span class="st">"Jack"</span>, <span class="st">"William"</span>, <span class="st">"Averell"</span>),</span>
+<span id="cb454-4"><a href="#cb454-4"></a>               <span class="st">"Rantanplan"</span>),</span>
+<span id="cb454-5"><a href="#cb454-5"></a>  <span class="at">type =</span> <span class="fu">list</span>(<span class="fu">rep</span>(<span class="st">"humain"</span>, <span class="dv">5</span>), <span class="st">"chien"</span>)</span>
+<span id="cb454-6"><a href="#cb454-6"></a>)</span>
+<span id="cb454-7"><a href="#cb454-7"></a>my_nested_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$ids
+$ids[[1]]
+[1] 1 2 3 4 5
+
+$ids[[2]]
+[1] 1
+
+
+$names
+$names[[1]]
+[1] "Lucky Luke" "Joe"        "Jack"       "William"    "Averell"   
+
+$names[[2]]
+[1] "Rantanplan"
+
+
+$type
+$type[[1]]
+[1] "humain" "humain" "humain" "humain" "humain"
+
+$type[[2]]
+[1] "chien"</code></pre>
+</div>
+</div>
+</section>
+<section id="listes-imbriquées-1" class="slide level2">
+<h2>Listes imbriquées</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb456"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb456-1"><a href="#cb456-1"></a>my_nested_list<span class="sc">$</span>names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] "Lucky Luke" "Joe"        "Jack"       "William"    "Averell"   
+
+[[2]]
+[1] "Rantanplan"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb458"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb458-1"><a href="#cb458-1"></a>my_nested_list<span class="sc">$</span>names[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Lucky Luke" "Joe"        "Jack"       "William"    "Averell"   </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb460"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb460-1"><a href="#cb460-1"></a>my_nested_list<span class="sc">$</span>names[[<span class="dv">1</span>]][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Lucky Luke"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb462"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb462-1"><a href="#cb462-1"></a>my_nested_list<span class="sc">$</span>names[[<span class="dv">2</span>]][[<span class="dv">1</span>]][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Rantanplan"</code></pre>
+</div>
+</div>
+</section>
+<section id="listes-imbriquées-comme-tibbles" class="slide level2">
+<h2>Listes imbriquées comme Tibbles</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb464"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb464-1"><a href="#cb464-1"></a>my_tbl_list <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">as_tibble</span>(my_nested_list)</span>
+<span id="cb464-2"><a href="#cb464-2"></a>my_tbl_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  ids       names     type     
+  &lt;list&gt;    &lt;list&gt;    &lt;list&gt;   
+1 &lt;int [5]&gt; &lt;chr [5]&gt; &lt;chr [5]&gt;
+2 &lt;dbl [1]&gt; &lt;chr [1]&gt; &lt;chr [1]&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="désimbriquer-des-listes-imbriquées" class="slide level2">
+<h2>Désimbriquer des listes imbriquées</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb466"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb466-1"><a href="#cb466-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb467"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb467-1"><a href="#cb467-1"></a>my_tbl <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">unnest</span>(my_tbl_list)</span>
+<span id="cb467-2"><a href="#cb467-2"></a>my_tbl <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">unnest</span>(my_tbl_list, <span class="at">cols =</span> <span class="fu">c</span>(ids, names, type))</span>
+<span id="cb467-3"><a href="#cb467-3"></a>my_tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+    ids names      type  
+  &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; 
+1     1 Lucky Luke humain
+2     2 Joe        humain
+3     3 Jack       humain
+4     4 William    humain
+5     5 Averell    humain
+6     1 Rantanplan chien </code></pre>
+</div>
+</div>
+</section>
+<section id="imbriquer-des-listes" class="slide level2">
+<h2>Imbriquer des listes</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb469"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb469-1"><a href="#cb469-1"></a>my_nested_tbl <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">nest</span>(my_tbl, <span class="at">data =</span> <span class="sc">!</span>type)</span>
+<span id="cb469-2"><a href="#cb469-2"></a>my_nested_tbl<span class="sc">$</span>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+# A tibble: 5 × 2
+    ids names     
+  &lt;dbl&gt; &lt;chr&gt;     
+1     1 Lucky Luke
+2     2 Joe       
+3     3 Jack      
+4     4 William   
+5     5 Averell   
+
+[[2]]
+# A tibble: 1 × 2
+    ids names     
+  &lt;dbl&gt; &lt;chr&gt;     
+1     1 Rantanplan</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="créer-des-jeux-de-données" class="title-slide slide level1 center">
+<h1>Créer des jeux de données</h1>
+
+</section>
+<section id="créer-des-jeux-de-données-vecteurs-dans-r" class="slide level2">
+<h2>Créer des <del>jeux de données</del> vecteurs dans R</h2>
+<p>Vous pouvez combiner des vecteurs dans un data frame ou un tibble. Les fonctions <code>seq()</code> et <code>rep()</code> sont utiles pour créer des vecteurs :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb471"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb471-1"><a href="#cb471-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb473"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb473-1"><a href="#cb473-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">150</span>, <span class="at">by =</span> <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]   0  25  50  75 100 125 150</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb475"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb475-1"><a href="#cb475-1"></a><span class="dv">0</span><span class="sc">:</span><span class="dv">6</span><span class="sc">*</span><span class="dv">25</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]   0  25  50  75 100 125 150</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb477"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb477-1"><a href="#cb477-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">150</span>, <span class="at">length.out =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]   0.0  37.5  75.0 112.5 150.0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb479"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb479-1"><a href="#cb479-1"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">times =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 3 1 2 3 1 2 3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb481"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb481-1"><a href="#cb481-1"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">each =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 1 1 2 2 2 3 3 3</code></pre>
+</div>
+</div>
+</section>
+<section id="créer-des-jeux-de-données-dans-r" class="slide level2">
+<h2>Créer des jeux de données dans R</h2>
+<p>Vous pouvez combiner des vecteurs dans un data frame ou un tibble. Les fonctions <code>seq()</code> et <code>rep()</code> sont utiles pour créer des vecteurs :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb483"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb483-1"><a href="#cb483-1"></a>name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Rantanplan"</span>, <span class="st">"Idéfix"</span>, <span class="st">"Milou"</span>, <span class="st">"Bill"</span>, <span class="st">"Pif"</span>)</span>
+<span id="cb483-2"><a href="#cb483-2"></a>age <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">13</span>, <span class="at">by =</span> <span class="dv">3</span>)</span>
+<span id="cb483-3"><a href="#cb483-3"></a>species <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="st">"chien"</span>, <span class="fu">length</span>(name))</span>
+<span id="cb483-4"><a href="#cb483-4"></a>id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(name)</span>
+<span id="cb483-5"><a href="#cb483-5"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(id, name, age, species)  <span class="do">## ou `data.frame()`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+     id name         age species
+  &lt;int&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;  
+1     1 Rantanplan     1 chien  
+2     2 Idéfix         4 chien  
+3     3 Milou          7 chien  
+4     4 Bill          10 chien  
+5     5 Pif           13 chien  </code></pre>
+</div>
+</div>
+</section>
+<section id="créer-des-jeux-de-données-dans-r-1" class="slide level2">
+<h2>Créer des jeux de données dans R</h2>
+<p>Vous pouvez créer ces colonnes directement dans la fonction data.frame() ou tibble() :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb485"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb485-1"><a href="#cb485-1"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb485-2"><a href="#cb485-2"></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Rantanplan"</span>, <span class="st">"Idéfix"</span>, <span class="st">"Milou"</span>, <span class="st">"Bill"</span>, <span class="st">"Pif"</span>),</span>
+<span id="cb485-3"><a href="#cb485-3"></a>  <span class="at">age =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">13</span>, <span class="at">by =</span> <span class="dv">3</span>),</span>
+<span id="cb485-4"><a href="#cb485-4"></a>  <span class="at">species =</span> <span class="fu">rep</span>(<span class="st">"chien"</span>, <span class="fu">length</span>(name)),</span>
+<span id="cb485-5"><a href="#cb485-5"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(name)</span>
+<span id="cb485-6"><a href="#cb485-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+  name         age species    id
+  &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;   &lt;int&gt;
+1 Rantanplan     1 chien       1
+2 Idéfix         4 chien       2
+3 Milou          7 chien       3
+4 Bill          10 chien       4
+5 Pif           13 chien       5</code></pre>
+</div>
+</div>
+</section>
+<section id="créer-des-jeux-de-données-dans-r-2" class="slide level2">
+<h2>Créer des jeux de données dans R</h2>
+<p>Vous pouvez également créer des tibbles en utilisant une disposition par ligne - un tribble :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb487"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb487-1"><a href="#cb487-1"></a>tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb487-2"><a href="#cb487-2"></a>  <span class="sc">~</span>id, <span class="sc">~</span>name,        <span class="sc">~</span>age, <span class="sc">~</span>species,</span>
+<span id="cb487-3"><a href="#cb487-3"></a>  <span class="dv">1</span>,   <span class="st">"Rantanplan"</span>, <span class="dv">1</span>,    <span class="st">"chien"</span>,</span>
+<span id="cb487-4"><a href="#cb487-4"></a>  <span class="dv">2</span>,   <span class="st">"Idéfix"</span>,     <span class="dv">4</span>,    <span class="st">"chien"</span>,</span>
+<span id="cb487-5"><a href="#cb487-5"></a>  <span class="dv">3</span>,   <span class="st">"Milou"</span>,      <span class="dv">7</span>,    <span class="st">"chien"</span>,</span>
+<span id="cb487-6"><a href="#cb487-6"></a>  <span class="dv">4</span>,   <span class="st">"Bill"</span>,       <span class="dv">10</span>,   <span class="st">"chien"</span>,</span>
+<span id="cb487-7"><a href="#cb487-7"></a>  <span class="dv">5</span>,   <span class="st">"Pif"</span>,        <span class="dv">13</span>,   <span class="st">"chien"</span></span>
+<span id="cb487-8"><a href="#cb487-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+     id name         age species
+  &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;  
+1     1 Rantanplan     1 chien  
+2     2 Idéfix         4 chien  
+3     3 Milou          7 chien  
+4     4 Bill          10 chien  
+5     5 Pif           13 chien  </code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="importer-des-données" class="title-slide slide level1 center">
+<h1>Importer des données</h1>
+
+</section>
+<section id="le-workflow-en-data-science" class="slide level2">
+<h2>Le workflow en data science</h2>
+
+<img data-src="img/workflow_01.png" class="r-stretch quarto-figure-center"><p class="caption">Le workflow en data science, modifié à partir de “R for Data Science”</p></section>
+<section id="le-workflow-en-data-science-1" class="slide level2">
+<h2>Le workflow en data science</h2>
+
+<img data-src="img/workflow_02.png" class="r-stretch quarto-figure-center"><p class="caption">Le workflow en data science, modifié à partir de “R for Data Science”</p></section>
+<section id="importer-des-données-1" class="slide level2">
+<h2>Importer des données</h2>
+<p>Habituellement, vous créez des data frames en important des fichiers de données comme <code>.txt</code>, <code>.csv</code>, …</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb489"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb489-1"><a href="#cb489-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">"./data/cool_data.txt"</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
+<span id="cb489-2"><a href="#cb489-2"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"./data/cool_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Le <code>./</code> désigne un chemin relatif, à partir de votre <strong>répertoire de travail (working directory)</strong>.</p>
+<p>Vous pouvez vérifier votre “wd” à l’aide de la fonction <code>getwd()</code>.</p>
+<p>Vous pouvez aussi importer des données directement à partir d’un site internet à l’aide d’une URL valide :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb490"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb490-1"><a href="#cb490-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https:://some-webpage.com/online-data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="importer-des-données-tibbles" class="slide level2">
+<h2>Importer des données : Tibbles</h2>
+<p>Le package {readr} fournit une méthode simple et rapide de lire des données rectangulaires stockées comme des tibbles :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb491"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb491-1"><a href="#cb491-1"></a>my_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_delim</span>(<span class="st">"./data/cool_data.txt"</span>, <span class="at">delim =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
+<span id="cb491-2"><a href="#cb491-2"></a>my_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"./data/cool_data.csv"</span>)</span>
+<span id="cb491-3"><a href="#cb491-3"></a>my_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv2</span>(<span class="st">"./data/actually_not_a_csv_but_okay.csv"</span>)  <span class="do">## `;` comme séparateur et "," comme décimale</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="importer-des-données-fichiers-excel-pas-idéal" class="slide level2">
+<h2>Importer des données : fichiers Excel (pas idéal)</h2>
+<p>Le package {readxl} fournit des fonctionnalités pour importer des tableaux Excel :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb492"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb492-1"><a href="#cb492-1"></a>my_data <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xls</span>(<span class="st">"./data/oh_no_excel_data.xls"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span>
+<span id="cb492-2"><a href="#cb492-2"></a>my_data <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">"./data/oh_no_excel_data.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="importer-des-données-formats-propres-à-r" class="slide level2">
+<h2>Importer des données : formats propres à R</h2>
+<p>Il existe également des formats propres à R comme .Rds et .Rdata / .Rda</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb493"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb493-1"><a href="#cb493-1"></a><span class="do">## R basique :</span></span>
+<span id="cb493-2"><a href="#cb493-2"></a>my_data <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"./data/one_of_Rs_data_formats.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb494"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb494-1"><a href="#cb494-1"></a><span class="do">## package readr :</span></span>
+<span id="cb494-2"><a href="#cb494-2"></a>my_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_rds</span>(<span class="st">"./data/one_of_Rs_data_formats.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="importer-des-données-trop-lent" class="slide level2">
+<h2>Importer des données : trop lent ?</h2>
+<p>Le package {data.table} fournit des fonctionnalités pour importer, exporter et manipuler des données.</p>
+<p>Les fonctions pour importer et exporter des données sont connues pour être très rapides :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb495"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb495-1"><a href="#cb495-1"></a>my_data <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">"./data/cool_data.csv"</span>, <span class="at">sep =</span> <span class="st">","</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="footer footer-default">
 
 </div>
-</section>
+</section></section>
     </div>
   </div>
 

@@ -678,3 +678,909 @@ as.POSIXct(date, format = "%d.%m.%Y %H:%M", tz = "US/Eastern")
 ```
 
 # Valeurs manquantes
+
+## "Not available"
+
+NA est une valeur spéciale utilisée pour représenter une donnée manquante on indéfinie.
+
+```{r, echo=TRUE, eval=TRUE}
+typeof(NA)
+typeof(NA_character_)
+typeof(NA_integer_)
+typeof(NA_real_)
+typeof(NA_complex_)
+```
+
+## "Not a number"
+
+La valeur NaN est une autre valeur spéciale utilisée pour représenter des valeurs indéfinies dans des opérations mathématiques :
+
+```{r, echo=TRUE, eval=TRUE}
+NaN
+```
+
+... comme le résultat de la division de 0 par 0 :
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+0 / 0
+is.nan(0 / 0)
+is.na(0 / 0)
+```
+
+## Valeurs inconnues
+
+Comme elles sont inconnues, les valeurs spéciales NA et NaN ne sont égales à aucune autre valeur, y compris elles-mêmes :
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+NA == "Jo"
+NaN == 1
+NA == NA
+NaN == (0 / 0)
+```
+
+Vous ne pouvez assigner aucune valeur aux valeurs spéciales NA et NaN :
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+NA <- 1
+```
+
+# Vecteurs
+
+## Mise en pratique : calculer des moyennes
+
+::: {.callout-tip appearance="simple" icon="false"}
+-   Calculez la moyenne de ces trois valeurs numériques : 140, 97, et 222
+:::
+
+```{r, echo=TRUE, eval=TRUE}
+mean(140, 97, 222)
+```
+
+![](img/liar-mad.gif){fig-align="center"}
+
+## Vecteurs
+
+![](img/vector_01.png){fig-align="center"}
+
+## Mise en pratique : calculer des moyennes
+
+::: {.callout-tip appearance="simple" icon="false"}
+-   Calculez la moyenne de ces trois valeurs numériques : 140, 97, et 222
+:::
+
+```{r, echo=TRUE, eval=TRUE}
+mean(c(140, 97, 222))
+```
+
+## Mise en pratique : calculer des moyennes
+
+::: {.callout-tip appearance="simple" icon="false"}
+-   Calculez la moyenne de ces trois valeurs numériques : 140, 97, et 222
+:::
+
+```{r, echo=TRUE, eval=TRUE}
+values <- c(140, 97, 222)
+mean(values)
+
+values <- c(140L, 97L, 222L)
+mean(values)
+```
+
+## Mais ... Comment suis-je sensé savoir ?
+
+```{r, echo=TRUE, eval=FALSE}
+help(mean)
+?mean
+# curseur + F1
+```
+
+### Usage
+
+```{r, echo=TRUE, eval=FALSE}
+mean(x, ...)
+
+## Default S3 method:
+mean(x, trim = 0, na.rm = FALSE, ...)
+```
+
+### Examples
+
+```{r, echo=TRUE, eval=TRUE}
+x <- c(0:10, 50)
+x
+xm <- mean(x)
+xm
+```
+
+## Vecteurs
+
+Comme c'est le cas pour les valeurs, les vecteurs peuvent être de différents types :
+
+```{r, echo=TRUE, eval=TRUE}
+ids <- c(1:5)
+ids
+typeof(ids)
+names <- c("Joe", "Jack", "William", "Averell", "Rantanplan")
+names
+typeof(names)
+```
+
+## Vecteurs nommés
+
+```{r, echo=TRUE, eval=TRUE}
+(couleurs <- c(vert = "#28A87D", violet = "#9C55E3", jaune = "#EFAC00"))
+```
+
+Vous pouvez également créer un vecteur non nommé et ajouter les noms à l'aide de `names(x)` :
+
+```{r, echo=TRUE, eval=TRUE}
+couleurs <- c("#28A87D", "#9C55E3", "#EFAC00")
+names(couleurs) <- c("vert", "violet", "jaune")
+couleurs
+```
+
+Pour supprimer les noms, utilisez `unname()` :
+
+```{r, echo=TRUE, eval=TRUE}
+unname(couleurs)
+```
+
+## Accéder aux éléments de vecteurs
+
+```{r, echo=TRUE, eval=TRUE}
+names
+names[1]
+names[2:3]
+names[c(1:2, 4)]
+names[-2]
+```
+
+## Accéder aux éléments de vecteurs nommés
+
+```{r, echo=TRUE, eval=TRUE}
+couleurs
+couleurs[c(1, 3)]
+```
+
+Les vecteurs nommés peuvent également être explorés par noms d'éléments :
+
+```{r, echo=TRUE, eval=TRUE}
+couleurs["violet"]
+couleurs[c("vert", "jaune")]
+```
+
+## NA et NaN dans des vecteurs
+
+Quand il est utilisé dans un vecteur, le type de `NA` est déterminé par les types de données des autres valeurs - pas besoin de spécifier par exemple `NA_character_` :
+
+```{r, echo=TRUE, eval=TRUE}
+x <- c(1, 2, 3, NA, 5)
+y <- c("A", "B", NA, "D", "E")
+typeof(x)
+typeof(y)
+```
+
+## NA et NaN dans des vecteurs
+
+Comme ils sont inconnus, toute opération mathématique retournera `NA` ou `NaN` :
+
+```{r, echo=TRUE, eval=TRUE}
+x <- c(5, 12, NA, 2, 18)
+mean(x)
+y <- c(6, 23, NaN, 2, 18)
+mean(y)
+```
+
+Pour ignorer les valeurs inconnues, vous pouvez définir l'argument `na.rm` comme `TRUE` :
+
+```{r, echo=TRUE, eval=TRUE}
+mean(x, na.rm = TRUE)  ## par défaut `na.rm = FALSE`
+mean(y, na.rm = TRUE)
+```
+
+## Extension et combinaison de vecteurs
+
+```{r, echo=TRUE, eval=TRUE}
+couleurs_ext <- c(couleurs, "#000000", "#ffffff")
+couleurs_ext
+couleurs_ext <- c(couleurs, c(noir = "#000000", blanc = "#ffffff"))
+couleurs_ext
+```
+
+```{r, echo=TRUE, eval=TRUE}
+comb_vec <- c(ids, mean)
+comb_vec
+```
+
+Notez que dans le dernier exemple **toutes les valeurs prennent le même type de données** (les vecteurs atomiques ne contiennent qu'un seul type de données)
+
+## Coercition
+
+Les vecteurs atomiques ne contiennent qu'un seul type de données et **toutes les valeurs sont implicitement contraintes à prendre le même type de données** :
+
+```{r, echo=TRUE, eval=TRUE}
+v1 <- c("ggplot2", 2023, TRUE)
+v1
+typeof(v1)
+```
+
+```{r, echo=TRUE, eval=TRUE}
+v2 <- c(0.2, 1L, 3 + 0i)
+v2
+typeof(v2)
+```
+
+## Coercition
+
+La règle de coercition est la suivante :
+
+`logical ➙ integer ➙ double ➙ complex ➙ character`
+
+```{r, echo=TRUE, eval=TRUE}
+typeof(c(TRUE))
+typeof(c(TRUE, 1L))
+typeof(c(TRUE, 1L, 0.2))
+typeof(c(TRUE, 1L, 0.2, 1 + 0i))
+typeof(c(TRUE, 1L, 0.2, 1 + 0i, "a"))
+```
+
+## Coercition explicite
+
+Il est possible de **contraindre explicitement** les valeurs d'un vecteur atomique à un type de données spécifique :
+
+```{r, echo=TRUE, eval=TRUE}
+v1
+as.numeric(v1)
+as.logical(v1)
+```
+
+## Coercition explicite
+
+Il est possible de **contraindre explicitement** les valeurs d'un vecteur atomique à un type de données spécifique :
+
+```{r, echo=TRUE, eval=TRUE}
+v1
+as.numeric(v1)
+as.logical(v1)
+```
+
+Notez que tous les nombres à l'exception de `0` deviennent `TRUE` :
+
+```{r, echo=TRUE, eval=TRUE}
+as.logical(2023)
+```
+
+... et toutes les chaînes de caractères à l'exception de `"TRUE"`, `"FALSE"`, `"T"` et `"F"` deviennent `NA` :
+
+```{r, echo=TRUE, eval=TRUE}
+as.logical("2023")
+```
+
+## Coercition explicite
+
+Il est possible de **contraindre explicitement** les valeurs d'un vecteur atomique à un type de données spécifique :
+
+```{r, echo=TRUE, eval=TRUE}
+v2
+as.integer(v2)
+as.character(v2)
+as.logical(v2)
+as.logical(as.character(v2))
+as.logical(as.integer(v2))
+```
+
+## Mise en pratique : coercition de vecteurs
+
+::: {.callout-tip appearance="simple" icon="false"}
+-   Sans exécuter le code, essayez de prévoir le résultat des lignes suivantes :
+
+    -   `a <- c(1.7, "1.7")` et `as.numeric(a)`
+
+    -   `b <- c(TRUE, 2022, 1.375)` et `as.logical(as.complex(b))`
+
+    -   `c <- c(TRUE, "t", "TRUE", "T")` et `as.logical(c)`
+
+    -   `as.integer(c(45L, 0.237, 4.9))`
+:::
+
+::: {.callout-caution appearance="simple" icon="false"}
+-   Que retourne le code as.factor(c("rouge", "bleu")) ?
+:::
+
+## Mise en pratique : coercition de vecteurs
+
+```{r, echo=TRUE, eval=TRUE}
+(a <- c(1.7, "1.7"))
+as.numeric(a)
+(b <- c(FALSE, 2022, 1.375))
+as.logical(as.complex(b))
+c <- c(TRUE, "t", "TRUE", "T")
+as.logical(c)
+as.integer(c(45L, 0.237, 4.9))
+```
+
+## Mise en pratique : coercition de vecteurs
+
+```{r, echo=TRUE, eval=TRUE}
+c("rouge", "bleu")
+as.factor(c("rouge", "bleu"))
+```
+
+# Facteurs
+
+## Facteurs
+
+Les facteurs représentent des données catégorielles dans un **ordre spécifique** :
+
+```{r, echo=TRUE, eval=TRUE}
+(v <- c("bien", "neutre", "mauvais"))
+as.factor(v)
+factor(v)
+factor(v, levels = c("bien", "neutre", "mauvais"))
+factor(v, levels = rev(v))
+```
+
+## Facteurs
+
+... même si la variable est encodée par des nombres :
+
+```{r, echo=TRUE, eval=TRUE}
+(n <- 0:3)
+(f <- factor(n))
+(f <- factor(n, levels = c(1:3, 0)))
+mean(n)
+mean(f)
+```
+
+## Niveaux et étiquettes de facteurs
+
+`levels()` retourne les niveaux uniques dans l'ordre spécifié :
+
+```{r, echo=TRUE, eval=TRUE}
+levels(f)
+```
+
+Vous pouvez aussi préciser des étiquettes qui écrasent les valeurs d'origine :
+
+```{r, echo=TRUE, eval=TRUE}
+(ff <- factor(n, levels = c(1:3, 0), labels = c("mauvais", "neutre", "bien", "n/a")))
+levels(ff)
+```
+
+## Coercition de facteurs
+
+```{r, echo=TRUE, eval=TRUE}
+ff
+```
+
+Pour transformer un facteur en nombres, utilisez `as.numeric()` :
+
+```{r, echo=TRUE, eval=TRUE}
+as.numeric(ff)
+```
+
+Notez que ceci retourne les éléments du facteur comme nombres selon les positions des niveaux !
+
+Pour transformer à nouveau en chaînes de caractères, utilisez `as.character()` :
+
+```{r, echo=TRUE, eval=TRUE}
+as.character(ff)
+```
+
+## Coercition de facteurs : attention !
+
+```{r, echo=TRUE, eval=TRUE}
+f
+```
+
+Retourne des nombres selon les niveaux :
+
+```{r, echo=TRUE, eval=TRUE}
+as.numeric(f)
+```
+
+Retourne des nombres selon les éléments :
+
+```{r, echo=TRUE, eval=TRUE}
+as.numeric(as.character(f))
+```
+
+# Packages
+
+## Qu'est-ce qu'un package ?
+
+Un package est une collection de fonctions, données, et autres objets qui sont conçus pour effectuer des taches spécifiques ou résoudre certains problèmes.
+
+Ces packages sont créés et maintenus par la communauté R, et sont souvent partagés sur le Comprehensive R Archive Network (CRAN) ou d'autres dépôts comme BioConductor.
+
+## Installer des packages supplémentaires
+
+Pour utiliser les fonctionnalités d'un package spécifique, vous pouvez installer le package sur votre ordinateur :
+
+```{r, echo=TRUE, eval=FALSE}
+install.packages("forcats")
+## fournit des fonctions pour travailler avec des facteurs
+```
+
+```{r, echo=TRUE, eval=FALSE}
+install.packages("palmerpenguins")
+## contient des jeux de données utiles pour l'apprentissage
+```
+
+## Utiliser des packages : charger les librairies
+
+Pour utiliser les fonctionnalités d'un package installé, vous devez charger le package :
+
+```{r, echo=TRUE, eval=TRUE}
+library(forcats)
+```
+
+```{r, echo=TRUE, eval=TRUE}
+f <- factor(0:10)
+levels(f)
+fct_rev(f)
+fct_relevel(f, "0", after = Inf)
+```
+
+## Utiliser des packages : charger les librairies
+
+Pour utiliser les fonctionnalités d'un package installé, vous devez charger le package :
+
+```{r, echo=TRUE, eval=TRUE}
+library(palmerpenguins)
+```
+
+```{r, echo=TRUE, eval=TRUE}
+penguins
+```
+
+## Utiliser des packages : conflits
+
+Notez que dans certains cas, plusieurs packages peuvent contenir des fonctions (ou des jeux de données) portant le même nom.
+
+```{r, echo=TRUE, eval=FALSE}
+install.packages("dplyr")
+```
+
+```{r, echo=TRUE, eval=TRUE}
+library(dplyr)
+```
+
+Si vous chargez deux fonctions portant le même nom, la fonction du package chargé en dernier sera utilisée !
+
+## Utiliser des packages : Namespace
+
+![](img/namespace.png){fig-align="center"}
+
+## Utiliser des packages : Namespace
+
+Pour éviter les conflits, il est possible de faire référence explicitement à des fonctions spécifiques à l'aide de namspaces :
+
+```{r, echo=TRUE, eval=FALSE}
+install.packages("stringr")
+## fournit des fonctions pour travailler avec des chaînes de caractères
+```
+
+```{r, echo=TRUE, eval=TRUE}
+stringr::str_to_sentence(c("cafe", "latte machiatto", "expresso"))
+```
+
+Les namespaces sont utiles dans les situations suivantes :
+
+-   résoudre les conflits dans les noms de fonctions
+
+-   utiliser des fonctions sans charger toutes les fonctionnalités d'un package
+
+-   être explicite pour les fonctions non basiques
+
+# Données tabulaires
+
+## Data Frames
+
+Vous pouvez stocker plusieurs vecteurs, avec différents types de données, comme données tabulaires dans des **data frames** :
+
+```{r, echo=TRUE, eval=TRUE}
+(df_noms <- data.frame(ids, names))
+```
+
+Vous pouvez expliciter les noms des colonnes :
+
+```{r, echo=TRUE, eval=TRUE}
+(df_noms <- data.frame(id = ids, personnage = names))
+```
+
+## Accéder aux éléments d'un Data Frame
+
+### Lignes :
+
+```{r, echo=TRUE, eval=TRUE}
+df_noms[2, ]
+```
+
+### Colonnes :
+
+```{r, echo=TRUE, eval=TRUE}
+df_noms[, 2]
+df_noms$personnage
+df_noms[[2]]
+```
+
+## Accéder aux éléments d'un Data Frame
+
+### Cellules :
+
+```{r, echo=TRUE, eval=TRUE}
+df_noms$personnages[2]
+df_noms[[2]][2]
+df_noms[, 2][2]
+df_noms[2, 2]
+```
+
+## Accéder aux éléments d'un Data Frame
+
+Les Data Frames supportent la correspondance partielle :
+
+```{r, echo=TRUE, eval=TRUE}
+df_noms
+```
+
+`personnage` n'est pas une colonne de `df_noms` mais ressemble à `personnages` :
+
+```{r, echo=TRUE, eval=TRUE}
+df_noms$personnage
+```
+
+## Le Data Frame moderne : le Tibble
+
+> Les Tibbles sont une refonte moderne du data.frame, conservant ce que le temps a montré être efficace, et supprimant ce qui ne l'était pas.
+
+```{r, echo=TRUE, eval=FALSE}
+install.packages("tibble")
+```
+
+Le nom vient de la manière dont on créait ces objets à l'origine : tbl_df`()` , plus simple à prononcer "tibble diff" ou "tibble d.f.".
+
+```{r, echo=TRUE, eval=TRUE}
+(tbl_noms <- tibble::tibble(id = ids, personnages = names))
+```
+
+Comme les fonctions utilisées précédemment, `tibble()` est une fonction. Alors que `mean()` et `+` sont des fonctions de base, `tibble()` appartient à un package ajouté qui s'appelle également {tibble}.
+
+## Data Frame vs Tibble
+
+> Les Tibbles sont une refonte moderne du data.frame, conservant ce que le temps a montré être efficace, et supprimant ce qui ne l'était pas.
+
+Les principales différences dans l'utilisation d'un data frame vs un tibble :
+
+-   les tibbles possèdent une méthode d'affichage affinée
+
+    -   seules les 10 premières lignes sont affichées, et toutes les colonnes qui rentrent sur l'écran
+
+    -   en plus de son nom, le type de chaque colonne est affiché
+
+    -   le type de données et les dimensions sont également affichées
+
+## Data Frame vs Tibble
+
+Les Tibbles possèdent une méthode d'affichage affinée :
+
+```{r, echo=TRUE, eval=TRUE}
+df_long <- data.frame(id = 1:1000 %% 10, value = runif(n = 1000, min = 0, max = 1000))
+tbl_long <- tibble::tibble(id = 1:1000 %% 10, value = runif(n = 1000, min = 0, max = 1000))
+```
+
+::: columns
+::: column
+```{r, echo=TRUE, eval=TRUE}
+df_long
+```
+:::
+
+::: column
+```{r, echo=TRUE, eval=TRUE}
+tbl_long
+```
+:::
+:::
+
+## Data Frame vs Tibble
+
+Les Tibbles possèdent une méthode d'affichage affinée :
+
+::: columns
+::: column
+```{r, echo=TRUE, eval=TRUE}
+as.data.frame(penguins)
+```
+:::
+
+::: column
+```{r, echo=TRUE, eval=TRUE}
+tibble::as_tibble(penguins)
+```
+:::
+:::
+
+## Data Frame vs Tibble
+
+> Les Tibbles sont une refonte moderne du data.frame, conservant ce que le temps a montré être efficace, et supprimant ce qui ne l'était pas.
+
+Les principales différences dans l'utilisation d'un data frame vs un tibble :
+
+-   les tibbles possèdent une méthode d'affichage affinée
+
+    -   seules les 10 premières lignes sont affichées, et toutes les colonnes qui rentrent sur l'écran
+
+    -   en plus de son nom, le type de chaque colonne est affiché
+
+    -   le type de données et les dimensions sont également affichées
+
+-   la sélection de données est plus stricte pour les tibbles
+
+::: columns
+::: column
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+df_long$val
+```
+:::
+
+::: column
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+tbl_long$val
+```
+:::
+:::
+
+## Explorer un jeu de données
+
+```{r, echo=TRUE, eval=FALSE}
+View(tbl_long)
+```
+
+## Explorer un jeu de données
+
+```{r, echo=TRUE, eval=FALSE}
+dim(tbl_long)
+str(tbl_long)
+tibble::glimpse(tbl_long)
+summary(tbl_long)
+```
+
+## Explorer un jeu de données
+
+```{r, echo=TRUE, eval=FALSE}
+mean(tbl_long$value)
+range(tbl_long$value)
+unique(tbl_long$id)
+sort(unique(tbl_long$id))
+length(tbl_long$id)
+length(unique(tbl_long$id))
+```
+
+## Mise en pratique : travailler avec des données tabulaires
+
+::: {.callout-tip appearance="simple" icon="false"}
+-   Si ce n'est pas encore fait, installez et chargez le package {palmerpenguins}
+
+-   Explorez le jeu de données `penguins` :
+
+    -   nombre d'observations
+
+    -   comptez le nombre d'observations par sexe
+
+    -   vérifiez les années de suivi des pingouins
+
+    -   calculez la longueur moyenne des becs (bill length)
+
+    -   affichez les quantiles des mesures de la longueur des ailes (flipper length)
+
+    -   stockez la colonne de masse corporelle (body mass) dans un vecteur `penguin_weights`
+:::
+
+## Mise en pratique : travailler avec des données tabulaires
+
+```{r, echo=TRUE, eval=TRUE}
+dim(penguins)  ## ou `nrow(penguins)`, `length(penguins$species)`, ...
+summary(penguins$sex)
+unique(penguins$year)
+mean(penguins$bill_length_mm)
+mean(penguins$bill_length_mm, na.rm = TRUE)
+quantile(penguins$flipper_length_mm, na.rm = TRUE)
+penguins_weights <- penguins$body_mass_g
+```
+
+## Listes
+
+La liste est de loin la structure de données la plus flexible dans R. Une liste est une collection d'éléments sans aucune restriction de classe, longueur ou structure de chaque élément.
+
+```{r, echo=TRUE, eval=TRUE}
+my_list <- list(ids = 1:5, names = c("Joe", "Jack", "William", "Averell", "Rantanplan"))
+my_list
+```
+
+Notez que les data frames peuvent être également considérés comme des listes tabulaires simples.
+
+## Accéder aux éléments d'une liste
+
+```{r, echo=TRUE, eval=TRUE}
+my_list$names
+my_list$names[1]
+my_list[[2]]
+my_list[[2]][1]
+```
+
+## Listes imbriquées
+
+Habituellement, on entend par listes des structures de données imbriquées
+
+```{r, echo=TRUE, eval=TRUE}
+my_nested_list <- list(
+  ids = list(1:5, 1),
+  names = list(c("Lucky Luke", "Joe", "Jack", "William", "Averell"),
+               "Rantanplan"),
+  type = list(rep("humain", 5), "chien")
+)
+my_nested_list
+```
+
+## Listes imbriquées
+
+```{r, echo=TRUE, eval=TRUE}
+my_nested_list$names
+my_nested_list$names[[1]]
+my_nested_list$names[[1]][1]
+my_nested_list$names[[2]][[1]][1]
+```
+
+## Listes imbriquées comme Tibbles
+
+```{r, echo=TRUE, eval=TRUE}
+my_tbl_list <- tibble::as_tibble(my_nested_list)
+my_tbl_list
+```
+
+## Désimbriquer des listes imbriquées
+
+```{r, echo=TRUE, eval=FALSE}
+install.packages("tidyr")
+```
+
+```{r, echo=TRUE, eval=TRUE}
+my_tbl <- tidyr::unnest(my_tbl_list)
+my_tbl <- tidyr::unnest(my_tbl_list, cols = c(ids, names, type))
+my_tbl
+```
+
+## Imbriquer des listes
+
+```{r, echo=TRUE, eval=TRUE}
+my_nested_tbl <- tidyr::nest(my_tbl, data = !type)
+my_nested_tbl$data
+```
+
+# Créer des jeux de données
+
+## Créer des ~~jeux de données~~ vecteurs dans R
+
+Vous pouvez combiner des vecteurs dans un data frame ou un tibble. Les fonctions `seq()` et `rep()` sont utiles pour créer des vecteurs :
+
+```{r, echo=TRUE, eval=TRUE}
+1:10
+seq(from = 0, to = 150, by = 25)
+0:6*25
+seq(from = 0, to = 150, length.out = 5)
+rep(1:3, times = 3)
+rep(1:3, each = 3)
+```
+
+## Créer des jeux de données dans R
+
+Vous pouvez combiner des vecteurs dans un data frame ou un tibble. Les fonctions `seq()` et `rep()` sont utiles pour créer des vecteurs :
+
+```{r, echo=TRUE, eval=TRUE}
+name <- c("Rantanplan", "Idéfix", "Milou", "Bill", "Pif")
+age <- seq(1, 13, by = 3)
+species <- rep("chien", length(name))
+id <- 1:length(name)
+tibble::tibble(id, name, age, species)  ## ou `data.frame()`
+```
+
+## Créer des jeux de données dans R
+
+Vous pouvez créer ces colonnes directement dans la fonction data.frame() ou tibble() :
+
+```{r, echo=TRUE, eval=TRUE}
+tibble::tibble(
+  name = c("Rantanplan", "Idéfix", "Milou", "Bill", "Pif"),
+  age = seq(1, 13, by = 3),
+  species = rep("chien", length(name)),
+  id = 1:length(name)
+)
+```
+
+## Créer des jeux de données dans R
+
+Vous pouvez également créer des tibbles en utilisant une disposition par ligne - un tribble :
+
+```{r, echo=TRUE, eval=TRUE}
+tibble::tribble(
+  ~id, ~name,        ~age, ~species,
+  1,   "Rantanplan", 1,    "chien",
+  2,   "Idéfix",     4,    "chien",
+  3,   "Milou",      7,    "chien",
+  4,   "Bill",       10,   "chien",
+  5,   "Pif",        13,   "chien"
+)
+```
+
+# Importer des données
+
+## Le workflow en data science
+
+![Le workflow en data science, modifié à partir de "R for Data Science"](img/workflow_01.png)
+
+## Le workflow en data science
+
+![Le workflow en data science, modifié à partir de "R for Data Science"](img/workflow_02.png)
+
+## Importer des données
+
+Habituellement, vous créez des data frames en important des fichiers de données comme `.txt`, `.csv`, ...
+
+```{r, echo=TRUE, eval=FALSE}
+my_data <- read.delim("./data/cool_data.txt", sep = "\t")
+my_data <- read.csv("./data/cool_data.csv")
+```
+
+Le `./` désigne un chemin relatif, à partir de votre **répertoire de travail (working directory)**.
+
+Vous pouvez vérifier votre "wd" à l'aide de la fonction `getwd()`.
+
+Vous pouvez aussi importer des données directement à partir d'un site internet à l'aide d'une URL valide :
+
+```{r, echo=TRUE, eval=FALSE}
+my_data <- read.csv("https:://some-webpage.com/online-data.csv")
+```
+
+## Importer des données : Tibbles
+
+Le package {readr} fournit une méthode simple et rapide de lire des données rectangulaires stockées comme des tibbles :
+
+```{r, echo=TRUE, eval=FALSE}
+my_data <- readr::read_delim("./data/cool_data.txt", delim = "\t")
+my_data <- readr::read_csv("./data/cool_data.csv")
+my_data <- readr::read_csv2("./data/actually_not_a_csv_but_okay.csv")  ## `;` comme séparateur et "," comme décimale
+```
+
+## Importer des données : fichiers Excel (pas idéal)
+
+Le package {readxl} fournit des fonctionnalités pour importer des tableaux Excel :
+
+```{r, echo=TRUE, eval=FALSE}
+my_data <- readxl::read_xls("./data/oh_no_excel_data.xls", sheet = 1)
+my_data <- readxl::read_xlsx("./data/oh_no_excel_data.xlsx", sheet = 1)
+```
+
+## Importer des données : formats propres à R
+
+Il existe également des formats propres à R comme .Rds et .Rdata / .Rda
+
+```{r, echo=TRUE, eval=FALSE}
+## R basique :
+my_data <- readRDS("./data/one_of_Rs_data_formats.Rds")
+```
+
+```{r, echo=TRUE, eval=FALSE}
+## package readr :
+my_data <- readr::read_rds("./data/one_of_Rs_data_formats.Rds")
+```
+
+## Importer des données : trop lent ?
+
+Le package {data.table} fournit des fonctionnalités pour importer, exporter et manipuler des données.
+
+Les fonctions pour importer et exporter des données sont connues pour être très rapides :
+
+```{r, echo=TRUE, eval=FALSE}
+my_data <- data.table::fread("./data/cool_data.csv", sep = ",")
+```
