@@ -548,3 +548,133 @@ df.population.us
 ```{r, echo=TRUE, eval=FALSE}
 df_Population.US
 ```
+
+## Syntaxe des noms d'objets
+
+Noms d'objets potentiels :
+
+-   `myvalue1`
+
+-   `myValue1`
+
+-   `MyValue1`
+
+-   `my_value_1`
+
+-   `my.value.1`
+
+-   ... et toutes les combinaisons de minuscules/majuscules et de symboles
+
+Utilisez le style que vous préférez, mais soyez consistents !
+
+## Syntaxe d'assignation
+
+```{r, echo=TRUE, eval=TRUE}
+name <- "Jo"
+name
+"Clermont-Ferrand" -> city  ## assignation à droite
+city
+pays = "France"  ## un `=` simple peut aussi servir pour assigner
+pays
+```
+
+L'utilisation du `=` est controversée car source de confusion, mais beaucoup plus répandue dans d'autres langages de programmation.
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+pays == "France"  ## un double `=` compare deux valeurs !
+langue == "Francais"  ## un double `=` compare deux valeurs !
+log(25, base = 5)  ## dans une fonction un `=` simple définit les arguments
+```
+
+## Utiliser des objets dans des fonctions
+
+`one <- 1`
+
+`log(one)`
+
+## Utiliser des objets dans des fonctions
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+one <- 1
+one
+log(one)
+one <- "1"
+one
+log(one)
+```
+
+# Types de données
+
+Il existe plusieurs types de données basiques dans R : character, double, integer, complex, et logical.
+
+```{r, echo=TRUE, eval=TRUE}
+typeof("Hello World!")
+typeof(1)
+typeof(1L)
+typeof(1i)
+typeof(TRUE)
+```
+
+Chacun de ces types de données possède ses propres caractéristiques et utilisations.
+
+## Types de données et classes atomiques
+
+```{r, echo=TRUE, eval=TRUE}
+typeof(1)
+class(1)
+typeof(1L)
+class(1L)
+typeof(1i)
+class(1i)
+```
+
+Même si "integer" et "complex" sont des classes spécifiques dans R, elles sont considérées comme des sous-types du type de données plus général "numeric".
+
+## Coercition en d'autres types de données
+
+Les fonctions `as.*()` vous permettent de changer le type de données d'une valeur :
+
+```{r, echo=TRUE, eval=TRUE}
+as.character(1)
+as.integer(1)
+as.complex(1)
+as.logical(1)
+as.logical(0)
+```
+
+## Dates et horodatages
+
+```{r, echo=TRUE, eval=TRUE}
+typeof("2023-09-11 14:00:00")
+```
+
+### Objets "Date"
+
+```{r, echo=TRUE, eval=TRUE}
+as.Date("2023-09-11 14:00:00")
+typeof(as.Date("2023-09-11 14:00:00"))
+```
+
+### Objets "Datetime"
+
+```{r, echo=TRUE, eval=TRUE}
+as.POSIXct("2023-09-11 14:00:00")
+typeof(as.POSIXct("2023-09-11 14:00:00"))
+as.POSIXlt("2023-09-11 14:00:00")
+```
+
+## Dates et horodatages
+
+```{r, echo=TRUE, eval=TRUE}
+date <- "2023-09-11 14:00:00"
+as.POSIXct(date)
+```
+
+```{r, echo=TRUE, eval=TRUE}
+as.POSIXct(date, format = "%d.%m.%Y %H:%M")
+as.POSIXct(date, format = "%d.%m.%Y %H:%M", tz = "EST")
+as.POSIXct(date, format = "%d.%m.%Y %H:%M", tz = "America/New_York")
+as.POSIXct(date, format = "%d.%m.%Y %H:%M", tz = "US/Eastern")
+```
+
+# Valeurs manquantes
