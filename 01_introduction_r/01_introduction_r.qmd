@@ -1,7 +1,7 @@
 ---
 format:
   revealjs:
-    theme: default
+    theme: custom.scss
     fontsize: 1.8em
 editor: visual
 title-slide-attributes: 
@@ -15,9 +15,13 @@ title-slide-attributes:
 
 ## Qu'est-ce que R ?
 
+<br>
+
 R est un **langage de programmation** et un **logiciel** utilisé pour réaliser des calculs statistiques et des graphiques.
 
 R a été conçu en 1992 par **Ross Ihaka** et **Robert Gentleman** comme implémentation open source du langage de programmation S et publié en 1995.
+
+<br>
 
 Depuis, les utilisations de R se sont largement diversifiées :
 
@@ -33,7 +37,9 @@ Depuis, les utilisations de R se sont largement diversifiées :
 
 ## Pourquoi (pas) R ?
 
-**Avantages :**
+<br>
+
+### **Avantages :**
 
 -   libre, open source, et plateforme indépendant
 
@@ -47,7 +53,11 @@ Depuis, les utilisations de R se sont largement diversifiées :
 
 -   souvent expérimenté comme étant *simple à coder* (pour un novice)
 
-**Inconvénients :**
+## Pourquoi (pas) R ?
+
+<br>
+
+### **Inconvénients :**
 
 -   performance : évolutivité, mémoire et vitesse
 
@@ -61,7 +71,9 @@ Depuis, les utilisations de R se sont largement diversifiées :
 
 ## 
 
-![](img/r_vs_rstudio.png){fig-align="center"}
+![Inspiré de [Modern Drive](https://moderndive.com/index.html)](img/r_vs_rstudio.png){fig-align="center" width="80%"}
+
+<br>
 
 -   **RStudio** est un environnement de développement intégré (IDE) open source
 
@@ -73,11 +85,17 @@ Depuis, les utilisations de R se sont largement diversifiées :
 
 ## Mise en pratique : installer R et RStudio
 
-::: {.callout-tip appearance="simple" icon="false"}
--   Télécharger et installer R depuis cloud.r-project.org
+<br>
 
--   Télécharger et installer RStudio Desktop depuis posit.co/download/rstudio-desktop
-:::
+-   Télécharger et installer R depuis
+
+    [cloud.r-project.org](https://cloud.r-project.org)
+
+<br>
+
+-   Télécharger et installer RStudio Desktop depuis
+
+    [posit.co/download/rstudio-desktop](https:://posit.co/download/rstudio-desktop)
 
 ## 
 
@@ -91,35 +109,47 @@ Depuis, les utilisations de R se sont largement diversifiées :
 
 ![](img/r_studio_02.png){fig-align="center"}
 
-## Mise en pratique : "Hello World!"
+## Console et script
 
-::: {.callout-tip appearance="simple" icon="false"}
--   Ouvrez **R** et tapez les commandes suivantes :
+<br>
 
-    -   `"Hello World!"`
+-   La **console** vous permet de taper du code et de l'exécuter.
 
-    -   `1`
+    -   le code tapé dans la console sera perdu quand vous quitterez R ...
 
--   Ouvrez **RStudio** et familiarisez-vous avec son environnement.
+    -   ... ce qui est problématique pour sauvegarder et partager votre code !
 
-    -   Cliquez sur `Help > Cheatsheets > RStudio IDE Cheat Sheet` et parcourez le document.
+<br>
 
-    -   Cliquez sur `View > Panes > Pane Layout` et arrangez les panneaux selon votre préférence.
+-   Un **script**, à la manière d'un document texte, vous permet de sauvegarder votre code et de le partager.
 
-    -   Ouvrez un script en cliquant sur `File > New File > R Script`, ajoutez les deux commandes précédentes et sauvegardez le script.
+<br>
 
-    -   Exécutez les commandes en plaçant votre curseur à la fin de la première ligne du script et cliquez sur le bouton Run ou utilisez le raccourci clavier `Ctrl + Entrée`.
+-   Dans la console, le code est tapé à la suite de l'**invite de commande `>`**.
 
-    -   Sauvegardez le script.
-:::
+-   La console affiche la **sortie** (le résultat) du code à la ligne suivante (débute par `[1]`).
 
-## La console
+-   Le code exécuté à partir d'un script s'affiche dans la console.
 
-Le code que vous exécutez apparaît dans la console - la ligne débute par un `>`.
+## Mise en pratique : console et script
 
-La console affiche également la sortie - la ligne débute par `[1]`.
+<br>
 
-![](img/r_studio_03.png){fig-align="center"}
+-   Ouvrez **R**, tapez les commandes suivantes et appuyez sur `Entrée` pour les exécuter :
+
+    -   `"Ceci est du texte"`
+
+    -   `2 + 2`
+
+<br>
+
+-   Ouvrez **RStudio**
+
+    -   Ouvrez un script (`File > New File > RScript`)
+
+    -   Ajoutez les deux commandes ci-dessus et exécutez-les en plaçant le curseur à la fin de la première ligne et en cliquant sur `Run` (ou en utilisant le raccourci clavier `Ctrl + Entrée`)
+
+    -   Sauvegardez le script (`Ctrl + S`)
 
 ## Les commentaires
 
@@ -139,6 +169,55 @@ Par convention, nous utilisons `#` pour commenter du code et `##` pour ajouter d
 # "Hello world!"  ## Je n'ai plus besoin de ce code mais je préfère le conserver.
 ```
 
+## Mise en pratique : commenter un script
+
+<br>
+
+Prenez dès maintenant l'habitude de commenter vos scripts. Cela les rendra plus compréhensibles - pour vous et pour vos collègues !
+
+Vous pouvez également utiliser les commentaires pour créer un **en-tête** :
+
+<br>
+
+-   Ouvrez un nouveau script et renseignez les informations essentielles (Quoi ? Qui ? Quand ?)
+
+```{r, echo=TRUE, eval=TRUE}
+#| code-fold: true
+#| code-summary: "Afficher le code"
+## Ateliers codons
+## Premiers pas avec R
+## NOM Prenom
+## Date
+```
+
+## Mise en pratique : commenter un script
+
+Structurez vos scripts à l'aide d'un commentaire suivi de **quatre tirets `-`**
+
+-   Créez deux sections dans votre script
+
+```{r, echo=TRUE, eval=TRUE}
+#| code-fold: true
+#| code-summary: "Afficher le code"
+## Ateliers codons
+## Premiers pas avec R
+## NOM Prenom
+## Date
+
+## Importer les donnees ----
+## Representer les donnees ----
+```
+
+## Mise en pratique : paramètres de RStudio
+
+<br>
+
+-   Cliquez sur `Help > Cheatsheets > RStudio IDE Cheat Sheet` et parcourez le document qui s'ouvre.
+
+-   Cliquez sur `View > Panes > Pane Layout` et arrangez les panneaux selon votre préférence.
+
+-   Cliquez sur `Tools > Global Options` et parcourez les différents éléments.
+
 ## 
 
 ![](img/r_studio_04.png){fig-align="center"}
@@ -155,11 +234,15 @@ Par convention, nous utilisons `#` pour commenter du code et `##` pour ajouter d
 
 ![](img/r_studio_07.png){fig-align="center"}
 
+# Organiser son travail
+
 ## Les projets R
 
-Les projets R (ou projets RStudio) vous fournissent un workflow robuste qui vous servira par la suite :
+<br>
 
--   ils s'appuient sur l'idée que tous les fichiers associés à votre projet devraient être stockés dans le même dossier
+Les projets R (ou projets RStudio) vous fournissent un **workflow robuste** qui vous servira par la suite :
+
+-   ils s'appuient sur l'idée que tous les fichiers associés à votre projet devraient être stockés **dans le même dossier**
 
     -   aide à trouver les fichiers
 
@@ -167,13 +250,15 @@ Les projets R (ou projets RStudio) vous fournissent un workflow robuste qui vous
 
     -   facilite la collaboration
 
--   le répertoire de travail est défini dans le dossier où se trouve le fichier .Rproj
+-   le **répertoire de travail** est défini dans le dossier où se trouve le fichier .Rproj
 
     -   assure un répertoire de travail correct
 
-    -   indépendant des paramètres d'opération et de l'arborescence des dossiers
+    -   indépendant des paramètres du système d'opération et de l'arborescence des dossiers (propre à chaque utilisateur)
 
     -   limite les changements de répertoire lors de collaborations
+
+## Mise en pratique : créer un projet
 
 Pour créer un projet R : `File > New Project …`
 
