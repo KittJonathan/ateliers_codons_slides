@@ -153,59 +153,76 @@ Depuis, les utilisations de R se sont largement diversifiées :
 
 ## Les commentaires
 
+<br>
+
 Les commentaires servent à :
 
--   inactiver du code qu'on ne souhaite plus exécuter
+-   **inactiver** du code qu'on ne souhaite plus exécuter
 
--   ajouter des commentaires qui expliquent notre raisonnement
+-   ajouter des commentaires pour **expliquer** notre raisonnement
 
 Dans R, les commentaires sont codés par un hash `#`.
 
 Tout ce qui suit sur la même ligne ne sera pas traité comme du code.
 
-Par convention, nous utilisons `#` pour commenter du code et `##` pour ajouter des commentaires :
+<br>
+
+Par convention, nous utilisons :
+
+-   `#` pour commenter du code
+
+-   `##` pour ajouter des commentaires :
 
 ```{r, echo=TRUE, eval=TRUE}
-# "Hello world!"  ## Je n'ai plus besoin de ce code mais je préfère le conserver.
+# "Ceci est du texte"  ## Cette ligne n'est plus utile
 ```
+
+## Les commentaires
+
+<br>
+
+Prenez dès maintenant l'habitude de commenter vos scripts.
+
+Cela les rendra plus **compréhensibles** - pour vous et pour vos collègues !
+
+Les commentaires peuvent vous servir à créer un en-tête (quoi ? qui ? quand ?)
+
+<br>
+
+Les commentaires servent également à structurer un script et à afficher une table des matières, en ajoutant quatre tirets `-` après un titre :
+
+![](img/toc_01.png){fig-align="center"}
 
 ## Mise en pratique : commenter un script
 
 <br>
 
-Prenez dès maintenant l'habitude de commenter vos scripts. Cela les rendra plus compréhensibles - pour vous et pour vos collègues !
-
-Vous pouvez également utiliser les commentaires pour créer un **en-tête** :
+-   Ouvrez un nouveau script et renseignez les informations essentielles (quoi ? qui ? quand ?)
 
 <br>
 
--   Ouvrez un nouveau script et renseignez les informations essentielles (Quoi ? Qui ? Quand ?)
-
-```{r, echo=TRUE, eval=TRUE}
-#| code-fold: true
-#| code-summary: "Afficher le code"
-## Ateliers codons
-## Premiers pas avec R
-## NOM Prenom
-## Date
-```
+-   Ajouter deux titres de sections
 
 ## Mise en pratique : commenter un script
 
-Structurez vos scripts à l'aide d'un commentaire suivi de **quatre tirets `-`**
+<br>
 
--   Créez deux sections dans votre script
+-   Ouvrez un nouveau script et renseignez les informations essentielles (quoi ? qui ? quand ?)
+
+<br>
+
+-   Ajouter deux titres de sections
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
-#| code-fold: true
-#| code-summary: "Afficher le code"
 ## Ateliers codons
 ## Premiers pas avec R
 ## NOM Prenom
 ## Date
 
-## Importer les donnees ----
-## Representer les donnees ----
+## Section 1 ----
+## Section 2 ----
 ```
 
 ## Mise en pratique : paramètres de RStudio
@@ -242,9 +259,9 @@ Structurez vos scripts à l'aide d'un commentaire suivi de **quatre tirets `-`**
 
 Les projets R (ou projets RStudio) vous fournissent un **workflow robuste** qui vous servira par la suite :
 
--   ils s'appuient sur l'idée que tous les fichiers associés à votre projet devraient être stockés **dans le même dossier**
+-   ils reposent sur l'idée que tous les fichiers associés à votre projet devraient être stockés **dans le même dossier**
 
-    -   aide à trouver les fichiers
+    -   aide à (re)trouver les fichiers
 
     -   augmente la reproductibilité
 
@@ -252,7 +269,7 @@ Les projets R (ou projets RStudio) vous fournissent un **workflow robuste** qui 
 
 -   le **répertoire de travail** est défini dans le dossier où se trouve le fichier .Rproj
 
-    -   assure un répertoire de travail correct
+    -   le répertoire de travail est clairement défini
 
     -   indépendant des paramètres du système d'opération et de l'arborescence des dossiers (propre à chaque utilisateur)
 
@@ -260,7 +277,21 @@ Les projets R (ou projets RStudio) vous fournissent un **workflow robuste** qui 
 
 ## Mise en pratique : créer un projet
 
+<br>
+
 Pour créer un projet R : `File > New Project …`
+
+![](img/r_projects_01.png){fig-align="center"}
+
+## Mise en pratique : créer un projet
+
+<br>
+
+::: {layout-ncol="2"}
+![](img/r_projects_02.png)
+
+![](img/r_projects_03.png)
+:::
 
 # Valeurs
 
