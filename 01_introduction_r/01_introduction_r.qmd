@@ -848,16 +848,20 @@ Noms potentiels d'objets :
 
 ## Syntaxe d'assignation
 
+<br>
+
 ```{r, echo=TRUE, eval=TRUE}
-name <- "Jo"
+name <- "Jo"  ## assignation gauche
 name
-"Clermont-Ferrand" -> city  ## assignation à droite
+"Clermont-Ferrand" -> city  ## assignation droite
 city
 pays = "France"  ## un `=` simple peut aussi servir pour assigner
 pays
 ```
 
-L'utilisation du `=` est controversée car source de confusion, mais beaucoup plus répandue dans d'autres langages de programmation.
+**💡L'utilisation du `=` est controversée car source de confusion, mais beaucoup plus répandue dans d'autres langages de programmation.**
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE, error=TRUE}
 pays == "France"  ## un double `=` compare deux valeurs !
@@ -867,11 +871,15 @@ log(25, base = 5)  ## dans une fonction un `=` simple définit les arguments
 
 ## Utiliser des objets dans des fonctions
 
+<br>
+
 `one <- 1`
 
 `log(one)`
 
 ## Utiliser des objets dans des fonctions
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE, error=TRUE}
 one <- 1
@@ -884,19 +892,27 @@ log(one)
 
 # Types de données
 
-Il existe plusieurs types de données basiques dans R : character, double, integer, complex, et logical.
+## Types de données
+
+<br>
+
+Il existe plusieurs types de données basiques dans R : **chaînes de** **caractères**, **nombres réels**, **nombres entiers**, **nombres complexes**, et **opérateurs logiques**.
 
 ```{r, echo=TRUE, eval=TRUE}
-typeof("Hello World!")
+typeof("Texte")
 typeof(1)
 typeof(1L)
 typeof(1i)
 typeof(TRUE)
 ```
 
-Chacun de ces types de données possède ses propres caractéristiques et utilisations.
+<br>
+
+Chacun de ces types de données possède ses propres **caractéristiques** et **cas d'usage**.
 
 ## Types de données et classes atomiques
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 typeof(1)
@@ -907,9 +923,13 @@ typeof(1i)
 class(1i)
 ```
 
-Même si "integer" et "complex" sont des classes spécifiques dans R, elles sont considérées comme des sous-types du type de données plus général "numeric".
+<br>
+
+Même si "integer" et "complex" sont des classes spécifiques dans R, elles sont considérées comme des sous-classes de la classe plus générale "numeric".
 
 ## Coercition en d'autres types de données
+
+<br>
 
 Les fonctions `as.*()` vous permettent de changer le type de données d'une valeur :
 
@@ -921,46 +941,56 @@ as.logical(1)
 as.logical(0)
 ```
 
-## Dates et horodatages
+## Dates et heures
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 typeof("2023-09-11 14:00:00")
 ```
 
-### Objets "Date"
+<br>
+
+#### Objets "Date"
 
 ```{r, echo=TRUE, eval=TRUE}
 as.Date("2023-09-11 14:00:00")
 typeof(as.Date("2023-09-11 14:00:00"))
 ```
 
-### Objets "Datetime"
+<br>
+
+#### Objets "POSIX" (Portable Operating System Interface)
 
 ```{r, echo=TRUE, eval=TRUE}
-as.POSIXct("2023-09-11 14:00:00")
+as.POSIXct("2023-09-11 14:00:00")  ## ct = calendar time
 typeof(as.POSIXct("2023-09-11 14:00:00"))
-as.POSIXlt("2023-09-11 14:00:00")
+as.POSIXlt("2023-09-11 14:00:00")  ## lt = local time
 ```
 
-## Dates et horodatages
+## Dates et heures
 
-```{r, echo=TRUE, eval=TRUE}
-date <- "2023-09-11 14:00:00"
+<br>
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+date <- "11.09.2023 14:00"
 as.POSIXct(date)
 ```
 
 ```{r, echo=TRUE, eval=TRUE}
 as.POSIXct(date, format = "%d.%m.%Y %H:%M")
 as.POSIXct(date, format = "%d.%m.%Y %H:%M", tz = "EST")
+as.POSIXct(date, format = "%d.%m.%Y %H:%M", tz = "Europe/Paris")
 as.POSIXct(date, format = "%d.%m.%Y %H:%M", tz = "America/New_York")
-as.POSIXct(date, format = "%d.%m.%Y %H:%M", tz = "US/Eastern")
 ```
 
 # Valeurs manquantes
 
 ## "Not available"
 
-NA est une valeur spéciale utilisée pour représenter une donnée manquante on indéfinie.
+<br>
+
+**NA** est une valeur spéciale utilisée pour représenter une **donnée manquante ou indéfinie**.
 
 ```{r, echo=TRUE, eval=TRUE}
 typeof(NA)
@@ -972,11 +1002,15 @@ typeof(NA_complex_)
 
 ## "Not a number"
 
-La valeur NaN est une autre valeur spéciale utilisée pour représenter des valeurs indéfinies dans des opérations mathématiques :
+<br>
+
+La valeur **NaN** est une autre valeur spéciale utilisée pour représenter des **valeurs indéfinies dans des opérations mathématiques** :
 
 ```{r, echo=TRUE, eval=TRUE}
 NaN
 ```
+
+<br>
 
 ... comme le résultat de la division de 0 par 0 :
 
@@ -988,7 +1022,9 @@ is.na(0 / 0)
 
 ## Valeurs inconnues
 
-Comme elles sont inconnues, les valeurs spéciales NA et NaN ne sont égales à aucune autre valeur, y compris elles-mêmes :
+<br>
+
+Comme elles sont inconnues, **les valeurs spéciales NA et NaN ne sont égales à aucune autre valeur, y compris elles-mêmes** :
 
 ```{r, echo=TRUE, eval=TRUE, error=TRUE}
 NA == "Jo"
@@ -996,6 +1032,8 @@ NaN == 1
 NA == NA
 NaN == (0 / 0)
 ```
+
+<br>
 
 Vous ne pouvez assigner aucune valeur aux valeurs spéciales NA et NaN :
 
@@ -1005,47 +1043,71 @@ NA <- 1
 
 # Vecteurs
 
-## Mise en pratique : calculer des moyennes
+## Mise en pratique : calculer une moyenne
 
-::: {.callout-tip appearance="simple" icon="false"}
--   Calculez la moyenne de ces trois valeurs numériques : 140, 97, et 222
-:::
+<br>
+
+-   Calculer la moyenne de ces trois valeurs numériques : 140, 97, et 222.
+
+💡Utilisez la fonction `mean()`.
+
+## Mise en pratique : calculer une moyenne
+
+<br>
+
+-   Calculer la moyenne de ces trois valeurs numériques : 140, 97, et 222.
+
+💡Utilisez la fonction `mean()`.
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 mean(140, 97, 222)
 ```
 
-![](img/liar-mad.gif){fig-align="center"}
-
 ## Vecteurs
+
+<br>
 
 ![](img/vector_01.png){fig-align="center"}
 
-## Mise en pratique : calculer des moyennes
+## Mise en pratique : calculer une moyenne
 
-::: {.callout-tip appearance="simple" icon="false"}
--   Calculez la moyenne de ces trois valeurs numériques : 140, 97, et 222
-:::
+<br>
+
+-   Calculer la moyenne de ces trois valeurs numériques : 140, 97, et 222.
+
+💡Utilisez la fonction `mean()`.
+
+<br>
+
+```{r, echo=TRUE, eval=TRUE}
+mean(140, 97, 222)
+```
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 mean(c(140, 97, 222))
 ```
 
-## Mise en pratique : calculer des moyennes
-
-::: {.callout-tip appearance="simple" icon="false"}
--   Calculez la moyenne de ces trois valeurs numériques : 140, 97, et 222
-:::
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 values <- c(140, 97, 222)
 mean(values)
+```
 
+<br>
+
+```{r, echo=TRUE, eval=TRUE}
 values <- c(140L, 97L, 222L)
 mean(values)
 ```
 
-## Mais ... Comment suis-je sensé savoir ?
+## Mais ... J'étais supposé le deviner ?
+
+<br>
 
 ```{r, echo=TRUE, eval=FALSE}
 help(mean)
@@ -1053,7 +1115,9 @@ help(mean)
 # curseur + F1
 ```
 
-### Usage
+<br>
+
+#### Usage
 
 ```{r, echo=TRUE, eval=FALSE}
 mean(x, ...)
@@ -1062,7 +1126,9 @@ mean(x, ...)
 mean(x, trim = 0, na.rm = FALSE, ...)
 ```
 
-### Examples
+<br>
+
+#### Examples
 
 ```{r, echo=TRUE, eval=TRUE}
 x <- c(0:10, 50)
@@ -1073,38 +1139,54 @@ xm
 
 ## Vecteurs
 
-Comme c'est le cas pour les valeurs, les vecteurs peuvent être de différents types :
+<br>
+
+Comme c'est le cas pour les valeurs, **les vecteurs peuvent être de différents types** :
 
 ```{r, echo=TRUE, eval=TRUE}
-ids <- c(1:5)
+ids <- 1:5
 ids
 typeof(ids)
-names <- c("Joe", "Jack", "William", "Averell", "Rantanplan")
+```
+
+<br>
+
+```{r, echo=TRUE, eval=TRUE}
+names <- c("Lucky Luke", "Averell", "Jack", "Joe", "Wiliam")
 names
 typeof(names)
 ```
 
 ## Vecteurs nommés
 
+<br>
+
 ```{r, echo=TRUE, eval=TRUE}
-(couleurs <- c(vert = "#28A87D", violet = "#9C55E3", jaune = "#EFAC00"))
+(colors <- c(green= "#28A87D", purple = "#9C55E3", yellow = "#EFAC00"))
 ```
 
-Vous pouvez également créer un vecteur non nommé et ajouter les noms à l'aide de `names(x)` :
+<br>
+
+Vous pouvez également créer un vecteur non nommé et ajouter les noms à l'aide de **`names(x)`** :
 
 ```{r, echo=TRUE, eval=TRUE}
-couleurs <- c("#28A87D", "#9C55E3", "#EFAC00")
-names(couleurs) <- c("vert", "violet", "jaune")
-couleurs
+colors <- c("#28A87D", "#9C55E3", "#EFAC00")
+colors
+names(colors) <- c("green", "purple", "yellow")
+colors
 ```
 
-Pour supprimer les noms, utilisez `unname()` :
+<br>
+
+Pour supprimer les noms, utilisez **`unname()`** :
 
 ```{r, echo=TRUE, eval=TRUE}
-unname(couleurs)
+unname(colors)
 ```
 
 ## Accéder aux éléments de vecteurs
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 names
@@ -1116,41 +1198,67 @@ names[-2]
 
 ## Accéder aux éléments de vecteurs nommés
 
+<br>
+
 ```{r, echo=TRUE, eval=TRUE}
-couleurs
-couleurs[c(1, 3)]
+colors
+colors[c(1, 3)]
 ```
 
-Les vecteurs nommés peuvent également être explorés par noms d'éléments :
+<br>
+
+Les vecteurs nommés peuvent également être explorés par **noms d'éléments** :
 
 ```{r, echo=TRUE, eval=TRUE}
-couleurs["violet"]
-couleurs[c("vert", "jaune")]
+colors["purple"]
+colors[c("green", "yellow")]
 ```
 
 ## NA et NaN dans des vecteurs
 
-Quand il est utilisé dans un vecteur, le type de `NA` est déterminé par les types de données des autres valeurs - pas besoin de spécifier par exemple `NA_character_` :
+<br>
+
+Quand un NA est présent dans un vecteur, son type est déterminé par les autres éléments du vecteur.
+
+<br>
+
+💡Pas besoin de spécifier `NA_character` par exemple.
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 x <- c(1, 2, 3, NA, 5)
 y <- c("A", "B", NA, "D", "E")
+```
+
+<br>
+
+```{r, echo=TRUE, eval=TRUE}
 typeof(x)
 typeof(y)
 ```
 
 ## NA et NaN dans des vecteurs
 
+<br>
+
 Comme ils sont inconnus, toute opération mathématique retournera `NA` ou `NaN` :
 
 ```{r, echo=TRUE, eval=TRUE}
 x <- c(5, 12, NA, 2, 18)
 mean(x)
+```
+
+<br>
+
+```{r, echo=TRUE, eval=TRUE}
 y <- c(6, 23, NaN, 2, 18)
 mean(y)
 ```
 
-Pour ignorer les valeurs inconnues, vous pouvez définir l'argument `na.rm` comme `TRUE` :
+<br>
+
+L'argument `na.rm` permet d'ignorer les valeurs inconnues :
 
 ```{r, echo=TRUE, eval=TRUE}
 mean(x, na.rm = TRUE)  ## par défaut `na.rm = FALSE`
@@ -1159,29 +1267,46 @@ mean(y, na.rm = TRUE)
 
 ## Extension et combinaison de vecteurs
 
-```{r, echo=TRUE, eval=TRUE}
-couleurs_ext <- c(couleurs, "#000000", "#ffffff")
-couleurs_ext
-couleurs_ext <- c(couleurs, c(noir = "#000000", blanc = "#ffffff"))
-couleurs_ext
-```
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
-comb_vec <- c(ids, mean)
+colors_ext <- c(colors, "#000000", "#ffffff")
+colors_ext
+```
+
+<br>
+
+```{r, echo=TRUE, eval=TRUE}
+colors_ext <- c(colors, c(black = "#000000", white = "#ffffff"))
+colors_ext
+```
+
+<br>
+
+```{r, echo=TRUE, eval=TRUE}
+comb_vec <- c(ids, names)
 comb_vec
 ```
 
-Notez que dans le dernier exemple **toutes les valeurs prennent le même type de données** (les vecteurs atomiques ne contiennent qu'un seul type de données)
+Notez que dans le dernier exemple **toutes les valeurs prennent le même type de données** (les vecteurs atomiques ne contiennent qu'un seul type de données).
 
 ## Coercition
 
-Les vecteurs atomiques ne contiennent qu'un seul type de données et **toutes les valeurs sont implicitement contraintes à prendre le même type de données** :
+<br>
+
+Un vecteur atomique ne contient qu'un seul type de données.
+
+Toutes les valeurs seront **implicement contraintes** au même type de données :
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 v1 <- c("ggplot2", 2023, TRUE)
 v1
 typeof(v1)
 ```
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 v2 <- c(0.2, 1L, 3 + 0i)
@@ -1191,9 +1316,13 @@ typeof(v2)
 
 ## Coercition
 
-La règle de coercition est la suivante :
+<br>
 
-`logical ➙ integer ➙ double ➙ complex ➙ character`
+L'ordre de coercition est le suivant :
+
+**`logical ➙ integer ➙ double ➙ complex ➙ character`**
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 typeof(c(TRUE))
@@ -1205,7 +1334,9 @@ typeof(c(TRUE, 1L, 0.2, 1 + 0i, "a"))
 
 ## Coercition explicite
 
-Il est possible de **contraindre explicitement** les valeurs d'un vecteur atomique à un type de données spécifique :
+<br>
+
+La coercition explicite permet de forcer les valeurs d'un vecteur atomique à prendre un type de données spécifique :
 
 ```{r, echo=TRUE, eval=TRUE}
 v1
@@ -1215,7 +1346,9 @@ as.logical(v1)
 
 ## Coercition explicite
 
-Il est possible de **contraindre explicitement** les valeurs d'un vecteur atomique à un type de données spécifique :
+<br>
+
+La coercition explicite permet de forcer les valeurs d'un vecteur atomique à prendre un type de données spécifique :
 
 ```{r, echo=TRUE, eval=TRUE}
 v1
@@ -1223,13 +1356,37 @@ as.numeric(v1)
 as.logical(v1)
 ```
 
-Notez que tous les nombres à l'exception de `0` deviennent `TRUE` :
+<br>
+
+Notez que **tous les nombres à l'exception de `0`** deviennent **`TRUE`** :
 
 ```{r, echo=TRUE, eval=TRUE}
 as.logical(2023)
 ```
 
-... et toutes les chaînes de caractères à l'exception de `"TRUE"`, `"FALSE"`, `"T"` et `"F"` deviennent `NA` :
+## Coercition explicite
+
+<br>
+
+La coercition explicite permet de forcer les valeurs d'un vecteur atomique à prendre un type de données spécifique :
+
+```{r, echo=TRUE, eval=TRUE}
+v1
+as.numeric(v1)
+as.logical(v1)
+```
+
+<br>
+
+Notez que **tous les nombres à l'exception de `0`** deviennent `TRUE` :
+
+```{r, echo=TRUE, eval=TRUE}
+as.logical(2023)
+```
+
+<br>
+
+... et **toutes les chaînes de caractères à l'exception de** `"TRUE"`, `"FALSE"`, `"T"` et `"F"` deviennent `NA` :
 
 ```{r, echo=TRUE, eval=TRUE}
 as.logical("2023")
@@ -1237,7 +1394,11 @@ as.logical("2023")
 
 ## Coercition explicite
 
-Il est possible de **contraindre explicitement** les valeurs d'un vecteur atomique à un type de données spécifique :
+<br>
+
+La coercition explicite permet de forcer les valeurs d'un vecteur atomique à prendre un type de données spécifique :
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 v2
@@ -1250,44 +1411,48 @@ as.logical(as.integer(v2))
 
 ## Mise en pratique : coercition de vecteurs
 
-::: {.callout-tip appearance="simple" icon="false"}
--   Sans exécuter le code, essayez de prévoir le résultat des lignes suivantes :
+<br>
 
-    -   `a <- c(1.7, "1.7")` et `as.numeric(a)`
+-   Sans exécuter le code, essayez de prévoir ce que retourneront les lignes de code suivantes :
 
-    -   `b <- c(TRUE, 2022, 1.375)` et `as.logical(as.complex(b))`
+`a <- c(1.7, "1.7")` et `as.numeric(a)`
 
-    -   `c <- c(TRUE, "t", "TRUE", "T")` et `as.logical(c)`
+`b <- c(TRUE, 2022, 1.375)` et `as.logical(as.complex(b))`
 
-    -   `as.integer(c(45L, 0.237, 4.9))`
-:::
+`c <- c(TRUE, "t", "TRUE", "T")` et `as.logical(c)`
 
-::: {.callout-caution appearance="simple" icon="false"}
--   Que retourne le code as.factor(c("rouge", "bleu")) ?
-:::
+`as.integer(c(45L, 0.237, 4.9))`
+
+<br>
+
+❓Que retourne le code `as.factor(c("red", "blue"))` ?
 
 ## Mise en pratique : coercition de vecteurs
 
+<br>
+
 ```{r, echo=TRUE, eval=TRUE}
-(a <- c(1.7, "1.7"))
+a <- c(1.7, "1.7")
 as.numeric(a)
-(b <- c(FALSE, 2022, 1.375))
+b <- c(TRUE, 2022, 1.375)
 as.logical(as.complex(b))
 c <- c(TRUE, "t", "TRUE", "T")
 as.logical(c)
 as.integer(c(45L, 0.237, 4.9))
 ```
 
-## Mise en pratique : coercition de vecteurs
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
-c("rouge", "bleu")
-as.factor(c("rouge", "bleu"))
+c("red", "blue")
+as.factor(c("red", "blue"))
 ```
 
 # Facteurs
 
 ## Facteurs
+
+<br>
 
 Les facteurs représentent des données catégorielles dans un **ordre spécifique** :
 
@@ -1299,7 +1464,13 @@ factor(v, levels = c("bien", "neutre", "mauvais"))
 factor(v, levels = rev(v))
 ```
 
+<br>
+
+💡Par défaut, les niveaux d'un facteur sont triés **par ordre alphabétique**.
+
 ## Facteurs
+
+<br>
 
 ... même si la variable est encodée par des nombres :
 
@@ -1313,11 +1484,15 @@ mean(f)
 
 ## Niveaux et étiquettes de facteurs
 
+<br>
+
 `levels()` retourne les niveaux uniques dans l'ordre spécifié :
 
 ```{r, echo=TRUE, eval=TRUE}
 levels(f)
 ```
+
+<br>
 
 Vous pouvez aussi préciser des étiquettes qui écrasent les valeurs d'origine :
 
