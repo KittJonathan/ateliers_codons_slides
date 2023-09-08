@@ -201,7 +201,7 @@ Les commentaires servent également à structurer un script et à afficher une t
 
 <br>
 
--   Ajouter deux titres de sections
+-   Ajoutez deux titres de sections
 
 ## Mise en pratique : commenter un script
 
@@ -267,7 +267,7 @@ Les projets R (ou projets RStudio) vous fournissent un **workflow robuste** qui 
 
     -   facilite la collaboration
 
--   le **répertoire de travail** est défini dans le dossier où se trouve le fichier .Rproj
+-   le **répertoire de travail** est défini dans le dossier où se trouve le fichier `.Rproj`
 
     -   le répertoire de travail est clairement défini
 
@@ -293,46 +293,112 @@ Pour créer un projet R : `File > New Project …`
 ![](img/r_projects_03.png)
 :::
 
+## Arborescence
+
+<br>
+
+Une **bonne organisation** de vos fichiers avec une **bonne structure** de vos dossiers vous évitera de perdre du temps à chercher des fichiers.
+
+<br>
+
+La structure proposée ci-dessous est applicable à une bonne partie des projets :
+
+<br>
+
+📂**Données brutes** : données que vous récupérez au début du projet
+
+📂**Données modifiées** : données générées en cours d'analyse
+
+📂**Scripts** : code utilisé pour l'analyse, pour générer les figures, rédiger des rapports
+
+📂**Résultats** : tableaux ou fichiers de résultats intermédiaires / finaux
+
+📂**Figures** : figures générées en cours d'analyse et pour présenter les résultats
+
+📂**Documents** : rapports, présentations, articles, documentation
+
+## Mise en pratique : créer une arborescence
+
+<br>
+
+-   Cliquez sur `New Folder` pour ajouter des dossiers dans votre répertoire de travail
+
+![](img/rstudio_folders_01.png){fig-align="center"}
+
+<br>
+
+-   Créez l'arborescence qui vous semble la mieux adaptée (pensez à utiliser des nombres quand vous nommez vos dossiers pour conserver l'ordre)
+
+## Mise en pratique : créer une arborescence
+
+<br>
+
+-   Cliquez sur `New Folder` pour ajouter des dossiers dans votre répertoire de travail
+
+<br>
+
+-   Créez l'arborescence qui vous semble la mieux adaptée (pensez à utiliser des nombres quand vous nommez vos dossiers pour conserver l'ordre)
+
+![](img/rstudio_folders_02.png){fig-align="center"}
+
 # Valeurs
 
 ## Valeurs
 
-Tapez les commandes suivantes :
+<br>
+
+Tapez et exécutez les commandes suivantes :
+
+<br>
 
 `1`
 
-`"Hello World!"`
+`"Ceci est du texte"`
+
+`"2023-09-11 14:00:00"`
 
 `x`
+
+`"x"`
 
 `pi`
 
 ## Valeurs
 
+<br>
+
 ```{r, echo=TRUE, eval=TRUE, error=TRUE}
 1
-"Hello World!"
+"Ceci est du texte"
+"2023-09-11 14:00:00"
 x
+"x"
 pi
 ```
+
+<br>
+
+💡R est un **langage orienté objet** : tous les élements que vous manipulez dans R (données, fonctions, ...) sont stockés dans des objets.
 
 # Fonctions
 
 ## Mise en pratique : opérations arithmétiques
 
-::: {.callout-tip appearance="simple" icon="false"}
--   Tapez `2 + 3 et exécutez.`
+<br>
 
--   Essayez d'autres opérateurs de calcul comme `-`, `*`, `/`, ou `^`.
+-   Tapez et exécutez `2 + 3`.
 
--   Calculez la racine carrée d'un nombre avec `sqrt()`.
-:::
+-   Essayez d'autres opérateurs de calcul : `-`, `*`, `/`, ou `^`.
 
-::: {.callout-caution appearance="simple" icon="false"}
--   Quelle est la différence entre la valeur 5 obtenue à la première ligne et le calcul de la racine carrée à l'aide de `sqrt` ?
-:::
+-   Calculez la racine carrée de 25 : `sqrt(x = 25)`.
+
+<br>
+
+❓Quelle est la différence entre les deux valeurs 5 obtenues ?
 
 ## R est un calculateur !
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 2 + 3
@@ -345,25 +411,37 @@ log(exp(5))
 
 ## Fonctions
 
+<br>
+
 ![](img/fonctions_01.png){fig-align="center"}
 
 ## Fonctions
+
+<br>
 
 ![](img/fonctions_02.png){fig-align="center"}
 
 ## Fonctions
 
-R possède une large collection de fonctions intégrées qu'on appelle comme ceci :
+<br>
+
+R possède une large collection de **fonctions intégrées** qu'on utilise comme ceci :
+
+<br>
 
 ```{r, echo=TRUE, eval=FALSE}
 function_name(arg1 = val1, arg2 = val2, ...)
 ```
 
+<br>
+
 Nous avons déjà vu certaines fonctions dans les exercices précédents :
 
-`+`, `-`, `*`, `^`, `sqrt()`, `log()` sont toutes des fonctions.
+**`+`, `-`, `*`, `^`, `sqrt()`, `log()` sont toutes des fonctions.**
 
 ## Fonctions
+
+<br>
 
 ```{r, echo=TRUE, eval=FALSE}
 sqrt()
@@ -381,6 +459,8 @@ sqrt(x = 25)
 
 ## Fonctions infixes
 
+<br>
+
 ```{r, echo=TRUE, eval=FALSE}
 +
 -
@@ -391,7 +471,7 @@ sqrt(x = 25)
 
 <br>
 
-### Opérateur unaire
+### Opérateur unaire (fonction à un seul argument)
 
 ```{r, echo=TRUE, eval=TRUE}
 -1
@@ -399,13 +479,15 @@ sqrt(x = 25)
 
 <br>
 
-### Opérateur binaire
+### Opérateur binaire (fonction à deux arguments)
 
 ```{r, echo=TRUE, eval=TRUE}
 12 %% 5
 ```
 
 ## Corps d'une fonction
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 log
@@ -417,11 +499,15 @@ read.csv
 
 ## Corps d'une fonction
 
+<br>
+
 ```{r, echo=TRUE, eval=TRUE}
 read.table
 ```
 
 ## Arguments d'une fonction
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 log(x = 25)  ## `base = exp(1)` par défaut
@@ -432,11 +518,15 @@ log2(x = 25)  ## équivalent de `log(x, base = 2)`
 
 ## Apprendre à utiliser une fonction
 
+<br>
+
 ```{r, echo=TRUE, eval=FALSE}
 help(log)
 ?log
 # curseur + F1
 ```
+
+<br>
 
 ### Description
 
@@ -444,11 +534,15 @@ help(log)
 
 ## Apprendre à utiliser une fonction
 
+<br>
+
 ```{r, echo=TRUE, eval=FALSE}
 help(log)
 ?log
 # curseur + F1
 ```
+
+<br>
 
 ### Usage
 
@@ -466,11 +560,15 @@ expm1(x)
 
 ## Apprendre à utiliser une fonction
 
+<br>
+
 ```{r, echo=TRUE, eval=FALSE}
 help(log)
 ?log
 # curseur + F1
 ```
+
+<br>
 
 ### Arguments
 
@@ -478,7 +576,9 @@ help(log)
 
 `base` a positive or complex number: the base with respect to which logarithms are computed. Defaults to `e = exp(1)`.
 
-## Arguments d'une fonction : assignation implicite
+## Assignation implicite
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 log(x = 25, base = 5)
@@ -486,25 +586,31 @@ log(25, 5)  ## le 1er argument est `x`, le 2nd `base`
 log(5, 25)  ## le 1er argument est `x`, le 2nd `base`
 log(25, base = 5)  ## le 1er argument est `x`
 log(base = 5, 25)  ## fonctionne, mais à éviter
-log(base = 5, x = 25)  ## soyez explicites si vous souhaitez modifier les positions des arguments
+log(base = 5, x = 25)  ## être explicite quand on modifie l'ordre des arguments
 ```
 
 ## Assignation implicite : attention !
 
-Noms d''arguments explicites :
+<br>
+
+**Assignation explicite** :
 
 ```{r, echo=TRUE, eval=TRUE}
 ## l'exemple utilise des vecteurs (séquences de nombres entourées par `c()`)
 quantile(x = c(5, 1, 3), probs = c(0.25, 0.5, 0.75))
 ```
 
-Assignation implicite par position :
+<br>
+
+**Assignation implicite par position** :
 
 ```{r, echo=TRUE, eval=TRUE}
 quantile(c(5, 1, 3), c(0.25, 0.5, 0.75))
 ```
 
-Des erreurs dans la modification des positions peut engendrer tout un tas de problèmes :
+<br>
+
+Des erreurs dans les positions peuvent poser problème :
 
 ```{r, echo=TRUE, eval=TRUE, error=TRUE}
 quantile(c(0.25, 0.5, 0.75), c(5, 1, 3))
@@ -513,9 +619,11 @@ quantile(c(0.25, 0.5, 0.75), c(0.95, 0.345, 1))
 
 ## Mise en pratique : arguments d'une fonction
 
-::: {.callout-caution appearance="simple" icon="false"}
-Quelles lignes de code ci-dessous vont fonctionner ?
-:::
+<br>
+
+Parmi les lignes de code suivantes, laquelle (ou lesquelles) retourneront une erreur ? Pourquoi ?
+
+<br>
 
 `log(x = 1)`
 
@@ -529,37 +637,54 @@ Quelles lignes de code ci-dessous vont fonctionner ?
 
 `log(1)`
 
+## Mise en pratique : arguments d'une fonction
+
+<br>
+
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
+log(x = 1)
+log(x = "1")
+log(x)
+log(value = 1)
+log(`1`)
+log(1)
+```
+
 # Assignation et objets
 
 ## Mise en pratique : assignation et objets
 
-::: {.callout-tip appearance="simple" icon="false"}
+<br>
+
 -   Tapez et exécutez `x <- 1` puis `x`.
 
 -   Exécutez `x + 2`.
 
 -   Exécutez `x <- 5` puis à nouveau `x + 2`.
-:::
 
-::: {.callout-caution appearance="simple" icon="false"}
--   Pourquoi n'y a-t-il aucune sortie après exécution de `x <- 1` ?
+<br>
 
--   Que fait le symbole de la flèche `<-` ?
+❓Pourquoi la console n'affiche-t-elle rien après l'exécution de `x <- 1` ?
 
--   Quelle est la valeur de `x` à la fin ?
+❓Quel rôle joue le symbole "flèche" `<-` ?
 
--   Que se passe-t-il si vous exécutez `y <- x` ? Et `y <- x <- 2` ?
+❓Quelle est la valeur de `x` après éxécution des trois lignes de code ?
 
--   Tapez et exécutez `y <- 2 <- x`. Que se passe-t-il ?
+❓Que se passe-t-il si vous exécutez `y <- x` ? Et `y <- x <- 2` ?
 
--   Pouvez-vous assigner une valeur et montrer le contenu de l'objet en même temps ?
-:::
+❓Exécutez `y <- 2 <- x`. Que se passe-t-il ?
+
+❓Pouvez-vous assigner une valeur et afficher le contenu de l'objet simultanément ?
 
 ## Assignation et objets
+
+<br>
 
 ![](img/objets_01.png){fig-align="center"}
 
 ## Assignation et objets
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 x <- 1
@@ -572,6 +697,8 @@ x
 
 ## Assignation et objets
 
+<br>
+
 ```{r, echo=TRUE, eval=TRUE, error=TRUE}
 y <- x
 y
@@ -583,11 +710,41 @@ y <- 2 <- x
 
 ## L'environnement
 
-Par défaut, les objets assignés existent dans l'**environnenemt global** appelé `R_GlobalEnv`. L'aperçu de tout ce que vous avec défini se trouve dans le **panneau d'environnement**.
+<br>
+
+Par défaut, les objets assignés existent dans l'**environnenemt global** appelé `R_GlobalEnv`.
+
+L'aperçu de tout ce que vous avec défini se trouve dans le **panneau d'environnement**.
+
+<br>
 
 ![](img/rstudio_env_01.png){fig-align="center"}
 
+## L'environnement
+
+<br>
+
+Pour supprimer un objet de l'environnement, utilisez la fonction `rm()`.
+
+```{r, echo=TRUE, eval=TRUE}
+# rm(x)  ## juste pour montrer le code
+```
+
+<br>
+
+Pour supprimer plusieurs objets à la fois, cliquez sur l'**icône "balai"** :
+
+![](img/rstudio_env_02.png){fig-align="center"}
+
+<br>
+
+-   en affichage liste, tous les objets de l'environnement seront supprimés
+
+-   en affichage grille, cochez les objets à supprimer avant de cliquer sur l'icône
+
 ## Assigner et afficher des objets
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 print(a <- 123)
@@ -597,31 +754,31 @@ show(a <- 123)
 
 ## Syntaxe des noms d'objets
 
--   devrait être descriptif
+<br>
 
-    -   équilibre entre l'effort pour taper et la précision
+De bons noms d'objets :
 
--   doit commencer par une lettre
+-   **doivent être descriptifs** (pas trop compliqués mais précis)
 
-    -   `val1` valide - `1val` et `.val1` non valides
+-   **doivent commencer par une lettre**
 
--   peut contenir d'autres symboles dans le nom
+    -   ✅`val1` , ❌ `1val`, `.val1`
 
-    -   nombres, points, et/ou tirets \_ : `val_1`
+-   **peuvent contenir d'autres symboles** comme des nombres, des points ou des tirets `_` mais pas des tirets `-`
 
-    -   pas de tiret - (ne pas utiliser le style kebab, voir diapo suivante)
+    -   ✅`val_1` , `val.1`❌ `val-1`
 
--   sensible à la casse
+-   **doivent suivre une convention cohérente** et ne pas mélanger différents styles
 
-    -   `myvalues`, `myValues` et `MyValues` sont des objets différents !
+    -   ❌ `val1`, `val_2` et `val.3`
 
--   doit dans l'idéal suivre une convention cohérente
+-   **ne doivent pas utiliser des noms réservés** qui ont une fonction dans R
 
-    -   ne pas mélanger différents styles : éviter `val1`, `val_2` et `val.3`
+    -   ❌ `if`, `in` , `function`, `TRUE`, `FALSE`, `NA`, `NaN`
 
--   ne peut pas utiliser des noms réservés qui ont une fonction dans R
+<br>
 
-    -   `if`, `in`, `function`, `TRUE`, `FALSE`, `NA`, `NaN`
+Dans R, les noms sont **sensibles à la casse** : `myvalues`, `myValues` et `MyValues` sont des objets différents !
 
 ## 
 
@@ -629,7 +786,9 @@ show(a <- 123)
 
 ## Syntaxe des noms d'objets
 
-C'est une question de lisibilité - décidez par vous-mêmes :
+<br>
+
+Tout est question de **lisibilité** - choisissez la syntaxe qui vous facilite la vie (et pensez aux personnes qui liront votre code !)
 
 ```{r, echo=TRUE, eval=FALSE}
 i_prefer_snake_case
@@ -667,7 +826,9 @@ df_Population.US
 
 ## Syntaxe des noms d'objets
 
-Noms d'objets potentiels :
+<br>
+
+Noms potentiels d'objets :
 
 -   `myvalue1`
 
@@ -679,9 +840,11 @@ Noms d'objets potentiels :
 
 -   `my.value.1`
 
--   ... et toutes les combinaisons de minuscules/majuscules et de symboles
+-   ... et toutes les combinaisons de minuscules, majuscules et symboles vues précédemment
 
-Utilisez le style que vous préférez, mais soyez consistents !
+<br>
+
+**Utilisez le style que vous préférez, mais soyez cohérents !**
 
 ## Syntaxe d'assignation
 
