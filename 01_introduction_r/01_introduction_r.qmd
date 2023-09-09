@@ -39,7 +39,7 @@ Depuis, les utilisations de R se sont largement diversifiées :
 
 <br>
 
-### **Avantages :**
+#### **Avantages :**
 
 -   libre, open source, et plateforme indépendant
 
@@ -57,7 +57,7 @@ Depuis, les utilisations de R se sont largement diversifiées :
 
 <br>
 
-### **Inconvénients :**
+#### **Inconvénients :**
 
 -   performance : évolutivité, mémoire et vitesse
 
@@ -211,7 +211,7 @@ Les commentaires servent également à structurer un script et à afficher une t
 
 <br>
 
--   Ajouter deux titres de sections
+-   Ajoutez deux titres de sections
 
 <br>
 
@@ -528,11 +528,11 @@ help(log)
 
 <br>
 
-### Description
+#### Description
 
 `log` computes logarithms, by default natural logarithms, `log10` computes common (i.e., base 10) logarithms, and `log2` computes binary (i.e., base 2) logarithms. The general form `log(x, base)` computes logarithms with base `base`.
 
-## Apprendre à utiliser une fonction
+#### Apprendre à utiliser une fonction
 
 <br>
 
@@ -599,8 +599,6 @@ log(base = 5, x = 25)  ## être explicite quand on modifie l'ordre des arguments
 ## l'exemple utilise des vecteurs (séquences de nombres entourées par `c()`)
 quantile(x = c(5, 1, 3), probs = c(0.25, 0.5, 0.75))
 ```
-
-<br>
 
 **Assignation implicite par position** :
 
@@ -734,7 +732,7 @@ Pour supprimer un objet de l'environnement, utilisez la fonction `rm()`.
 
 Pour supprimer plusieurs objets à la fois, cliquez sur l'**icône "balai"** :
 
-![](img/rstudio_env_02.png){fig-align="center"}
+![](img/rstudio_env_02.png){fig-align="center" width="25%"}
 
 <br>
 
@@ -775,6 +773,8 @@ De bons noms d'objets :
 -   **ne doivent pas utiliser des noms réservés** qui ont une fonction dans R
 
     -   ❌ `if`, `in` , `function`, `TRUE`, `FALSE`, `NA`, `NaN`
+
+## Syntaxe des noms d'objets
 
 <br>
 
@@ -1047,7 +1047,7 @@ NA <- 1
 
 <br>
 
--   Calculer la moyenne de ces trois valeurs numériques : 140, 97, et 222.
+-   Calculez la moyenne de ces trois valeurs numériques : 140, 97, et 222.
 
 💡Utilisez la fonction `mean()`.
 
@@ -1055,7 +1055,7 @@ NA <- 1
 
 <br>
 
--   Calculer la moyenne de ces trois valeurs numériques : 140, 97, et 222.
+-   Calculez la moyenne de ces trois valeurs numériques : 140, 97, et 222.
 
 💡Utilisez la fonction `mean()`.
 
@@ -1075,7 +1075,7 @@ mean(140, 97, 222)
 
 <br>
 
--   Calculer la moyenne de ces trois valeurs numériques : 140, 97, et 222.
+-   Calculez la moyenne de ces trois valeurs numériques : 140, 97, et 222.
 
 💡Utilisez la fonction `mean()`.
 
@@ -1085,20 +1085,14 @@ mean(140, 97, 222)
 mean(140, 97, 222)
 ```
 
-<br>
-
 ```{r, echo=TRUE, eval=TRUE}
 mean(c(140, 97, 222))
 ```
-
-<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 values <- c(140, 97, 222)
 mean(values)
 ```
-
-<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 values <- c(140L, 97L, 222L)
@@ -1384,8 +1378,6 @@ Notez que **tous les nombres à l'exception de `0`** deviennent `TRUE` :
 as.logical(2023)
 ```
 
-<br>
-
 ... et **toutes les chaînes de caractères à l'exception de** `"TRUE"`, `"FALSE"`, `"T"` et `"F"` deviennent `NA` :
 
 ```{r, echo=TRUE, eval=TRUE}
@@ -1503,9 +1495,13 @@ levels(ff)
 
 ## Coercition de facteurs
 
+<br>
+
 ```{r, echo=TRUE, eval=TRUE}
 ff
 ```
+
+<br>
 
 Pour transformer un facteur en nombres, utilisez `as.numeric()` :
 
@@ -1515,6 +1511,8 @@ as.numeric(ff)
 
 Notez que ceci retourne les éléments du facteur comme nombres selon les positions des niveaux !
 
+<br>
+
 Pour transformer à nouveau en chaînes de caractères, utilisez `as.character()` :
 
 ```{r, echo=TRUE, eval=TRUE}
@@ -1523,15 +1521,21 @@ as.character(ff)
 
 ## Coercition de facteurs : attention !
 
+<br>
+
 ```{r, echo=TRUE, eval=TRUE}
 f
 ```
+
+<br>
 
 Retourne des nombres selon les niveaux :
 
 ```{r, echo=TRUE, eval=TRUE}
 as.numeric(f)
 ```
+
+<br>
 
 Retourne des nombres selon les éléments :
 
@@ -1543,13 +1547,21 @@ as.numeric(as.character(f))
 
 ## Qu'est-ce qu'un package ?
 
-Un package est une collection de fonctions, données, et autres objets qui sont conçus pour effectuer des taches spécifiques ou résoudre certains problèmes.
+<br>
 
-Ces packages sont créés et maintenus par la communauté R, et sont souvent partagés sur le Comprehensive R Archive Network (CRAN) ou d'autres dépôts comme BioConductor.
+Un package est une **collection de fonctions, données, et autres objets** qui sont conçus pour effectuer des **tâches spécifiques** ou résoudre certains problèmes.
+
+<br>
+
+Ces packages sont créés et maintenus par la communauté R, et sont souvent partagés sur le [Comprehensive R Archive Network (**CRAN**)](https://cran.r-project.org/) ou d'autres dépôts comme [**BioConductor**](https://www.bioconductor.org/).
 
 ## Installer des packages supplémentaires
 
-Pour utiliser les fonctionnalités d'un package spécifique, vous pouvez installer le package sur votre ordinateur :
+<br>
+
+Pour utiliser les fonctionnalités d'un package spécifique, vous devez d'abord **installer le package** sur votre ordinateur :
+
+<br>
 
 ```{r, echo=TRUE, eval=FALSE}
 install.packages("forcats")
@@ -1563,13 +1575,20 @@ install.packages("palmerpenguins")
 
 ## Utiliser des packages : charger les librairies
 
-Pour utiliser les fonctionnalités d'un package installé, vous devez charger le package :
+<br>
+
+Pour utiliser les fonctionnalités d'un package installé, vous devez **charger le package** :
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 library(forcats)
 ```
 
+<br>
+
 ```{r, echo=TRUE, eval=TRUE}
+
 f <- factor(0:10)
 levels(f)
 fct_rev(f)
@@ -1578,11 +1597,17 @@ fct_relevel(f, "0", after = Inf)
 
 ## Utiliser des packages : charger les librairies
 
-Pour utiliser les fonctionnalités d'un package installé, vous devez charger le package :
+<br>
+
+Pour utiliser les fonctionnalités d'un package installé, vous devez **charger le package** :
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 library(palmerpenguins)
 ```
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 penguins
@@ -1590,7 +1615,9 @@ penguins
 
 ## Utiliser des packages : conflits
 
-Notez que dans certains cas, plusieurs packages peuvent contenir des fonctions (ou des jeux de données) portant le même nom.
+<br>
+
+Notez que dans certains cas, plusieurs packages peuvent contenir des fonctions (ou des jeux de données) portant **le même nom**.
 
 ```{r, echo=TRUE, eval=FALSE}
 install.packages("dplyr")
@@ -1598,17 +1625,26 @@ install.packages("dplyr")
 
 ```{r, echo=TRUE, eval=TRUE}
 library(dplyr)
+## fournit des fonctions pour manipuler des données tabulaires
 ```
 
-Si vous chargez deux fonctions portant le même nom, la fonction du package chargé en dernier sera utilisée !
+<br>
+
+Si vous chargez deux fonctions portant le même nom, la fonction du package **chargé en dernier** sera utilisée !
 
 ## Utiliser des packages : Namespace
+
+<br>
 
 ![](img/namespace.png){fig-align="center"}
 
 ## Utiliser des packages : Namespace
 
-Pour éviter les conflits, il est possible de faire référence explicitement à des fonctions spécifiques à l'aide de namspaces :
+<br>
+
+Pour éviter les conflits, il est possible de faire référence **explicitement** à des fonctions spécifiques à l'aide de **namespaces** :
+
+<br>
 
 ```{r, echo=TRUE, eval=FALSE}
 install.packages("stringr")
@@ -1619,109 +1655,139 @@ install.packages("stringr")
 stringr::str_to_sentence(c("cafe", "latte machiatto", "expresso"))
 ```
 
-Les namespaces sont utiles dans les situations suivantes :
+<br>
 
--   résoudre les conflits dans les noms de fonctions
+Les namespaces permettent :
 
--   utiliser des fonctions sans charger toutes les fonctionnalités d'un package
+-   de **résoudre les conflits** dans les noms de fonctions
 
--   être explicite pour les fonctions non basiques
+-   d'utiliser des fonctions **sans charger toutes les fonctionnalités** d'un package
+
+-   d'être explicite pour les **fonctions non basiques**
 
 # Données tabulaires
 
 ## Data Frames
 
-Vous pouvez stocker plusieurs vecteurs, avec différents types de données, comme données tabulaires dans des **data frames** :
+<br>
+
+Vous pouvez stocker plusieurs vecteurs, avec différents types de données, dans un **data frame** :
 
 ```{r, echo=TRUE, eval=TRUE}
-(df_noms <- data.frame(ids, names))
+(df_bd <- data.frame(ids, names))
 ```
 
-Vous pouvez expliciter les noms des colonnes :
+<br>
+
+Vous pouvez expliciter les **noms des colonnes** :
 
 ```{r, echo=TRUE, eval=TRUE}
-(df_noms <- data.frame(id = ids, personnage = names))
-```
-
-## Accéder aux éléments d'un Data Frame
-
-### Lignes :
-
-```{r, echo=TRUE, eval=TRUE}
-df_noms[2, ]
-```
-
-### Colonnes :
-
-```{r, echo=TRUE, eval=TRUE}
-df_noms[, 2]
-df_noms$personnage
-df_noms[[2]]
+(df_bd <- data.frame(id = ids, personnages = names))
 ```
 
 ## Accéder aux éléments d'un Data Frame
 
-### Cellules :
+<br>
+
+#### Lignes :
 
 ```{r, echo=TRUE, eval=TRUE}
-df_noms$personnages[2]
-df_noms[[2]][2]
-df_noms[, 2][2]
-df_noms[2, 2]
+df_bd[2, ]
+```
+
+<br>
+
+#### Colonnes :
+
+```{r, echo=TRUE, eval=TRUE}
+df_bd[, 2]
+df_bd$personnages
+df_bd[[2]]
 ```
 
 ## Accéder aux éléments d'un Data Frame
 
-Les Data Frames supportent la correspondance partielle :
+<br>
+
+#### Cellules :
 
 ```{r, echo=TRUE, eval=TRUE}
-df_noms
+df_bd$personnages[2]
+df_bd[[2]][2]
+df_bd[, 2][2]
+df_bd[2, 2]
 ```
 
-`personnage` n'est pas une colonne de `df_noms` mais ressemble à `personnages` :
+## Accéder aux éléments d'un Data Frame
+
+<br>
+
+Les Data Frames supportent la **correspondance partielle** :
 
 ```{r, echo=TRUE, eval=TRUE}
-df_noms$personnage
+df_bd
+```
+
+<br>
+
+La colonne `perso` n'existe pas dans `df_bd` mais ressemble à `personnages` :
+
+```{r, echo=TRUE, eval=TRUE}
+df_bd$perso
 ```
 
 ## Le Data Frame moderne : le Tibble
 
+<br>
+
 > Les Tibbles sont une refonte moderne du data.frame, conservant ce que le temps a montré être efficace, et supprimant ce qui ne l'était pas.
+
+<br>
 
 ```{r, echo=TRUE, eval=FALSE}
 install.packages("tibble")
 ```
 
-Le nom vient de la manière dont on créait ces objets à l'origine : tbl_df`()` , plus simple à prononcer "tibble diff" ou "tibble d.f.".
-
 ```{r, echo=TRUE, eval=TRUE}
-(tbl_noms <- tibble::tibble(id = ids, personnages = names))
+(tbl_bd <- tibble::tibble(id = ids, personnages = names))
 ```
 
-Comme les fonctions utilisées précédemment, `tibble()` est une fonction. Alors que `mean()` et `+` sont des fonctions de base, `tibble()` appartient à un package ajouté qui s'appelle également {tibble}.
+<br>
+
+Comme les fonctions utilisées précédemment, `tibble()` est une fonction. Alors que `mean()` et `+` sont des fonctions de base, `tibble()` appartient à un **package** ajouté qui s'appelle également **{tibble}**.
 
 ## Data Frame vs Tibble
+
+<br>
 
 > Les Tibbles sont une refonte moderne du data.frame, conservant ce que le temps a montré être efficace, et supprimant ce qui ne l'était pas.
 
-Les principales différences dans l'utilisation d'un data frame vs un tibble :
+<br>
 
--   les tibbles possèdent une méthode d'affichage affinée
+Principales différences :
 
-    -   seules les 10 premières lignes sont affichées, et toutes les colonnes qui rentrent sur l'écran
+-   **l'affichage des tibbles est "affiné"** :
 
-    -   en plus de son nom, le type de chaque colonne est affiché
+    -   les 10 premières lignes + toutes les colonnes qui rentrent sur l'écran
 
-    -   le type de données et les dimensions sont également affichées
+    -   pour chaque colonne : nom + type de données
+
+    -   dimensions
 
 ## Data Frame vs Tibble
 
-Les Tibbles possèdent une méthode d'affichage affinée :
+<br>
+
+L'affichage des tibbles est "affiné" :
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
-df_long <- data.frame(id = 1:1000 %% 10, value = runif(n = 1000, min = 0, max = 1000))
-tbl_long <- tibble::tibble(id = 1:1000 %% 10, value = runif(n = 1000, min = 0, max = 1000))
+df_long <- data.frame(id = 1:100, value = sample(1:100, 100, replace = TRUE))
+tbl_long <- tibble::tibble(id = 1:100, value = sample(1:100, 100, replace = TRUE))
 ```
+
+<br>
 
 ::: columns
 ::: column
@@ -1737,39 +1803,39 @@ tbl_long
 :::
 :::
 
-## Data Frame vs Tibble
+## Mise en pratique : Data Frame vs Tibble
 
-Les Tibbles possèdent une méthode d'affichage affinée :
+<br>
 
-::: columns
-::: column
-```{r, echo=TRUE, eval=TRUE}
-as.data.frame(penguins)
-```
-:::
+Comparez l'affichage du jeu de données penguins au format Data Frame et au format Tibble :
 
-::: column
-```{r, echo=TRUE, eval=TRUE}
-tibble::as_tibble(penguins)
-```
-:::
-:::
+<br>
+
+`as.data.frame(penguins)`
+
+<br>
+
+`tibble::as_tibble(penguins)`
 
 ## Data Frame vs Tibble
+
+<br>
 
 > Les Tibbles sont une refonte moderne du data.frame, conservant ce que le temps a montré être efficace, et supprimant ce qui ne l'était pas.
 
-Les principales différences dans l'utilisation d'un data frame vs un tibble :
+<br>
 
--   les tibbles possèdent une méthode d'affichage affinée
+Principales différences :
 
-    -   seules les 10 premières lignes sont affichées, et toutes les colonnes qui rentrent sur l'écran
+-   **l'affichage des tibbles est "affiné"** :
 
-    -   en plus de son nom, le type de chaque colonne est affiché
+    -   les 10 premières lignes + toutes les colonnes qui rentrent sur l'écran
 
-    -   le type de données et les dimensions sont également affichées
+    -   pour chaque colonne : nom + type de données
 
--   la sélection de données est plus stricte pour les tibbles
+    -   dimensions
+
+-   **la sélection de sous-ensembles de données est plus stricte pour les tibbles**
 
 ::: columns
 ::: column
@@ -1787,31 +1853,51 @@ tbl_long$val
 
 ## Explorer un jeu de données
 
+<br>
+
+Pour afficher un tableau à la manière d'un tableur Excel :
+
+<br>
+
 ```{r, echo=TRUE, eval=FALSE}
 View(tbl_long)
 ```
 
 ## Explorer un jeu de données
 
-```{r, echo=TRUE, eval=FALSE}
-dim(tbl_long)
-str(tbl_long)
-tibble::glimpse(tbl_long)
-summary(tbl_long)
+<br>
+
+```{r, echo=TRUE, eval=TRUE}
+head(tbl_long)  ## 6 premières lignes
+tail(tbl_long)  ## 6 dernières lignes
+head(tbl_long, n = 3)  ## 3 premières lignes
 ```
 
 ## Explorer un jeu de données
 
-```{r, echo=TRUE, eval=FALSE}
-mean(tbl_long$value)
-range(tbl_long$value)
-unique(tbl_long$id)
-sort(unique(tbl_long$id))
-length(tbl_long$id)
-length(unique(tbl_long$id))
+<br>
+
+```{r, echo=TRUE, eval=TRUE}
+dim(tbl_long)  ## dimensions (nb lignes x nb colonnes)
+str(tbl_long)  ## dimensions + contenu
+tibble::glimpse(tbl_long)  ## dimensions + contenu (format tibble)
+summary(tbl_long)  ## statistiques
 ```
 
-## Mise en pratique : travailler avec des données tabulaires
+## Explorer un jeu de données
+
+<br>
+
+```{r, echo=TRUE, eval=TRUE}
+mean(tbl_long$value)  ## moyenne
+range(tbl_long$value)  ## min et max
+unique(tbl_long$value)  ## valeurs uniques
+sort(unique(tbl_long$value))  ## valeurs uniques triées
+length(tbl_long$value)  ## nombre d'observations
+length(unique(tbl_long$value))  ## nombre d'observations uniques
+```
+
+## Mise en pratique : données tabulaires
 
 ::: {.callout-tip appearance="simple" icon="false"}
 -   Si ce n'est pas encore fait, installez et chargez le package {palmerpenguins}
