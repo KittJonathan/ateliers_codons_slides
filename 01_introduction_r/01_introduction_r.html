@@ -393,6 +393,23 @@
 
 
 <img data-src="img/title.png" class="r-stretch quarto-figure-center"></section>
+<section id="les-ateliers-codons" class="slide level2">
+<h2>Les ateliers codons</h2>
+<p><br></p>
+<ul>
+<li><p>Des <strong>créneaux réguliers</strong> pour <strong>découvrir</strong> et <strong>progresser</strong></p></li>
+<li><p>Deux parcours : <strong>initiation</strong> et <strong>perfectionnement</strong></p></li>
+<li><p>Une <strong>équipe d’animation</strong></p></li>
+<li><p>Des <strong>supports</strong> disponibles en ligne : <a href="https://ateliers-codons.netlify.app/">ateliers-codons.netlify.app/</a></p></li>
+</ul>
+<p><br></p>
+<h4 id="sources-pour-cet-atelier">Sources pour cet atelier :</h4>
+<p><br></p>
+<ul>
+<li><p><a href="https://ourcodingclub.github.io/tutorials/intro-to-r/">Getting started with R and RStudio (Our Coding Club)</a></p></li>
+<li><p>R Course TU Dresden (Cédric Scherer)</p></li>
+</ul>
+</section>
 <section>
 <section id="introduction" class="title-slide slide level1 center">
 <h1>Introduction</h1>
@@ -862,7 +879,7 @@
 <div class="cell-output cell-output-stdout">
 <pre><code>function (x, ...) 
 UseMethod("mean")
-&lt;bytecode: 0x00000294407c8be8&gt;
+&lt;bytecode: 0x000002ad1a949ad8&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">methods</span>(mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -881,7 +898,7 @@ see '?methods' for accessing help and source code</code></pre>
     fill = TRUE, comment.char = "", ...) 
 read.table(file = file, header = header, sep = sep, quote = quote, 
     dec = dec, fill = fill, comment.char = comment.char, ...)
-&lt;bytecode: 0x00000294436be4f0&gt;
+&lt;bytecode: 0x000002ad1aa79800&gt;
 &lt;environment: namespace:utils&gt;</code></pre>
 </div>
 </div>
@@ -1108,7 +1125,7 @@ read.table(file = file, header = header, sep = sep, quote = quote,
     attr(data, "row.names") &lt;- row.names
     data
 }
-&lt;bytecode: 0x000002943f719f68&gt;
+&lt;bytecode: 0x000002ad198aa068&gt;
 &lt;environment: namespace:utils&gt;</code></pre>
 </div>
 </div>
@@ -1146,7 +1163,9 @@ read.table(file = file, header = header, sep = sep, quote = quote,
 <p><br></p>
 <h4 id="description">Description</h4>
 <p><code>log</code>&nbsp;computes logarithms, by default natural logarithms,&nbsp;<code>log10</code>&nbsp;computes common (i.e., base 10) logarithms, and&nbsp;<code>log2</code>&nbsp;computes binary (i.e., base 2) logarithms. The general form&nbsp;<code>log(x, base)</code>&nbsp;computes logarithms with base&nbsp;<code>base</code>.</p>
-<h4 id="apprendre-à-utiliser-une-fonction-1">Apprendre à utiliser une fonction</h4>
+</section>
+<section id="apprendre-à-utiliser-une-fonction-1" class="slide level2">
+<h2>Apprendre à utiliser une fonction</h2>
 <p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="fu">help</span>(log)</span>
@@ -1154,7 +1173,7 @@ read.table(file = file, header = header, sep = sep, quote = quote,
 <span id="cb57-3"><a href="#cb57-3"></a><span class="co"># curseur + F1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
-<h3 id="usage">Usage</h3>
+<h4 id="usage">Usage</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="fu">log</span>(x, <span class="at">base =</span> <span class="fu">exp</span>(<span class="dv">1</span>))</span>
 <span id="cb58-2"><a href="#cb58-2"></a><span class="fu">logb</span>(x, <span class="at">base =</span> <span class="fu">exp</span>(<span class="dv">1</span>))</span>
@@ -1176,7 +1195,7 @@ read.table(file = file, header = header, sep = sep, quote = quote,
 <span id="cb59-3"><a href="#cb59-3"></a><span class="co"># curseur + F1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
-<h3 id="arguments">Arguments</h3>
+<h4 id="arguments">Arguments</h4>
 <p><code>x</code> a numeric or complex vector.</p>
 <p><code>base</code> a positive or complex number: the base with respect to which logarithms are computed. Defaults to <code>e = exp(1)</code>.</p>
 </section>
@@ -1377,8 +1396,12 @@ read.table(file = file, header = header, sep = sep, quote = quote,
 </div>
 <p><br></p>
 <p>Pour supprimer plusieurs objets à la fois, cliquez sur l’<strong>icône “balai”</strong> :</p>
-
-<img data-src="img/rstudio_env_02.png" style="width:25.0%" class="r-stretch quarto-figure-center"><p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/rstudio_env_02.png" width="68" height="14"></p>
+</figure>
+</div>
+<p><br></p>
 <ul>
 <li><p>en affichage liste, tous les objets de l’environnement seront supprimés</p></li>
 <li><p>en affichage grille, cochez les objets à supprimer avant de cliquer sur l’icône</p></li>
@@ -2777,106 +2800,106 @@ Attachement du package : 'dplyr'</code></pre>
 <div class="sourceCode cell-code" id="cb447"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb447-1"><a href="#cb447-1"></a>df_long</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     id value
-1     1    86
-2     2    22
-3     3    19
-4     4    11
-5     5    92
-6     6    79
-7     7    50
-8     8     4
-9     9    62
-10   10    20
-11   11    27
-12   12    78
-13   13    70
-14   14    21
-15   15     9
-16   16    48
-17   17    39
-18   18    41
-19   19    47
-20   20    15
-21   21    65
-22   22    78
-23   23    15
-24   24    45
-25   25    13
-26   26    31
-27   27    40
-28   28     7
+1     1    63
+2     2    95
+3     3    70
+4     4    71
+5     5    50
+6     6    47
+7     7    74
+8     8    99
+9     9    31
+10   10    23
+11   11    11
+12   12    33
+13   13    99
+14   14    96
+15   15    53
+16   16    86
+17   17    89
+18   18    81
+19   19    96
+20   20    49
+21   21    88
+22   22    24
+23   23    53
+24   24    84
+25   25    74
+26   26    37
+27   27    32
+28   28    51
 29   29    99
-30   30    27
-31   31    74
-32   32    34
-33   33    22
-34   34    29
-35   35    41
-36   36    13
-37   37    35
-38   38    55
-39   39    59
-40   40    78
-41   41    53
-42   42    68
-43   43     1
-44   44    99
-45   45    41
-46   46    97
-47   47    61
-48   48    61
-49   49    61
-50   50    26
-51   51    17
-52   52    76
-53   53    24
-54   54    29
-55   55    67
-56   56     9
-57   57    11
-58   58    76
-59   59     3
-60   60    40
-61   61    95
-62   62    94
-63   63    41
-64   64    69
-65   65    73
-66   66    95
-67   67    60
-68   68    61
-69   69    36
-70   70    49
-71   71    92
-72   72    63
-73   73    71
-74   74    64
-75   75     8
-76   76    84
-77   77    29
-78   78    10
-79   79    45
-80   80    28
-81   81    61
-82   82     7
-83   83    30
-84   84    63
-85   85    51
-86   86    50
-87   87    41
-88   88    28
-89   89    47
-90   90    62
-91   91    76
-92   92    23
-93   93    57
-94   94    88
-95   95    60
-96   96    61
-97   97    62
-98   98    31
-99   99    67
-100 100    15</code></pre>
+30   30    54
+31   31    18
+32   32    52
+33   33    19
+34   34    52
+35   35    10
+36   36    37
+37   37     7
+38   38    12
+39   39    36
+40   40    82
+41   41    38
+42   42     3
+43   43    70
+44   44    34
+45   45    59
+46   46    75
+47   47    34
+48   48    18
+49   49    21
+50   50    68
+51   51    79
+52   52    50
+53   53    13
+54   54    17
+55   55    82
+56   56    96
+57   57    70
+58   58    49
+59   59    22
+60   60    18
+61   61    23
+62   62    87
+63   63    15
+64   64    77
+65   65    41
+66   66    15
+67   67     2
+68   68    82
+69   69    74
+70   70    29
+71   71    48
+72   72     7
+73   73     5
+74   74    21
+75   75    28
+76   76    31
+77   77    25
+78   78    81
+79   79    88
+80   80    65
+81   81    90
+82   82    98
+83   83    72
+84   84    13
+85   85    92
+86   86    26
+87   87    87
+88   88    86
+89   89     9
+90   90    51
+91   91    23
+92   92    36
+93   93     2
+94   94    39
+95   95    16
+96   96    39
+97   97    16
+98   98    43
+99   99    22
+100 100    78</code></pre>
 </div>
 </div>
 </div><div class="column">
@@ -2886,16 +2909,16 @@ Attachement du package : 'dplyr'</code></pre>
 <pre><code># A tibble: 100 × 2
       id value
    &lt;int&gt; &lt;int&gt;
- 1     1    52
- 2     2    35
- 3     3    13
- 4     4    81
- 5     5    57
- 6     6    68
- 7     7    30
- 8     8    65
- 9     9     3
-10    10    61
+ 1     1    82
+ 2     2    84
+ 3     3    23
+ 4     4    65
+ 5     5    41
+ 6     6    17
+ 7     7    81
+ 8     8   100
+ 9     9    69
+10    10    47
 # ℹ 90 more rows</code></pre>
 </div>
 </div>
@@ -2928,10 +2951,10 @@ Attachement du package : 'dplyr'</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb451"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb451-1"><a href="#cb451-1"></a>df_long<span class="sc">$</span>val</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1] 86 22 19 11 92 79 50  4 62 20 27 78 70 21  9 48 39 41 47 15 65 78 15 45 13
- [26] 31 40  7 99 27 74 34 22 29 41 13 35 55 59 78 53 68  1 99 41 97 61 61 61 26
- [51] 17 76 24 29 67  9 11 76  3 40 95 94 41 69 73 95 60 61 36 49 92 63 71 64  8
- [76] 84 29 10 45 28 61  7 30 63 51 50 41 28 47 62 76 23 57 88 60 61 62 31 67 15</code></pre>
+<pre><code>  [1] 63 95 70 71 50 47 74 99 31 23 11 33 99 96 53 86 89 81 96 49 88 24 53 84 74
+ [26] 37 32 51 99 54 18 52 19 52 10 37  7 12 36 82 38  3 70 34 59 75 34 18 21 68
+ [51] 79 50 13 17 82 96 70 49 22 18 23 87 15 77 41 15  2 82 74 29 48  7  5 21 28
+ [76] 31 25 81 88 65 90 98 72 13 92 26 87 86  9 51 23 36  2 39 16 39 16 43 22 78</code></pre>
 </div>
 </div>
 </div><div class="column">
@@ -2962,33 +2985,33 @@ Attachement du package : 'dplyr'</code></pre>
 <pre><code># A tibble: 6 × 2
      id value
   &lt;int&gt; &lt;int&gt;
-1     1    52
-2     2    35
-3     3    13
-4     4    81
-5     5    57
-6     6    68</code></pre>
+1     1    82
+2     2    84
+3     3    23
+4     4    65
+5     5    41
+6     6    17</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb458"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb458-1"><a href="#cb458-1"></a><span class="fu">tail</span>(tbl_long)  <span class="do">## 6 dernières lignes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 2
      id value
   &lt;int&gt; &lt;int&gt;
-1    95     1
-2    96    49
-3    97    66
-4    98     3
-5    99    28
-6   100    48</code></pre>
+1    95    89
+2    96    80
+3    97    89
+4    98    65
+5    99    36
+6   100    54</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb460"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb460-1"><a href="#cb460-1"></a><span class="fu">head</span>(tbl_long, <span class="at">n =</span> <span class="dv">3</span>)  <span class="do">## 3 premières lignes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
      id value
   &lt;int&gt; &lt;int&gt;
-1     1    52
-2     2    35
-3     3    13</code></pre>
+1     1    82
+2     2    84
+3     3    23</code></pre>
 </div>
 </div>
 </section>
@@ -3004,24 +3027,24 @@ Attachement du package : 'dplyr'</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [100 × 2] (S3: tbl_df/tbl/data.frame)
  $ id   : int [1:100] 1 2 3 4 5 6 7 8 9 10 ...
- $ value: int [1:100] 52 35 13 81 57 68 30 65 3 61 ...</code></pre>
+ $ value: int [1:100] 82 84 23 65 41 17 81 100 69 47 ...</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb466"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb466-1"><a href="#cb466-1"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(tbl_long)  <span class="do">## dimensions + contenu (format tibble)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 100
 Columns: 2
 $ id    &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 1…
-$ value &lt;int&gt; 52, 35, 13, 81, 57, 68, 30, 65, 3, 61, 20, 15, 66, 9, 66, 78, 33…</code></pre>
+$ value &lt;int&gt; 82, 84, 23, 65, 41, 17, 81, 100, 69, 47, 16, 59, 8, 6, 100, 87, …</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb468"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb468-1"><a href="#cb468-1"></a><span class="fu">summary</span>(tbl_long)  <span class="do">## statistiques</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>       id             value      
- Min.   :  1.00   Min.   : 1.00  
- 1st Qu.: 25.75   1st Qu.:23.75  
- Median : 50.50   Median :44.50  
- Mean   : 50.50   Mean   :46.67  
- 3rd Qu.: 75.25   3rd Qu.:67.25  
- Max.   :100.00   Max.   :99.00  </code></pre>
+<pre><code>       id             value       
+ Min.   :  1.00   Min.   :  1.00  
+ 1st Qu.: 25.75   1st Qu.: 20.75  
+ Median : 50.50   Median : 51.50  
+ Mean   : 50.50   Mean   : 50.28  
+ 3rd Qu.: 75.25   3rd Qu.: 80.00  
+ Max.   :100.00   Max.   :100.00  </code></pre>
 </div>
 </div>
 </section>
@@ -3031,23 +3054,25 @@ $ value &lt;int&gt; 52, 35, 13, 81, 57, 68, 30, 65, 3, 61, 20, 15, 66, 9, 66, 78
 <div class="cell">
 <div class="sourceCode cell-code" id="cb470"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb470-1"><a href="#cb470-1"></a><span class="fu">mean</span>(tbl_long<span class="sc">$</span>value)  <span class="do">## moyenne</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 46.67</code></pre>
+<pre><code>[1] 50.28</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb472"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb472-1"><a href="#cb472-1"></a><span class="fu">range</span>(tbl_long<span class="sc">$</span>value)  <span class="do">## min et max</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1]  1 99</code></pre>
+<pre><code>[1]   1 100</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb474"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb474-1"><a href="#cb474-1"></a><span class="fu">unique</span>(tbl_long<span class="sc">$</span>value)  <span class="do">## valeurs uniques</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 52 35 13 81 57 68 30 65  3 61 20 15 66  9 78 33 96 29 34 77 22 11 25 37 40
-[26]  1 48 28 36 70 85 45 98 21 50 67 84 87 58 76 43 53 60  4 75 83 56 17 92 71
-[51] 49 93  7 44 99 24 23 95 88 38 12</code></pre>
+<pre><code> [1]  82  84  23  65  41  17  81 100  69  47  16  59   8   6  87  28  27  71  63
+[20]   5  54  67  86  38  13   9  78   7  61   1  39  91  43  80  18  60  33  14
+[39]  74   2  92  20  52  21  44  68  51  70  31  83   4  36  62  93  42  49  75
+[58]  25  35  96  76  19  89</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb476"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb476-1"><a href="#cb476-1"></a><span class="fu">sort</span>(<span class="fu">unique</span>(tbl_long<span class="sc">$</span>value))  <span class="do">## valeurs uniques triées</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  1  3  4  7  9 11 12 13 15 17 20 21 22 23 24 25 28 29 30 33 34 35 36 37 38
-[26] 40 43 44 45 48 49 50 52 53 56 57 58 60 61 65 66 67 68 70 71 75 76 77 78 81
-[51] 83 84 85 87 88 92 93 95 96 98 99</code></pre>
+<pre><code> [1]   1   2   4   5   6   7   8   9  13  14  16  17  18  19  20  21  23  25  27
+[20]  28  31  33  35  36  38  39  41  42  43  44  47  49  51  52  54  59  60  61
+[39]  62  63  65  67  68  69  70  71  74  75  76  78  80  81  82  83  84  86  87
+[58]  89  91  92  93  96 100</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb478"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb478-1"><a href="#cb478-1"></a><span class="fu">length</span>(tbl_long<span class="sc">$</span>value)  <span class="do">## nombre d'observations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -3055,7 +3080,7 @@ $ value &lt;int&gt; 52, 35, 13, 81, 57, 68, 30, 65, 3, 61, 20, 15, 66, 9, 66, 78
 </div>
 <div class="sourceCode cell-code" id="cb480"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb480-1"><a href="#cb480-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(tbl_long<span class="sc">$</span>value))  <span class="do">## nombre d'observations uniques</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 61</code></pre>
+<pre><code>[1] 63</code></pre>
 </div>
 </div>
 </section>
@@ -3215,9 +3240,9 @@ $type[[2]]
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Lucky Luke"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb514"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb514-1"><a href="#cb514-1"></a>my_nested_list<span class="sc">$</span>names[[<span class="dv">2</span>]][[<span class="dv">1</span>]][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb514"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb514-1"><a href="#cb514-1"></a>my_nested_list[[<span class="dv">2</span>]][[<span class="dv">1</span>]][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Rantanplan"</code></pre>
+<pre><code>[1] "Lucky Luke"</code></pre>
 </div>
 </div>
 </section>
@@ -3243,9 +3268,13 @@ $type[[2]]
 <div class="sourceCode cell-code" id="cb518"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb518-1"><a href="#cb518-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb519"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb519-1"><a href="#cb519-1"></a>my_tbl <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">unnest</span>(my_tbl_list)</span>
-<span id="cb519-2"><a href="#cb519-2"></a>my_tbl <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">unnest</span>(my_tbl_list, <span class="at">cols =</span> <span class="fu">c</span>(ids, names, type))</span>
-<span id="cb519-3"><a href="#cb519-3"></a>my_tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb519"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb519-1"><a href="#cb519-1"></a>my_tbl <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">unnest</span>(my_tbl_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: `cols` is now required when using `unnest()`.
+ℹ Please use `cols = c(ids, names, type)`.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb521"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb521-1"><a href="#cb521-1"></a>my_tbl <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">unnest</span>(my_tbl_list, <span class="at">cols =</span> <span class="fu">c</span>(ids, names, type))</span>
+<span id="cb521-2"><a href="#cb521-2"></a>my_tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
     ids names      type  
@@ -3263,8 +3292,8 @@ $type[[2]]
 <h2>Imbriquer des listes</h2>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb521"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb521-1"><a href="#cb521-1"></a>my_nested_tbl <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">nest</span>(my_tbl, <span class="at">data =</span> <span class="sc">!</span>type)</span>
-<span id="cb521-2"><a href="#cb521-2"></a>my_nested_tbl<span class="sc">$</span>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb523"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb523-1"><a href="#cb523-1"></a>my_nested_tbl <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">nest</span>(my_tbl, <span class="at">data =</span> <span class="sc">!</span>type)</span>
+<span id="cb523-2"><a href="#cb523-2"></a>my_nested_tbl<span class="sc">$</span>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 # A tibble: 5 × 2
@@ -3296,27 +3325,27 @@ $type[[2]]
 <p>Les fonctions <code>seq()</code> et <code>rep()</code> sont utiles pour créer des vecteurs :</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb523"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb523-1"><a href="#cb523-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb525"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb525-1"><a href="#cb525-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb525"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb525-1"><a href="#cb525-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">150</span>, <span class="at">by =</span> <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb527"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb527-1"><a href="#cb527-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">150</span>, <span class="at">by =</span> <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]   0  25  50  75 100 125 150</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb527"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb527-1"><a href="#cb527-1"></a><span class="dv">0</span><span class="sc">:</span><span class="dv">6</span><span class="sc">*</span><span class="dv">25</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb529"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb529-1"><a href="#cb529-1"></a><span class="dv">0</span><span class="sc">:</span><span class="dv">6</span><span class="sc">*</span><span class="dv">25</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]   0  25  50  75 100 125 150</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb529"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb529-1"><a href="#cb529-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">150</span>, <span class="at">length.out =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb531"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb531-1"><a href="#cb531-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">150</span>, <span class="at">length.out =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]   0.0  37.5  75.0 112.5 150.0</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb531"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb531-1"><a href="#cb531-1"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">times =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb533"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb533-1"><a href="#cb533-1"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">times =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 1 2 3 1 2 3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb533"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb533-1"><a href="#cb533-1"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">each =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb535"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb535-1"><a href="#cb535-1"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">each =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 1 1 2 2 2 3 3 3</code></pre>
 </div>
@@ -3329,11 +3358,11 @@ $type[[2]]
 <p>Les fonctions <code>seq()</code> et <code>rep()</code> sont utiles pour créer des vecteurs :</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb535"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb535-1"><a href="#cb535-1"></a>name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Rantanplan"</span>, <span class="st">"Idéfix"</span>, <span class="st">"Milou"</span>, <span class="st">"Bill"</span>, <span class="st">"Pif"</span>)</span>
-<span id="cb535-2"><a href="#cb535-2"></a>age <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">13</span>, <span class="at">by =</span> <span class="dv">3</span>)</span>
-<span id="cb535-3"><a href="#cb535-3"></a>species <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="st">"chien"</span>, <span class="fu">length</span>(name))</span>
-<span id="cb535-4"><a href="#cb535-4"></a>id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(name)</span>
-<span id="cb535-5"><a href="#cb535-5"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(id, name, age, species)  <span class="do">## ou `data.frame()`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb537"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb537-1"><a href="#cb537-1"></a>name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Rantanplan"</span>, <span class="st">"Idéfix"</span>, <span class="st">"Milou"</span>, <span class="st">"Bill"</span>, <span class="st">"Pif"</span>)</span>
+<span id="cb537-2"><a href="#cb537-2"></a>age <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">13</span>, <span class="at">by =</span> <span class="dv">3</span>)</span>
+<span id="cb537-3"><a href="#cb537-3"></a>species <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="st">"chien"</span>, <span class="fu">length</span>(name))</span>
+<span id="cb537-4"><a href="#cb537-4"></a>id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(name)</span>
+<span id="cb537-5"><a href="#cb537-5"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(id, name, age, species)  <span class="do">## ou `data.frame()`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 4
      id name         age species
@@ -3352,12 +3381,12 @@ $type[[2]]
 <p>Vous pouvez créer ces colonnes directement dans la fonction <code>data.frame()</code> ou <code>tibble()</code> :</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb537"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb537-1"><a href="#cb537-1"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
-<span id="cb537-2"><a href="#cb537-2"></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Rantanplan"</span>, <span class="st">"Idéfix"</span>, <span class="st">"Milou"</span>, <span class="st">"Bill"</span>, <span class="st">"Pif"</span>),</span>
-<span id="cb537-3"><a href="#cb537-3"></a>  <span class="at">age =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">13</span>, <span class="at">by =</span> <span class="dv">3</span>),</span>
-<span id="cb537-4"><a href="#cb537-4"></a>  <span class="at">species =</span> <span class="fu">rep</span>(<span class="st">"chien"</span>, <span class="fu">length</span>(name)),</span>
-<span id="cb537-5"><a href="#cb537-5"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(name)</span>
-<span id="cb537-6"><a href="#cb537-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb539"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb539-1"><a href="#cb539-1"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb539-2"><a href="#cb539-2"></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Rantanplan"</span>, <span class="st">"Idéfix"</span>, <span class="st">"Milou"</span>, <span class="st">"Bill"</span>, <span class="st">"Pif"</span>),</span>
+<span id="cb539-3"><a href="#cb539-3"></a>  <span class="at">age =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">13</span>, <span class="at">by =</span> <span class="dv">3</span>),</span>
+<span id="cb539-4"><a href="#cb539-4"></a>  <span class="at">species =</span> <span class="fu">rep</span>(<span class="st">"chien"</span>, <span class="fu">length</span>(name)),</span>
+<span id="cb539-5"><a href="#cb539-5"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(name)</span>
+<span id="cb539-6"><a href="#cb539-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 4
   name         age species    id
@@ -3375,14 +3404,14 @@ $type[[2]]
 <p><br></p>
 <p>Vous pouvez également créer des tibbles en utilisant une <strong>disposition par ligne</strong> - un <strong><code>tribble</code></strong> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb539"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb539-1"><a href="#cb539-1"></a>tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
-<span id="cb539-2"><a href="#cb539-2"></a>  <span class="sc">~</span>id, <span class="sc">~</span>name,        <span class="sc">~</span>age, <span class="sc">~</span>species,</span>
-<span id="cb539-3"><a href="#cb539-3"></a>  <span class="dv">1</span>,   <span class="st">"Rantanplan"</span>, <span class="dv">1</span>,    <span class="st">"chien"</span>,</span>
-<span id="cb539-4"><a href="#cb539-4"></a>  <span class="dv">2</span>,   <span class="st">"Idéfix"</span>,     <span class="dv">4</span>,    <span class="st">"chien"</span>,</span>
-<span id="cb539-5"><a href="#cb539-5"></a>  <span class="dv">3</span>,   <span class="st">"Milou"</span>,      <span class="dv">7</span>,    <span class="st">"chien"</span>,</span>
-<span id="cb539-6"><a href="#cb539-6"></a>  <span class="dv">4</span>,   <span class="st">"Bill"</span>,       <span class="dv">10</span>,   <span class="st">"chien"</span>,</span>
-<span id="cb539-7"><a href="#cb539-7"></a>  <span class="dv">5</span>,   <span class="st">"Pif"</span>,        <span class="dv">13</span>,   <span class="st">"chien"</span></span>
-<span id="cb539-8"><a href="#cb539-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb541"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb541-1"><a href="#cb541-1"></a>tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb541-2"><a href="#cb541-2"></a>  <span class="sc">~</span>id, <span class="sc">~</span>name,        <span class="sc">~</span>age, <span class="sc">~</span>species,</span>
+<span id="cb541-3"><a href="#cb541-3"></a>  <span class="dv">1</span>,   <span class="st">"Rantanplan"</span>, <span class="dv">1</span>,    <span class="st">"chien"</span>,</span>
+<span id="cb541-4"><a href="#cb541-4"></a>  <span class="dv">2</span>,   <span class="st">"Idéfix"</span>,     <span class="dv">4</span>,    <span class="st">"chien"</span>,</span>
+<span id="cb541-5"><a href="#cb541-5"></a>  <span class="dv">3</span>,   <span class="st">"Milou"</span>,      <span class="dv">7</span>,    <span class="st">"chien"</span>,</span>
+<span id="cb541-6"><a href="#cb541-6"></a>  <span class="dv">4</span>,   <span class="st">"Bill"</span>,       <span class="dv">10</span>,   <span class="st">"chien"</span>,</span>
+<span id="cb541-7"><a href="#cb541-7"></a>  <span class="dv">5</span>,   <span class="st">"Pif"</span>,        <span class="dv">13</span>,   <span class="st">"chien"</span></span>
+<span id="cb541-8"><a href="#cb541-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 4
      id name         age species
@@ -3402,66 +3431,348 @@ $type[[2]]
 </section>
 <section id="le-workflow-en-data-science" class="slide level2">
 <h2>Le workflow en data science</h2>
+<p><br></p>
 
 <img data-src="img/workflow_01.png" class="r-stretch quarto-figure-center"><p class="caption">Le workflow en data science, modifié à partir de “R for Data Science”</p></section>
 <section id="le-workflow-en-data-science-1" class="slide level2">
 <h2>Le workflow en data science</h2>
+<p><br></p>
 
 <img data-src="img/workflow_02.png" class="r-stretch quarto-figure-center"><p class="caption">Le workflow en data science, modifié à partir de “R for Data Science”</p></section>
 <section id="importer-des-données-1" class="slide level2">
 <h2>Importer des données</h2>
+<p><br></p>
 <p>Habituellement, vous créez des data frames en important des fichiers de données comme <code>.txt</code>, <code>.csv</code>, …</p>
+<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb541"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb541-1"><a href="#cb541-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">"./data/cool_data.txt"</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
-<span id="cb541-2"><a href="#cb541-2"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"./data/cool_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb543"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb543-1"><a href="#cb543-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">"./data/cool_data.txt"</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
+<span id="cb543-2"><a href="#cb543-2"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"./data/cool_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Le <code>./</code> désigne un chemin relatif, à partir de votre <strong>répertoire de travail (working directory)</strong>.</p>
-<p>Vous pouvez vérifier votre “wd” à l’aide de la fonction <code>getwd()</code>.</p>
+<p><br></p>
+<p>Le <code>./</code> désigne un <strong>chemin relatif</strong>, à partir de votre <strong>répertoire de travail (working directory)</strong>.</p>
+<p>Un <strong>chemin absolu</strong> indique l’emplacement d’un fichier depuis la racine du disque : <code>C:/…/</code></p>
+<p><br></p>
+<p>Vous pouvez vérifier votre <strong>“wd”</strong> (working directory) à l’aide de la fonction <code>getwd()</code>.</p>
+</section>
+<section id="importer-des-données-2" class="slide level2">
+<h2>Importer des données</h2>
+<p><br></p>
 <p>Vous pouvez aussi importer des données directement à partir d’un site internet à l’aide d’une URL valide :</p>
+<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb542"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb542-1"><a href="#cb542-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https:://some-webpage.com/online-data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb544"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb544-1"><a href="#cb544-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https:://some-webpage.com/online-data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="importer-des-données-tibbles" class="slide level2">
 <h2>Importer des données : Tibbles</h2>
-<p>Le package {readr} fournit une méthode simple et rapide de lire des données rectangulaires stockées comme des tibbles :</p>
+<p><br></p>
+<p>Le package <code>{readr}</code> fournit une méthode simple et rapide pour lire des données rectangulaires et les stocker dans des <code>tibbles</code> :</p>
+<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb543"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb543-1"><a href="#cb543-1"></a>my_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_delim</span>(<span class="st">"./data/cool_data.txt"</span>, <span class="at">delim =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
-<span id="cb543-2"><a href="#cb543-2"></a>my_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"./data/cool_data.csv"</span>)</span>
-<span id="cb543-3"><a href="#cb543-3"></a>my_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv2</span>(<span class="st">"./data/actually_not_a_csv_but_okay.csv"</span>)  <span class="do">## `;` comme séparateur et "," comme décimale</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb545"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb545-1"><a href="#cb545-1"></a>my_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_delim</span>(<span class="st">"./data/cool_data.txt"</span>, <span class="at">delim =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
+<span id="cb545-2"><a href="#cb545-2"></a></span>
+<span id="cb545-3"><a href="#cb545-3"></a><span class="do">## `,` comme séparateur et "." comme décimale</span></span>
+<span id="cb545-4"><a href="#cb545-4"></a>my_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"./data/cool_data.csv"</span>) </span>
+<span id="cb545-5"><a href="#cb545-5"></a></span>
+<span id="cb545-6"><a href="#cb545-6"></a><span class="do">## `;` comme séparateur et "," comme décimale</span></span>
+<span id="cb545-7"><a href="#cb545-7"></a>my_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv2</span>(<span class="st">"./data/actually_not_a_csv_but_okay.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="importer-des-données-fichiers-excel-pas-idéal" class="slide level2">
 <h2>Importer des données : fichiers Excel (pas idéal)</h2>
-<p>Le package {readxl} fournit des fonctionnalités pour importer des tableaux Excel :</p>
+<p><br></p>
+<p>Le package <code>{readxl}</code> fournit des fonctionnalités pour importer des tableaux Excel :</p>
+<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb544"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb544-1"><a href="#cb544-1"></a>my_data <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xls</span>(<span class="st">"./data/oh_no_excel_data.xls"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span>
-<span id="cb544-2"><a href="#cb544-2"></a>my_data <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">"./data/oh_no_excel_data.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb546"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb546-1"><a href="#cb546-1"></a>my_data <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xls</span>(<span class="st">"./data/oh_no_excel_data.xls"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span>
+<span id="cb546-2"><a href="#cb546-2"></a>my_data <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">"./data/oh_no_excel_data.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="importer-des-données-formats-propres-à-r" class="slide level2">
 <h2>Importer des données : formats propres à R</h2>
-<p>Il existe également des formats propres à R comme .Rds et .Rdata / .Rda</p>
+<p><br></p>
+<p>Il existe également des <strong>formats propres à R</strong> comme <code>.Rds</code>, <code>.Rdata</code> et <code>.Rda</code> .</p>
+<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb545"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb545-1"><a href="#cb545-1"></a><span class="do">## R basique :</span></span>
-<span id="cb545-2"><a href="#cb545-2"></a>my_data <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"./data/one_of_Rs_data_formats.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb547"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb547-1"><a href="#cb547-1"></a><span class="do">## R basique :</span></span>
+<span id="cb547-2"><a href="#cb547-2"></a>my_data <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"./data/one_of_Rs_data_formats.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb546"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb546-1"><a href="#cb546-1"></a><span class="do">## package readr :</span></span>
-<span id="cb546-2"><a href="#cb546-2"></a>my_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_rds</span>(<span class="st">"./data/one_of_Rs_data_formats.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb548"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb548-1"><a href="#cb548-1"></a><span class="do">## package readr :</span></span>
+<span id="cb548-2"><a href="#cb548-2"></a>my_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_rds</span>(<span class="st">"./data/one_of_Rs_data_formats.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="importer-des-données-trop-lent" class="slide level2">
 <h2>Importer des données : trop lent ?</h2>
-<p>Le package {data.table} fournit des fonctionnalités pour importer, exporter et manipuler des données.</p>
-<p>Les fonctions pour importer et exporter des données sont connues pour être très rapides :</p>
+<p><br></p>
+<p>Le package <code>{data.table}</code> fournit des fonctionnalités pour importer, exporter et manipuler des données.</p>
+<p><br></p>
+<p>Les fonctions pour importer et exporter des données sont connues pour être <strong>très rapides</strong> :</p>
+<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb547"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb547-1"><a href="#cb547-1"></a>my_data <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">"./data/cool_data.csv"</span>, <span class="at">sep =</span> <span class="st">","</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb549"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb549-1"><a href="#cb549-1"></a>my_data <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">"./data/cool_data.csv"</span>, <span class="at">sep =</span> <span class="st">","</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="importer-des-données-le-couteau-suisse-io" class="slide level2">
+<h2>Importer des données : le couteau suisse I/O</h2>
+<p><br></p>
+<p>Le package <code>{rio}</code> cherche à unifier l’importation et l’exportation de données à l’aide de <strong>deux fonctions</strong>.</p>
+<p><br></p>
+<p>En fonction du format de fichier, {rio} choisira la fonction la plus adaptée pour importer/exporter les données :</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb550"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb550-1"><a href="#cb550-1"></a>my_data <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/cool_data.txt"</span>)</span>
+<span id="cb550-2"><a href="#cb550-2"></a>my_data <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/cool_data.csv"</span>)</span>
+<span id="cb550-3"><a href="#cb550-3"></a>my_data <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/one_of_Rs_data_formats.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb551"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb551-1"><a href="#cb551-1"></a>my_data <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/spatial_data_formats_can_be_annoyiong.shp"</span>)</span>
+<span id="cb551-2"><a href="#cb551-2"></a>my_data <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/spatial_data_formats_can_be_annoyiong.geojson"</span>)</span>
+<span id="cb551-3"><a href="#cb551-3"></a>my_data <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/spatial_data_formats_can_be_annoyiong.gpkg"</span>)</span>
+<span id="cb551-4"><a href="#cb551-4"></a>my_data <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/spatial_data_formats_can_be_annoyiong.tif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exporter-des-données" class="slide level2">
+<h2>Exporter des données</h2>
+<p><br></p>
+<p>En général, la même logique s’applique à l’exportation de données :</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb552"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb552-1"><a href="#cb552-1"></a><span class="fu">write</span>(my_data, <span class="at">file =</span> <span class="st">"./data/cool_data.1 txt"</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
+<span id="cb552-2"><a href="#cb552-2"></a><span class="fu">write.csv</span>(my_data, <span class="at">file =</span> <span class="st">"./data/cool_data.csv"</span>)</span>
+<span id="cb552-3"><a href="#cb552-3"></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(my_data, <span class="at">file =</span> <span class="st">"./data/cool_data.csv"</span>)</span>
+<span id="cb552-4"><a href="#cb552-4"></a>data.table<span class="sc">::</span><span class="fu">fwrite</span>(my_data, <span class="at">file =</span> <span class="st">"./data/cool_data.csv"</span>, <span class="at">sep =</span> <span class="st">","</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb553"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb553-1"><a href="#cb553-1"></a><span class="fu">saveRDS</span>(my_data, <span class="at">file =</span> <span class="st">"./data/one_of_Rs_data_formats.Rds"</span>)</span>
+<span id="cb553-2"><a href="#cb553-2"></a>readr<span class="sc">::</span><span class="fu">write_rds</span>(my_data, <span class="at">file =</span> <span class="st">"./data/one_of_Rs_data_formats.Rds"</span>)</span>
+<span id="cb553-3"><a href="#cb553-3"></a>rio<span class="sc">::</span><span class="fu">export</span>(my_data, <span class="st">"./data/spatial_data_formats_can_be_annoyiong.tif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb554"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb554-1"><a href="#cb554-1"></a>rio<span class="sc">::</span><span class="fu">export</span>(my_data, <span class="st">"./data/spatial_data_formats_can_be_annoyiong.tif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="mise-en-pratique-importer-et-exporter-des-données" class="slide level2">
+<h2>Mise en pratique : importer et exporter des données</h2>
+<p><br></p>
+<ul>
+<li><p>Importer le fichier penguins.csv à partir de votre ordinateur ou directement à l’aide de l’URL suivante :</p>
+<p><a href="https://github.com/codons-blog/ateliers_codons/blob/main/raw/penguins.csv" class="uri">https://github.com/codons-blog/ateliers_codons/blob/main/raw/penguins.csv</a></p></li>
+</ul>
+<p><br></p>
+<ul>
+<li>Explorez les données : les valeurs et types de données vont semblent-ils corrects ?</li>
+</ul>
+<p><br></p>
+<ul>
+<li>Exportez le fichier au format <code>.Rds</code></li>
+</ul>
+<p><br></p>
+<p><br></p>
+<p><strong>Bonus</strong> : importez vos propres données ou essayez d’autres types de données et de formats</p>
+</section>
+<section id="mise-en-pratique-importer-des-données" class="slide level2">
+<h2>Mise en pratique : importer des données</h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb555"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb555-1"><a href="#cb555-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">"02-data_raw/penguins.csv"</span>, <span class="at">sep =</span> <span class="st">","</span>)</span>
+<span id="cb555-2"><a href="#cb555-2"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 344
+Columns: 8
+$ species           &lt;chr&gt; "Adelie", "Adelie", "Adelie", "Adelie", "Adelie", "A…
+$ island            &lt;chr&gt; "Torgersen", "Torgersen", "Torgersen", "Torgersen", …
+$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+$ sex               &lt;chr&gt; "male", "female", "female", NA, "female", "male", "f…
+$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…</code></pre>
+</div>
+</div>
+</section>
+<section id="mise-en-pratique-importer-des-données-1" class="slide level2">
+<h2>Mise en pratique : importer des données</h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb557"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb557-1"><a href="#cb557-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"02-data_raw/penguins.csv"</span>)</span>
+<span id="cb557-2"><a href="#cb557-2"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 344
+Columns: 8
+$ species           &lt;chr&gt; "Adelie", "Adelie", "Adelie", "Adelie", "Adelie", "A…
+$ island            &lt;chr&gt; "Torgersen", "Torgersen", "Torgersen", "Torgersen", …
+$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+$ sex               &lt;chr&gt; "male", "female", "female", NA, "female", "male", "f…
+$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…</code></pre>
+</div>
+</div>
+</section>
+<section id="mise-en-pratique-importer-des-données-2" class="slide level2">
+<h2>Mise en pratique : importer des données</h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb559"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb559-1"><a href="#cb559-1"></a>penguins <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"02-data_raw/penguins.csv"</span>)</span>
+<span id="cb559-2"><a href="#cb559-2"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 344
+Columns: 8
+$ species           &lt;chr&gt; "Adelie", "Adelie", "Adelie", "Adelie", "Adelie", "A…
+$ island            &lt;chr&gt; "Torgersen", "Torgersen", "Torgersen", "Torgersen", …
+$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+$ sex               &lt;chr&gt; "male", "female", "female", NA, "female", "male", "f…
+$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…</code></pre>
+</div>
+</div>
+</section>
+<section id="mise-en-pratique-importer-des-données-3" class="slide level2">
+<h2>Mise en pratique : importer des données</h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb561"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb561-1"><a href="#cb561-1"></a>penguins <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"02-data_raw/penguins.csv"</span>, <span class="at">setclass =</span> <span class="st">"tbl_df"</span>)</span>
+<span id="cb561-2"><a href="#cb561-2"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 344
+Columns: 8
+$ species           &lt;chr&gt; "Adelie", "Adelie", "Adelie", "Adelie", "Adelie", "A…
+$ island            &lt;chr&gt; "Torgersen", "Torgersen", "Torgersen", "Torgersen", …
+$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+$ sex               &lt;chr&gt; "male", "female", "female", NA, "female", "male", "f…
+$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…</code></pre>
+</div>
+</div>
+</section>
+<section id="mise-en-pratique-importer-des-données-4" class="slide level2">
+<h2>Mise en pratique : importer des données</h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb563"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb563-1"><a href="#cb563-1"></a>penguins <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"02-data_raw/penguins.csv"</span>)</span>
+<span id="cb563-2"><a href="#cb563-2"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 344
+Columns: 8
+$ species           &lt;chr&gt; "Adelie", "Adelie", "Adelie", "Adelie", "Adelie", "A…
+$ island            &lt;chr&gt; "Torgersen", "Torgersen", "Torgersen", "Torgersen", …
+$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+$ flipper_length_mm &lt;dbl&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+$ body_mass_g       &lt;dbl&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+$ sex               &lt;chr&gt; "male", "female", "female", NA, "female", "male", "f…
+$ year              &lt;dbl&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…</code></pre>
+</div>
+</div>
+</section>
+<section id="mise-en-pratique-importer-des-données-5" class="slide level2">
+<h2>Mise en pratique : importer des données</h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb565"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb565-1"><a href="#cb565-1"></a>penguins <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"02-data_raw/penguins.csv"</span>,</span>
+<span id="cb565-2"><a href="#cb565-2"></a>                            <span class="at">col_types =</span> <span class="st">"ffddiifi"</span>)</span>
+<span id="cb565-3"><a href="#cb565-3"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 344
+Columns: 8
+$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…
+$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…</code></pre>
+</div>
+</div>
+</section>
+<section id="mise-en-pratique-exporter-des-données" class="slide level2">
+<h2>Mise en pratique : exporter des données</h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb567"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb567-1"><a href="#cb567-1"></a><span class="fu">saveRDS</span>(penguins, <span class="at">file =</span> <span class="st">"02-data_raw/penguins.Rds"</span>)</span>
+<span id="cb567-2"><a href="#cb567-2"></a>readr<span class="sc">::</span><span class="fu">write_rds</span>(penguins, <span class="at">file =</span> <span class="st">"02-data_raw/penguins.Rds"</span>)</span>
+<span id="cb567-3"><a href="#cb567-3"></a>rio<span class="sc">::</span><span class="fu">export</span>(penguins, <span class="at">file =</span> <span class="st">"02-data_raw/penguins.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section>
+<section>
+<section id="obtenir-de-laide" class="title-slide slide level1 center">
+<h1>Obtenir de l’aide</h1>
+
+</section>
+<section id="obtenir-de-laide-1" class="slide level2">
+<h2>Obtenir de l’aide</h2>
+<p><br></p>
+<ul>
+<li><p>R Foundation Help Page : <a href="r-project.org/help.html" title="r-project.org/help.html">r-project.org/help.html</a></p></li>
+<li><p>Posit / RStudio Community : <a href="community.rstudio.com">community.rstudio.com</a></p></li>
+<li><p>R For Data Science Online Learning Community : <a href="rfordatasci.com">rfordatasci.com</a></p></li>
+<li><p>Stack Overflow : <a href="stackoverflow.com">stackoverflow.com</a></p></li>
+<li><p>Réseaux sociaux : <a href="https://twitter.com/search?q=%23rstats&amp;src=typeahead_click">#rstats</a> <a href="https://twitter.com/search?q=%23tidyverse&amp;src=typed_query&amp;f=top">#tidyverse</a> <a href="https://twitter.com/search?q=%23ggplot2&amp;src=typed_query&amp;f=top">#ggplot2</a></p></li>
+</ul>
+<p><br></p>
+<ul>
+<li><p>Livres en ligne :</p>
+<ul>
+<li><p>Modern Dive : <a href="https://moderndive.com/">moderndive.com</a></p></li>
+<li><p>R For Data Science : <a href="https://r4ds.hadley.nz/">r4ds.hadley.nz/</a></p></li>
+<li><p>Big Book Of R : <a href="https://www.bigbookofr.com/">bigbookofr.com</a></p></li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="la-suite" class="title-slide slide level1 center">
+<h1>La suite …</h1>
+
+</section>
+<section id="section-10" class="slide level2">
+<h2></h2>
+<p><br></p>
+
+<img data-src="img/workflow_01.png" class="r-stretch quarto-figure-center"></section>
+<section id="section-11" class="slide level2">
+<h2></h2>
+<p><br></p>
+
+<img data-src="img/workflow_01b.png" class="r-stretch quarto-figure-center"></section>
+<section id="section-12" class="slide level2">
+<h2></h2>
+<p><br></p>
+
+<img data-src="img/workflow_02b.png" class="r-stretch quarto-figure-center"></section>
+<section id="section-13" class="slide level2">
+<h2></h2>
+<p><br></p>
+
+<img data-src="img/workflow_02c.png" class="r-stretch quarto-figure-center"></section></section>
+<section id="merci" class="title-slide slide level1 center">
+<h1>Merci !</h1>
 <div class="footer footer-default">
 
 </div>
-</section></section>
+</section>
     </div>
   </div>
 

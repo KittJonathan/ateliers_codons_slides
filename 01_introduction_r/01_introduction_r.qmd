@@ -11,6 +11,28 @@ title-slide-attributes:
 
 ![](img/title.png){fig-align="center"}
 
+## Les ateliers codons
+
+<br>
+
+-   Des **créneaux réguliers** pour **découvrir** et **progresser**
+
+-   Deux parcours : **initiation** et **perfectionnement**
+
+-   Une **équipe d'animation**
+
+-   Des **supports** disponibles en ligne : [ateliers-codons.netlify.app/](https://ateliers-codons.netlify.app/)
+
+<br>
+
+#### Sources pour cet atelier : 
+
+<br>
+
+-   [Getting started with R and RStudio (Our Coding Club)](https://ourcodingclub.github.io/tutorials/intro-to-r/)
+
+-   R Course TU Dresden (Cédric Scherer)
+
 # Introduction
 
 ## Qu'est-ce que R ?
@@ -532,7 +554,7 @@ help(log)
 
 `log` computes logarithms, by default natural logarithms, `log10` computes common (i.e., base 10) logarithms, and `log2` computes binary (i.e., base 2) logarithms. The general form `log(x, base)` computes logarithms with base `base`.
 
-#### Apprendre à utiliser une fonction
+## Apprendre à utiliser une fonction
 
 <br>
 
@@ -544,7 +566,7 @@ help(log)
 
 <br>
 
-### Usage
+#### Usage
 
 ```{r, echo=TRUE, eval=FALSE}
 log(x, base = exp(1))
@@ -570,7 +592,7 @@ help(log)
 
 <br>
 
-### Arguments
+#### Arguments
 
 `x` a numeric or complex vector.
 
@@ -732,7 +754,7 @@ Pour supprimer un objet de l'environnement, utilisez la fonction `rm()`.
 
 Pour supprimer plusieurs objets à la fois, cliquez sur l'**icône "balai"** :
 
-![](img/rstudio_env_02.png){fig-align="center" width="25%"}
+![](img/rstudio_env_02.png){fig-align="center" width="68" height="14"}
 
 <br>
 
@@ -1990,7 +2012,7 @@ my_nested_list
 my_nested_list$names
 my_nested_list$names[[1]]
 my_nested_list$names[[1]][1]
-my_nested_list$names[[2]][[1]][1]
+my_nested_list[[2]][[1]][1]
 ```
 
 ## Listes imbriquées comme tibbles
@@ -2010,7 +2032,7 @@ my_tbl_list
 install.packages("tidyr")
 ```
 
-```{r, echo=TRUE, eval=TRUE, error=TRUE}
+```{r, echo=TRUE, eval=TRUE, error=TRUE, warning=TRUE}
 my_tbl <- tidyr::unnest(my_tbl_list)
 my_tbl <- tidyr::unnest(my_tbl_list, cols = c(ids, names, type))
 my_tbl
@@ -2102,26 +2124,46 @@ tibble::tribble(
 
 ## Le workflow en data science
 
+<br>
+
 ![Le workflow en data science, modifié à partir de "R for Data Science"](img/workflow_01.png)
 
 ## Le workflow en data science
+
+<br>
 
 ![Le workflow en data science, modifié à partir de "R for Data Science"](img/workflow_02.png)
 
 ## Importer des données
 
+<br>
+
 Habituellement, vous créez des data frames en important des fichiers de données comme `.txt`, `.csv`, ...
+
+<br>
 
 ```{r, echo=TRUE, eval=FALSE}
 my_data <- read.delim("./data/cool_data.txt", sep = "\t")
 my_data <- read.csv("./data/cool_data.csv")
 ```
 
-Le `./` désigne un chemin relatif, à partir de votre **répertoire de travail (working directory)**.
+<br>
 
-Vous pouvez vérifier votre "wd" à l'aide de la fonction `getwd()`.
+Le `./` désigne un **chemin relatif**, à partir de votre **répertoire de travail (working directory)**.
+
+Un **chemin absolu** indique l'emplacement d'un fichier depuis la racine du disque : `C:/…/`
+
+<br>
+
+Vous pouvez vérifier votre **"wd"** (working directory) à l'aide de la fonction `getwd()`.
+
+## Importer des données
+
+<br>
 
 Vous pouvez aussi importer des données directement à partir d'un site internet à l'aide d'une URL valide :
+
+<br>
 
 ```{r, echo=TRUE, eval=FALSE}
 my_data <- read.csv("https:://some-webpage.com/online-data.csv")
@@ -2129,17 +2171,29 @@ my_data <- read.csv("https:://some-webpage.com/online-data.csv")
 
 ## Importer des données : Tibbles
 
-Le package {readr} fournit une méthode simple et rapide de lire des données rectangulaires stockées comme des tibbles :
+<br>
+
+Le package `{readr}` fournit une méthode simple et rapide pour lire des données rectangulaires et les stocker dans des `tibbles` :
+
+<br>
 
 ```{r, echo=TRUE, eval=FALSE}
 my_data <- readr::read_delim("./data/cool_data.txt", delim = "\t")
-my_data <- readr::read_csv("./data/cool_data.csv")
-my_data <- readr::read_csv2("./data/actually_not_a_csv_but_okay.csv")  ## `;` comme séparateur et "," comme décimale
+
+## `,` comme séparateur et "." comme décimale
+my_data <- readr::read_csv("./data/cool_data.csv") 
+
+## `;` comme séparateur et "," comme décimale
+my_data <- readr::read_csv2("./data/actually_not_a_csv_but_okay.csv")
 ```
 
 ## Importer des données : fichiers Excel (pas idéal)
 
-Le package {readxl} fournit des fonctionnalités pour importer des tableaux Excel :
+<br>
+
+Le package `{readxl}` fournit des fonctionnalités pour importer des tableaux Excel :
+
+<br>
 
 ```{r, echo=TRUE, eval=FALSE}
 my_data <- readxl::read_xls("./data/oh_no_excel_data.xls", sheet = 1)
@@ -2148,12 +2202,18 @@ my_data <- readxl::read_xlsx("./data/oh_no_excel_data.xlsx", sheet = 1)
 
 ## Importer des données : formats propres à R
 
-Il existe également des formats propres à R comme .Rds et .Rdata / .Rda
+<br>
+
+Il existe également des **formats propres à R** comme `.Rds`, `.Rdata` et `.Rda` .
+
+<br>
 
 ```{r, echo=TRUE, eval=FALSE}
 ## R basique :
 my_data <- readRDS("./data/one_of_Rs_data_formats.Rds")
 ```
+
+<br>
 
 ```{r, echo=TRUE, eval=FALSE}
 ## package readr :
@@ -2162,10 +2222,245 @@ my_data <- readr::read_rds("./data/one_of_Rs_data_formats.Rds")
 
 ## Importer des données : trop lent ?
 
-Le package {data.table} fournit des fonctionnalités pour importer, exporter et manipuler des données.
+<br>
 
-Les fonctions pour importer et exporter des données sont connues pour être très rapides :
+Le package `{data.table}` fournit des fonctionnalités pour importer, exporter et manipuler des données.
+
+<br>
+
+Les fonctions pour importer et exporter des données sont connues pour être **très rapides** :
+
+<br>
 
 ```{r, echo=TRUE, eval=FALSE}
 my_data <- data.table::fread("./data/cool_data.csv", sep = ",")
 ```
+
+## Importer des données : le couteau suisse I/O
+
+<br>
+
+Le package `{rio}` cherche à unifier l'importation et l'exportation de données à l'aide de **deux fonctions**.
+
+<br>
+
+En fonction du format de fichier, {rio} choisira la fonction la plus adaptée pour importer/exporter les données :
+
+<br>
+
+```{r, echo=TRUE, eval=FALSE}
+my_data <- rio::import("./data/cool_data.txt")
+my_data <- rio::import("./data/cool_data.csv")
+my_data <- rio::import("./data/one_of_Rs_data_formats.Rds")
+```
+
+<br>
+
+```{r, echo=TRUE, eval=FALSE}
+my_data <- rio::import("./data/spatial_data_formats_can_be_annoyiong.shp")
+my_data <- rio::import("./data/spatial_data_formats_can_be_annoyiong.geojson")
+my_data <- rio::import("./data/spatial_data_formats_can_be_annoyiong.gpkg")
+my_data <- rio::import("./data/spatial_data_formats_can_be_annoyiong.tif")
+```
+
+## Exporter des données
+
+<br>
+
+En général, la même logique s'applique à l'exportation de données :
+
+<br>
+
+```{r, echo=TRUE, eval=FALSE}
+write(my_data, file = "./data/cool_data.1 txt", sep = "\t")
+write.csv(my_data, file = "./data/cool_data.csv")
+readr::write_csv(my_data, file = "./data/cool_data.csv")
+data.table::fwrite(my_data, file = "./data/cool_data.csv", sep = ",")
+```
+
+<br>
+
+```{r, echo=TRUE, eval=FALSE}
+saveRDS(my_data, file = "./data/one_of_Rs_data_formats.Rds")
+readr::write_rds(my_data, file = "./data/one_of_Rs_data_formats.Rds")
+rio::export(my_data, "./data/spatial_data_formats_can_be_annoyiong.tif")
+  
+```
+
+<br>
+
+```{r, echo=TRUE, eval=FALSE}
+rio::export(my_data, "./data/spatial_data_formats_can_be_annoyiong.tif")
+```
+
+## Mise en pratique : importer et exporter des données
+
+<br>
+
+-   Importer le fichier penguins.csv à partir de votre ordinateur ou directement à l'aide de l'URL suivante :
+
+    <https://github.com/codons-blog/ateliers_codons/blob/main/raw/penguins.csv>
+
+<br>
+
+-   Explorez les données : les valeurs et types de données vont semblent-ils corrects ?
+
+<br>
+
+-   Exportez le fichier au format `.Rds`
+
+<br>
+
+<br>
+
+**Bonus** : importez vos propres données ou essayez d'autres types de données et de formats
+
+## Mise en pratique : importer des données
+
+<br>
+
+```{r, echo=TRUE, eval=FALSE}
+penguins <- read.delim("02-data_raw/penguins.csv", sep = ",")
+tibble::glimpse(penguins)
+```
+
+```{r, echo=FALSE, eval=TRUE}
+penguins <- read.delim("penguins.csv", sep = ",")
+tibble::glimpse(penguins)
+```
+
+## Mise en pratique : importer des données
+
+<br>
+
+```{r, echo=TRUE, eval=FALSE}
+penguins <- read.csv("02-data_raw/penguins.csv")
+tibble::glimpse(penguins)
+```
+
+```{r, echo=FALSE, eval=TRUE}
+penguins <- read.csv("penguins.csv")
+tibble::glimpse(penguins)
+```
+
+## Mise en pratique : importer des données
+
+<br>
+
+```{r, echo=TRUE, eval=FALSE}
+penguins <- rio::import("02-data_raw/penguins.csv")
+tibble::glimpse(penguins)
+```
+
+```{r, echo=FALSE, eval=TRUE}
+penguins <- rio::import("penguins.csv")
+tibble::glimpse(penguins)
+```
+
+## Mise en pratique : importer des données
+
+<br>
+
+```{r, echo=TRUE, eval=FALSE}
+penguins <- rio::import("02-data_raw/penguins.csv", setclass = "tbl_df")
+tibble::glimpse(penguins)
+```
+
+```{r, echo=FALSE, eval=TRUE}
+penguins <- rio::import("penguins.csv", setclass = "tbl_df")
+tibble::glimpse(penguins)
+```
+
+## Mise en pratique : importer des données
+
+<br>
+
+```{r, echo=TRUE, eval=FALSE}
+penguins <- readr::read_csv("02-data_raw/penguins.csv")
+tibble::glimpse(penguins)
+```
+
+```{r, echo=FALSE, eval=TRUE}
+penguins <- readr::read_csv("penguins.csv")
+tibble::glimpse(penguins)
+```
+
+## Mise en pratique : importer des données
+
+<br>
+
+```{r, echo=TRUE, eval=FALSE}
+penguins <- readr::read_csv("02-data_raw/penguins.csv",
+                            col_types = "ffddiifi")
+tibble::glimpse(penguins)
+```
+
+```{r, echo=FALSE, eval=TRUE}
+penguins <- readr::read_csv("penguins.csv",
+                            col_types = "ffddiifi")
+tibble::glimpse(penguins)
+```
+
+## Mise en pratique : exporter des données
+
+<br>
+
+```{r, echo=TRUE, eval=FALSE}
+saveRDS(penguins, file = "02-data_raw/penguins.Rds")
+readr::write_rds(penguins, file = "02-data_raw/penguins.Rds")
+rio::export(penguins, file = "02-data_raw/penguins.Rds")
+```
+
+# Obtenir de l'aide
+
+## Obtenir de l'aide
+
+<br>
+
+-   R Foundation Help Page : [r-project.org/help.html](r-project.org/help.html "r-project.org/help.html")
+
+-   Posit / RStudio Community : [community.rstudio.com](community.rstudio.com)
+
+-   R For Data Science Online Learning Community : [rfordatasci.com](rfordatasci.com)
+
+-   Stack Overflow : [stackoverflow.com](stackoverflow.com)
+
+-   Réseaux sociaux : [#rstats](https://twitter.com/search?q=%23rstats&src=typeahead_click) [#tidyverse](https://twitter.com/search?q=%23tidyverse&src=typed_query&f=top) [#ggplot2](https://twitter.com/search?q=%23ggplot2&src=typed_query&f=top)
+
+<br>
+
+-   Livres en ligne :
+
+    -   Modern Dive : [moderndive.com](https://moderndive.com/)
+
+    -   R For Data Science : [r4ds.hadley.nz/](https://r4ds.hadley.nz/)
+
+    -   Big Book Of R : [bigbookofr.com](https://www.bigbookofr.com/)
+
+# La suite ...
+
+## 
+
+<br>
+
+![](img/workflow_01.png){fig-align="center"}
+
+## 
+
+<br>
+
+![](img/workflow_01b.png){fig-align="center"}
+
+## 
+
+<br>
+
+![](img/workflow_02b.png){fig-align="center"}
+
+## 
+
+<br>
+
+![](img/workflow_02c.png){fig-align="center"}
+
+# Merci  !
