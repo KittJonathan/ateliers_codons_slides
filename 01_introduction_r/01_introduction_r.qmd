@@ -1623,7 +1623,7 @@ Notez que dans certains cas, plusieurs packages peuvent contenir des fonctions (
 install.packages("dplyr")
 ```
 
-```{r, echo=TRUE, eval=TRUE}
+```{r, echo=TRUE, eval=TRUE, message=TRUE, warning=TRUE}
 library(dplyr)
 ## fournit des fonctions pour manipuler des données tabulaires
 ```
@@ -1652,7 +1652,7 @@ install.packages("stringr")
 ```
 
 ```{r, echo=TRUE, eval=TRUE}
-stringr::str_to_sentence(c("cafe", "latte machiatto", "expresso"))
+stringr::str_to_sentence(c("cafe", "latte macchiato", "expresso"))
 ```
 
 <br>
@@ -1682,7 +1682,7 @@ Vous pouvez stocker plusieurs vecteurs, avec différents types de données, dans
 Vous pouvez expliciter les **noms des colonnes** :
 
 ```{r, echo=TRUE, eval=TRUE}
-(df_bd <- data.frame(id = ids, personnages = names))
+(df_bd <- data.frame(id = ids, personnage = names))
 ```
 
 ## Accéder aux éléments d'un Data Frame
@@ -1701,7 +1701,7 @@ df_bd[2, ]
 
 ```{r, echo=TRUE, eval=TRUE}
 df_bd[, 2]
-df_bd$personnages
+df_bd$personnage
 df_bd[[2]]
 ```
 
@@ -1712,7 +1712,7 @@ df_bd[[2]]
 #### Cellules :
 
 ```{r, echo=TRUE, eval=TRUE}
-df_bd$personnages[2]
+df_bd$personnage[2]
 df_bd[[2]][2]
 df_bd[, 2][2]
 df_bd[2, 2]
@@ -1730,7 +1730,7 @@ df_bd
 
 <br>
 
-La colonne `perso` n'existe pas dans `df_bd` mais ressemble à `personnages` :
+La colonne `perso` n'existe pas dans `df_bd` mais ressemble à `personnage` :
 
 ```{r, echo=TRUE, eval=TRUE}
 df_bd$perso
@@ -1749,12 +1749,14 @@ install.packages("tibble")
 ```
 
 ```{r, echo=TRUE, eval=TRUE}
-(tbl_bd <- tibble::tibble(id = ids, personnages = names))
+(tbl_bd <- tibble::tibble(id = ids, personnage = names))
 ```
 
 <br>
 
-Comme les fonctions utilisées précédemment, `tibble()` est une fonction. Alors que `mean()` et `+` sont des fonctions de base, `tibble()` appartient à un **package** ajouté qui s'appelle également **{tibble}**.
+Comme les fonctions utilisées précédemment, `tibble()` est une fonction.
+
+Alors que `mean()` et `+` sont des fonctions de base, `tibble()` appartient à un **package** supplémentaire qui s'appelle également **{tibble}**.
 
 ## Data Frame vs Tibble
 
@@ -1787,7 +1789,7 @@ df_long <- data.frame(id = 1:100, value = sample(1:100, 100, replace = TRUE))
 tbl_long <- tibble::tibble(id = 1:100, value = sample(1:100, 100, replace = TRUE))
 ```
 
-<br>
+## 
 
 ::: columns
 ::: column
@@ -1807,7 +1809,7 @@ tbl_long
 
 <br>
 
-Comparez l'affichage du jeu de données penguins au format Data Frame et au format Tibble :
+Comparez l'affichage du jeu de données `penguins` au format `data.frame` et au format `tibble` :
 
 <br>
 
@@ -1828,12 +1830,6 @@ Comparez l'affichage du jeu de données penguins au format Data Frame et au form
 Principales différences :
 
 -   **l'affichage des tibbles est "affiné"** :
-
-    -   les 10 premières lignes + toutes les colonnes qui rentrent sur l'écran
-
-    -   pour chaque colonne : nom + type de données
-
-    -   dimensions
 
 -   **la sélection de sous-ensembles de données est plus stricte pour les tibbles**
 
@@ -1899,8 +1895,9 @@ length(unique(tbl_long$value))  ## nombre d'observations uniques
 
 ## Mise en pratique : données tabulaires
 
-::: {.callout-tip appearance="simple" icon="false"}
--   Si ce n'est pas encore fait, installez et chargez le package {palmerpenguins}
+<br>
+
+-   Si ce n'est pas encore fait, installez et chargez le package `{palmerpenguins}` .
 
 -   Explorez le jeu de données `penguins` :
 
@@ -1910,14 +1907,15 @@ length(unique(tbl_long$value))  ## nombre d'observations uniques
 
     -   vérifiez les années de suivi des pingouins
 
-    -   calculez la longueur moyenne des becs (bill length)
+    -   calculez la longueur moyenne des becs (`bill_length_mm`)
 
-    -   affichez les quantiles des mesures de la longueur des ailes (flipper length)
+    -   affichez les quantiles des mesures de la longueur des ailes (`flipper_length_mm`)
 
-    -   stockez la colonne de masse corporelle (body mass) dans un vecteur `penguin_weights`
-:::
+    -   stockez la colonne de masse corporelle (`body_mass_g`) dans un vecteur `penguin_weights`
 
 ## Mise en pratique : travailler avec des données tabulaires
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 dim(penguins)  ## ou `nrow(penguins)`, `length(penguins$species)`, ...
@@ -1931,16 +1929,22 @@ penguins_weights <- penguins$body_mass_g
 
 ## Listes
 
-La liste est de loin la structure de données la plus flexible dans R. Une liste est une collection d'éléments sans aucune restriction de classe, longueur ou structure de chaque élément.
+<br>
+
+La liste est de loin la structure de données la plus **flexible** dans R. Une liste est une collection d'éléments **sans aucune restriction de classe, longueur ou structure** de chaque élément.
 
 ```{r, echo=TRUE, eval=TRUE}
-my_list <- list(ids = 1:5, names = c("Joe", "Jack", "William", "Averell", "Rantanplan"))
+my_list <- list(ids = 1:5, names = c("Lucky Luke", "Averell", "Jack", "Joe", "William"))
 my_list
 ```
+
+<br>
 
 Notez que les data frames peuvent être également considérés comme des listes tabulaires simples.
 
 ## Accéder aux éléments d'une liste
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 my_list$names
@@ -1951,19 +1955,36 @@ my_list[[2]][1]
 
 ## Listes imbriquées
 
-Habituellement, on entend par listes des structures de données imbriquées
+<br>
+
+Habituellement, on entend par listes des **structures de données imbriquées** :
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 my_nested_list <- list(
   ids = list(1:5, 1),
-  names = list(c("Lucky Luke", "Joe", "Jack", "William", "Averell"),
-               "Rantanplan"),
+  names = list(c("Lucky Luke", "Averell", "Jack", "Joe", "William"),
+                 "Rantanplan"),
   type = list(rep("humain", 5), "chien")
 )
+```
+
+## Listes imbriquées
+
+<br>
+
+Habituellement, on entend par listes des **structures de données imbriquées** :
+
+<br>
+
+```{r, echo=TRUE, eval=TRUE}
 my_nested_list
 ```
 
 ## Listes imbriquées
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 my_nested_list$names
@@ -1972,7 +1993,9 @@ my_nested_list$names[[1]][1]
 my_nested_list$names[[2]][[1]][1]
 ```
 
-## Listes imbriquées comme Tibbles
+## Listes imbriquées comme tibbles
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 my_tbl_list <- tibble::as_tibble(my_nested_list)
@@ -1981,17 +2004,21 @@ my_tbl_list
 
 ## Désimbriquer des listes imbriquées
 
+<br>
+
 ```{r, echo=TRUE, eval=FALSE}
 install.packages("tidyr")
 ```
 
-```{r, echo=TRUE, eval=TRUE}
+```{r, echo=TRUE, eval=TRUE, error=TRUE}
 my_tbl <- tidyr::unnest(my_tbl_list)
 my_tbl <- tidyr::unnest(my_tbl_list, cols = c(ids, names, type))
 my_tbl
 ```
 
 ## Imbriquer des listes
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 my_nested_tbl <- tidyr::nest(my_tbl, data = !type)
@@ -2000,9 +2027,15 @@ my_nested_tbl$data
 
 # Créer des jeux de données
 
-## Créer des ~~jeux de données~~ vecteurs dans R
+## Créer des vecteurs dans R
 
-Vous pouvez combiner des vecteurs dans un data frame ou un tibble. Les fonctions `seq()` et `rep()` sont utiles pour créer des vecteurs :
+<br>
+
+Vous pouvez **combiner des vecteurs** dans un data frame ou un tibble.
+
+Les fonctions `seq()` et `rep()` sont utiles pour créer des vecteurs :
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 1:10
@@ -2015,7 +2048,13 @@ rep(1:3, each = 3)
 
 ## Créer des jeux de données dans R
 
-Vous pouvez combiner des vecteurs dans un data frame ou un tibble. Les fonctions `seq()` et `rep()` sont utiles pour créer des vecteurs :
+<br>
+
+Vous pouvez **combiner des vecteurs** dans un data frame ou un tibble.
+
+Les fonctions `seq()` et `rep()` sont utiles pour créer des vecteurs :
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 name <- c("Rantanplan", "Idéfix", "Milou", "Bill", "Pif")
@@ -2027,7 +2066,11 @@ tibble::tibble(id, name, age, species)  ## ou `data.frame()`
 
 ## Créer des jeux de données dans R
 
-Vous pouvez créer ces colonnes directement dans la fonction data.frame() ou tibble() :
+<br>
+
+Vous pouvez créer ces colonnes directement dans la fonction `data.frame()` ou `tibble()` :
+
+<br>
 
 ```{r, echo=TRUE, eval=TRUE}
 tibble::tibble(
@@ -2040,7 +2083,9 @@ tibble::tibble(
 
 ## Créer des jeux de données dans R
 
-Vous pouvez également créer des tibbles en utilisant une disposition par ligne - un tribble :
+<br>
+
+Vous pouvez également créer des tibbles en utilisant une **disposition par ligne** - un **`tribble`** :
 
 ```{r, echo=TRUE, eval=TRUE}
 tibble::tribble(
