@@ -25,7 +25,7 @@ title-slide-attributes:
 
 <br>
 
-#### Sources pour cet atelier : 
+#### Sources pour cet atelier :
 
 <br>
 
@@ -2463,4 +2463,4 @@ rio::export(penguins, file = "02-data_raw/penguins.Rds")
 
 ![](img/workflow_02c.png){fig-align="center"}
 
-# Merci  !
+# Merci !

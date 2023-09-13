@@ -1,0 +1,58 @@
+---
+format:
+  revealjs:
+    theme: custom.scss
+    fontsize: 1.8em
+editor: visual
+title-slide-attributes: 
+  data-background-image: title.png
+  data-background-opacity: 50%
+---
+
+![](img/title.png){fig-align="center"}
+
+## 
+
+<br>
+
+![](img/workflow_01.png){fig-align="center"}
+
+## 
+
+<br>
+
+![](img/workflow_02.png){fig-align="center"}
+
+## 
+
+<br>
+
+![](img/workflow_03.png){fig-align="center"}
+
+## 
+
+<br>
+
+![](img/workflow_04.png){fig-align="center"}
+
+# Manipuler des données avec le {tidyverse}
+
+## 
+
+<br>
+
+::: columns
+::: {.column width="50%"}
+![](img/tidyverse_celestial.png)
+:::
+
+::: {.column width="50%"}
+**Packages R pour la Data Science**
+
+<br>
+
+Le {tidyverse} est une collection de packages R dédiés à la Data Science.
+
+Les packages du {tidyverse} partagent une lo
+:::
+:::
