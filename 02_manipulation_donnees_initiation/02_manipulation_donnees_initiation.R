@@ -1,24 +1,26 @@
 ## Ateliers codons
 ## Parcours initiation
 ## Manipulation de donnees
-## Derniere version 2023-09-13
+## Derniere version 2023-09-15
 
 ## Installer et charger le {tidyverse} ----
 
 # install.packages("tidyverse")
-# library(tidyverse)
+library(tidyverse)
 
 # install.packages("readr")
-library(readr)
+# library(readr)
 
 # install.packages("dplyr)
-library(dplyr)
+# library(dplyr)
 
 ## Importer les donnees ----
 
 ## Le package {readr} : read_*()
-read_delim(file = "01_introduction_r/penguins.csv")
-read_csv(file = "01_introduction_r/penguins.csv")
+url <- "https://raw.githubusercontent.com/allisonhorst/palmerpenguins/main/inst/extdata/penguins.csv"
+
+read_delim(file = url)
+read_csv(file = url)
 
 ## Le package {palmerpenguins}
 penguins <- palmerpenguins::penguins
@@ -37,6 +39,13 @@ select(penguins, species:bill_length_mm)  ## conserver plusieurs colonnes
 penguins[, c("species", "island", "bill_length_mm")]  ## R basique
 
 penguins_selection <- select(penguins, species:bill_length_mm, flipper_length_mm, body_mass_g)
+
+## selec(new = old) peut servir a renommer des colonnes
+## rename(new = old)
+
+select(penguins, starts_with("bill"))
+select(penguins, ends_with("mm"))
+select(penguins, contains("length"))
 
 ## Nettoyer les donnees - tidyr::drop_na() ----
 
@@ -110,52 +119,60 @@ penguins |>
 penguins |> 
   arrange(desc(body_mass_g), desc(flipper_length_mm))
 
-arrange(penguins, -body_mass_g, -flipper_length_mm)
-arrange(penguins, desc(body_mass_g), desc(flipper_length_mm))
+penguins |> 
+  arrange(-body_mass_g, -flipper_length_mm)
+
+penguins |> 
+  arrange(desc(body_mass_g), desc(flipper_length_mm))
 
 ## Le package {dplyr} : mutate() ----
 
 ## Creer de nouvelles variables (colonnes) : 
 ## - a partir de colonnes existantes
 
-mutate(penguins, body_mass_kg = body_mass_g / 1000)
+penguins |> 
+  mutate(body_mass_kg = body_mass_g / 1000)
 
 ## R basique
 head(transform(penguins, body_mass_kg = body_mass_g / 1000))
 
 ## - independamment des donnees
 
-mutate(penguins, note = "A verifier !")
+penguins |> 
+  mutate(note = "A verifier !")
 
 ## Le package {dplyr} : summarise() ----
 
-summarise(penguins, body_mass_g_mean = mean(body_mass_g))
+penguins |> 
+  summarise(body_mass_g_mean = mean(body_mass_g))
 
 ## R basique
 mean(penguins$body_mass_g)
 
-summarise(penguins, n = n())
+penguins |> 
+  summarise(n = n())
+
+penguins |> 
+  summarise(body_mass_g_mean = mean(body_mass_g),
+            body_mass_g_median = median(body_mass_g))
 
 ## Le package {dplyr} : group_by() ----
 
-group_by(penguins, species)
-group_by(penguins, species, island)
-
-grouped <- group_by(penguins, species, island)
-ungroup(grouped)
-
-penguins_group <- group_by(penguins, species)
-penguins_group
-summarise(penguins_group, n = n())
-summarise(penguins_group, mean_mass = mean(body_mass_g))
-
-## Le pipe |> ----
+penguins |> 
+  group_by(species)
 
 penguins |> 
-  mutate(body_mass_kg = body_mass_g / 1000) |> 
+  group_by(species, island)
+
+penguins_groups <- penguins |> 
+  group_by(species, island)
+
+ungroup(penguins_groups)
+
+penguins |> 
   group_by(species) |> 
-  summarise(avg_body_mass_kg = mean(body_mass_kg)) |> 
-  arrange(-avg_body_mass_kg)
+  summarise(n = n(),
+            body_mass_g_mean = mean(body_mass_g))
 
 ## Le package {dplyr} : distinct() et n_distinct() ----
 

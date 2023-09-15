@@ -35,24 +35,76 @@ title-slide-attributes:
 
 ![](img/workflow_04.png){fig-align="center"}
 
-# Manipuler des données avec le {tidyverse}
+# Installer et charger le {tidyverse}
 
-## 
-
-<br>
-
-::: columns
-::: {.column width="50%"}
-![](img/tidyverse_celestial.png)
-:::
-
-::: {.column width="50%"}
-**Packages R pour la Data Science**
+## Installer le {tidyverse}
 
 <br>
 
-Le {tidyverse} est une collection de packages R dédiés à la Data Science.
+-   Installer tous les packages du {tidyverse} :
 
-Les packages du {tidyverse} partagent une lo
-:::
-:::
+```{r, echo=TRUE, eval=FALSE}
+install.packages("tidyverse")  
+```
+
+<br>
+
+-   Installer uniquement les packages nécessaires :
+
+```{r, echo=TRUE, eval=FALSE}
+install.packages("readr")
+install.packages("dplyr")
+install.packages("tidyr")
+```
+
+## Charger le {tidyverse}
+
+<br>
+
+-   Charger tous les packages du {tidyverse}
+
+```{r, echo=TRUE, eval=FALSE}
+library(tidyverse)
+```
+
+<br>
+
+-   Charger uniquement les packages nécessaires
+
+```{r, echo=TRUE, eval=FALSE}
+library(readr)
+library(dplyr)
+library(tidyr)
+```
+
+## Les conflits
+
+<br>
+
+Quand vous chargez l'ensemble du {tidyverse}, un message s'affiche dans la console :
+
+```{r, echo=TRUE, eval=TRUE, message=TRUE, warning=FALSE}
+library(tidyverse)
+```
+
+<br>
+
+La section **Conflicts** vous indique que des fonctions portant le **même nom** existent dans au moins **un autre package**.
+
+# Le jeu de données *penguins*
+
+## Le jeu de données *penguins*
+
+<br>
+
+-   Données collectées et publiées par [Dr Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) lors d'une étude menée dans la [Palmer Station](https://pallter.marine.rutgers.edu/) en Antarctique, appartenant à la [LTER](https://lternet.edu/) (Long Term Ecological Research Network).
+
+-   Mesure de différents paramètres (par exemple la longueur des ailes, la masse corporelle) chez **342 individus** appartenant à **trois espèces** de pingouins vivant sur **trois îles** de l'archipel Palmer.
+
+-   Deux jeux de données :
+
+    -   données brutes (`penguins_raw`)
+
+    -   **données nettoyées (`penguins`)**
+
+-   Données disponibles dans un package R : [`{palmerpenguins}`](https://allisonhorst.github.io/palmerpenguins/).
