@@ -496,6 +496,208 @@
 </ul></li>
 <li><p>Données disponibles dans un package R : <a href="https://allisonhorst.github.io/palmerpenguins/"><code>{palmerpenguins}</code></a>.</p></li>
 </ul>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+
+<img data-src="img/title_readr_read.png" class="r-stretch quarto-figure-center"></section>
+<section id="importer-les-données" class="slide level2">
+<h2>Importer les données</h2>
+<p><br></p>
+<h4 id="avec-le-package-readr">Avec le package {readr}</h4>
+<ul>
+<li>Directement à partir de la page web :</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/allisonhorst/palmerpenguins/main/inst/extdata/penguins.csv"</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>En important le fichier <code>penguins.csv</code> préalablement téléchargé :</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"02-data_raw/penguins.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<h4 id="avec-le-package-palmerpenguins">Avec le package {palmerpenguins}</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">install.packages</span>(<span class="st">"palmerpenguins"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a>penguins <span class="ot">&lt;-</span> palmerpenguins<span class="sc">::</span>penguins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+
+<img data-src="img/title_dplyr_glimpse.png" class="r-stretch quarto-figure-center"></section>
+<section id="explorer-les-données" class="slide level2">
+<h2>Explorer les données</h2>
+<p><br></p>
+<p>La fonction <code>glimpse()</code> permet d’afficher la structure et le contenu de données :</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">glimpse</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 344
+Columns: 8
+$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…
+$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…</code></pre>
+</div>
+</div>
+</section>
+<section id="section-6" class="slide level2">
+<h2></h2>
+
+<img data-src="img/title_dplyr_data_wrangling.png" class="r-stretch quarto-figure-center"></section>
+<section id="le-package-dplyr" class="slide level2">
+<h2>Le package {dplyr}</h2>
+<p><br></p>
+<ul>
+<li>Contient un ensemble de fonctions utiles à la <strong>transformation</strong> et à la <strong>synthèse</strong> de données</li>
+</ul>
+<p><br></p>
+<ul>
+<li><p>Ces fonctions, comparées aux fonctions R basiques :</p>
+<ul>
+<li><p>ont une syntaxe plus cohérente</p></li>
+<li><p>ont un nombre limité d’options</p></li>
+<li><p>retournent toujours un data.frame (un tibble plus précisément)</p></li>
+<li><p>utilisent des méthodes de stockage de données efficaces</p></li>
+<li><p>peuvent être utilisées pour des bases de données et des data tables</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="les-principaux-verbes-de-dplyr" class="slide level2">
+<h2>Les principaux verbes de {dplyr}</h2>
+<p><br></p>
+<table>
+<thead>
+<tr class="header">
+<th>Verbe (fonction)</th>
+<th>Explication</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>select()</code></td>
+<td>sélectionner des colonnes</td>
+</tr>
+<tr class="even">
+<td><code>filter()</code></td>
+<td>sélectionner des lignes</td>
+</tr>
+<tr class="odd">
+<td><code>arrange()</code></td>
+<td>trier des données</td>
+</tr>
+<tr class="even">
+<td><code>mutate()</code></td>
+<td>créer de nouvelles variables</td>
+</tr>
+<tr class="odd">
+<td><code>summarise()</code> ou <code>summarize()</code></td>
+<td>synthétiser des variables</td>
+</tr>
+<tr class="even">
+<td><code>group_by()</code></td>
+<td>créer des sous-ensembles de données</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="la-syntaxe-cohérente-de-dplyr" class="slide level2">
+<h2>La syntaxe cohérente de {dplyr}</h2>
+<p><br></p>
+<p>Toutes les fonctions ont les mêmes arguments principaux :</p>
+
+<img data-src="img/dplyr_syntax.png" class="r-stretch"><ul>
+<li><p>Le premier argument précise <strong>vos données</strong></p></li>
+<li><p>Les arguments suivants indiquent <strong>ce que vous faites de ces données</strong>, en utilisant les <strong>noms des variables</strong></p></li>
+</ul>
+</section>
+<section id="section-7" class="slide level2">
+<h2></h2>
+
+<img data-src="img/title_dplyr_select.png" class="r-stretch"></section>
+<section id="sélectionner-des-colonnes" class="slide level2">
+<h2>Sélectionner des colonnes</h2>
+<p><br></p>
+<h4 id="conserver-une-colonne">Conserver une colonne</h4>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">select</span>(penguins, species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 1
+   species
+   &lt;fct&gt;  
+ 1 Adelie 
+ 2 Adelie 
+ 3 Adelie 
+ 4 Adelie 
+ 5 Adelie 
+ 6 Adelie 
+ 7 Adelie 
+ 8 Adelie 
+ 9 Adelie 
+10 Adelie 
+# ℹ 334 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="sélectionner-des-colonnes-1" class="slide level2">
+<h2>Sélectionner des colonnes</h2>
+<p><br></p>
+<h4 id="supprimer-une-colonne">Supprimer une colonne</h4>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">select</span>(penguins, <span class="sc">-</span>species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 7
+   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g sex    year
+   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt; &lt;fct&gt; &lt;int&gt;
+ 1 Torge…           39.1          18.7               181        3750 male   2007
+ 2 Torge…           39.5          17.4               186        3800 fema…  2007
+ 3 Torge…           40.3          18                 195        3250 fema…  2007
+ 4 Torge…           NA            NA                  NA          NA &lt;NA&gt;   2007
+ 5 Torge…           36.7          19.3               193        3450 fema…  2007
+ 6 Torge…           39.3          20.6               190        3650 male   2007
+ 7 Torge…           38.9          17.8               181        3625 fema…  2007
+ 8 Torge…           39.2          19.6               195        4675 male   2007
+ 9 Torge…           34.1          18.1               193        3475 &lt;NA&gt;   2007
+10 Torge…           42            20.2               190        4250 &lt;NA&gt;   2007
+# ℹ 334 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="sélectionner-des-colonnes-2" class="slide level2">
+<h2>Sélectionner des colonnes</h2>
+<p><br></p>
+<h4 id="conserver-plusieurs-colonnes">Conserver plusieurs colonnes</h4>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">select</span>(penguins, species, island, bill_length_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 3
+   species island    bill_length_mm
+   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;
+ 1 Adelie  Torgersen           39.1
+ 2 Adelie  Torgersen           39.5
+ 3 Adelie  Torgersen           40.3
+ 4 Adelie  Torgersen           NA  
+ 5 Adelie  Torgersen           36.7
+ 6 Adelie  Torgersen           39.3
+ 7 Adelie  Torgersen           38.9
+ 8 Adelie  Torgersen           39.2
+ 9 Adelie  Torgersen           34.1
+10 Adelie  Torgersen           42  
+# ℹ 334 more rows</code></pre>
+</div>
+</div>
 <div class="footer footer-default">
 
 </div>

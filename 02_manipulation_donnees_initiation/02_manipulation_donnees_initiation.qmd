@@ -108,3 +108,144 @@ La section **Conflicts** vous indique que des fonctions portant le **même nom**
     -   **données nettoyées (`penguins`)**
 
 -   Données disponibles dans un package R : [`{palmerpenguins}`](https://allisonhorst.github.io/palmerpenguins/).
+
+## 
+
+![](img/title_readr_read.png){fig-align="center"}
+
+## Importer les données
+
+<br>
+
+#### Avec le package {readr}
+
+-   Directement à partir de la page web :
+
+```{r, echo=TRUE, eval=FALSE}
+url <- "https://raw.githubusercontent.com/allisonhorst/palmerpenguins/main/inst/extdata/penguins.csv"
+penguins <- read_csv(url)
+```
+
+-   En important le fichier `penguins.csv` préalablement téléchargé :
+
+```{r, echo=TRUE, eval=FALSE}
+penguins <- read_csv("02-data_raw/penguins.csv")
+```
+
+<br>
+
+#### Avec le package {palmerpenguins}
+
+```{r, echo=TRUE, eval=FALSE}
+install.packages("palmerpenguins")
+penguins <- palmerpenguins::penguins
+```
+
+```{r, echo=FALSE, eval=TRUE}
+penguins <- palmerpenguins::penguins
+```
+
+## 
+
+![](img/title_dplyr_glimpse.png){fig-align="center"}
+
+## Explorer les données
+
+<br>
+
+La fonction `glimpse()` permet d'afficher la structure et le contenu de données :
+
+<br>
+
+```{r, echo=TRUE, eval=TRUE}
+glimpse(penguins)
+```
+
+## 
+
+![](img/title_dplyr_data_wrangling.png){fig-align="center"}
+
+## Le package {dplyr}
+
+<br>
+
+-   Contient un ensemble de fonctions utiles à la **transformation** et à la **synthèse** de données
+
+<br>
+
+-   Ces fonctions, comparées aux fonctions R basiques :
+
+    -   ont une syntaxe plus cohérente
+
+    -   ont un nombre limité d'options
+
+    -   retournent toujours un data.frame (un tibble plus précisément)
+
+    -   utilisent des méthodes de stockage de données efficaces
+
+    -   peuvent être utilisées pour des bases de données et des data tables
+
+## Les principaux verbes de {dplyr}
+
+<br>
+
+| Verbe (fonction)               | Explication                         |
+|--------------------------------|-------------------------------------|
+| `select()`                     | sélectionner des colonnes           |
+| `filter()`                     | sélectionner des lignes             |
+| `arrange()`                    | trier des données                   |
+| `mutate()`                     | créer de nouvelles variables        |
+| `summarise()` ou `summarize()` | synthétiser des variables           |
+| `group_by()`                   | créer des sous-ensembles de données |
+
+## La syntaxe cohérente de {dplyr}
+
+<br>
+
+Toutes les fonctions ont les mêmes arguments principaux :
+
+![](img/dplyr_syntax.png)
+
+-   Le premier argument précise **vos données**
+
+-   Les arguments suivants indiquent **ce que vous faites de ces données**, en utilisant les **noms des variables**
+
+## 
+
+![](img/title_dplyr_select.png)
+
+## Sélectionner des colonnes
+
+<br>
+
+#### Conserver une colonne
+
+<br>
+
+```{r, echo=TRUE, eval=TRUE}
+select(penguins, species)
+```
+
+## Sélectionner des colonnes
+
+<br>
+
+#### Supprimer une colonne
+
+<br>
+
+```{r, echo=TRUE, eval=TRUE}
+select(penguins, -species)
+```
+
+## Sélectionner des colonnes
+
+<br>
+
+#### Conserver plusieurs colonnes
+
+<br>
+
+```{r, echo=TRUE, eval=TRUE}
+select(penguins, species, island, bill_length_mm)
+```
