@@ -142,7 +142,7 @@ penguins <- palmerpenguins::penguins
 ```
 
 ```{r, echo=FALSE, eval=TRUE}
-penguins <- palmerpenguins::penguins
+penguins <- readr::read_csv("penguins.csv")
 ```
 
 ## 
@@ -218,34 +218,606 @@ Toutes les fonctions ont les mêmes arguments principaux :
 
 <br>
 
-#### Conserver une colonne
-
-<br>
-
 ```{r, echo=TRUE, eval=TRUE}
-select(penguins, species)
+select(penguins, species, island, bill_length_mm, bill_depth_mm)
 ```
 
 ## Sélectionner des colonnes
 
 <br>
 
-#### Supprimer une colonne
+```{r, echo=TRUE, eval=FALSE}
+select(penguins, species, island, bill_length_mm, bill_depth_mm)
+```
 
 <br>
 
+**En R basique :**
+
 ```{r, echo=TRUE, eval=TRUE}
-select(penguins, -species)
+penguins[, c("species", "island", "bill_length_mm", "bill_depth_mm")]
 ```
 
 ## Sélectionner des colonnes
 
 <br>
 
-#### Conserver plusieurs colonnes
+Pour supprimer des colonnes, retirez-les à l'aide du **`-`**
+
+```{r, echo=TRUE, eval=TRUE}
+select(penguins, -flipper_length_mm, -body_mass_g, -sex, -year)
+```
+
+## Sélectionner des colonnes
+
+<br>
+
+Conservez ou supprimez des colonnes consécutives à l'aide du **`:`** :
+
+```{r, echo=TRUE, eval=TRUE}
+select(penguins, species:bill_depth_mm)
+```
+
+##  Sélectionner des colonnes
+
+<br>
+
+Conservez ou supprimez des colonnes consécutives à l'aide du **`:`** :
+
+```{r, echo=TRUE, eval=TRUE}
+select(penguins, -(flipper_length_mm:year))
+```
+
+##  Sélectionner des colonnes
+
+<br>
+
+La fonction select() peut également servir à modifier l'ordre des colonnes :
+
+```{r, echo=TRUE, eval=TRUE}
+select(penguins, island, species, bill_length_mm:year)
+```
+
+##  Sélectionner des colonnes
+
+<br>
+
+La fonction select() peut également servir à modifier l'ordre des colonnes :
+
+```{r, echo=TRUE, eval=TRUE}
+select(penguins, island, species, everything())
+```
+
+## Mise en pratique - `select()`
+
+<br>
+
+Dans le jeu de données `penguins` :
+
+-   sélectionnez les colonnes `species`, `island`, `bill_length_mm` et `flipper_length_mm`
+
+-   assignez cette sélection dans un objet `penguins_sel`
+
+-   affichez l'objet `penguins_sel`
+
+## Mise en pratique - `select()`
+
+<br>
+
+Dans le jeu de données `penguins` :
+
+-   sélectionnez les colonnes `species`, `island`, `bill_length_mm` et `flipper_length_mm`
+
+-   assignez cette sélection dans un objet `penguins_sel`
+
+-   affichez l'objet `penguins_sel`
+
+```{r, echo=TRUE, eval=TRUE}
+(penguins_sel <- select(penguins, species:bill_length_mm, flipper_length_mm))
+```
+
+## `starts_with()`, `ends_with()` et `contains()`
+
+<br>
+
+Des fonctions permettent de sélectionner des colonnes selon des motifs contenus dans les noms de colonnes :
+
+<br>
+
+-   `starts_with()` : sélectionner des colonnes dont le nom **commence par** un motif
+
+-   `ends_with()` : sélectionner des colonnes dont le nom **se termine par** un motif
+
+-   `contains()` : sélectionner des colonnes dont le nom **contient** un motif
+
+## Mise en pratique - `select() + …()`
+
+<br>
+
+-   Sélectionner les colonnes `species`, `island`, `bill_length_mm` et `bill_depth_mm`
+
+-   Sélectionner les colonnes `species`, `island`, `bill_length_mm` et `flipper_length_mm`
+
+-   Sélectionner les colonnes `species`, `island`, `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`
+
+-   Sélectionner les colonnes `species`, `island`, body_mass_g, `sex`, `year`
+
+## Mise en pratique - `select() + …()`
+
+<br>
+
+-   Sélectionner les colonnes `species`, `island`, `bill_length_mm` et `bill_depth_mm`
+
+```{r, echo=TRUE, eval=FALSE}
+select(penguins, species, island, bill_length_mm, bill_depth_mm)
+select(penguins, species:bill_depth_mm)
+select(penguins, -(flipper_length_mm:year))
+select(penguins, species, island, starts_with("bill"))
+select(penguins, species, island, contains("bill"))
+```
+
+-   Sélectionner les colonnes `species`, `island`, `bill_length_mm` et `flipper_length_mm`
+
+-   Sélectionner les colonnes `species`, `island`, `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`
+
+```{=html}
+<!-- -->
+```
+-   Sélectionner les colonnes `species`, `island`, body_mass_g, `sex`, `year`
+
+## Mise en pratique - `select() + …()`
+
+<br>
+
+-   Sélectionner les colonnes `species`, `island`, `bill_length_mm` et `bill_depth_mm`
+
+-   Sélectionner les colonnes `species`, `island`, `bill_length_mm` et `flipper_length_mm`
+
+```{r, echo=TRUE, eval=FALSE}
+select(penguins, species, island, bill_length_mm, flipper_length_mm)
+select(penguins, species:bill_length_mm, flipper_length_mm)
+select(penguins, -c(bill_depth_mm, body_mass_g:year))
+select(penguins, species, island, ends_with("length_mm"))
+select(penguins, species, island, contains("length"))
+```
+
+-   Sélectionner les colonnes `species`, `island`, `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`
+
+-   Sélectionner les colonnes `species`, `island`, body_mass_g, `sex`, `year`
+
+## Mise en pratique - `select() + …()`
+
+<br>
+
+-   Sélectionner les colonnes `species`, `island`, `bill_length_mm` et `bill_depth_mm`
+
+-   Sélectionner les colonnes `species`, `island`, `bill_length_mm` et `flipper_length_mm`
+
+-   Sélectionner les colonnes `species`, `island`, `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`
+
+```{r, echo=TRUE, eval=FALSE}
+select(penguins, species, island, bill_length_mm, bill_depth_mm, flipper_length_mm)
+select(penguins, species:flipper_length_mm)
+select(penguins, -(body_mass_g:year))
+select(penguins, species, island, ends_with("mm"))
+select(penguins, species, island, contains("mm"))
+```
+
+-   Sélectionner les colonnes `species`, `island`, body_mass_g, `sex`, `year`
+
+## Mise en pratique - `select() + …()`
+
+<br>
+
+-   Sélectionner les colonnes `species`, `island`, `bill_length_mm` et `bill_depth_mm`
+
+-   Sélectionner les colonnes `species`, `island`, `bill_length_mm` et `flipper_length_mm`
+
+-   Sélectionner les colonnes `species`, `island`, `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`
+
+-   Sélectionner les colonnes `species`, `island`, body_mass_g, `sex`, `year`
+
+```{r, echo=TRUE, eval=FALSE}
+select(penguins, species, island, body_mass_g, sex, year)
+select(penguins, species, island, body_mass_g:year)
+select(penguins, -(bill_length_mm:flipper_length_mm))
+select(penguins, species, island, !ends_with("mm"))
+select(penguins, species, island, !contains("mm"))
+```
+
+## 
+
+![](img/title_dplyr_filter.png)
+
+## Sélectionner des lignes
+
+<br>
+
+Utilisez les opérateurs logiques pour sélectionner des lignes :
+
+```{r, echo=TRUE, eval=TRUE}
+filter(penguins, species == "Adelie", body_mass_g >= 4700)
+```
+
+## Sélectionner des lignes
+
+<br>
+
+```{r, echo=TRUE, eval=FALSE}
+filter(penguins, species == "Adelie", body_mass_g >= 4700)
+```
+
+<br>
+
+**En R basique :**
+
+```{r, echo=TRUE, eval=TRUE}
+penguins[penguins$species == "Adelie" & penguins$body_mass_g >= 4700, ]
+```
+
+## Les opérateurs logiques
+
+<br>
+
+|        |                     |
+|--------|---------------------|
+| `==`   | égal à              |
+| `>=`   | supérieur ou égal à |
+| `<=`   | inférieur ou égal à |
+| `!=`   | différent de        |
+| `&`    | et                  |
+| `|`    | ou                  |
+| `%in%` | appartient à        |
+| `!`    | pas                 |
+
+## Mise en pratique - `filter()`
+
+<br>
+
+Sans assigner les données filtrées à de nouveaux objets, réalisez les opérations suivantes (plusieurs possibiltés) :
+
+-   Sélectionnez les espèces **Adelie** et **Chinstrap**
+
+-   Sélectionnez les pingouins vivant sur l'île **Torgersen** dont la masse corporelle est **strictement supérieure à 5kg**
+
+-   Sélectionnez les pingouins dont la **masse corporelle** est **comprise entre 4725g et 4750g**
+
+## Mise en pratique - `filter()`
+
+<br>
+
+Sans assigner les données filtrées à de nouveaux objets, réalisez les opérations suivantes (plusieurs possibiltés) :
+
+-   Sélectionnez les espèces **Adelie** et **Chinstrap**
+
+```{r, echo=TRUE, eval=FALSE}
+filter(penguins, species == "Adelie" | species == "Chinstrap")
+filter(penguins, species != "Gentoo")
+filter(penguins, species %in% c("Adelie", "Chinstrap"))
+```
+
+-   Sélectionnez les pingouins vivant sur l'île **Torgersen** dont la masse corporelle est **strictement supérieure à 5kg**
+
+-   Sélectionnez les pingouins dont la **masse corporelle** est **comprise entre 4725g et 4750g**
+
+## Mise en pratique - `filter()`
+
+<br>
+
+Sans assigner les données filtrées à de nouveaux objets, réalisez les opérations suivantes (plusieurs possibiltés) :
+
+-   Sélectionnez les espèces **Adelie** et **Chinstrap**
+
+-   Sélectionnez les pingouins vivant sur l'île **Torgersen** dont la masse corporelle est **strictement supérieure à 5kg**
+
+```{r, echo=TRUE, eval=FALSE}
+filter(penguins, island == "Torgersen", body_mass_g > 5000)
+```
+
+-   Sélectionnez les pingouins dont la **masse corporelle** est **comprise entre 4725g et 4750g**
+
+## Mise en pratique - `filter()`
+
+<br>
+
+Sans assigner les données filtrées à de nouveaux objets, réalisez les opérations suivantes (il peut y avoir plusieurs possibiltés) :
+
+-   Sélectionnez les espèces **Adelie** et **Chinstrap**
+
+-   Sélectionnez les pingouins vivant sur l'île **Torgersen** dont la masse corporelle est **strictement supérieure à 5kg**
+
+-   Sélectionnez les pingouins dont la **masse corporelle** est **comprise entre 4725g et 4750g**
+
+```{r, echo=TRUE, eval=FALSE}
+filter(penguins, body_mass_g >= 4725, body_mass_g <= 4750)
+filter(penguins, between(body_mass_g, 4725, 4750))
+```
+
+## Données manquantes
+
+<br>
+
+La fonction `head()` permet d'afficher les premières lignes des données.
+
+```{r, echo=TRUE, eval=TRUE}
+head(penguins, 4)
+```
+
+<br>
+
+Vous pouvez remarquer qu'il existe des **NA**. Il s'agit d'individus pour lesquels aucune mersure du bec ou des ailes n'est disponible :
+
+```{r, echo=TRUE, eval=TRUE}
+filter(penguins, is.na(bill_length_mm))
+```
+
+## Données manquantes
+
+<br>
+
+Pour supprimer les lignes pour lesquelles il manque des données, vous pouvez procéder de deux façons :
+
+-   sélectionner les lignes pour lesquelles il n'y a aucune donnée manquante :
+
+```{r, echo=TRUE, eval=FALSE}
+filter(penguins, !is.na(bill_length_mm))
+```
+
+<br>
+
+-   utiliser la fonction `drop_na()` du package `{tidyr}`, en précisant ou non des noms de variables :
+
+```{r, echo=TRUE, eval=FALSE}
+drop_na(penguins, bill_length_mm)
+drop_na(penguins)
+```
+
+## Mise en pratique - `select()` et `drop_na()`
+
+<br>
+
+-   Sélectionnez les colonnes `species`, `island`, `bill_length_mm` et `flipper_length_mm` et assignez le tableau dans un objet `penguins_sel`
+
+<br>
+
+-   A partir du tableau `penguins_sel`, supprimez les données manquantes à l'aide de la fonction `drop_na()` et assignez ce nouveau tableau dans l'objet `penguins_no_na`
+
+## Mise en pratique - `select()` et `drop_na()`
+
+<br>
+
+-   Sélectionnez les colonnes `species`, `island`, `bill_length_mm`, `flipper_length_mm` et `body_mass_g` et assignez le tableau dans un objet `penguins_sel`
+
+```{r, echo=TRUE, eval=TRUE}
+penguins_sel <- select(penguins, species:bill_length_mm, flipper_length_mm, body_mass_g)
+```
+
+<br>
+
+-   A partir du tableau `penguins_sel`, supprimez les données manquantes à l'aide de la fonction `drop_na()` et assignez ce nouveau tableau dans l'objet `penguins_no_na`
+
+## Mise en pratique - `select()` et `drop_na()`
+
+<br>
+
+-   Sélectionnez les colonnes `species`, `island`, `bill_length_mm` et `flipper_length_mm` et assignez le tableau dans un objet `penguins_sel`
+
+```{r, echo=TRUE, eval=TRUE}
+penguins_sel <- select(penguins, species:bill_length_mm, flipper_length_mm, body_mass_g)
+```
+
+<br>
+
+-   A partir du tableau `penguins_sel`, supprimez les données manquantes à l'aide de la fonction `drop_na()` et assignez ce nouveau tableau dans l'objet `penguins_no_na`
+
+```{r, echo=TRUE, eval=TRUE}
+penguins_no_na <- drop_na(penguins_sel)
+```
+
+## 
+
+![](img/title_pipe.png)
+
+## Enchaîner les opérations à l'aide du pipe `|>`
+
+<br>
+
+Pour enchaîner les opérations, il existe **trois approches** :
+
+<br>
+
+1\) Créer des objets intermédiaires
+
+2\) Imbriquer les opérations
+
+3\) Enchaîner les opérations à l'aide du pipe `|>`
+
+## Enchaîner les opérations à l'aide du pipe `|>`
+
+<br>
+
+Pour enchaîner les opérations, il existe **trois approches** :
+
+<br>
+
+#### 1) Créer des objets intermédiaires
+
+```{r, echo=TRUE, eval=FALSE}
+penguins_sel <- select(penguins, species:bill_length_mm, flipper_length_mm, body_mass_g)
+penguins_no_na <- drop_na(penguins_sel)
+```
+
+2\) Imbriquer les opérations
+
+3\) Enchaîner les opérations à l'aide du pipe `|>`
+
+## Enchaîner les opérations à l'aide du pipe `|>`
+
+<br>
+
+Pour enchaîner les opérations, il existe **trois approches** :
+
+<br>
+
+1\) Créer des objets intermédiaires
+
+#### 2) Imbriquer les opérations
+
+```{r, echo=TRUE, eval=FALSE}
+penguins_no_na <- drop_na(select(penguins, species:bill_length_mm, flipper_length_mm, body_mass_g))
+```
+
+3\) Enchaîner les opérations à l'aide du pipe `|>`
+
+## Enchaîner les opérations à l'aide du pipe `|>`
+
+<br>
+
+Pour enchaîner les opérations, il existe **trois approches** :
+
+<br>
+
+1\) Créer des objets intermédiaires
+
+2\) Imbriquer les opérations
+
+#### 3) Enchaîner les opérations à l'aide du pipe `|>` 
+
+```{r, echo=TRUE, eval=FALSE}
+penguins |> 
+  select(species:bill_length_mm, flipper_length_mm, body_mass_g) |> 
+  drop_na()
+```
+
+## Enchaîner les opérations à l'aide du pipe `|>`
+
+<br>
+
+L'utilisation du pipe \|\> présente plusieurs avantages :
+
+-   **évite d'encombrer l'environnement** avec de nombreux objets intermédiaires
+
+-   rend le **code plus lisible**
+
+-   permet de profiter de l'**auto-complétion** (touche `Tab`)
+
+-   permet d'enchaîner les étapes d'une analyse dans un **workflow clair** : importation, nettoyage, transformation, représentation
+
+-   permet d'**inactiver du code** à l'aide de commentaires
+
+```{r, echo=TRUE, eval=FALSE}
+penguins |> 
+# select(species:bill_length_mm, flipper_length_mm, body_mass_g) |> 
+  drop_na()
+```
+
+## `|>` versus `%>%`
+
+<br>
+
+Vous pourrez parfois trouver le pipe sous une autre forme : `%>%`.
+
+Ce pipe fait partie du package `{magrittr}`, qui fait également partie du `{tidyverse}`.
+
+<br>
+
+Le pipe `|>` a tendance à remplacer petit à petit le pipe %\>%, notamment parce qu'il fait partie du **R basique** (à partir de R 4.1), et ne nécessite donc pas de faire appel à un package supplémentaire.
+
+## `|>` versus `%>%`
+
+<br>
+
+Il existe un **raccourci clavier** pour insérer un pipe : `Ctrl + Shift + M`.
+
+<br>
+
+Si vous disposez d'une version récente de R (R 4.1 +), vous pouvez paramétrer R Studio pour utiliser le pipe "natif" `|>` : *Tools \> Global Options \> Code*
+
+![](img/rstudio_pipe.png)
+
+## 
+
+![](img/title_dplyr_arrange.png)
+
+## Trier les données
+
+<br>
+
+La fonction arrange() permet de trier les données par variables :
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  arrange(body_mass_g)
+```
+
+<br>
+
+**En R basique :**
+
+```{r, echo=TRUE, eval=FALSE}
+penguins[order(penguins$body_mass_g), ]
+```
+
+## Trier les données
+
+<br>
+
+Pour trier par ordre décroissant, ajoutez un `-` ou utilisez la fonction `desc()` :
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  arrange(-body_mass_g)
+```
+
+```{r, echo=TRUE, eval=FALSE}
+penguins |> 
+  arrange(desc(body_mass_g))
+```
+
+## Trier les données
+
+<br>
+
+Vous pouvez trier sur plusieurs colonnes :
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  arrange(-body_mass_g, bill_depth_mm)
+```
+
+## Mise en pratique - `arrange()`
+
+<br>
+
+Sans assigner les données triées à un nouvel objet, effectuez les opérations suivantes :
+
+-   Sélectionnez les colonnes species, island, bill_depth_mm
+
+-   Sélectionner les pingouins ayant une hauteur de bec (bill_depth_mm) égale à 21.1mm
+
+-   Triez les données sur la variable island, par ordre croissant puis décroissant. Que remarquez-vous ?
+
+## Mise en pratique - `arrange()`
 
 <br>
 
 ```{r, echo=TRUE, eval=TRUE}
-select(penguins, species, island, bill_length_mm)
+penguins |> 
+  select(species, island, bill_depth_mm) |> 
+  filter(bill_depth_mm == 21.1) |> 
+  arrange(island)
+penguins |> 
+  select(species, island, bill_depth_mm) |> 
+  filter(bill_depth_mm == 21.1) |> 
+  arrange(desc(island))  ## arrange(-island) renvoie une erreur
 ```
+
+<br>
+
+**La fonction `arrange()` appliquée à une variable de type caractère trie les données par ordre alphabétique.**
+
+## 
+
+![](img/title_dplyr_mutate.png)
+
+## Créer de nouvelles variables

@@ -539,14 +539,14 @@
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 344
 Columns: 8
-$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
-$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+$ species           &lt;chr&gt; "Adelie", "Adelie", "Adelie", "Adelie", "Adelie", "A…
+$ island            &lt;chr&gt; "Torgersen", "Torgersen", "Torgersen", "Torgersen", …
 $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
 $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
-$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
-$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
-$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…
-$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…</code></pre>
+$ flipper_length_mm &lt;dbl&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+$ body_mass_g       &lt;dbl&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+$ sex               &lt;chr&gt; "male", "female", "female", NA, "female", "male", "f…
+$ year              &lt;dbl&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…</code></pre>
 </div>
 </div>
 </section>
@@ -627,24 +627,22 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <section id="sélectionner-des-colonnes" class="slide level2">
 <h2>Sélectionner des colonnes</h2>
 <p><br></p>
-<h4 id="conserver-une-colonne">Conserver une colonne</h4>
-<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">select</span>(penguins, species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">select</span>(penguins, species, island, bill_length_mm, bill_depth_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 344 × 1
-   species
-   &lt;fct&gt;  
- 1 Adelie 
- 2 Adelie 
- 3 Adelie 
- 4 Adelie 
- 5 Adelie 
- 6 Adelie 
- 7 Adelie 
- 8 Adelie 
- 9 Adelie 
-10 Adelie 
+<pre><code># A tibble: 344 × 4
+   species island    bill_length_mm bill_depth_mm
+   &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;
+ 1 Adelie  Torgersen           39.1          18.7
+ 2 Adelie  Torgersen           39.5          17.4
+ 3 Adelie  Torgersen           40.3          18  
+ 4 Adelie  Torgersen           NA            NA  
+ 5 Adelie  Torgersen           36.7          19.3
+ 6 Adelie  Torgersen           39.3          20.6
+ 7 Adelie  Torgersen           38.9          17.8
+ 8 Adelie  Torgersen           39.2          19.6
+ 9 Adelie  Torgersen           34.1          18.1
+10 Adelie  Torgersen           42            20.2
 # ℹ 334 more rows</code></pre>
 </div>
 </div>
@@ -652,24 +650,27 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <section id="sélectionner-des-colonnes-1" class="slide level2">
 <h2>Sélectionner des colonnes</h2>
 <p><br></p>
-<h4 id="supprimer-une-colonne">Supprimer une colonne</h4>
-<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">select</span>(penguins, <span class="sc">-</span>species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">select</span>(penguins, species, island, bill_length_mm, bill_depth_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p><strong>En R basique :</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>penguins[, <span class="fu">c</span>(<span class="st">"species"</span>, <span class="st">"island"</span>, <span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 344 × 7
-   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g sex    year
-   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt; &lt;fct&gt; &lt;int&gt;
- 1 Torge…           39.1          18.7               181        3750 male   2007
- 2 Torge…           39.5          17.4               186        3800 fema…  2007
- 3 Torge…           40.3          18                 195        3250 fema…  2007
- 4 Torge…           NA            NA                  NA          NA &lt;NA&gt;   2007
- 5 Torge…           36.7          19.3               193        3450 fema…  2007
- 6 Torge…           39.3          20.6               190        3650 male   2007
- 7 Torge…           38.9          17.8               181        3625 fema…  2007
- 8 Torge…           39.2          19.6               195        4675 male   2007
- 9 Torge…           34.1          18.1               193        3475 &lt;NA&gt;   2007
-10 Torge…           42            20.2               190        4250 &lt;NA&gt;   2007
+<pre><code># A tibble: 344 × 4
+   species island    bill_length_mm bill_depth_mm
+   &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;
+ 1 Adelie  Torgersen           39.1          18.7
+ 2 Adelie  Torgersen           39.5          17.4
+ 3 Adelie  Torgersen           40.3          18  
+ 4 Adelie  Torgersen           NA            NA  
+ 5 Adelie  Torgersen           36.7          19.3
+ 6 Adelie  Torgersen           39.3          20.6
+ 7 Adelie  Torgersen           38.9          17.8
+ 8 Adelie  Torgersen           39.2          19.6
+ 9 Adelie  Torgersen           34.1          18.1
+10 Adelie  Torgersen           42            20.2
 # ℹ 334 more rows</code></pre>
 </div>
 </div>
@@ -677,27 +678,717 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <section id="sélectionner-des-colonnes-2" class="slide level2">
 <h2>Sélectionner des colonnes</h2>
 <p><br></p>
-<h4 id="conserver-plusieurs-colonnes">Conserver plusieurs colonnes</h4>
-<p><br></p>
+<p>Pour supprimer des colonnes, retirez-les à l’aide du <strong><code>-</code></strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">select</span>(penguins, species, island, bill_length_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">select</span>(penguins, <span class="sc">-</span>flipper_length_mm, <span class="sc">-</span>body_mass_g, <span class="sc">-</span>sex, <span class="sc">-</span>year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 344 × 3
-   species island    bill_length_mm
-   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;
- 1 Adelie  Torgersen           39.1
- 2 Adelie  Torgersen           39.5
- 3 Adelie  Torgersen           40.3
- 4 Adelie  Torgersen           NA  
- 5 Adelie  Torgersen           36.7
- 6 Adelie  Torgersen           39.3
- 7 Adelie  Torgersen           38.9
- 8 Adelie  Torgersen           39.2
- 9 Adelie  Torgersen           34.1
-10 Adelie  Torgersen           42  
+<pre><code># A tibble: 344 × 4
+   species island    bill_length_mm bill_depth_mm
+   &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;
+ 1 Adelie  Torgersen           39.1          18.7
+ 2 Adelie  Torgersen           39.5          17.4
+ 3 Adelie  Torgersen           40.3          18  
+ 4 Adelie  Torgersen           NA            NA  
+ 5 Adelie  Torgersen           36.7          19.3
+ 6 Adelie  Torgersen           39.3          20.6
+ 7 Adelie  Torgersen           38.9          17.8
+ 8 Adelie  Torgersen           39.2          19.6
+ 9 Adelie  Torgersen           34.1          18.1
+10 Adelie  Torgersen           42            20.2
 # ℹ 334 more rows</code></pre>
 </div>
 </div>
+</section>
+<section id="sélectionner-des-colonnes-3" class="slide level2">
+<h2>Sélectionner des colonnes</h2>
+<p><br></p>
+<p>Conservez ou supprimez des colonnes consécutives à l’aide du <strong><code>:</code></strong> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">select</span>(penguins, species<span class="sc">:</span>bill_depth_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 4
+   species island    bill_length_mm bill_depth_mm
+   &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;
+ 1 Adelie  Torgersen           39.1          18.7
+ 2 Adelie  Torgersen           39.5          17.4
+ 3 Adelie  Torgersen           40.3          18  
+ 4 Adelie  Torgersen           NA            NA  
+ 5 Adelie  Torgersen           36.7          19.3
+ 6 Adelie  Torgersen           39.3          20.6
+ 7 Adelie  Torgersen           38.9          17.8
+ 8 Adelie  Torgersen           39.2          19.6
+ 9 Adelie  Torgersen           34.1          18.1
+10 Adelie  Torgersen           42            20.2
+# ℹ 334 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="sélectionner-des-colonnes-4" class="slide level2">
+<h2>Sélectionner des colonnes</h2>
+<p><br></p>
+<p>Conservez ou supprimez des colonnes consécutives à l’aide du <strong><code>:</code></strong> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">select</span>(penguins, <span class="sc">-</span>(flipper_length_mm<span class="sc">:</span>year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 4
+   species island    bill_length_mm bill_depth_mm
+   &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;
+ 1 Adelie  Torgersen           39.1          18.7
+ 2 Adelie  Torgersen           39.5          17.4
+ 3 Adelie  Torgersen           40.3          18  
+ 4 Adelie  Torgersen           NA            NA  
+ 5 Adelie  Torgersen           36.7          19.3
+ 6 Adelie  Torgersen           39.3          20.6
+ 7 Adelie  Torgersen           38.9          17.8
+ 8 Adelie  Torgersen           39.2          19.6
+ 9 Adelie  Torgersen           34.1          18.1
+10 Adelie  Torgersen           42            20.2
+# ℹ 334 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="sélectionner-des-colonnes-5" class="slide level2">
+<h2>Sélectionner des colonnes</h2>
+<p><br></p>
+<p>La fonction select() peut également servir à modifier l’ordre des colonnes :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">select</span>(penguins, island, species, bill_length_mm<span class="sc">:</span>year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 8
+   island    species bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+ 1 Torgersen Adelie            39.1          18.7               181        3750
+ 2 Torgersen Adelie            39.5          17.4               186        3800
+ 3 Torgersen Adelie            40.3          18                 195        3250
+ 4 Torgersen Adelie            NA            NA                  NA          NA
+ 5 Torgersen Adelie            36.7          19.3               193        3450
+ 6 Torgersen Adelie            39.3          20.6               190        3650
+ 7 Torgersen Adelie            38.9          17.8               181        3625
+ 8 Torgersen Adelie            39.2          19.6               195        4675
+ 9 Torgersen Adelie            34.1          18.1               193        3475
+10 Torgersen Adelie            42            20.2               190        4250
+# ℹ 334 more rows
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="sélectionner-des-colonnes-6" class="slide level2">
+<h2>Sélectionner des colonnes</h2>
+<p><br></p>
+<p>La fonction select() peut également servir à modifier l’ordre des colonnes :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">select</span>(penguins, island, species, <span class="fu">everything</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 8
+   island    species bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+ 1 Torgersen Adelie            39.1          18.7               181        3750
+ 2 Torgersen Adelie            39.5          17.4               186        3800
+ 3 Torgersen Adelie            40.3          18                 195        3250
+ 4 Torgersen Adelie            NA            NA                  NA          NA
+ 5 Torgersen Adelie            36.7          19.3               193        3450
+ 6 Torgersen Adelie            39.3          20.6               190        3650
+ 7 Torgersen Adelie            38.9          17.8               181        3625
+ 8 Torgersen Adelie            39.2          19.6               195        4675
+ 9 Torgersen Adelie            34.1          18.1               193        3475
+10 Torgersen Adelie            42            20.2               190        4250
+# ℹ 334 more rows
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="mise-en-pratique---select" class="slide level2">
+<h2>Mise en pratique - <code>select()</code></h2>
+<p><br></p>
+<p>Dans le jeu de données <code>penguins</code> :</p>
+<ul>
+<li><p>sélectionnez les colonnes <code>species</code>, <code>island</code>, <code>bill_length_mm</code> et <code>flipper_length_mm</code></p></li>
+<li><p>assignez cette sélection dans un objet <code>penguins_sel</code></p></li>
+<li><p>affichez l’objet <code>penguins_sel</code></p></li>
+</ul>
+</section>
+<section id="mise-en-pratique---select-1" class="slide level2">
+<h2>Mise en pratique - <code>select()</code></h2>
+<p><br></p>
+<p>Dans le jeu de données <code>penguins</code> :</p>
+<ul>
+<li><p>sélectionnez les colonnes <code>species</code>, <code>island</code>, <code>bill_length_mm</code> et <code>flipper_length_mm</code></p></li>
+<li><p>assignez cette sélection dans un objet <code>penguins_sel</code></p></li>
+<li><p>affichez l’objet <code>penguins_sel</code></p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>(penguins_sel <span class="ot">&lt;-</span> <span class="fu">select</span>(penguins, species<span class="sc">:</span>bill_length_mm, flipper_length_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 4
+   species island    bill_length_mm flipper_length_mm
+   &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;             &lt;dbl&gt;
+ 1 Adelie  Torgersen           39.1               181
+ 2 Adelie  Torgersen           39.5               186
+ 3 Adelie  Torgersen           40.3               195
+ 4 Adelie  Torgersen           NA                  NA
+ 5 Adelie  Torgersen           36.7               193
+ 6 Adelie  Torgersen           39.3               190
+ 7 Adelie  Torgersen           38.9               181
+ 8 Adelie  Torgersen           39.2               195
+ 9 Adelie  Torgersen           34.1               193
+10 Adelie  Torgersen           42                 190
+# ℹ 334 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="starts_with-ends_with-et-contains" class="slide level2">
+<h2><code>starts_with()</code>, <code>ends_with()</code> et <code>contains()</code></h2>
+<p><br></p>
+<p>Des fonctions permettent de sélectionner des colonnes selon des motifs contenus dans les noms de colonnes :</p>
+<p><br></p>
+<ul>
+<li><p><code>starts_with()</code> : sélectionner des colonnes dont le nom <strong>commence par</strong> un motif</p></li>
+<li><p><code>ends_with()</code> : sélectionner des colonnes dont le nom <strong>se termine par</strong> un motif</p></li>
+<li><p><code>contains()</code> : sélectionner des colonnes dont le nom <strong>contient</strong> un motif</p></li>
+</ul>
+</section>
+<section id="mise-en-pratique---select-2" class="slide level2">
+<h2>Mise en pratique - <code>select() + …()</code></h2>
+<p><br></p>
+<ul>
+<li><p>Sélectionner les colonnes <code>species</code>, <code>island</code>, <code>bill_length_mm</code> et <code>bill_depth_mm</code></p></li>
+<li><p>Sélectionner les colonnes <code>species</code>, <code>island</code>, <code>bill_length_mm</code> et <code>flipper_length_mm</code></p></li>
+<li><p>Sélectionner les colonnes <code>species</code>, <code>island</code>, <code>bill_length_mm</code>, <code>bill_depth_mm</code>, <code>flipper_length_mm</code></p></li>
+<li><p>Sélectionner les colonnes <code>species</code>, <code>island</code>, body_mass_g, <code>sex</code>, <code>year</code></p></li>
+</ul>
+</section>
+<section id="mise-en-pratique---select-3" class="slide level2">
+<h2>Mise en pratique - <code>select() + …()</code></h2>
+<p><br></p>
+<ul>
+<li>Sélectionner les colonnes <code>species</code>, <code>island</code>, <code>bill_length_mm</code> et <code>bill_depth_mm</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">select</span>(penguins, species, island, bill_length_mm, bill_depth_mm)</span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="fu">select</span>(penguins, species<span class="sc">:</span>bill_depth_mm)</span>
+<span id="cb29-3"><a href="#cb29-3"></a><span class="fu">select</span>(penguins, <span class="sc">-</span>(flipper_length_mm<span class="sc">:</span>year))</span>
+<span id="cb29-4"><a href="#cb29-4"></a><span class="fu">select</span>(penguins, species, island, <span class="fu">starts_with</span>(<span class="st">"bill"</span>))</span>
+<span id="cb29-5"><a href="#cb29-5"></a><span class="fu">select</span>(penguins, species, island, <span class="fu">contains</span>(<span class="st">"bill"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>Sélectionner les colonnes <code>species</code>, <code>island</code>, <code>bill_length_mm</code> et <code>flipper_length_mm</code></p></li>
+<li><p>Sélectionner les colonnes <code>species</code>, <code>island</code>, <code>bill_length_mm</code>, <code>bill_depth_mm</code>, <code>flipper_length_mm</code></p></li>
+</ul>
+<!-- -->
+<ul>
+<li>Sélectionner les colonnes <code>species</code>, <code>island</code>, body_mass_g, <code>sex</code>, <code>year</code></li>
+</ul>
+</section>
+<section id="mise-en-pratique---select-4" class="slide level2">
+<h2>Mise en pratique - <code>select() + …()</code></h2>
+<p><br></p>
+<ul>
+<li><p>Sélectionner les colonnes <code>species</code>, <code>island</code>, <code>bill_length_mm</code> et <code>bill_depth_mm</code></p></li>
+<li><p>Sélectionner les colonnes <code>species</code>, <code>island</code>, <code>bill_length_mm</code> et <code>flipper_length_mm</code></p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">select</span>(penguins, species, island, bill_length_mm, flipper_length_mm)</span>
+<span id="cb30-2"><a href="#cb30-2"></a><span class="fu">select</span>(penguins, species<span class="sc">:</span>bill_length_mm, flipper_length_mm)</span>
+<span id="cb30-3"><a href="#cb30-3"></a><span class="fu">select</span>(penguins, <span class="sc">-</span><span class="fu">c</span>(bill_depth_mm, body_mass_g<span class="sc">:</span>year))</span>
+<span id="cb30-4"><a href="#cb30-4"></a><span class="fu">select</span>(penguins, species, island, <span class="fu">ends_with</span>(<span class="st">"length_mm"</span>))</span>
+<span id="cb30-5"><a href="#cb30-5"></a><span class="fu">select</span>(penguins, species, island, <span class="fu">contains</span>(<span class="st">"length"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>Sélectionner les colonnes <code>species</code>, <code>island</code>, <code>bill_length_mm</code>, <code>bill_depth_mm</code>, <code>flipper_length_mm</code></p></li>
+<li><p>Sélectionner les colonnes <code>species</code>, <code>island</code>, body_mass_g, <code>sex</code>, <code>year</code></p></li>
+</ul>
+</section>
+<section id="mise-en-pratique---select-5" class="slide level2">
+<h2>Mise en pratique - <code>select() + …()</code></h2>
+<p><br></p>
+<ul>
+<li><p>Sélectionner les colonnes <code>species</code>, <code>island</code>, <code>bill_length_mm</code> et <code>bill_depth_mm</code></p></li>
+<li><p>Sélectionner les colonnes <code>species</code>, <code>island</code>, <code>bill_length_mm</code> et <code>flipper_length_mm</code></p></li>
+<li><p>Sélectionner les colonnes <code>species</code>, <code>island</code>, <code>bill_length_mm</code>, <code>bill_depth_mm</code>, <code>flipper_length_mm</code></p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">select</span>(penguins, species, island, bill_length_mm, bill_depth_mm, flipper_length_mm)</span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="fu">select</span>(penguins, species<span class="sc">:</span>flipper_length_mm)</span>
+<span id="cb31-3"><a href="#cb31-3"></a><span class="fu">select</span>(penguins, <span class="sc">-</span>(body_mass_g<span class="sc">:</span>year))</span>
+<span id="cb31-4"><a href="#cb31-4"></a><span class="fu">select</span>(penguins, species, island, <span class="fu">ends_with</span>(<span class="st">"mm"</span>))</span>
+<span id="cb31-5"><a href="#cb31-5"></a><span class="fu">select</span>(penguins, species, island, <span class="fu">contains</span>(<span class="st">"mm"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Sélectionner les colonnes <code>species</code>, <code>island</code>, body_mass_g, <code>sex</code>, <code>year</code></li>
+</ul>
+</section>
+<section id="mise-en-pratique---select-6" class="slide level2">
+<h2>Mise en pratique - <code>select() + …()</code></h2>
+<p><br></p>
+<ul>
+<li><p>Sélectionner les colonnes <code>species</code>, <code>island</code>, <code>bill_length_mm</code> et <code>bill_depth_mm</code></p></li>
+<li><p>Sélectionner les colonnes <code>species</code>, <code>island</code>, <code>bill_length_mm</code> et <code>flipper_length_mm</code></p></li>
+<li><p>Sélectionner les colonnes <code>species</code>, <code>island</code>, <code>bill_length_mm</code>, <code>bill_depth_mm</code>, <code>flipper_length_mm</code></p></li>
+<li><p>Sélectionner les colonnes <code>species</code>, <code>island</code>, body_mass_g, <code>sex</code>, <code>year</code></p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">select</span>(penguins, species, island, body_mass_g, sex, year)</span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="fu">select</span>(penguins, species, island, body_mass_g<span class="sc">:</span>year)</span>
+<span id="cb32-3"><a href="#cb32-3"></a><span class="fu">select</span>(penguins, <span class="sc">-</span>(bill_length_mm<span class="sc">:</span>flipper_length_mm))</span>
+<span id="cb32-4"><a href="#cb32-4"></a><span class="fu">select</span>(penguins, species, island, <span class="sc">!</span><span class="fu">ends_with</span>(<span class="st">"mm"</span>))</span>
+<span id="cb32-5"><a href="#cb32-5"></a><span class="fu">select</span>(penguins, species, island, <span class="sc">!</span><span class="fu">contains</span>(<span class="st">"mm"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-8" class="slide level2">
+<h2></h2>
+
+<img data-src="img/title_dplyr_filter.png" class="r-stretch"></section>
+<section id="sélectionner-des-lignes" class="slide level2">
+<h2>Sélectionner des lignes</h2>
+<p><br></p>
+<p>Utilisez les opérateurs logiques pour sélectionner des lignes :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">filter</span>(penguins, species <span class="sc">==</span> <span class="st">"Adelie"</span>, body_mass_g <span class="sc">&gt;=</span> <span class="dv">4700</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 8
+  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 Adelie  Torgersen           42.9          17.6               196        4700
+2 Adelie  Biscoe              41            20                 203        4725
+3 Adelie  Biscoe              43.2          19                 197        4775
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="sélectionner-des-lignes-1" class="slide level2">
+<h2>Sélectionner des lignes</h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">filter</span>(penguins, species <span class="sc">==</span> <span class="st">"Adelie"</span>, body_mass_g <span class="sc">&gt;=</span> <span class="dv">4700</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p><strong>En R basique :</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>penguins[penguins<span class="sc">$</span>species <span class="sc">==</span> <span class="st">"Adelie"</span> <span class="sc">&amp;</span> penguins<span class="sc">$</span>body_mass_g <span class="sc">&gt;=</span> <span class="dv">4700</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 8
+  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 &lt;NA&gt;    &lt;NA&gt;                NA            NA                  NA          NA
+2 Adelie  Torgersen           42.9          17.6               196        4700
+3 Adelie  Biscoe              41            20                 203        4725
+4 Adelie  Biscoe              43.2          19                 197        4775
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="les-opérateurs-logiques" class="slide level2">
+<h2>Les opérateurs logiques</h2>
+<p><br></p>
+<table>
+<tbody>
+<tr class="odd">
+<td><code>==</code></td>
+<td>égal à</td>
+</tr>
+<tr class="even">
+<td><code>&gt;=</code></td>
+<td>supérieur ou égal à</td>
+</tr>
+<tr class="odd">
+<td><code>&lt;=</code></td>
+<td>inférieur ou égal à</td>
+</tr>
+<tr class="even">
+<td><code>!=</code></td>
+<td>différent de</td>
+</tr>
+<tr class="odd">
+<td><code>&amp;</code></td>
+<td>et</td>
+</tr>
+<tr class="even">
+<td><code>|</code></td>
+<td>ou</td>
+</tr>
+<tr class="odd">
+<td><code>%in%</code></td>
+<td>appartient à</td>
+</tr>
+<tr class="even">
+<td><code>!</code></td>
+<td>pas</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mise-en-pratique---filter" class="slide level2">
+<h2>Mise en pratique - <code>filter()</code></h2>
+<p><br></p>
+<p>Sans assigner les données filtrées à de nouveaux objets, réalisez les opérations suivantes (plusieurs possibiltés) :</p>
+<ul>
+<li><p>Sélectionnez les espèces <strong>Adelie</strong> et <strong>Chinstrap</strong></p></li>
+<li><p>Sélectionnez les pingouins vivant sur l’île <strong>Torgersen</strong> dont la masse corporelle est <strong>strictement supérieure à 5kg</strong></p></li>
+<li><p>Sélectionnez les pingouins dont la <strong>masse corporelle</strong> est <strong>comprise entre 4725g et 4750g</strong></p></li>
+</ul>
+</section>
+<section id="mise-en-pratique---filter-1" class="slide level2">
+<h2>Mise en pratique - <code>filter()</code></h2>
+<p><br></p>
+<p>Sans assigner les données filtrées à de nouveaux objets, réalisez les opérations suivantes (plusieurs possibiltés) :</p>
+<ul>
+<li>Sélectionnez les espèces <strong>Adelie</strong> et <strong>Chinstrap</strong></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">filter</span>(penguins, species <span class="sc">==</span> <span class="st">"Adelie"</span> <span class="sc">|</span> species <span class="sc">==</span> <span class="st">"Chinstrap"</span>)</span>
+<span id="cb38-2"><a href="#cb38-2"></a><span class="fu">filter</span>(penguins, species <span class="sc">!=</span> <span class="st">"Gentoo"</span>)</span>
+<span id="cb38-3"><a href="#cb38-3"></a><span class="fu">filter</span>(penguins, species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>Sélectionnez les pingouins vivant sur l’île <strong>Torgersen</strong> dont la masse corporelle est <strong>strictement supérieure à 5kg</strong></p></li>
+<li><p>Sélectionnez les pingouins dont la <strong>masse corporelle</strong> est <strong>comprise entre 4725g et 4750g</strong></p></li>
+</ul>
+</section>
+<section id="mise-en-pratique---filter-2" class="slide level2">
+<h2>Mise en pratique - <code>filter()</code></h2>
+<p><br></p>
+<p>Sans assigner les données filtrées à de nouveaux objets, réalisez les opérations suivantes (plusieurs possibiltés) :</p>
+<ul>
+<li><p>Sélectionnez les espèces <strong>Adelie</strong> et <strong>Chinstrap</strong></p></li>
+<li><p>Sélectionnez les pingouins vivant sur l’île <strong>Torgersen</strong> dont la masse corporelle est <strong>strictement supérieure à 5kg</strong></p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">filter</span>(penguins, island <span class="sc">==</span> <span class="st">"Torgersen"</span>, body_mass_g <span class="sc">&gt;</span> <span class="dv">5000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Sélectionnez les pingouins dont la <strong>masse corporelle</strong> est <strong>comprise entre 4725g et 4750g</strong></li>
+</ul>
+</section>
+<section id="mise-en-pratique---filter-3" class="slide level2">
+<h2>Mise en pratique - <code>filter()</code></h2>
+<p><br></p>
+<p>Sans assigner les données filtrées à de nouveaux objets, réalisez les opérations suivantes (il peut y avoir plusieurs possibiltés) :</p>
+<ul>
+<li><p>Sélectionnez les espèces <strong>Adelie</strong> et <strong>Chinstrap</strong></p></li>
+<li><p>Sélectionnez les pingouins vivant sur l’île <strong>Torgersen</strong> dont la masse corporelle est <strong>strictement supérieure à 5kg</strong></p></li>
+<li><p>Sélectionnez les pingouins dont la <strong>masse corporelle</strong> est <strong>comprise entre 4725g et 4750g</strong></p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">filter</span>(penguins, body_mass_g <span class="sc">&gt;=</span> <span class="dv">4725</span>, body_mass_g <span class="sc">&lt;=</span> <span class="dv">4750</span>)</span>
+<span id="cb40-2"><a href="#cb40-2"></a><span class="fu">filter</span>(penguins, <span class="fu">between</span>(body_mass_g, <span class="dv">4725</span>, <span class="dv">4750</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="données-manquantes" class="slide level2">
+<h2>Données manquantes</h2>
+<p><br></p>
+<p>La fonction <code>head()</code> permet d’afficher les premières lignes des données.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">head</span>(penguins, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 8
+  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 Adelie  Torgersen           39.1          18.7               181        3750
+2 Adelie  Torgersen           39.5          17.4               186        3800
+3 Adelie  Torgersen           40.3          18                 195        3250
+4 Adelie  Torgersen           NA            NA                  NA          NA
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>Vous pouvez remarquer qu’il existe des <strong>NA</strong>. Il s’agit d’individus pour lesquels aucune mersure du bec ou des ailes n’est disponible :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">filter</span>(penguins, <span class="fu">is.na</span>(bill_length_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 8
+  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 Adelie  Torgersen             NA            NA                NA          NA
+2 Gentoo  Biscoe                NA            NA                NA          NA
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="données-manquantes-1" class="slide level2">
+<h2>Données manquantes</h2>
+<p><br></p>
+<p>Pour supprimer les lignes pour lesquelles il manque des données, vous pouvez procéder de deux façons :</p>
+<ul>
+<li>sélectionner les lignes pour lesquelles il n’y a aucune donnée manquante :</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">filter</span>(penguins, <span class="sc">!</span><span class="fu">is.na</span>(bill_length_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<ul>
+<li>utiliser la fonction <code>drop_na()</code> du package <code>{tidyr}</code>, en précisant ou non des noms de variables :</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="fu">drop_na</span>(penguins, bill_length_mm)</span>
+<span id="cb46-2"><a href="#cb46-2"></a><span class="fu">drop_na</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="mise-en-pratique---select-et-drop_na" class="slide level2">
+<h2>Mise en pratique - <code>select()</code> et <code>drop_na()</code></h2>
+<p><br></p>
+<ul>
+<li>Sélectionnez les colonnes <code>species</code>, <code>island</code>, <code>bill_length_mm</code> et <code>flipper_length_mm</code> et assignez le tableau dans un objet <code>penguins_sel</code></li>
+</ul>
+<p><br></p>
+<ul>
+<li>A partir du tableau <code>penguins_sel</code>, supprimez les données manquantes à l’aide de la fonction <code>drop_na()</code> et assignez ce nouveau tableau dans l’objet <code>penguins_no_na</code></li>
+</ul>
+</section>
+<section id="mise-en-pratique---select-et-drop_na-1" class="slide level2">
+<h2>Mise en pratique - <code>select()</code> et <code>drop_na()</code></h2>
+<p><br></p>
+<ul>
+<li>Sélectionnez les colonnes <code>species</code>, <code>island</code>, <code>bill_length_mm</code>, <code>flipper_length_mm</code> et <code>body_mass_g</code> et assignez le tableau dans un objet <code>penguins_sel</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>penguins_sel <span class="ot">&lt;-</span> <span class="fu">select</span>(penguins, species<span class="sc">:</span>bill_length_mm, flipper_length_mm, body_mass_g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<ul>
+<li>A partir du tableau <code>penguins_sel</code>, supprimez les données manquantes à l’aide de la fonction <code>drop_na()</code> et assignez ce nouveau tableau dans l’objet <code>penguins_no_na</code></li>
+</ul>
+</section>
+<section id="mise-en-pratique---select-et-drop_na-2" class="slide level2">
+<h2>Mise en pratique - <code>select()</code> et <code>drop_na()</code></h2>
+<p><br></p>
+<ul>
+<li>Sélectionnez les colonnes <code>species</code>, <code>island</code>, <code>bill_length_mm</code> et <code>flipper_length_mm</code> et assignez le tableau dans un objet <code>penguins_sel</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>penguins_sel <span class="ot">&lt;-</span> <span class="fu">select</span>(penguins, species<span class="sc">:</span>bill_length_mm, flipper_length_mm, body_mass_g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<ul>
+<li>A partir du tableau <code>penguins_sel</code>, supprimez les données manquantes à l’aide de la fonction <code>drop_na()</code> et assignez ce nouveau tableau dans l’objet <code>penguins_no_na</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>penguins_no_na <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(penguins_sel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-9" class="slide level2">
+<h2></h2>
+
+<img data-src="img/title_pipe.png" class="r-stretch"></section>
+<section id="enchaîner-les-opérations-à-laide-du-pipe" class="slide level2">
+<h2>Enchaîner les opérations à l’aide du pipe <code>|&gt;</code></h2>
+<p><br></p>
+<p>Pour enchaîner les opérations, il existe <strong>trois approches</strong> :</p>
+<p><br></p>
+<p>1) Créer des objets intermédiaires</p>
+<p>2) Imbriquer les opérations</p>
+<p>3) Enchaîner les opérations à l’aide du pipe <code>|&gt;</code></p>
+</section>
+<section id="enchaîner-les-opérations-à-laide-du-pipe-1" class="slide level2">
+<h2>Enchaîner les opérations à l’aide du pipe <code>|&gt;</code></h2>
+<p><br></p>
+<p>Pour enchaîner les opérations, il existe <strong>trois approches</strong> :</p>
+<p><br></p>
+<h4 id="créer-des-objets-intermédiaires">1) Créer des objets intermédiaires</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>penguins_sel <span class="ot">&lt;-</span> <span class="fu">select</span>(penguins, species<span class="sc">:</span>bill_length_mm, flipper_length_mm, body_mass_g)</span>
+<span id="cb50-2"><a href="#cb50-2"></a>penguins_no_na <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(penguins_sel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>2) Imbriquer les opérations</p>
+<p>3) Enchaîner les opérations à l’aide du pipe <code>|&gt;</code></p>
+</section>
+<section id="enchaîner-les-opérations-à-laide-du-pipe-2" class="slide level2">
+<h2>Enchaîner les opérations à l’aide du pipe <code>|&gt;</code></h2>
+<p><br></p>
+<p>Pour enchaîner les opérations, il existe <strong>trois approches</strong> :</p>
+<p><br></p>
+<p>1) Créer des objets intermédiaires</p>
+<h4 id="imbriquer-les-opérations">2) Imbriquer les opérations</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a>penguins_no_na <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(<span class="fu">select</span>(penguins, species<span class="sc">:</span>bill_length_mm, flipper_length_mm, body_mass_g))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>3) Enchaîner les opérations à l’aide du pipe <code>|&gt;</code></p>
+</section>
+<section id="enchaîner-les-opérations-à-laide-du-pipe-3" class="slide level2">
+<h2>Enchaîner les opérations à l’aide du pipe <code>|&gt;</code></h2>
+<p><br></p>
+<p>Pour enchaîner les opérations, il existe <strong>trois approches</strong> :</p>
+<p><br></p>
+<p>1) Créer des objets intermédiaires</p>
+<p>2) Imbriquer les opérations</p>
+<h4 id="enchaîner-les-opérations-à-laide-du-pipe-4">3) Enchaîner les opérations à l’aide du pipe <code>|&gt;</code></h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb52-2"><a href="#cb52-2"></a>  <span class="fu">select</span>(species<span class="sc">:</span>bill_length_mm, flipper_length_mm, body_mass_g) <span class="sc">|&gt;</span> </span>
+<span id="cb52-3"><a href="#cb52-3"></a>  <span class="fu">drop_na</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="enchaîner-les-opérations-à-laide-du-pipe-5" class="slide level2">
+<h2>Enchaîner les opérations à l’aide du pipe <code>|&gt;</code></h2>
+<p><br></p>
+<p>L’utilisation du pipe |&gt; présente plusieurs avantages :</p>
+<ul>
+<li><p><strong>évite d’encombrer l’environnement</strong> avec de nombreux objets intermédiaires</p></li>
+<li><p>rend le <strong>code plus lisible</strong></p></li>
+<li><p>permet de profiter de l’<strong>auto-complétion</strong> (touche <code>Tab</code>)</p></li>
+<li><p>permet d’enchaîner les étapes d’une analyse dans un <strong>workflow clair</strong> : importation, nettoyage, transformation, représentation</p></li>
+<li><p>permet d’<strong>inactiver du code</strong> à l’aide de commentaires</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb53-2"><a href="#cb53-2"></a><span class="co"># select(species:bill_length_mm, flipper_length_mm, body_mass_g) |&gt; </span></span>
+<span id="cb53-3"><a href="#cb53-3"></a>  <span class="fu">drop_na</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="versus" class="slide level2">
+<h2><code>|&gt;</code> versus <code>%&gt;%</code></h2>
+<p><br></p>
+<p>Vous pourrez parfois trouver le pipe sous une autre forme : <code>%&gt;%</code>.</p>
+<p>Ce pipe fait partie du package <code>{magrittr}</code>, qui fait également partie du <code>{tidyverse}</code>.</p>
+<p><br></p>
+<p>Le pipe <code>|&gt;</code> a tendance à remplacer petit à petit le pipe %&gt;%, notamment parce qu’il fait partie du <strong>R basique</strong> (à partir de R 4.1), et ne nécessite donc pas de faire appel à un package supplémentaire.</p>
+</section>
+<section id="versus-1" class="slide level2">
+<h2><code>|&gt;</code> versus <code>%&gt;%</code></h2>
+<p><br></p>
+<p>Il existe un <strong>raccourci clavier</strong> pour insérer un pipe : <code>Ctrl + Shift + M</code>.</p>
+<p><br></p>
+<p>Si vous disposez d’une version récente de R (R 4.1 +), vous pouvez paramétrer R Studio pour utiliser le pipe “natif” <code>|&gt;</code> : <em>Tools &gt; Global Options &gt; Code</em></p>
+
+<img data-src="img/rstudio_pipe.png" class="r-stretch"></section>
+<section id="section-10" class="slide level2">
+<h2></h2>
+
+<img data-src="img/title_dplyr_arrange.png" class="r-stretch"></section>
+<section id="trier-les-données" class="slide level2">
+<h2>Trier les données</h2>
+<p><br></p>
+<p>La fonction arrange() permet de trier les données par variables :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb54-2"><a href="#cb54-2"></a>  <span class="fu">arrange</span>(body_mass_g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 8
+   species   island   bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;chr&gt;     &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+ 1 Chinstrap Dream              46.9          16.6               192        2700
+ 2 Adelie    Biscoe             36.5          16.6               181        2850
+ 3 Adelie    Biscoe             36.4          17.1               184        2850
+ 4 Adelie    Biscoe             34.5          18.1               187        2900
+ 5 Adelie    Dream              33.1          16.1               178        2900
+ 6 Adelie    Torgers…           38.6          17                 188        2900
+ 7 Chinstrap Dream              43.2          16.6               187        2900
+ 8 Adelie    Biscoe             37.9          18.6               193        2925
+ 9 Adelie    Dream              37.5          18.9               179        2975
+10 Adelie    Dream              37            16.9               185        3000
+# ℹ 334 more rows
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p><br></p>
+<p><strong>En R basique :</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>penguins[<span class="fu">order</span>(penguins<span class="sc">$</span>body_mass_g), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="trier-les-données-1" class="slide level2">
+<h2>Trier les données</h2>
+<p><br></p>
+<p>Pour trier par ordre décroissant, ajoutez un <code>-</code> ou utilisez la fonction <code>desc()</code> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb57-2"><a href="#cb57-2"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>body_mass_g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 8
+   species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+ 1 Gentoo  Biscoe           49.2          15.2               221        6300
+ 2 Gentoo  Biscoe           59.6          17                 230        6050
+ 3 Gentoo  Biscoe           51.1          16.3               220        6000
+ 4 Gentoo  Biscoe           48.8          16.2               222        6000
+ 5 Gentoo  Biscoe           45.2          16.4               223        5950
+ 6 Gentoo  Biscoe           49.8          15.9               229        5950
+ 7 Gentoo  Biscoe           48.4          14.6               213        5850
+ 8 Gentoo  Biscoe           49.3          15.7               217        5850
+ 9 Gentoo  Biscoe           55.1          16                 230        5850
+10 Gentoo  Biscoe           49.5          16.2               229        5800
+# ℹ 334 more rows
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb59-2"><a href="#cb59-2"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(body_mass_g))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="trier-les-données-2" class="slide level2">
+<h2>Trier les données</h2>
+<p><br></p>
+<p>Vous pouvez trier sur plusieurs colonnes :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb60-2"><a href="#cb60-2"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>body_mass_g, bill_depth_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 8
+   species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+ 1 Gentoo  Biscoe           49.2          15.2               221        6300
+ 2 Gentoo  Biscoe           59.6          17                 230        6050
+ 3 Gentoo  Biscoe           48.8          16.2               222        6000
+ 4 Gentoo  Biscoe           51.1          16.3               220        6000
+ 5 Gentoo  Biscoe           49.8          15.9               229        5950
+ 6 Gentoo  Biscoe           45.2          16.4               223        5950
+ 7 Gentoo  Biscoe           48.4          14.6               213        5850
+ 8 Gentoo  Biscoe           49.3          15.7               217        5850
+ 9 Gentoo  Biscoe           55.1          16                 230        5850
+10 Gentoo  Biscoe           48.6          16                 230        5800
+# ℹ 334 more rows
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="mise-en-pratique---arrange" class="slide level2">
+<h2>Mise en pratique - <code>arrange()</code></h2>
+<p><br></p>
+<p>Sans assigner les données triées à un nouvel objet, effectuez les opérations suivantes :</p>
+<ul>
+<li><p>Sélectionnez les colonnes species, island, bill_depth_mm</p></li>
+<li><p>Sélectionner les pingouins ayant une hauteur de bec (bill_depth_mm) égale à 21.1mm</p></li>
+<li><p>Triez les données sur la variable island, par ordre croissant puis décroissant. Que remarquez-vous ?</p></li>
+</ul>
+</section>
+<section id="mise-en-pratique---arrange-1" class="slide level2">
+<h2>Mise en pratique - <code>arrange()</code></h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb62-2"><a href="#cb62-2"></a>  <span class="fu">select</span>(species, island, bill_depth_mm) <span class="sc">|&gt;</span> </span>
+<span id="cb62-3"><a href="#cb62-3"></a>  <span class="fu">filter</span>(bill_depth_mm <span class="sc">==</span> <span class="fl">21.1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb62-4"><a href="#cb62-4"></a>  <span class="fu">arrange</span>(island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  species island    bill_depth_mm
+  &lt;chr&gt;   &lt;chr&gt;             &lt;dbl&gt;
+1 Adelie  Biscoe             21.1
+2 Adelie  Dream              21.1
+3 Adelie  Torgersen          21.1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb64-2"><a href="#cb64-2"></a>  <span class="fu">select</span>(species, island, bill_depth_mm) <span class="sc">|&gt;</span> </span>
+<span id="cb64-3"><a href="#cb64-3"></a>  <span class="fu">filter</span>(bill_depth_mm <span class="sc">==</span> <span class="fl">21.1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb64-4"><a href="#cb64-4"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(island))  <span class="do">## arrange(-island) renvoie une erreur</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  species island    bill_depth_mm
+  &lt;chr&gt;   &lt;chr&gt;             &lt;dbl&gt;
+1 Adelie  Torgersen          21.1
+2 Adelie  Dream              21.1
+3 Adelie  Biscoe             21.1</code></pre>
+</div>
+</div>
+<p><br></p>
+<p><strong>La fonction <code>arrange()</code> appliquée à une variable de type caractère trie les données par ordre alphabétique.</strong></p>
+</section>
+<section id="section-11" class="slide level2">
+<h2></h2>
+
+<img data-src="img/title_dplyr_mutate.png" class="r-stretch"></section>
+<section id="créer-de-nouvelles-variables" class="slide level2">
+<h2>Créer de nouvelles variables</h2>
 <div class="footer footer-default">
 
 </div>
