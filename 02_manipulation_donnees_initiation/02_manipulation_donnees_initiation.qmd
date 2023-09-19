@@ -258,7 +258,7 @@ Conservez ou supprimez des colonnes consécutives à l'aide du **`:`** :
 select(penguins, species:bill_depth_mm)
 ```
 
-##  Sélectionner des colonnes
+## Sélectionner des colonnes
 
 <br>
 
@@ -268,7 +268,7 @@ Conservez ou supprimez des colonnes consécutives à l'aide du **`:`** :
 select(penguins, -(flipper_length_mm:year))
 ```
 
-##  Sélectionner des colonnes
+## Sélectionner des colonnes
 
 <br>
 
@@ -278,7 +278,7 @@ La fonction select() peut également servir à modifier l'ordre des colonnes :
 select(penguins, island, species, bill_length_mm:year)
 ```
 
-##  Sélectionner des colonnes
+## Sélectionner des colonnes
 
 <br>
 
@@ -360,9 +360,8 @@ select(penguins, species, island, contains("bill"))
 
 -   Sélectionner les colonnes `species`, `island`, `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`
 
-```{=html}
 <!-- -->
-```
+
 -   Sélectionner les colonnes `species`, `island`, body_mass_g, `sex`, `year`
 
 ## Mise en pratique - `select() + …()`
@@ -681,7 +680,7 @@ Pour enchaîner les opérations, il existe **trois approches** :
 
 2\) Imbriquer les opérations
 
-#### 3) Enchaîner les opérations à l'aide du pipe `|>` 
+#### 3) Enchaîner les opérations à l'aide du pipe `|>`
 
 ```{r, echo=TRUE, eval=FALSE}
 penguins |> 
@@ -821,3 +820,385 @@ penguins |>
 ![](img/title_dplyr_mutate.png)
 
 ## Créer de nouvelles variables
+
+<br>
+
+La fonction mutate() permet de créer de nouvelles variables (colonnes) :
+
+-   à partir de colonnes existantes
+
+-   indépendantes de vos données
+
+## Créer de nouvelles variables
+
+<br>
+
+La fonction mutate() permet de créer de nouvelles variables (colonnes) :
+
+-   **à partir de colonnes existantes**
+
+-   indépendantes de vos données
+
+<br>
+
+```{r, echo=TRUE, eval=TRUE}
+penguins_sel <- penguins |> 
+  select(species:bill_length_mm, body_mass_g)
+
+penguins_sel |> 
+  mutate(body_mass_kg = body_mass_g / 1000) |> 
+  head(2)
+```
+
+## Créer de nouvelles variables
+
+<br>
+
+La fonction mutate() permet de créer de nouvelles variables (colonnes) :
+
+-   **à partir de colonnes existantes**
+
+-   indépendantes de vos données
+
+<br>
+
+**En R basique :**
+
+```{r, echo=TRUE, eval=TRUE}
+penguins_sel <- penguins |> 
+  select(species:bill_length_mm, body_mass_g)
+
+head(transform(penguins_sel, body_mass_kg = body_mass_g / 1000), 2)
+```
+
+## Créer de nouvelles variables
+
+<br>
+
+La fonction mutate() permet de créer de nouvelles variables (colonnes) :
+
+-   à partir de colonnes existantes
+
+-   **indépendantes de vos données**
+
+<br>
+
+```{r, echo=TRUE, eval=TRUE}
+penguins_sel <- penguins |> 
+  select(species:bill_length_mm, body_mass_g)
+
+penguins_sel |> 
+  mutate(note = "A verifier") |> 
+  head(2)
+```
+
+## 
+
+![](img/title_dplyr_summarise.png)
+
+## Synthétiser des variables
+
+<br>
+
+La fonction `summarise()` vous permet de calculer des statistiques pour des variables données :
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  summarise(body_mass_g_mean = mean(body_mass_g, na.rm = TRUE))
+```
+
+<br>
+
+**En R basique :**
+
+```{r, echo=TRUE, eval=TRUE}
+mean(penguins$body_mass_g, na.rm = TRUE)
+```
+
+## Synthétiser des variables
+
+<br>
+
+La fonction `summarise()` vous permet de calculer des statistiques pour des variables données :
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  summarise(n = n())
+
+penguins |> 
+  summarise(body_mass_g_mean = mean(body_mass_g, na.rm = TRUE),
+            body_mass_g_median = median(body_mass_g, na.rm = TRUE))
+```
+
+## 
+
+![](img/title_dplyr_group_by.png)
+
+## Créer des sous-ensembles
+
+<br>
+
+La fonction `group_by()` vous permet de séparer vos données en groupes :
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  group_by(species)
+```
+
+## Créer des sous-ensembles
+
+<br>
+
+La fonction `group_by()` vous permet de séparer vos données en groupes :
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  group_by(species, island)
+```
+
+## Dégrouper des données
+
+<br>
+
+La fonction **ungroup()** permet de dégrouper des données
+
+```{r, echo=TRUE, eval=TRUE}
+penguins_groups <- penguins |> 
+  group_by(species, island)
+
+penguins_groups |> 
+  head(2)
+
+penguins_groups |> 
+  ungroup() |> 
+  head(2)
+```
+
+## Appliquer des verbes à des groupes
+
+<br>
+
+`group_by()` utilisé avec d'autres verbes de `{dplyr}` permet de calculer des statistiques pour des groupes spécifiques sans devoir créer de nouveaux sous-ensembles :
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  group_by(species, island) |> 
+  summarise(body_mass_g = mean(body_mass_g, na.rm = TRUE))
+```
+
+## Autres fonctions utiles du {tidyverse}
+
+<br>
+
+| Verbe (fonction)               | Explication                             |
+|--------------------------------|-----------------------------------------|
+| `distinct()` et `n_distinct()` | extraire et compter les valeurs uniques |
+| `count()`                      | compter le nombre d'observations        |
+| `slice()`                      | extraire des lignes                     |
+
+## 
+
+![](img/title_dplyr_distinct.png)
+
+## Extraire les valeurs uniques
+
+<br>
+
+La fonction distinct() permet de ne garder que les valeurs uniques :
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  distinct(species)
+```
+
+<br>
+
+En R basique :
+
+```{r, echo=TRUE, eval=TRUE}
+unique(penguins$species)
+```
+
+## Extraire les valeurs uniques
+
+<br>
+
+La fonction distinct() permet de ne garder que les valeurs uniques :
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  distinct(species, island)
+```
+
+## Compter les valeurs uniques
+
+<br>
+
+La fonction n_distinct() permet de compter les valeurs uniques :
+
+```{r, echo=TRUE, eval=TRUE}
+n_distinct(penguins$species)
+```
+
+<br>
+
+En R basique :
+
+```{r, echo=TRUE, eval=TRUE}
+length(unique(penguins$species))
+```
+
+## 
+
+![](img/title_dplyr_slice.png)
+
+## Extraire des lignes
+
+<br>
+
+La fonction slice() permet d'extraire des lignes en utilisant leurs emplacements :
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  slice(101:102)
+```
+
+<br>
+
+Cette fonction peut être utilisée par groupes :
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  group_by(species) |> 
+  slice(1)
+```
+
+## Sélection aléatoire de lignes
+
+<br>
+
+La fonction slice_sample() permet d'extraire des lignes aléatoirement :
+
+-   par nombre de lignes (n = ...)
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  slice_sample(n = 3)
+```
+
+-   par proportion de lignes (prop = ...)
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  slice_sample(prop = 0.01)
+```
+
+## Sélection aléatoire de lignes
+
+<br>
+
+La fonction slice_sample() peut être utilisée par groupes :
+
+<br>
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  group_by(species) |> 
+  slice_sample(n = 2)
+```
+
+## Extraire les valeurs maximales
+
+<br>
+
+La fonction slice_max() permet d'extraire les valeurs maximales, pour une variable :
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  slice_max(order_by = body_mass_g, n = 3)
+```
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  slice_max(order_by = body_mass_g, n = 3, with_ties = FALSE)
+```
+
+## Extraire les valeurs minimales
+
+<br>
+
+La fonction slice_min() permet d'extraire les valeurs minimales, pour une variable :
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  slice_min(order_by = flipper_length_mm, n = 3)
+
+penguins |> 
+  slice_min(order_by = flipper_length_mm, prop = 0.01)
+```
+
+## 
+
+![](img/title_dplyr_count.png)
+
+## Compter les observations
+
+<br>
+
+La fonction count() permet de calculer la taille de l'échantillon :
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  count()
+```
+
+<br>
+
+En R basique :
+
+```{r, echo=TRUE, eval=TRUE}
+nrow(penguins)
+```
+
+## Compter les observations
+
+<br>
+
+La fonction count() permet de calculer la taille de l'échantillon par groupes :
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  count(species)
+
+penguins |> 
+  count(species, island)
+```
+
+## Compter les observations
+
+<br>
+
+L'argument sort = TRUE permet de trier le tableau de sortie :
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  count(species, sort = TRUE)
+```
+
+## Compter les observations
+
+<br>
+
+La fonction add_count() permet d'ajouter la taille de l'échantillon au tableau d'origine en créant une nouvelle colonne :
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  select(species, island) |> 
+  add_count() |> 
+  head(2)
+
+penguins |> 
+  select(species, island) |> 
+  add_count(species, island) |> 
+  head(2)
+```

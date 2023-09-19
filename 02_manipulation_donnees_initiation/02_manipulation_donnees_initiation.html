@@ -1389,6 +1389,605 @@ $ year              &lt;dbl&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <img data-src="img/title_dplyr_mutate.png" class="r-stretch"></section>
 <section id="créer-de-nouvelles-variables" class="slide level2">
 <h2>Créer de nouvelles variables</h2>
+<p><br></p>
+<p>La fonction mutate() permet de créer de nouvelles variables (colonnes) :</p>
+<ul>
+<li><p>à partir de colonnes existantes</p></li>
+<li><p>indépendantes de vos données</p></li>
+</ul>
+</section>
+<section id="créer-de-nouvelles-variables-1" class="slide level2">
+<h2>Créer de nouvelles variables</h2>
+<p><br></p>
+<p>La fonction mutate() permet de créer de nouvelles variables (colonnes) :</p>
+<ul>
+<li><p><strong>à partir de colonnes existantes</strong></p></li>
+<li><p>indépendantes de vos données</p></li>
+</ul>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a>penguins_sel <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span> </span>
+<span id="cb66-2"><a href="#cb66-2"></a>  <span class="fu">select</span>(species<span class="sc">:</span>bill_length_mm, body_mass_g)</span>
+<span id="cb66-3"><a href="#cb66-3"></a></span>
+<span id="cb66-4"><a href="#cb66-4"></a>penguins_sel <span class="sc">|&gt;</span> </span>
+<span id="cb66-5"><a href="#cb66-5"></a>  <span class="fu">mutate</span>(<span class="at">body_mass_kg =</span> body_mass_g <span class="sc">/</span> <span class="dv">1000</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb66-6"><a href="#cb66-6"></a>  <span class="fu">head</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  species island    bill_length_mm body_mass_g body_mass_kg
+  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;
+1 Adelie  Torgersen           39.1        3750         3.75
+2 Adelie  Torgersen           39.5        3800         3.8 </code></pre>
+</div>
+</div>
+</section>
+<section id="créer-de-nouvelles-variables-2" class="slide level2">
+<h2>Créer de nouvelles variables</h2>
+<p><br></p>
+<p>La fonction mutate() permet de créer de nouvelles variables (colonnes) :</p>
+<ul>
+<li><p><strong>à partir de colonnes existantes</strong></p></li>
+<li><p>indépendantes de vos données</p></li>
+</ul>
+<p><br></p>
+<p><strong>En R basique :</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a>penguins_sel <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span> </span>
+<span id="cb68-2"><a href="#cb68-2"></a>  <span class="fu">select</span>(species<span class="sc">:</span>bill_length_mm, body_mass_g)</span>
+<span id="cb68-3"><a href="#cb68-3"></a></span>
+<span id="cb68-4"><a href="#cb68-4"></a><span class="fu">head</span>(<span class="fu">transform</span>(penguins_sel, <span class="at">body_mass_kg =</span> body_mass_g <span class="sc">/</span> <span class="dv">1000</span>), <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  species    island bill_length_mm body_mass_g body_mass_kg
+1  Adelie Torgersen           39.1        3750         3.75
+2  Adelie Torgersen           39.5        3800         3.80</code></pre>
+</div>
+</div>
+</section>
+<section id="créer-de-nouvelles-variables-3" class="slide level2">
+<h2>Créer de nouvelles variables</h2>
+<p><br></p>
+<p>La fonction mutate() permet de créer de nouvelles variables (colonnes) :</p>
+<ul>
+<li><p>à partir de colonnes existantes</p></li>
+<li><p><strong>indépendantes de vos données</strong></p></li>
+</ul>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a>penguins_sel <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span> </span>
+<span id="cb70-2"><a href="#cb70-2"></a>  <span class="fu">select</span>(species<span class="sc">:</span>bill_length_mm, body_mass_g)</span>
+<span id="cb70-3"><a href="#cb70-3"></a></span>
+<span id="cb70-4"><a href="#cb70-4"></a>penguins_sel <span class="sc">|&gt;</span> </span>
+<span id="cb70-5"><a href="#cb70-5"></a>  <span class="fu">mutate</span>(<span class="at">note =</span> <span class="st">"A verifier"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb70-6"><a href="#cb70-6"></a>  <span class="fu">head</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  species island    bill_length_mm body_mass_g note      
+  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;     
+1 Adelie  Torgersen           39.1        3750 A verifier
+2 Adelie  Torgersen           39.5        3800 A verifier</code></pre>
+</div>
+</div>
+</section>
+<section id="section-12" class="slide level2">
+<h2></h2>
+
+<img data-src="img/title_dplyr_summarise.png" class="r-stretch"></section>
+<section id="synthétiser-des-variables" class="slide level2">
+<h2>Synthétiser des variables</h2>
+<p><br></p>
+<p>La fonction <code>summarise()</code> vous permet de calculer des statistiques pour des variables données :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb72-2"><a href="#cb72-2"></a>  <span class="fu">summarise</span>(<span class="at">body_mass_g_mean =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  body_mass_g_mean
+             &lt;dbl&gt;
+1            4202.</code></pre>
+</div>
+</div>
+<p><br></p>
+<p><strong>En R basique :</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a><span class="fu">mean</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4201.754</code></pre>
+</div>
+</div>
+</section>
+<section id="synthétiser-des-variables-1" class="slide level2">
+<h2>Synthétiser des variables</h2>
+<p><br></p>
+<p>La fonction <code>summarise()</code> vous permet de calculer des statistiques pour des variables données :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb76-2"><a href="#cb76-2"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+      n
+  &lt;int&gt;
+1   344</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb78-2"><a href="#cb78-2"></a>  <span class="fu">summarise</span>(<span class="at">body_mass_g_mean =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb78-3"><a href="#cb78-3"></a>            <span class="at">body_mass_g_median =</span> <span class="fu">median</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  body_mass_g_mean body_mass_g_median
+             &lt;dbl&gt;              &lt;dbl&gt;
+1            4202.               4050</code></pre>
+</div>
+</div>
+</section>
+<section id="section-13" class="slide level2">
+<h2></h2>
+
+<img data-src="img/title_dplyr_group_by.png" class="r-stretch"></section>
+<section id="créer-des-sous-ensembles" class="slide level2">
+<h2>Créer des sous-ensembles</h2>
+<p><br></p>
+<p>La fonction <code>group_by()</code> vous permet de séparer vos données en groupes :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb80-2"><a href="#cb80-2"></a>  <span class="fu">group_by</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 8
+# Groups:   species [3]
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+ 1 Adelie  Torgersen           39.1          18.7               181        3750
+ 2 Adelie  Torgersen           39.5          17.4               186        3800
+ 3 Adelie  Torgersen           40.3          18                 195        3250
+ 4 Adelie  Torgersen           NA            NA                  NA          NA
+ 5 Adelie  Torgersen           36.7          19.3               193        3450
+ 6 Adelie  Torgersen           39.3          20.6               190        3650
+ 7 Adelie  Torgersen           38.9          17.8               181        3625
+ 8 Adelie  Torgersen           39.2          19.6               195        4675
+ 9 Adelie  Torgersen           34.1          18.1               193        3475
+10 Adelie  Torgersen           42            20.2               190        4250
+# ℹ 334 more rows
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="créer-des-sous-ensembles-1" class="slide level2">
+<h2>Créer des sous-ensembles</h2>
+<p><br></p>
+<p>La fonction <code>group_by()</code> vous permet de séparer vos données en groupes :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb82-2"><a href="#cb82-2"></a>  <span class="fu">group_by</span>(species, island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 8
+# Groups:   species, island [5]
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+ 1 Adelie  Torgersen           39.1          18.7               181        3750
+ 2 Adelie  Torgersen           39.5          17.4               186        3800
+ 3 Adelie  Torgersen           40.3          18                 195        3250
+ 4 Adelie  Torgersen           NA            NA                  NA          NA
+ 5 Adelie  Torgersen           36.7          19.3               193        3450
+ 6 Adelie  Torgersen           39.3          20.6               190        3650
+ 7 Adelie  Torgersen           38.9          17.8               181        3625
+ 8 Adelie  Torgersen           39.2          19.6               195        4675
+ 9 Adelie  Torgersen           34.1          18.1               193        3475
+10 Adelie  Torgersen           42            20.2               190        4250
+# ℹ 334 more rows
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="dégrouper-des-données" class="slide level2">
+<h2>Dégrouper des données</h2>
+<p><br></p>
+<p>La fonction <strong>ungroup()</strong> permet de dégrouper des données</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a>penguins_groups <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span> </span>
+<span id="cb84-2"><a href="#cb84-2"></a>  <span class="fu">group_by</span>(species, island)</span>
+<span id="cb84-3"><a href="#cb84-3"></a></span>
+<span id="cb84-4"><a href="#cb84-4"></a>penguins_groups <span class="sc">|&gt;</span> </span>
+<span id="cb84-5"><a href="#cb84-5"></a>  <span class="fu">head</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 8
+# Groups:   species, island [1]
+  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 Adelie  Torgersen           39.1          18.7               181        3750
+2 Adelie  Torgersen           39.5          17.4               186        3800
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a>penguins_groups <span class="sc">|&gt;</span> </span>
+<span id="cb86-2"><a href="#cb86-2"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb86-3"><a href="#cb86-3"></a>  <span class="fu">head</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 8
+  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 Adelie  Torgersen           39.1          18.7               181        3750
+2 Adelie  Torgersen           39.5          17.4               186        3800
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="appliquer-des-verbes-à-des-groupes" class="slide level2">
+<h2>Appliquer des verbes à des groupes</h2>
+<p><br></p>
+<p><code>group_by()</code> utilisé avec d’autres verbes de <code>{dplyr}</code> permet de calculer des statistiques pour des groupes spécifiques sans devoir créer de nouveaux sous-ensembles :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb88-2"><a href="#cb88-2"></a>  <span class="fu">group_by</span>(species, island) <span class="sc">|&gt;</span> </span>
+<span id="cb88-3"><a href="#cb88-3"></a>  <span class="fu">summarise</span>(<span class="at">body_mass_g =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+# Groups:   species [3]
+  species   island    body_mass_g
+  &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;
+1 Adelie    Biscoe          3710.
+2 Adelie    Dream           3688.
+3 Adelie    Torgersen       3706.
+4 Chinstrap Dream           3733.
+5 Gentoo    Biscoe          5076.</code></pre>
+</div>
+</div>
+</section>
+<section id="autres-fonctions-utiles-du-tidyverse" class="slide level2">
+<h2>Autres fonctions utiles du {tidyverse}</h2>
+<p><br></p>
+<table>
+<colgroup>
+<col style="width: 43%">
+<col style="width: 56%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Verbe (fonction)</th>
+<th>Explication</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>distinct()</code> et <code>n_distinct()</code></td>
+<td>extraire et compter les valeurs uniques</td>
+</tr>
+<tr class="even">
+<td><code>count()</code></td>
+<td>compter le nombre d’observations</td>
+</tr>
+<tr class="odd">
+<td><code>slice()</code></td>
+<td>extraire des lignes</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-14" class="slide level2">
+<h2></h2>
+
+<img data-src="img/title_dplyr_distinct.png" class="r-stretch"></section>
+<section id="extraire-les-valeurs-uniques" class="slide level2">
+<h2>Extraire les valeurs uniques</h2>
+<p><br></p>
+<p>La fonction distinct() permet de ne garder que les valeurs uniques :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb90-2"><a href="#cb90-2"></a>  <span class="fu">distinct</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 1
+  species  
+  &lt;chr&gt;    
+1 Adelie   
+2 Gentoo   
+3 Chinstrap</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>En R basique :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a><span class="fu">unique</span>(penguins<span class="sc">$</span>species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Adelie"    "Gentoo"    "Chinstrap"</code></pre>
+</div>
+</div>
+</section>
+<section id="extraire-les-valeurs-uniques-1" class="slide level2">
+<h2>Extraire les valeurs uniques</h2>
+<p><br></p>
+<p>La fonction distinct() permet de ne garder que les valeurs uniques :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb94-2"><a href="#cb94-2"></a>  <span class="fu">distinct</span>(species, island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  species   island   
+  &lt;chr&gt;     &lt;chr&gt;    
+1 Adelie    Torgersen
+2 Adelie    Biscoe   
+3 Adelie    Dream    
+4 Gentoo    Biscoe   
+5 Chinstrap Dream    </code></pre>
+</div>
+</div>
+</section>
+<section id="compter-les-valeurs-uniques" class="slide level2">
+<h2>Compter les valeurs uniques</h2>
+<p><br></p>
+<p>La fonction n_distinct() permet de compter les valeurs uniques :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a><span class="fu">n_distinct</span>(penguins<span class="sc">$</span>species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>En R basique :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(penguins<span class="sc">$</span>species))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+</section>
+<section id="section-15" class="slide level2">
+<h2></h2>
+
+<img data-src="img/title_dplyr_slice.png" class="r-stretch"></section>
+<section id="extraire-des-lignes" class="slide level2">
+<h2>Extraire des lignes</h2>
+<p><br></p>
+<p>La fonction slice() permet d’extraire des lignes en utilisant leurs emplacements :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb100-2"><a href="#cb100-2"></a>  <span class="fu">slice</span>(<span class="dv">101</span><span class="sc">:</span><span class="dv">102</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 8
+  species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 Adelie  Biscoe             35          17.9               192        3725
+2 Adelie  Biscoe             41          20                 203        4725
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>Cette fonction peut être utilisée par groupes :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb102-2"><a href="#cb102-2"></a>  <span class="fu">group_by</span>(species) <span class="sc">|&gt;</span> </span>
+<span id="cb102-3"><a href="#cb102-3"></a>  <span class="fu">slice</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 8
+# Groups:   species [3]
+  species   island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;     &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 Adelie    Torgersen           39.1          18.7               181        3750
+2 Chinstrap Dream               46.5          17.9               192        3500
+3 Gentoo    Biscoe              46.1          13.2               211        4500
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="sélection-aléatoire-de-lignes" class="slide level2">
+<h2>Sélection aléatoire de lignes</h2>
+<p><br></p>
+<p>La fonction slice_sample() permet d’extraire des lignes aléatoirement :</p>
+<ul>
+<li>par nombre de lignes (n = …)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb104-2"><a href="#cb104-2"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 8
+  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 Adelie    Dream            39.2          18.6               190        4250
+2 Chinstrap Dream            45.4          18.7               188        3525
+3 Chinstrap Dream            49.7          18.6               195        3600
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<ul>
+<li>par proportion de lignes (prop = …)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb106-2"><a href="#cb106-2"></a>  <span class="fu">slice_sample</span>(<span class="at">prop =</span> <span class="fl">0.01</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 8
+  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 Gentoo  Biscoe              49.6          16                 225        5700
+2 Gentoo  Biscoe              53.4          15.8               219        5500
+3 Adelie  Torgersen           34.4          18.4               184        3325
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="sélection-aléatoire-de-lignes-1" class="slide level2">
+<h2>Sélection aléatoire de lignes</h2>
+<p><br></p>
+<p>La fonction slice_sample() peut être utilisée par groupes :</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb108-2"><a href="#cb108-2"></a>  <span class="fu">group_by</span>(species) <span class="sc">|&gt;</span> </span>
+<span id="cb108-3"><a href="#cb108-3"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+# Groups:   species [3]
+  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 Adelie    Dream            37.3          17.8               191        3350
+2 Adelie    Dream            36.8          18.5               193        3500
+3 Chinstrap Dream            47.6          18.3               195        3850
+4 Chinstrap Dream            46.2          17.5               187        3650
+5 Gentoo    Biscoe           55.9          17                 228        5600
+6 Gentoo    Biscoe           45.5          15                 220        5000
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="extraire-les-valeurs-maximales" class="slide level2">
+<h2>Extraire les valeurs maximales</h2>
+<p><br></p>
+<p>La fonction slice_max() permet d’extraire les valeurs maximales, pour une variable :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb110-2"><a href="#cb110-2"></a>  <span class="fu">slice_max</span>(<span class="at">order_by =</span> body_mass_g, <span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 8
+  species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 Gentoo  Biscoe           49.2          15.2               221        6300
+2 Gentoo  Biscoe           59.6          17                 230        6050
+3 Gentoo  Biscoe           51.1          16.3               220        6000
+4 Gentoo  Biscoe           48.8          16.2               222        6000
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb112-2"><a href="#cb112-2"></a>  <span class="fu">slice_max</span>(<span class="at">order_by =</span> body_mass_g, <span class="at">n =</span> <span class="dv">3</span>, <span class="at">with_ties =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 8
+  species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 Gentoo  Biscoe           49.2          15.2               221        6300
+2 Gentoo  Biscoe           59.6          17                 230        6050
+3 Gentoo  Biscoe           51.1          16.3               220        6000
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="extraire-les-valeurs-minimales" class="slide level2">
+<h2>Extraire les valeurs minimales</h2>
+<p><br></p>
+<p>La fonction slice_min() permet d’extraire les valeurs minimales, pour une variable :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb114-2"><a href="#cb114-2"></a>  <span class="fu">slice_min</span>(<span class="at">order_by =</span> flipper_length_mm, <span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 8
+  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 Adelie  Biscoe              37.9          18.6               172        3150
+2 Adelie  Biscoe              37.8          18.3               174        3400
+3 Adelie  Torgersen           40.2          17                 176        3450
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb116-2"><a href="#cb116-2"></a>  <span class="fu">slice_min</span>(<span class="at">order_by =</span> flipper_length_mm, <span class="at">prop =</span> <span class="fl">0.01</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 8
+  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 Adelie  Biscoe              37.9          18.6               172        3150
+2 Adelie  Biscoe              37.8          18.3               174        3400
+3 Adelie  Torgersen           40.2          17                 176        3450
+# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="section-16" class="slide level2">
+<h2></h2>
+
+<img data-src="img/title_dplyr_count.png" class="r-stretch"></section>
+<section id="compter-les-observations" class="slide level2">
+<h2>Compter les observations</h2>
+<p><br></p>
+<p>La fonction count() permet de calculer la taille de l’échantillon :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb118-2"><a href="#cb118-2"></a>  <span class="fu">count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+      n
+  &lt;int&gt;
+1   344</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>En R basique :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1"></a><span class="fu">nrow</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 344</code></pre>
+</div>
+</div>
+</section>
+<section id="compter-les-observations-1" class="slide level2">
+<h2>Compter les observations</h2>
+<p><br></p>
+<p>La fonction count() permet de calculer la taille de l’échantillon par groupes :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb122-2"><a href="#cb122-2"></a>  <span class="fu">count</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  species       n
+  &lt;chr&gt;     &lt;int&gt;
+1 Adelie      152
+2 Chinstrap    68
+3 Gentoo      124</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb124-2"><a href="#cb124-2"></a>  <span class="fu">count</span>(species, island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  species   island        n
+  &lt;chr&gt;     &lt;chr&gt;     &lt;int&gt;
+1 Adelie    Biscoe       44
+2 Adelie    Dream        56
+3 Adelie    Torgersen    52
+4 Chinstrap Dream        68
+5 Gentoo    Biscoe      124</code></pre>
+</div>
+</div>
+</section>
+<section id="compter-les-observations-2" class="slide level2">
+<h2>Compter les observations</h2>
+<p><br></p>
+<p>L’argument sort = TRUE permet de trier le tableau de sortie :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb126-2"><a href="#cb126-2"></a>  <span class="fu">count</span>(species, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  species       n
+  &lt;chr&gt;     &lt;int&gt;
+1 Adelie      152
+2 Gentoo      124
+3 Chinstrap    68</code></pre>
+</div>
+</div>
+</section>
+<section id="compter-les-observations-3" class="slide level2">
+<h2>Compter les observations</h2>
+<p><br></p>
+<p>La fonction add_count() permet d’ajouter la taille de l’échantillon au tableau d’origine en créant une nouvelle colonne :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb128-2"><a href="#cb128-2"></a>  <span class="fu">select</span>(species, island) <span class="sc">|&gt;</span> </span>
+<span id="cb128-3"><a href="#cb128-3"></a>  <span class="fu">add_count</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb128-4"><a href="#cb128-4"></a>  <span class="fu">head</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  species island        n
+  &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt;
+1 Adelie  Torgersen   344
+2 Adelie  Torgersen   344</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb130-2"><a href="#cb130-2"></a>  <span class="fu">select</span>(species, island) <span class="sc">|&gt;</span> </span>
+<span id="cb130-3"><a href="#cb130-3"></a>  <span class="fu">add_count</span>(species, island) <span class="sc">|&gt;</span> </span>
+<span id="cb130-4"><a href="#cb130-4"></a>  <span class="fu">head</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  species island        n
+  &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt;
+1 Adelie  Torgersen    52
+2 Adelie  Torgersen    52</code></pre>
+</div>
+</div>
 <div class="footer footer-default">
 
 </div>
