@@ -15,25 +15,59 @@ title-slide-attributes:
 
 <br>
 
-![](img/workflow_01.png){fig-align="center"}
+![Le workflow en Data Science, adapté de ["R for Data Science"](https://r4ds.hadley.nz/)](img/workflow_01.png){fig-align="center"}
 
 ## 
 
 <br>
 
-![](img/workflow_02.png){fig-align="center"}
+![Le workflow en Data Science, adapté de ["R for Data Science"](https://r4ds.hadley.nz/)](img/workflow_02.png){fig-align="center"}
 
 ## 
 
 <br>
 
-![](img/workflow_03.png){fig-align="center"}
+![Le workflow en Data Science, adapté de ["R for Data Science"](https://r4ds.hadley.nz/)](img/workflow_03.png){fig-align="center"}
 
 ## 
 
 <br>
 
-![](img/workflow_04.png){fig-align="center"}
+![Le workflow en Data Science, adapté de ["R for Data Science"](https://r4ds.hadley.nz/)](img/workflow_04.png){fig-align="center"}
+
+# Le {tidyverse}
+
+## 
+
+::: columns
+::: {.column width="50%"}
+![Illustration de Allison Horst(https://allisonhorst.com/)](img/tidyverse_celestial.png){fig-align="left"}
+:::
+
+::: {.column width="50%"}
+#### Des packages R pour la Data Science
+
+<br>
+
+Le `{tidyverse}` est une suite de packages R conçue pour la Data Science.
+
+<br>
+
+Tous les packages partagent une **philosophie**, une **syntaxe**, et des **structures de données** communes
+:::
+:::
+
+## Le {tidyverse}
+
+<br>
+
+![](img/tidyverse_packages.png)
+
+## Le {tidyverse}
+
+<br>
+
+![](img/tidyverse_packages_01.png)
 
 # Installer et charger le {tidyverse}
 
@@ -41,7 +75,7 @@ title-slide-attributes:
 
 <br>
 
--   Installer tous les packages du {tidyverse} :
+-   Installer tous les packages du `{tidyverse}` :
 
 ```{r, echo=TRUE, eval=FALSE}
 install.packages("tidyverse")  
@@ -61,7 +95,7 @@ install.packages("tidyr")
 
 <br>
 
--   Charger tous les packages du {tidyverse}
+-   Charger tous les packages du `{tidyverse}` :
 
 ```{r, echo=TRUE, eval=FALSE}
 library(tidyverse)
@@ -69,7 +103,7 @@ library(tidyverse)
 
 <br>
 
--   Charger uniquement les packages nécessaires
+-   Charger uniquement les packages nécessaires :
 
 ```{r, echo=TRUE, eval=FALSE}
 library(readr)
@@ -81,7 +115,7 @@ library(tidyr)
 
 <br>
 
-Quand vous chargez l'ensemble du {tidyverse}, un message s'affiche dans la console :
+Quand vous chargez l'ensemble du `{tidyverse}`, un message s'affiche dans la console :
 
 ```{r, echo=TRUE, eval=TRUE, message=TRUE, warning=FALSE}
 library(tidyverse)
@@ -99,7 +133,7 @@ La section **Conflicts** vous indique que des fonctions portant le **même nom**
 
 -   Données collectées et publiées par [Dr Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) lors d'une étude menée dans la [Palmer Station](https://pallter.marine.rutgers.edu/) en Antarctique, appartenant à la [LTER](https://lternet.edu/) (Long Term Ecological Research Network).
 
--   Mesure de différents paramètres (par exemple la longueur des ailes, la masse corporelle) chez **342 individus** appartenant à **trois espèces** de pingouins vivant sur **trois îles** de l'archipel Palmer.
+-   Mesure de différents paramètres (par exemple la longueur des ailes, la masse corporelle) chez **342 individus** appartenant à **3 espèces** de pingouins vivant sur **3 îles** de l'archipel Palmer.
 
 -   Deux jeux de données :
 
@@ -122,8 +156,7 @@ La section **Conflicts** vous indique que des fonctions portant le **même nom**
 -   Directement à partir de la page web :
 
 ```{r, echo=TRUE, eval=FALSE}
-url <- "https://raw.githubusercontent.com/allisonhorst/palmerpenguins/main/inst/extdata/penguins.csv"
-penguins <- read_csv(url)
+penguins <- read_csv("https://tinyurl.com/mr3mekye")
 ```
 
 -   En important le fichier `penguins.csv` préalablement téléchargé :
@@ -175,15 +208,15 @@ glimpse(penguins)
 
 -   Ces fonctions, comparées aux fonctions R basiques :
 
-    -   ont une syntaxe plus cohérente
+    -   ont une **syntaxe plus cohérente**
 
-    -   ont un nombre limité d'options
+    -   ont un **nombre limité d'options**
 
-    -   retournent toujours un data.frame (un tibble plus précisément)
+    -   retournent toujours un **data.frame** (un ***tibble*** plus précisément)
 
-    -   utilisent des méthodes de stockage de données efficaces
+    -   utilisent des méthodes de **stockage** de données efficaces
 
-    -   peuvent être utilisées pour des bases de données et des data tables
+    -   peuvent être utilisées pour des **bases de données** et des **data tables**
 
 ## Les principaux verbes de {dplyr}
 
@@ -242,7 +275,7 @@ penguins[, c("species", "island", "bill_length_mm", "bill_depth_mm")]
 
 <br>
 
-Pour supprimer des colonnes, retirez-les à l'aide du **`-`**
+Pour supprimer des colonnes, retirez-les à l'aide du **`-`** :
 
 ```{r, echo=TRUE, eval=TRUE}
 select(penguins, -flipper_length_mm, -body_mass_g, -sex, -year)
@@ -258,7 +291,7 @@ Conservez ou supprimez des colonnes consécutives à l'aide du **`:`** :
 select(penguins, species:bill_depth_mm)
 ```
 
-## Sélectionner des colonnes
+## Modifier l'ordre des colonnes
 
 <br>
 
@@ -268,24 +301,86 @@ Conservez ou supprimez des colonnes consécutives à l'aide du **`:`** :
 select(penguins, -(flipper_length_mm:year))
 ```
 
-## Sélectionner des colonnes
+## Modifier l'ordre des colonnes
 
 <br>
 
-La fonction select() peut également servir à modifier l'ordre des colonnes :
+La fonction `select()` peut également servir à modifier l'ordre des colonnes :
 
 ```{r, echo=TRUE, eval=TRUE}
 select(penguins, island, species, bill_length_mm:year)
 ```
 
-## Sélectionner des colonnes
+## Modifier l'ordre des colonnes
 
 <br>
 
-La fonction select() peut également servir à modifier l'ordre des colonnes :
+La fonction `select()` peut également servir à modifier l'ordre des colonnes :
 
 ```{r, echo=TRUE, eval=TRUE}
 select(penguins, island, species, everything())
+```
+
+## Modifier l'ordre des colonnes
+
+<br>
+
+Une autre fonction, `relocate()`, permet également de déplacer des colonnes :
+
+```{r, echo=TRUE, eval=TRUE}
+relocate(penguins, island, .before = species)
+```
+
+## Modifier l'ordre des colonnes
+
+<br>
+
+Une autre fonction, `relocate()`, permet également de déplacer des colonnes :
+
+```{r, echo=TRUE, eval=TRUE}
+relocate(penguins, species, .after = island)
+```
+
+## Modifier l'ordre des colonnes
+
+<br>
+
+Une autre fonction, `relocate()`, permet également de déplacer des colonnes :
+
+```{r, echo=TRUE, eval=TRUE}
+relocate(penguins, flipper_length_mm, .after = last_col())
+```
+
+## Renommer des colonnes
+
+<br>
+
+La fonction `select()` peut également servir à renommer des colonnes.
+
+La syntaxe est la suivante :
+
+<br>
+
+![](img/select_rename_syntax.png)
+
+## Renommer des colonnes
+
+<br>
+
+La fonction `select()` peut également servir à renommer des colonnes :
+
+```{r, echo=TRUE, eval=TRUE}
+select(penguins, island_name = island, species_name = species)
+```
+
+## Renommer des colonnes
+
+<br>
+
+Une autre fonction, `rename()` permet de renommer certaines colonnes et de toutes les conserver :
+
+```{r, echo=TRUE, eval=TRUE}
+rename(penguins, island_name = island, species_name = species)
 ```
 
 ## Mise en pratique - `select()`
@@ -473,7 +568,7 @@ penguins[penguins$species == "Adelie" & penguins$body_mass_g >= 4700, ]
 
 <br>
 
-Sans assigner les données filtrées à de nouveaux objets, réalisez les opérations suivantes (plusieurs possibiltés) :
+Sans assigner les données filtrées à de nouveaux objets, réalisez les opérations suivantes (il peut y avoir plusieurs possibiltés) :
 
 -   Sélectionnez les espèces **Adelie** et **Chinstrap**
 
@@ -544,7 +639,7 @@ head(penguins, 4)
 
 <br>
 
-Vous pouvez remarquer qu'il existe des **NA**. Il s'agit d'individus pour lesquels aucune mersure du bec ou des ailes n'est disponible :
+Vous pouvez remarquer qu'il existe des **NA**. Il s'agit d'individus pour lesquels aucune mesure n'est disponible :
 
 ```{r, echo=TRUE, eval=TRUE}
 filter(penguins, is.na(bill_length_mm))
@@ -585,10 +680,10 @@ drop_na(penguins)
 
 <br>
 
--   Sélectionnez les colonnes `species`, `island`, `bill_length_mm`, `flipper_length_mm` et `body_mass_g` et assignez le tableau dans un objet `penguins_sel`
+-   Sélectionnez les colonnes `species`, `island`, `bill_length_mm` et `flipper_length_mm` et assignez le tableau dans un objet `penguins_sel`
 
 ```{r, echo=TRUE, eval=TRUE}
-penguins_sel <- select(penguins, species:bill_length_mm, flipper_length_mm, body_mass_g)
+penguins_sel <- select(penguins, species:bill_length_mm, flipper_length_mm)
 ```
 
 <br>
@@ -602,7 +697,7 @@ penguins_sel <- select(penguins, species:bill_length_mm, flipper_length_mm, body
 -   Sélectionnez les colonnes `species`, `island`, `bill_length_mm` et `flipper_length_mm` et assignez le tableau dans un objet `penguins_sel`
 
 ```{r, echo=TRUE, eval=TRUE}
-penguins_sel <- select(penguins, species:bill_length_mm, flipper_length_mm, body_mass_g)
+penguins_sel <- select(penguins, species:bill_length_mm, flipper_length_mm)
 ```
 
 <br>
@@ -642,7 +737,7 @@ Pour enchaîner les opérations, il existe **trois approches** :
 #### 1) Créer des objets intermédiaires
 
 ```{r, echo=TRUE, eval=FALSE}
-penguins_sel <- select(penguins, species:bill_length_mm, flipper_length_mm, body_mass_g)
+penguins_sel <- select(penguins, species:bill_length_mm, flipper_length_mm)
 penguins_no_na <- drop_na(penguins_sel)
 ```
 
@@ -663,7 +758,7 @@ Pour enchaîner les opérations, il existe **trois approches** :
 #### 2) Imbriquer les opérations
 
 ```{r, echo=TRUE, eval=FALSE}
-penguins_no_na <- drop_na(select(penguins, species:bill_length_mm, flipper_length_mm, body_mass_g))
+penguins_no_na <- drop_na(select(penguins, species:bill_length_mm, flipper_length_mm))
 ```
 
 3\) Enchaîner les opérations à l'aide du pipe `|>`
@@ -684,7 +779,7 @@ Pour enchaîner les opérations, il existe **trois approches** :
 
 ```{r, echo=TRUE, eval=FALSE}
 penguins |> 
-  select(species:bill_length_mm, flipper_length_mm, body_mass_g) |> 
+  select(species:bill_length_mm, flipper_length_mm) |> 
   drop_na()
 ```
 
@@ -706,7 +801,7 @@ L'utilisation du pipe \|\> présente plusieurs avantages :
 
 ```{r, echo=TRUE, eval=FALSE}
 penguins |> 
-# select(species:bill_length_mm, flipper_length_mm, body_mass_g) |> 
+# select(species:bill_length_mm, flipper_length_mm) |> 
   drop_na()
 ```
 
@@ -720,7 +815,7 @@ Ce pipe fait partie du package `{magrittr}`, qui fait également partie du `{tid
 
 <br>
 
-Le pipe `|>` a tendance à remplacer petit à petit le pipe %\>%, notamment parce qu'il fait partie du **R basique** (à partir de R 4.1), et ne nécessite donc pas de faire appel à un package supplémentaire.
+Le pipe `|>` a tendance à remplacer petit à petit le pipe `%>%`, notamment parce qu'il fait partie du **R basique** (à partir de R 4.1), et ne nécessite donc pas de faire appel à un package supplémentaire.
 
 ## `|>` versus `%>%`
 
@@ -734,6 +829,41 @@ Si vous disposez d'une version récente de R (R 4.1 +), vous pouvez paramétrer 
 
 ![](img/rstudio_pipe.png)
 
+## Mise en pratique - le pipe `|>`
+
+<br>
+
+Enchaînez les opérations suivantes à l'aide de `|>` :
+
+-   partir du jeu de données d'origine `penguins`
+
+-   sélectionner les colonens `species`, `island`, `bill_length_mm` et `bill_depth_mm`
+
+-   supprimer les données manquantes
+
+-   converser les individus ayant une longueur de bec (`bill_depth_mm`) supérieure ou égale à 55mm
+
+## Mise en pratique - le pipe `|>`
+
+<br>
+
+Enchaînez les opérations suivantes à l'aide de `|>` :
+
+-   partir du jeu de données d'origine `penguins`
+
+-   sélectionner les colonens `species`, `island`, `bill_length_mm` et `bill_depth_mm`
+
+-   supprimer les données manquantes
+
+-   converser les individus ayant une longueur de bec (`bill_length_mm`) supérieure ou égale à 55mm
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  select(species:bill_depth_mm) |> 
+  drop_na() |> 
+  filter(bill_length_mm >= 55)
+```
+
 ## 
 
 ![](img/title_dplyr_arrange.png)
@@ -742,9 +872,20 @@ Si vous disposez d'une version récente de R (R 4.1 +), vous pouvez paramétrer 
 
 <br>
 
-La fonction arrange() permet de trier les données par variables :
+La fonction `arrange()` permet de trier les données par une ou plusieurs variables :
 
 ```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  arrange(body_mass_g)
+```
+
+## Trier les données
+
+<br>
+
+La fonction `arrange()` permet de trier les données par une ou plusieurs variables :
+
+```{r, echo=TRUE, eval=FALSE}
 penguins |> 
   arrange(body_mass_g)
 ```
@@ -761,12 +902,14 @@ penguins[order(penguins$body_mass_g), ]
 
 <br>
 
-Pour trier par ordre décroissant, ajoutez un `-` ou utilisez la fonction `desc()` :
+Pour trier par **ordre décroissant**, ajoutez un `-` ou utilisez la fonction `desc()` :
 
 ```{r, echo=TRUE, eval=TRUE}
 penguins |> 
   arrange(-body_mass_g)
 ```
+
+<br>
 
 ```{r, echo=TRUE, eval=FALSE}
 penguins |> 
@@ -777,7 +920,7 @@ penguins |>
 
 <br>
 
-Vous pouvez trier sur plusieurs colonnes :
+Vous pouvez trier sur plusieurs colonnes, en mélangeant les ordres croissant et décroissant :
 
 ```{r, echo=TRUE, eval=TRUE}
 penguins |> 
@@ -790,11 +933,11 @@ penguins |>
 
 Sans assigner les données triées à un nouvel objet, effectuez les opérations suivantes :
 
--   Sélectionnez les colonnes species, island, bill_depth_mm
+-   Sélectionnez les colonnes `species`, `island`, `bill_depth_mm`
 
--   Sélectionner les pingouins ayant une hauteur de bec (bill_depth_mm) égale à 21.1mm
+-   Sélectionner les pingouins ayant une hauteur de bec (`bill_depth_mm`) égale à 21.1mm
 
--   Triez les données sur la variable island, par ordre croissant puis décroissant. Que remarquez-vous ?
+-   Triez les données sur la variable `island`, par ordre croissant puis décroissant. Que remarquez-vous ?
 
 ## Mise en pratique - `arrange()`
 
@@ -892,6 +1035,57 @@ penguins_sel |>
   head(2)
 ```
 
+## Créer de nouvelles variables
+
+<br>
+
+Par défaut, une colonne créée avec la fonction `mutate()` sera ajoutée **à la fin du tableau**.
+
+Pour choisir où placer une nouvelle colonne, vous pouvez utiliser les arguments `.before` ou `.after` :
+
+```{r, echo=TRUE, eval=TRUE}
+penguins_sel <- penguins |> 
+  select(species:bill_length_mm, body_mass_g)
+penguins_sel |> 
+  mutate(body_mass_kg = body_mass_g / 1000, .before = body_mass_g) |>
+  head(2)
+```
+
+## Mise en pratique - `mutate()`
+
+<br>
+
+En partant du jeu de données d'origine `penguins`, effectuez les opérations suivantes :
+
+-   Sélectionnez les colonnes `species`, `island`, `bill_length_mm` et `bill_depth_mm`
+
+-   Calculez le ratio longueur / hauteur de bec (`bill_length_mm` / `bill_depth_mm`) et stockez le résultat dans une nouvelle variable `bill_ratio`
+
+-   Placez cette nouvelle colonne en troisième position
+
+-   Affichez les 4 premières lignes
+
+## Mise en pratique - `mutate()`
+
+<br>
+
+En partant du jeu de données d'origine `penguins`, effectuez les opérations suivantes :
+
+-   Sélectionnez les colonnes `species`, `island`, `bill_length_mm` et `bill_depth_mm`
+
+-   Calculez le ratio longueur / hauteur de bec (`bill_length_mm` / `bill_depth_mm`) et stockez le résultat dans une nouvelle variable `bill_ratio`
+
+-    Placez cette nouvelle colonne en troisième position
+
+-   Affichez les 4 premières lignes
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  select(species:bill_depth_mm) |> 
+  mutate(bill_ratio = bill_length_mm / bill_depth_mm, .after = island) |> 
+  head(4)
+```
+
 ## 
 
 ![](img/title_dplyr_summarise.png)
@@ -900,9 +1094,20 @@ penguins_sel |>
 
 <br>
 
-La fonction `summarise()` vous permet de calculer des statistiques pour des variables données :
+La fonction `summarise()` permet de calculer des statistiques pour des variables données :
 
 ```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  summarise(body_mass_g_mean = mean(body_mass_g, na.rm = TRUE))
+```
+
+## Synthétiser des variables
+
+<br>
+
+La fonction `summarise()` permet de calculer des statistiques pour des variables données :
+
+```{r, echo=TRUE, eval=FALSE}
 penguins |> 
   summarise(body_mass_g_mean = mean(body_mass_g, na.rm = TRUE))
 ```
@@ -919,7 +1124,7 @@ mean(penguins$body_mass_g, na.rm = TRUE)
 
 <br>
 
-La fonction `summarise()` vous permet de calculer des statistiques pour des variables données :
+La fonction `summarise()` permet de calculer des statistiques pour des variables données :
 
 ```{r, echo=TRUE, eval=TRUE}
 penguins |> 
@@ -930,6 +1135,45 @@ penguins |>
             body_mass_g_median = median(body_mass_g, na.rm = TRUE))
 ```
 
+## Mise en pratique - `summarise()`
+
+<br>
+
+En partant du jeu de données d'origine `penguins`, effectuez les opérations suivantes :
+
+-   extraire la valeur minimale de la variable `body_mass_g`
+
+-   extraire la valeur maximale de la variable `body_mass_g`
+
+-   extraire la valeur minimale du ratio `bill_length_mm` / `bill_depth_mm`
+
+-   extraire la valeur maximale du ratio `bill_length_mm` / `bill_depth_mm`
+
+## Mise en pratique - `summarise()`
+
+<br>
+
+En partant du jeu de données d'origine `penguins`, effectuez les opérations suivantes :
+
+-   extraire la valeur minimale de la variable `body_mass_g`
+
+-   extraire la valeur maximale de la variable `body_mass_g`
+
+-   extraire la valeur minimale du ratio `bill_length_mm` / `bill_depth_mm`
+
+-   extraire la valeur maximale du ratio `bill_length_mm` / `bill_depth_mm`
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  summarise(body_mass_g_min = min(body_mass_g, na.rm = TRUE),
+            body_mass_g_max = max(body_mass_g, na.rm = TRUE),
+            bill_ratio_min = min(bill_length_mm / bill_depth_mm,
+                                 na.rm = TRUE),
+            bill_ratio_max = max(bill_length_mm / bill_depth_mm,
+                                 na.rm = TRUE))
+
+```
+
 ## 
 
 ![](img/title_dplyr_group_by.png)
@@ -938,7 +1182,7 @@ penguins |>
 
 <br>
 
-La fonction `group_by()` vous permet de séparer vos données en groupes :
+La fonction `group_by()` permet de séparer vos données en groupes :
 
 ```{r, echo=TRUE, eval=TRUE}
 penguins |> 
@@ -949,7 +1193,7 @@ penguins |>
 
 <br>
 
-La fonction `group_by()` vous permet de séparer vos données en groupes :
+La fonction `group_by()` permet de séparer vos données en groupes :
 
 ```{r, echo=TRUE, eval=TRUE}
 penguins |> 
@@ -986,6 +1230,158 @@ penguins |>
   summarise(body_mass_g = mean(body_mass_g, na.rm = TRUE))
 ```
 
+## Appliquer des verbes à des groupes
+
+<br>
+
+Quand vous appliquez des verbes à des groupes créés à l'aide de `group_by()`, le `tibble` résultant conserve les groupes.
+
+<br>
+
+Depuis la version 1.1.0 de `{dplyr}`, l'opération de "groupage" peut se faire directement dans la fonction qu'on souhaite appliquer :
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  summarise(body_mass_g_mean = mean(body_mass_g, na.rm = TRUE),
+            .by = c(species, island))
+```
+
+**Le `tibble` résultant ne conserve pas la structure interne en groupes.**
+
+## Mise en pratique - opérations sur des groupes
+
+<br>
+
+En partant du jeu de données `penguins` d'origine, effectuez les opérations suivantes (plusieurs possibilités) :
+
+-   Séléctionnez les colonnes `species`, `island`, `body_mass_g`
+
+-   Supprimez les données manquantes
+
+-   Calculez la médiane de la masse corporelle (`body_mass_g`) par espèce et convertissez cette médiane en kg.
+
+## Mise en pratique - opérations sur des groupes
+
+<br>
+
+En partant du jeu de données `penguins` d'origine, effectuez les opérations suivantes (plusieurs possibilités) :
+
+-   Séléctionnez les colonnes `species`, `island`, `body_mass_g`
+
+-   Supprimez les données manquantes
+
+-   Calculez la médiane de la masse corporelle (`body_mass_g`) par espèce et convertissez cette médiane en kg.
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  select(species, island, body_mass_g) |> 
+  drop_na() |> 
+  mutate(body_mass_kg = body_mass_g / 1000) |> 
+  group_by(species) |> 
+  summarise(body_mass_kg_median = median(body_mass_kg))
+```
+
+## Mise en pratique - opérations sur des groupes
+
+<br>
+
+En partant du jeu de données `penguins` d'origine, effectuez les opérations suivantes (plusieurs possibilités) :
+
+-   Séléctionnez les colonnes `species`, `island`, `body_mass_g`
+
+-   Supprimez les données manquantes
+
+-   Calculez la médiane de la masse corporelle (`body_mass_g`) par espèce et convertissez cette médiane en kg.
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  select(species, island, body_mass_g) |> 
+  filter(!is.na(body_mass_g)) |>  
+  mutate(body_mass_kg = body_mass_g / 1000) |> 
+  group_by(species) |> 
+  summarise(body_mass_kg_median = median(body_mass_kg))
+```
+
+## Mise en pratique - opérations sur des groupes
+
+<br>
+
+En partant du jeu de données `penguins` d'origine, effectuez les opérations suivantes (plusieurs possibilités) :
+
+-   Séléctionnez les colonnes `species`, `island`, `body_mass_g`
+
+-   Supprimez les données manquantes
+
+-   Calculez la médiane de la masse corporelle (`body_mass_g`) par espèce et convertissez cette médiane en kg.
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  select(species, island, body_mass_g) |> 
+  drop_na() |>   
+  mutate(body_mass_kg = body_mass_g / 1000) |> 
+  summarise(body_mass_kg_median = median(body_mass_kg),
+            .by = species)
+```
+
+## Mise en pratique - opérations sur des groupes
+
+<br>
+
+En partant du jeu de données `penguins` d'origine, effectuez les opérations suivantes (plusieurs possibilités) :
+
+-   Séléctionnez les colonnes `species`, `island`, `body_mass_g`
+
+-   Supprimez les données manquantes
+
+-   Calculez la médiane de la masse corporelle (`body_mass_g`) par espèce et convertissez cette médiane en kg.
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  select(species, island, body_mass_g) |> 
+  drop_na() |>   
+  summarise(body_mass_kg_median = median(body_mass_g / 1000),
+            .by = species)
+```
+
+## Mise en pratique - opérations sur des groupes
+
+<br>
+
+En partant du jeu de données `penguins` d'origine, effectuez les opérations suivantes (plusieurs possibilités) :
+
+-   Séléctionnez les colonnes `species`, `island`, `body_mass_g`
+
+-   Supprimez les données manquantes
+
+-   Calculez la médiane de la masse corporelle (`body_mass_g`) par espèce et convertissez cette médiane en kg.
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  select(species, island, body_mass_g) |> 
+  summarise(body_mass_kg_median = median(body_mass_g / 1000,
+                                         na.rm = TRUE),
+            .by = species)
+```
+
+## Mise en pratique - opérations sur des groupes
+
+<br>
+
+En partant du jeu de données `penguins` d'origine, effectuez les opérations suivantes (plusieurs possibilités) :
+
+-   Séléctionnez les colonnes `species`, `island`, `body_mass_g`
+
+-   Supprimez les données manquantes
+
+-   Calculez la médiane de la masse corporelle (`body_mass_g`) par espèce et convertissez cette médiane en kg.
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  summarise(body_mass_kg_median = median(body_mass_g / 1000,
+                                         na.rm = TRUE),
+            .by = species)
+```
+
 ## Autres fonctions utiles du {tidyverse}
 
 <br>
@@ -1004,16 +1400,27 @@ penguins |>
 
 <br>
 
-La fonction distinct() permet de ne garder que les valeurs uniques :
+La fonction `distinct()` permet de ne garder que les valeurs uniques :
 
 ```{r, echo=TRUE, eval=TRUE}
 penguins |> 
   distinct(species)
 ```
 
+## Extraire les valeurs uniques
+
 <br>
 
-En R basique :
+La fonction `distinct()` permet de ne garder que les valeurs uniques :
+
+```{r, echo=TRUE, eval=FALSE}
+penguins |> 
+  distinct(species)
+```
+
+<br>
+
+**En R basique :**
 
 ```{r, echo=TRUE, eval=TRUE}
 unique(penguins$species)
@@ -1023,29 +1430,81 @@ unique(penguins$species)
 
 <br>
 
-La fonction distinct() permet de ne garder que les valeurs uniques :
+La fonction `distinct()` permet de ne garder que les valeurs uniques :
 
 ```{r, echo=TRUE, eval=TRUE}
 penguins |> 
   distinct(species, island)
 ```
 
+## Extraire les valeurs uniques
+
+<br>
+
+Dans la fonction `distinct()`, l'argument `.keep_all = TRUE` permet de conserver toutes les colonnes :
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  distinct(species, .keep_all = TRUE)
+```
+
 ## Compter les valeurs uniques
 
 <br>
 
-La fonction n_distinct() permet de compter les valeurs uniques :
+La fonction `n_distinct()` permet de compter les valeurs uniques :
 
 ```{r, echo=TRUE, eval=TRUE}
 n_distinct(penguins$species)
 ```
 
+## Compter les valeurs uniques
+
 <br>
 
-En R basique :
+La fonction `n_distinct()` permet de compter les valeurs uniques :
+
+```{r, echo=TRUE, eval=FALSE}
+n_distinct(penguins$species)
+```
+
+<br>
+
+**En R basique :**
 
 ```{r, echo=TRUE, eval=TRUE}
 length(unique(penguins$species))
+```
+
+## Mise en pratique - `distinct()`
+
+<br>
+
+En partant du jeu de données d'origine `penguins`, effectuez les opérations suivantes :
+
+-   extraire les valeurs uniques de la variable `year`
+
+-   afficher toutes les combinaisons des variables `species`, `island` et `year`
+
+## Mise en pratique - `distinct()`
+
+<br>
+
+En partant du jeu de données d'origine `penguins`, effectuez les opérations suivantes :
+
+-   extraire les valeurs uniques de la variable `year`
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  distinct(year)
+```
+
+-   compter le nombre de combinaisons possibles pour lees variables `species`, `island` et `year`
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  distinct(species, island, year) |> 
+  n_distinct()  ## ou nrow()
 ```
 
 ## 
@@ -1056,7 +1515,7 @@ length(unique(penguins$species))
 
 <br>
 
-La fonction slice() permet d'extraire des lignes en utilisant leurs emplacements :
+La fonction `slice()` permet d'extraire des lignes en utilisant leurs positions (numéros de lignes) :
 
 ```{r, echo=TRUE, eval=TRUE}
 penguins |> 
@@ -1069,24 +1528,23 @@ Cette fonction peut être utilisée par groupes :
 
 ```{r, echo=TRUE, eval=TRUE}
 penguins |> 
-  group_by(species) |> 
-  slice(1)
+  slice(1, .by = species)
 ```
 
 ## Sélection aléatoire de lignes
 
 <br>
 
-La fonction slice_sample() permet d'extraire des lignes aléatoirement :
+La fonction `slice_sample()` permet d'extraire des lignes aléatoirement :
 
--   par nombre de lignes (n = ...)
+-   par nombre de lignes (`n = …`)
 
 ```{r, echo=TRUE, eval=TRUE}
 penguins |> 
   slice_sample(n = 3)
 ```
 
--   par proportion de lignes (prop = ...)
+-   par proportion de lignes (`prop = …`)
 
 ```{r, echo=TRUE, eval=TRUE}
 penguins |> 
@@ -1097,37 +1555,46 @@ penguins |>
 
 <br>
 
-La fonction slice_sample() peut être utilisée par groupes :
+La fonction `slice_sample()` peut être utilisée par groupes :
 
 <br>
 
 ```{r, echo=TRUE, eval=TRUE}
 penguins |> 
-  group_by(species) |> 
-  slice_sample(n = 2)
+  slice_sample(n = 2, by = species)
 ```
 
 ## Extraire les valeurs maximales
 
 <br>
 
-La fonction slice_max() permet d'extraire les valeurs maximales, pour une variable :
+La fonction `slice_max()` permet d'extraire les valeurs maximales pour une variable :
 
 ```{r, echo=TRUE, eval=TRUE}
 penguins |> 
-  slice_max(order_by = body_mass_g, n = 3)
+  slice_max(order_by = flipper_length_mm, n = 3)
 ```
 
+## Extraire les valeurs maximales
+
+<br>
+
+Par défaut, les individus ex-aequo pour la variable étudiée sont conservés.
+
+Il peut donc arrriver qu'il y ait plus de ligne que le nombre demandé avrec l'argument `n= …`.
+
+Pour afficher strictement le nombre de lignes demandé, vous pouvez utiliser l'argument `with_ties = FALSE` :
+
 ```{r, echo=TRUE, eval=TRUE}
 penguins |> 
-  slice_max(order_by = body_mass_g, n = 3, with_ties = FALSE)
+  slice_max(order_by = flipper_length_mm, n = 3, with_ties = FALSE)
 ```
 
 ## Extraire les valeurs minimales
 
 <br>
 
-La fonction slice_min() permet d'extraire les valeurs minimales, pour une variable :
+La fonction `slice_min()` permet d'extraire les valeurs minimales pour une variable :
 
 ```{r, echo=TRUE, eval=TRUE}
 penguins |> 
@@ -1135,6 +1602,83 @@ penguins |>
 
 penguins |> 
   slice_min(order_by = flipper_length_mm, prop = 0.01)
+```
+
+## Extraire les valeurs par groupes
+
+<br>
+
+Les fonctions `slice_max()` et `slice_min()` peuvent être appliquées à des groupes :
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  slice_max(order_by = flipper_length_mm, by = species, n = 2,
+            with_ties = FALSE)
+```
+
+## Mise en pratique - `slice_*()`
+
+<br>
+
+En partant du jeu de données d'origine `penguins`, effectuez les opérations suivantes :
+
+-   sélectionnez aléatoirement 5 lignes du tableau
+
+-   sélectionnez les 5 individus ayant la plus faible masse corporelle (`body_mass_g`)
+
+-   sélectionnez, pour chaque année, l'individu ayant l'aile la plus longue (`flipper_length_mm`)
+
+## Mise en pratique - `slice_*()`
+
+<br>
+
+En partant du jeu de données d'origine `penguins`, effectuez les opérations suivantes :
+
+-   sélectionnez aléatoirement 5 lignes du tableau
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  slice_sample(n = 5)
+```
+
+-   sélectionnez les 5 individus ayant la plus faible masse corporelle (`body_mass_g`)
+
+-   sélectionnez, pour chaque année, l'individu ayant l'aile la plus longue (`flipper_length_mm`)
+
+## Mise en pratique - `slice_*()`
+
+<br>
+
+En partant du jeu de données d'origine `penguins`, effectuez les opérations suivantes :
+
+-   sélectionnez aléatoirement 5 lignes du tableau
+
+-   sélectionnez les 5 individus ayant la plus faible masse corporelle (`body_mass_g`)
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  slice_min(order_by = body_mass_g, n = 5, with_ties = FALSE)
+```
+
+-   sélectionnez, pour chaque année, l'individu ayant l'aile la plus longue (`flipper_length_mm`)
+
+## Mise en pratique - `slice_*()`
+
+<br>
+
+En partant du jeu de données d'origine `penguins`, effectuez les opérations suivantes :
+
+-   sélectionnez aléatoirement 5 lignes du tableau
+
+-   sélectionnez les 5 individus ayant la plus faible masse corporelle (`body_mass_g`)
+
+-   sélectionnez, pour chaque année, l'individu ayant l'aile la plus longue (`flipper_length_mm`)
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  slice_max(order_by = flipper_length_mm, n = 1,
+            by = year, with_ties = FALSE) |> 
+  select(year, species, island, flipper_length_mm)
 ```
 
 ## 
