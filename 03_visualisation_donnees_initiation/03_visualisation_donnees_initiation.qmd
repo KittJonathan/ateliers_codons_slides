@@ -1,0 +1,578 @@
+---
+format:
+  revealjs:
+    theme: custom.scss
+    fontsize: 1.8em
+editor: visual
+title-slide-attributes: 
+  data-background-image: title.png
+  data-background-opacity: 50%
+---
+
+![](img/title.png){fig-align="center"}
+
+## Les ateliers codons
+
+<br>
+
+-   Des **créneaux réguliers** pour **découvrir** et **progresser**
+
+-   Deux parcours : **initiation** et **perfectionnement**
+
+-   Une **équipe d'animation**
+
+-   Des **supports** disponibles en ligne : [ateliers-codons.netlify.app/](https://ateliers-codons.netlify.app/)
+
+<br>
+
+#### Sources pour cet atelier :
+
+<br>
+
+-   [Data visualisation - Part 1 (Our Coding Club)](https://ourcodingclub.github.io/tutorials/datavis/)
+
+-   [Data visualisation - Part 2 (Our Coding Club)](https://ourcodingclub.github.io/tutorials/data-vis-2/)
+
+-   R Course TU Dresden (Cédric Scherer)
+
+## 
+
+<br>
+
+![Le workflow en Data Science, adapté de ["R for Data Science"](https://r4ds.hadley.nz/)](img/data_science_workflow_01.png){fig-align="center"}
+
+## 
+
+<br>
+
+![Le workflow en Data Science, adapté de ["R for Data Science"](https://r4ds.hadley.nz/)](img/data_science_workflow_02.png){fig-align="center"}
+
+# Visualisation de données avec {ggplot2}
+
+## 
+
+![](img/ggplot2_hex_logo.png){fig-align="center"}
+
+`{ggplot2}` est un outil de création de graphiques basé sur la **"grammaire des graphiques"** (Wilkinson, 2005).
+
+Vous fournissez les données, vous dites à `{ggplot2}` comment associer des variables à des paramètres esthétiques, quels types de représentation utiliser, et `{ggplot2}` s'occupe des détails.
+
+## Avantages de {ggplot2}
+
+<br>
+
+-   approche "code en premier" ➝ **workflow reproductible et transparent**
+
+-   la **"grammaire des graphiques"** sous-jacente est cohérente
+
+-   **très flexible**, principe de couches pour ajouter des éléments
+
+-   système de **thèmes** pour polir l'apparence du graphique
+
+-   beaucoup de **fonctionnalités supplémentaires** grâce à des packages
+
+-   **communauté en ligne** très active et prête à aider
+
+## 
+
+![Illustration de [Allison Horst](https://allisonhorst.com/)](img/horst_ggplot2_01.png)
+
+## 
+
+![Illustration de [Allison Horst](https://allisonhorst.com/)](img/horst_ggplot2_02.png)
+
+## 
+
+<br>
+
+![[BBC Visual and Data Journalism cookbook for R graphics](https://bbc.github.io/rcookbook/)](img/bbc_ggplot2.png)
+
+## 
+
+<br>
+
+![[BBC Visual and Data Journalism cookbook for R graphics](https://bbc.github.io/rcookbook/)](img/bbc_text.png)
+
+## 
+
+![Sélection de visualisations créées entièrement avec ggplot2 par Thomas Lin Pedersen, Georgios Karamanis, Timo Gossenbacher, Torsten Sprenger, Jake Kaupp, Jack Davison et Cédric Scherer](img/ggplot2_selection.png)
+
+# {ggplot2}
+
+## Le package {ggplot2}
+
+<br>
+
+... est un **package R de visualisation de données** créé par Hadley Wickham en 2005
+
+```{r, echo=TRUE, eval=FALSE}
+install.packages("ggplot2")
+library(ggplot2)
+```
+
+<br>
+
+... fait partie du {tidyverse}
+
+```{r, echo=TRUE, eval=FALSE}
+install.packages("tidyverse")
+library(tidyverse)
+```
+
+# La grammaire des graphiques
+
+## La grammaire de {ggplot2}
+
+<br>
+
+| Composante     | Fonction       | Explication                                                        |
+|----------------|----------------|-----------------------------------------|
+| **Data**       | `ggplot(data)` | *Les données brutes qu'on souhaite visualiser*                     |
+| **Aesthetics** | `aes()`        | *Associations esthétiques entre variables et propriétés visuelles* |
+| **Geometries** | `geom_*()`     | *Formes géométriques utilisées pour représenter les données*       |
+
+## La grammaire de {ggplot2}
+
+<br>
+
+| Composante        | Fonction       | Explication                                                        |
+|----------------|----------------|----------------------------------------|
+| **Data**          | `ggplot(data)` | *Les données brutes qu'on souhaite visualiser*                     |
+| **Aesthetics**    | `aes()`        | *Associations esthétiques entre variables et propriétés visuelles* |
+| **Geometries**    | `geom_*()`     | *Formes géométriques utilisées pour représenter les données*       |
+| **Visual themes** | `theme_*()`    | *Apparence visuelle générale d'un graphique*                       |
+
+## Le jeu de données `penguins` 🐧
+
+<br>
+
+-   Données collectées et publiées par [Dr Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) lors d'une étude menée dans la [Palmer Station](https://pallter.marine.rutgers.edu/) en Antarctique, appartenant à la [LTER](https://lternet.edu/) (Long Term Ecological Research Network).
+
+-   Mesure de différents paramètres (par exemple la longueur des ailes, la masse corporelle) chez **342 individus** appartenant à **3 espèces** de pingouins vivant sur **3 îles** de l'archipel Palmer.
+
+-   Deux jeux de données :
+
+    -   données brutes (`penguins_raw`)
+
+    -   **données nettoyées (`penguins`)**
+
+-   Données disponibles dans un package R : [`{palmerpenguins}`](https://allisonhorst.github.io/palmerpenguins/).
+
+```{r, echo=FALSE, eval=TRUE}
+library(tidyverse)
+library(palmerpenguins)
+```
+
+```{r, echo=TRUE, eval=FALSE}
+install.packages("palmerpenguins")
+library(palmerpenguins)
+```
+
+## 
+
+| Variable          | Description                                                           | Classe         |
+|----------------|----------------------------------------|----------------|
+| species           | espèce de pingouin (Adelie, Chinstrap et Gentoo)                      | Facteur        |
+| island            | île de l'archipel Palmer, en Antarctique (Biscoe, Dream ou Torgersen) | Facteur        |
+| bill_length_mm    | longueur du bec (mm)                                                  | Nombre décimal |
+| bill_depth_mm     | hauteur du bec (mm)                                                   | Nombre décimal |
+| flipper_length_mm | longueur de l'aile (mm)                                               | Nombre entier  |
+| body_mass_g       | masse corporelle (g)                                                  | Nombre entier  |
+| sex               | sexe du pingouin (mâle ou femelle)                                    | Facteur        |
+| year              | année de l'étude (2007, 2008 ou 2009)                                 | Nombre entier  |
+
+# Concepts fondamentaux
+
+## `ggplot2::ggplot()`
+
+<br>
+
+```{r, echo=TRUE, eval=FALSE}
+?ggplot
+```
+
+![](img/ggplot_help.png)
+
+## Data
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+ggplot(data = penguins)
+```
+
+## Paramètres esthétiques
+
+<br>
+
+#### = associer des variables à des paramètres esthétiques
+
+<br>
+
+-   positions (`x`, `y`)
+
+-   couleurs (`color` ou `colour`, `fill`)
+
+-   formes (`shape`, `linetype`)
+
+-   taille (`size`)
+
+-   transparence (`alpha`)
+
+-   groupes (`group`)
+
+## Paramètres esthétiques
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+ggplot(data = penguins) +
+  aes(x = flipper_length_mm,
+      y = bill_length_mm)
+```
+
+## Paramètres esthétiques
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+ggplot(
+  data = penguins,
+  mapping = aes(x = flipper_length_mm,
+                y = bill_length_mm)
+)
+```
+
+## Paramètres esthétiques
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+ggplot(
+  penguins,
+  aes(x = flipper_length_mm,
+      y = bill_length_mm)
+)
+```
+
+## Paramètres esthétiques
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+penguins |> 
+  ggplot(
+    aes(x = flipper_length_mm,
+        y = bill_length_mm)
+  )
+```
+
+# Couches géométriques
+
+## Geometries
+
+#### = interpréter les paramètres esthétiques comme représentations graphiques
+
+<br>
+
+-   points
+
+-   lignes
+
+-   polygones
+
+-   étiquettes de texte
+
+-   ...
+
+## Geometries
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+ggplot(
+  penguins,
+  aes(x = flipper_length_mm,
+      y = bill_length_mm)
+  ) +
+  geom_point()
+```
+
+## Propriétés visuelles des couches
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+ggplot(
+  penguins,
+  aes(x = flipper_length_mm,
+      y = bill_length_mm)
+  ) +
+  geom_point(
+    color = "blue",
+    alpha = 0.5,
+    shape = "X",
+    size = 4
+  )
+```
+
+## Propriétés visuelles fixes ou mappées
+
+<br>
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+ggplot(
+  penguins,
+  aes(x = flipper_length_mm,
+      y = bill_length_mm)
+  ) +
+  geom_point(
+    color = "blue",
+    alpha = 0.5
+  )
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+ggplot(
+  penguins,
+  aes(x = flipper_length_mm,
+      y = bill_length_mm)
+  ) +
+  geom_point(
+    aes(color = species),
+    alpha = 0.5
+  )
+```
+:::
+:::
+
+## Mise en pratique - `aes()` et `geom_*()`
+
+<br>
+
+-   Créez un nuage de points en utilisant les variables suivantes :
+
+    -   x = `bill_length_mm`
+
+    -   y = `bill_depth_mm`
+
+-   Testez différentes formes de points (valeurs numériques entre 0 et 21)
+
+-   Testez différentes tailles de points
+
+-   Mappez la variable `species` à la couleur des points
+
+-   Et mappez la variable `body_mass_g` à la taille des points
+
+## Mise en pratique - `aes()` et `geom_*()`
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+ggplot(
+  penguins,
+  aes(x = bill_length_mm,
+      y = bill_depth_mm)
+  ) +
+  geom_point()
+```
+
+## Mise en pratique - `aes()` et `geom_*()`
+
+<br>
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+ggplot(
+  penguins,
+  aes(x = bill_length_mm,
+      y = bill_depth_mm)
+  ) +
+  geom_point(shape = 5)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+ggplot(
+  penguins,
+  aes(x = bill_length_mm,
+      y = bill_depth_mm)
+  ) +
+  geom_point(shape = 21)
+```
+:::
+:::
+
+## Mise en pratique - `aes()` et `geom_*()`
+
+<br>
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+ggplot(
+  penguins,
+  aes(x = bill_length_mm,
+      y = bill_depth_mm)
+  ) +
+  geom_point(size = 0.5)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+ggplot(
+  penguins,
+  aes(x = bill_length_mm,
+      y = bill_depth_mm)
+  ) +
+  geom_point(size = 2)
+```
+:::
+:::
+
+## Mise en pratique - `aes()` et `geom_*()`
+
+<br>
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+ggplot(
+  penguins,
+  aes(x = bill_length_mm,
+      y = bill_depth_mm)
+  ) +
+  geom_point(aes(color = species))
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+ggplot(
+  penguins,
+  aes(x = bill_length_mm,
+      y = bill_depth_mm)
+  ) +
+  geom_point(aes(color = species,
+                 size = body_mass_g))
+```
+:::
+:::
+
+## `geom_point()`
+
+<br>
+
+L'argument `shape` peut prendre les valeurs suivantes :
+
+![Source : [Albert's blog](https://blog.albertkuo.me/post/point-shape-options-in-ggplot/)](img/geom_point_shapes.png)
+
+## `geom_point()`
+
+<br>
+
+Pour les formes 21 à 25, deux éléments peuvent être colorés :
+
+-   le contour (avec `color = …`)
+
+-   l'intérieur (avec `fill = …`)
+
+<br>
+
+Pour ces formes, l'épaisseur du contour peut être modifiée avec l'argument `stroke = …`
+
+## `geom_point()`
+
+<br>
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  slice(1:5) |> 
+  ggplot(aes(x = bill_length_mm,
+             y = bill_depth_mm)
+         ) +
+    geom_point(shape = 21,
+               size = 8,
+               color = "red",
+               fill = "grey")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  slice(1:5) |> 
+  ggplot(aes(x = bill_length_mm,
+             y = bill_depth_mm)
+         ) +
+    geom_point(shape = 21,
+               size = 8,
+               color = "red",
+               fill = "grey",
+               stroke = 3)
+```
+:::
+:::

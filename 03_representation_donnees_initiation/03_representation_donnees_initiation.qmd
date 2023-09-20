@@ -29,11 +29,9 @@ title-slide-attributes:
 
 <br>
 
--   [Basic data manipulation (Our Coding Club)](https://ourcodingclub.github.io/tutorials/data-manip-intro/)
+-   [Data visualisation - Part 1 (Our Coding Club)](https://ourcodingclub.github.io/tutorials/datavis/)
 
--   [Efficient data manipulation (Our Coding Club)](https://ourcodingclub.github.io/tutorials/data-manip-efficient/)
-
--   [Advanced data manipulation (Our Coding Club)](https://ourcodingclub.github.io/tutorials/data-manip-creative-dplyr/)
+-   [Data visualisation - Part 2 (Our Coding Club)](https://ourcodingclub.github.io/tutorials/data-vis-2/)
 
 -   R Course TU Dresden (Cédric Scherer)
 
@@ -41,13 +39,13 @@ title-slide-attributes:
 
 <br>
 
-![Le workflow en Data Science, adapté de ["R for Data Science"](https://r4ds.hadley.nz/)](img/workflow_01.png){fig-align="center"}
+![Le workflow en Data Science, adapté de ["R for Data Science"](https://r4ds.hadley.nz/)](img/data_science_workflow_01.png){fig-align="center"}
 
 ## 
 
 <br>
 
-![Le workflow en Data Science, adapté de ["R for Data Science"](https://r4ds.hadley.nz/)](img/workflow_02.png){fig-align="center"}
+![Le workflow en Data Science, adapté de ["R for Data Science"](https://r4ds.hadley.nz/)](img/data_science_workflow_02.png){fig-align="center"}
 
 ## 
 
@@ -1792,8 +1790,9 @@ En partant du jeu de données d'origine `penguins`, effectuez les opérations su
 
 -   Comptez le nombre d'individus par année et triez le tableau résultant par ordre décroissant
 
+```{=html}
 <!-- -->
-
+```
 -   Comptez le nombre d'individus de l'espèce `Adelie` pour chaque île
 
 -   Comptez le nombre d'individus par île et par espèce et renommez la nouvelle colonne `total`
@@ -1823,8 +1822,9 @@ En partant du jeu de données d'origine `penguins`, effectuez les opérations su
 
 -   Comptez le nombre d'individus par année et triez le tableau résultant par ordre décroissant
 
+```{=html}
 <!-- -->
-
+```
 -   Comptez le nombre d'individus de l'espèce `Adelie` pour chaque île
 
 ```{r, echo=TRUE, eval=TRUE}
@@ -1843,8 +1843,9 @@ En partant du jeu de données d'origine `penguins`, effectuez les opérations su
 
 -   Comptez le nombre d'individus par année et triez le tableau résultant par ordre décroissant
 
+```{=html}
 <!-- -->
-
+```
 -   Comptez le nombre d'individus de l'espèce `Adelie` pour chaque île
 
 -   Comptez le nombre d'individus par île et par espèce et renommez la nouvelle colonne `total`
