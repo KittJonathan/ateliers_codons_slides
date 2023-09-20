@@ -2353,9 +2353,9 @@ $ year              &lt;dbl&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <pre><code># A tibble: 3 × 8
   species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
   &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
-1 Chinstrap Dream            48.1          16.4               199        3325
-2 Gentoo    Biscoe           47.7          15                 216        4750
-3 Gentoo    Biscoe           46.5          14.4               217        4900
+1 Chinstrap Dream            47.6          18.3               195        3850
+2 Gentoo    Biscoe           45.2          15.8               215        5300
+3 Adelie    Dream            32.1          15.5               188        3050
 # ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
 </div>
 </div>
@@ -2367,11 +2367,11 @@ $ year              &lt;dbl&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <span id="cb148-2"><a href="#cb148-2"></a>  <span class="fu">slice_sample</span>(<span class="at">prop =</span> <span class="fl">0.01</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 8
-  species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
-1 Gentoo  Biscoe           45.1          14.5               215        5000
-2 Gentoo  Biscoe           52.2          17.1               228        5400
-3 Gentoo  Biscoe           49.1          15                 228        5500
+  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 Gentoo  Biscoe              46.5          14.5               213        4400
+2 Adelie  Torgersen           NA            NA                  NA          NA
+3 Gentoo  Biscoe              48.5          14.1               220        5300
 # ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
 </div>
 </div>
@@ -2386,14 +2386,14 @@ $ year              &lt;dbl&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <span id="cb150-2"><a href="#cb150-2"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">2</span>, <span class="at">by =</span> species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 8
-  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-  &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
-1 Adelie    Biscoe           40.6          18.8               193        3800
-2 Adelie    Biscoe           37.8          18.3               174        3400
-3 Gentoo    Biscoe           46.5          13.5               210        4550
-4 Gentoo    Biscoe           48.4          14.6               213        5850
-5 Chinstrap Dream            50.8          19                 210        4100
-6 Chinstrap Dream            51            18.8               203        4100
+  species   island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;     &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 Adelie    Torgersen           39.7          18.4               190        3900
+2 Adelie    Biscoe              39.7          17.7               193        3200
+3 Gentoo    Biscoe              45.5          13.9               210        4200
+4 Gentoo    Biscoe              49.3          15.7               217        5850
+5 Chinstrap Dream               47            17.3               185        3700
+6 Chinstrap Dream               51.4          19                 201        3950
 # ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
 </div>
 </div>
@@ -2514,13 +2514,13 @@ $ year              &lt;dbl&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <span id="cb162-2"><a href="#cb162-2"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 8
-  species   island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-  &lt;chr&gt;     &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
-1 Gentoo    Biscoe              48.7          15.7               208        5350
-2 Adelie    Torgersen           37.8          17.3               180        3700
-3 Chinstrap Dream               46.4          17.8               191        3700
-4 Chinstrap Dream               50.1          17.9               190        3400
-5 Gentoo    Biscoe              44.5          15.7               217        4875
+  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 Gentoo    Biscoe           47.5          14                 212        4875
+2 Adelie    Dream            39.6          18.8               190        4600
+3 Gentoo    Biscoe           44.9          13.8               212        4750
+4 Gentoo    Biscoe           47.5          15                 218        4950
+5 Chinstrap Dream            49.2          18.2               195        4400
 # ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
 </div>
 </div>
@@ -2587,7 +2587,7 @@ $ year              &lt;dbl&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <section id="compter-les-observations" class="slide level2">
 <h2>Compter les observations</h2>
 <p><br></p>
-<p>La fonction count() permet de calculer la taille de l’échantillon :</p>
+<p>La fonction <code>count()</code> permet de calculer la taille de l’échantillon :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb168"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb168-1"><a href="#cb168-1"></a>penguins <span class="sc">|&gt;</span> </span>
 <span id="cb168-2"><a href="#cb168-2"></a>  <span class="fu">count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2598,22 +2598,31 @@ $ year              &lt;dbl&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 1   344</code></pre>
 </div>
 </div>
+</section>
+<section id="compter-les-observations-1" class="slide level2">
+<h2>Compter les observations</h2>
 <p><br></p>
-<p>En R basique :</p>
+<p>La fonction <code>count()</code> permet de calculer la taille de l’échantillon :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb170"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb170-1"><a href="#cb170-1"></a><span class="fu">nrow</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb170"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb170-1"><a href="#cb170-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb170-2"><a href="#cb170-2"></a>  <span class="fu">count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p><strong>En R basique :</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb171"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb171-1"><a href="#cb171-1"></a><span class="fu">nrow</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 344</code></pre>
 </div>
 </div>
 </section>
-<section id="compter-les-observations-1" class="slide level2">
+<section id="compter-les-observations-2" class="slide level2">
 <h2>Compter les observations</h2>
 <p><br></p>
-<p>La fonction count() permet de calculer la taille de l’échantillon par groupes :</p>
+<p>La fonction <code>count()</code> permet de calculer la taille de l’échantillon par groupes :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb172"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb172-1"><a href="#cb172-1"></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb172-2"><a href="#cb172-2"></a>  <span class="fu">count</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb173"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb173-1"><a href="#cb173-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb173-2"><a href="#cb173-2"></a>  <span class="fu">count</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   species       n
@@ -2622,8 +2631,8 @@ $ year              &lt;dbl&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 2 Chinstrap    68
 3 Gentoo      124</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb174"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb174-1"><a href="#cb174-1"></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb174-2"><a href="#cb174-2"></a>  <span class="fu">count</span>(species, island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb175"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb175-1"><a href="#cb175-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb175-2"><a href="#cb175-2"></a>  <span class="fu">count</span>(species, island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 3
   species   island        n
@@ -2636,13 +2645,13 @@ $ year              &lt;dbl&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </div>
 </div>
 </section>
-<section id="compter-les-observations-2" class="slide level2">
+<section id="compter-les-observations-3" class="slide level2">
 <h2>Compter les observations</h2>
 <p><br></p>
-<p>L’argument sort = TRUE permet de trier le tableau de sortie :</p>
+<p>L’argument <code>sort = TRUE</code> permet de trier le tableau de sortie :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb176"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb176-1"><a href="#cb176-1"></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb176-2"><a href="#cb176-2"></a>  <span class="fu">count</span>(species, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb177"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb177-1"><a href="#cb177-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb177-2"><a href="#cb177-2"></a>  <span class="fu">count</span>(species, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   species       n
@@ -2653,15 +2662,15 @@ $ year              &lt;dbl&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </div>
 </div>
 </section>
-<section id="compter-les-observations-3" class="slide level2">
+<section id="compter-les-observations-4" class="slide level2">
 <h2>Compter les observations</h2>
 <p><br></p>
-<p>La fonction add_count() permet d’ajouter la taille de l’échantillon au tableau d’origine en créant une nouvelle colonne :</p>
+<p>La fonction <code>add_count()</code> permet d’ajouter la taille de l’échantillon au tableau d’origine en créant une nouvelle colonne :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb178"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb178-1"><a href="#cb178-1"></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb178-2"><a href="#cb178-2"></a>  <span class="fu">select</span>(species, island) <span class="sc">|&gt;</span> </span>
-<span id="cb178-3"><a href="#cb178-3"></a>  <span class="fu">add_count</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb178-4"><a href="#cb178-4"></a>  <span class="fu">head</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb179"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb179-1"><a href="#cb179-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb179-2"><a href="#cb179-2"></a>  <span class="fu">select</span>(species, island) <span class="sc">|&gt;</span> </span>
+<span id="cb179-3"><a href="#cb179-3"></a>  <span class="fu">add_count</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb179-4"><a href="#cb179-4"></a>  <span class="fu">head</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   species island        n
@@ -2669,10 +2678,10 @@ $ year              &lt;dbl&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 1 Adelie  Torgersen   344
 2 Adelie  Torgersen   344</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb180"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb180-1"><a href="#cb180-1"></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb180-2"><a href="#cb180-2"></a>  <span class="fu">select</span>(species, island) <span class="sc">|&gt;</span> </span>
-<span id="cb180-3"><a href="#cb180-3"></a>  <span class="fu">add_count</span>(species, island) <span class="sc">|&gt;</span> </span>
-<span id="cb180-4"><a href="#cb180-4"></a>  <span class="fu">head</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb181"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb181-1"><a href="#cb181-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb181-2"><a href="#cb181-2"></a>  <span class="fu">select</span>(species, island) <span class="sc">|&gt;</span> </span>
+<span id="cb181-3"><a href="#cb181-3"></a>  <span class="fu">add_count</span>(species, island) <span class="sc">|&gt;</span> </span>
+<span id="cb181-4"><a href="#cb181-4"></a>  <span class="fu">head</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   species island        n
@@ -2681,10 +2690,116 @@ $ year              &lt;dbl&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 2 Adelie  Torgersen    52</code></pre>
 </div>
 </div>
+</section>
+<section id="mise-en-pratique---count" class="slide level2">
+<h2>Mise en pratique - <code>count()</code></h2>
+<p><br></p>
+<p>En partant du jeu de données d’origine <code>penguins</code>, effectuez les opérations suivantes :</p>
+<ul>
+<li>Comptez le nombre d’individus par année et triez le tableau résultant par ordre décroissant</li>
+</ul>
+<!-- -->
+<ul>
+<li><p>Comptez le nombre d’individus de l’espèce <code>Adelie</code> pour chaque île</p></li>
+<li><p>Comptez le nombre d’individus par île et par espèce et renommez la nouvelle colonne <code>total</code></p></li>
+</ul>
+</section>
+<section id="mise-en-pratique---count-1" class="slide level2">
+<h2>Mise en pratique - <code>count()</code></h2>
+<p><br></p>
+<p>En partant du jeu de données d’origine <code>penguins</code>, effectuez les opérations suivantes :</p>
+<ul>
+<li>Comptez le nombre d’individus par année et triez le tableau résultant par ordre décroissant</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb183"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb183-1"><a href="#cb183-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb183-2"><a href="#cb183-2"></a>  <span class="fu">count</span>(year, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+   year     n
+  &lt;dbl&gt; &lt;int&gt;
+1  2009   120
+2  2008   114
+3  2007   110</code></pre>
+</div>
+</div>
+<ul>
+<li><p>Comptez le nombre d’individus de l’espèce <code>Adelie</code> pour chaque île</p></li>
+<li><p>Comptez le nombre d’individus par île et par espèce et renommez la nouvelle colonne <code>total</code></p></li>
+</ul>
+</section>
+<section id="mise-en-pratique---count-2" class="slide level2">
+<h2>Mise en pratique - <code>count()</code></h2>
+<p><br></p>
+<p>En partant du jeu de données d’origine <code>penguins</code>, effectuez les opérations suivantes :</p>
+<ul>
+<li>Comptez le nombre d’individus par année et triez le tableau résultant par ordre décroissant</li>
+</ul>
+<!-- -->
+<ul>
+<li>Comptez le nombre d’individus de l’espèce <code>Adelie</code> pour chaque île</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb185"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb185-1"><a href="#cb185-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb185-2"><a href="#cb185-2"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb185-3"><a href="#cb185-3"></a>  <span class="fu">count</span>(island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  island        n
+  &lt;chr&gt;     &lt;int&gt;
+1 Biscoe       44
+2 Dream        56
+3 Torgersen    52</code></pre>
+</div>
+</div>
+<ul>
+<li>Comptez le nombre d’individus par île et par espèce et renommez la nouvelle colonne <code>total</code></li>
+</ul>
+</section>
+<section id="mise-en-pratique---count-3" class="slide level2">
+<h2>Mise en pratique - <code>count()</code></h2>
+<p><br></p>
+<p>En partant du jeu de données d’origine <code>penguins</code>, effectuez les opérations suivantes :</p>
+<ul>
+<li>Comptez le nombre d’individus par année et triez le tableau résultant par ordre décroissant</li>
+</ul>
+<!-- -->
+<ul>
+<li><p>Comptez le nombre d’individus de l’espèce <code>Adelie</code> pour chaque île</p></li>
+<li><p>Comptez le nombre d’individus par île et par espèce et renommez la nouvelle colonne <code>total</code></p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb187"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb187-1"><a href="#cb187-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb187-2"><a href="#cb187-2"></a>  <span class="fu">count</span>(island, species, <span class="at">name =</span> <span class="st">"total"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  island    species   total
+  &lt;chr&gt;     &lt;chr&gt;     &lt;int&gt;
+1 Biscoe    Adelie       44
+2 Biscoe    Gentoo      124
+3 Dream     Adelie       56
+4 Dream     Chinstrap    68
+5 Torgersen Adelie       52</code></pre>
+</div>
+</div>
+</section>
+<section id="ressources" class="slide level2">
+<h2>Ressources</h2>
+<p><br></p>
+<ul>
+<li><p><a href="https://r4ds.hadley.nz/">“R for Data Science”</a> (ouvrage de référence sur le {tidyverse})</p></li>
+<li><p><a href="https://www.tidyverse.org/">page web {tidyverse}</a></p></li>
+<li><p><a href="https://rstudio.github.io/cheatsheets/html/data-import.html">aide-mémoire {readr}</a></p></li>
+<li><p><a href="https://rstudio.github.io/cheatsheets/html/data-transformation.html">aide-mémoire {dplyr}</a></p></li>
+<li><p><a href="https://rstudio.github.io/cheatsheets/html/tidyr.html">aide-mémoire {tidyr}</a></p></li>
+</ul>
+</section></section>
+<section id="merci" class="title-slide slide level1 center">
+<h1>Merci !</h1>
 <div class="footer footer-default">
 
 </div>
-</section></section>
+</section>
     </div>
   </div>
 

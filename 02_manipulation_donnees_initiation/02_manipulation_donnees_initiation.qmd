@@ -1075,7 +1075,7 @@ En partant du jeu de données d'origine `penguins`, effectuez les opérations su
 
 -   Calculez le ratio longueur / hauteur de bec (`bill_length_mm` / `bill_depth_mm`) et stockez le résultat dans une nouvelle variable `bill_ratio`
 
--    Placez cette nouvelle colonne en troisième position
+-   Placez cette nouvelle colonne en troisième position
 
 -   Affichez les 4 premières lignes
 
@@ -1689,16 +1689,27 @@ penguins |>
 
 <br>
 
-La fonction count() permet de calculer la taille de l'échantillon :
+La fonction `count()` permet de calculer la taille de l'échantillon :
 
 ```{r, echo=TRUE, eval=TRUE}
 penguins |> 
   count()
 ```
 
+## Compter les observations
+
 <br>
 
-En R basique :
+La fonction `count()` permet de calculer la taille de l'échantillon :
+
+```{r, echo=TRUE, eval=FALSE}
+penguins |> 
+  count()
+```
+
+<br>
+
+**En R basique :**
 
 ```{r, echo=TRUE, eval=TRUE}
 nrow(penguins)
@@ -1708,7 +1719,7 @@ nrow(penguins)
 
 <br>
 
-La fonction count() permet de calculer la taille de l'échantillon par groupes :
+La fonction `count()` permet de calculer la taille de l'échantillon par groupes :
 
 ```{r, echo=TRUE, eval=TRUE}
 penguins |> 
@@ -1722,7 +1733,7 @@ penguins |>
 
 <br>
 
-L'argument sort = TRUE permet de trier le tableau de sortie :
+L'argument `sort = TRUE` permet de trier le tableau de sortie :
 
 ```{r, echo=TRUE, eval=TRUE}
 penguins |> 
@@ -1733,7 +1744,7 @@ penguins |>
 
 <br>
 
-La fonction add_count() permet d'ajouter la taille de l'échantillon au tableau d'origine en créant une nouvelle colonne :
+La fonction `add_count()` permet d'ajouter la taille de l'échantillon au tableau d'origine en créant une nouvelle colonne :
 
 ```{r, echo=TRUE, eval=TRUE}
 penguins |> 
@@ -1746,3 +1757,92 @@ penguins |>
   add_count(species, island) |> 
   head(2)
 ```
+
+## Mise en pratique - `count()`
+
+<br>
+
+En partant du jeu de données d'origine `penguins`, effectuez les opérations suivantes :
+
+-   Comptez le nombre d'individus par année et triez le tableau résultant par ordre décroissant
+
+```{=html}
+<!-- -->
+```
+-   Comptez le nombre d'individus de l'espèce `Adelie` pour chaque île
+
+-   Comptez le nombre d'individus par île et par espèce et renommez la nouvelle colonne `total`
+
+## Mise en pratique - `count()`
+
+<br>
+
+En partant du jeu de données d'origine `penguins`, effectuez les opérations suivantes :
+
+-   Comptez le nombre d'individus par année et triez le tableau résultant par ordre décroissant
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  count(year, sort = TRUE)
+```
+
+-   Comptez le nombre d'individus de l'espèce `Adelie` pour chaque île
+
+-   Comptez le nombre d'individus par île et par espèce et renommez la nouvelle colonne `total`
+
+## Mise en pratique - `count()`
+
+<br>
+
+En partant du jeu de données d'origine `penguins`, effectuez les opérations suivantes :
+
+-   Comptez le nombre d'individus par année et triez le tableau résultant par ordre décroissant
+
+```{=html}
+<!-- -->
+```
+-   Comptez le nombre d'individus de l'espèce `Adelie` pour chaque île
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  filter(species == "Adelie") |> 
+  count(island)
+```
+
+-   Comptez le nombre d'individus par île et par espèce et renommez la nouvelle colonne `total`
+
+## Mise en pratique - `count()`
+
+<br>
+
+En partant du jeu de données d'origine `penguins`, effectuez les opérations suivantes :
+
+-   Comptez le nombre d'individus par année et triez le tableau résultant par ordre décroissant
+
+```{=html}
+<!-- -->
+```
+-   Comptez le nombre d'individus de l'espèce `Adelie` pour chaque île
+
+-   Comptez le nombre d'individus par île et par espèce et renommez la nouvelle colonne `total`
+
+```{r, echo=TRUE, eval=TRUE}
+penguins |> 
+  count(island, species, name = "total")
+```
+
+## Ressources
+
+<br>
+
+-   ["R for Data Science"](https://r4ds.hadley.nz/) (ouvrage de référence sur le {tidyverse})
+
+-   [page web {tidyverse}](https://www.tidyverse.org/)
+
+-   [aide-mémoire {readr}](https://rstudio.github.io/cheatsheets/html/data-import.html)
+
+-   [aide-mémoire {dplyr}](https://rstudio.github.io/cheatsheets/html/data-transformation.html)
+
+-   [aide-mémoire {tidyr}](https://rstudio.github.io/cheatsheets/html/tidyr.html)
+
+# Merci !
