@@ -11,6 +11,32 @@ title-slide-attributes:
 
 ![](img/title.png){fig-align="center"}
 
+## Les ateliers codons
+
+<br>
+
+-   Des **créneaux réguliers** pour **découvrir** et **progresser**
+
+-   Deux parcours : **initiation** et **perfectionnement**
+
+-   Une **équipe d'animation**
+
+-   Des **supports** disponibles en ligne : [ateliers-codons.netlify.app/](https://ateliers-codons.netlify.app/)
+
+<br>
+
+#### Sources pour cet atelier :
+
+<br>
+
+-   [Basic data manipulation (Our Coding Club)](https://ourcodingclub.github.io/tutorials/data-manip-intro/)
+
+-   [Efficient data manipulation (Our Coding Club)](https://ourcodingclub.github.io/tutorials/data-manip-efficient/)
+
+-   [Advanced data manipulation (Our Coding Club)](https://ourcodingclub.github.io/tutorials/data-manip-creative-dplyr/)
+
+-   R Course TU Dresden (Cédric Scherer)
+
 ## 
 
 <br>

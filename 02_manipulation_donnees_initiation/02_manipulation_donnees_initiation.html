@@ -393,6 +393,25 @@
 
 
 <img data-src="img/title.png" class="r-stretch quarto-figure-center"></section>
+<section id="les-ateliers-codons" class="slide level2">
+<h2>Les ateliers codons</h2>
+<p><br></p>
+<ul>
+<li><p>Des <strong>créneaux réguliers</strong> pour <strong>découvrir</strong> et <strong>progresser</strong></p></li>
+<li><p>Deux parcours : <strong>initiation</strong> et <strong>perfectionnement</strong></p></li>
+<li><p>Une <strong>équipe d’animation</strong></p></li>
+<li><p>Des <strong>supports</strong> disponibles en ligne : <a href="https://ateliers-codons.netlify.app/">ateliers-codons.netlify.app/</a></p></li>
+</ul>
+<p><br></p>
+<h4 id="sources-pour-cet-atelier">Sources pour cet atelier :</h4>
+<p><br></p>
+<ul>
+<li><p><a href="https://ourcodingclub.github.io/tutorials/data-manip-intro/">Basic data manipulation (Our Coding Club)</a></p></li>
+<li><p><a href="https://ourcodingclub.github.io/tutorials/data-manip-efficient/">Efficient data manipulation (Our Coding Club)</a></p></li>
+<li><p><a href="https://ourcodingclub.github.io/tutorials/data-manip-creative-dplyr/">Advanced data manipulation (Our Coding Club)</a></p></li>
+<li><p>R Course TU Dresden (Cédric Scherer)</p></li>
+</ul>
+</section>
 <section id="section" class="slide level2">
 <h2></h2>
 <p><br></p>
@@ -2351,11 +2370,11 @@ $ year              &lt;dbl&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <span id="cb146-2"><a href="#cb146-2"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 8
-  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-  &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
-1 Chinstrap Dream            47.6          18.3               195        3850
-2 Gentoo    Biscoe           45.2          15.8               215        5300
-3 Adelie    Dream            32.1          15.5               188        3050
+  species   island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;     &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 Chinstrap Dream               49.2          18.2               195        4400
+2 Adelie    Torgersen           38.5          17.9               190        3325
+3 Adelie    Dream               36.3          19.5               190        3800
 # ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
 </div>
 </div>
@@ -2367,11 +2386,11 @@ $ year              &lt;dbl&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <span id="cb148-2"><a href="#cb148-2"></a>  <span class="fu">slice_sample</span>(<span class="at">prop =</span> <span class="fl">0.01</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 8
-  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
-1 Gentoo  Biscoe              46.5          14.5               213        4400
-2 Adelie  Torgersen           NA            NA                  NA          NA
-3 Gentoo  Biscoe              48.5          14.1               220        5300
+  species   island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;     &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 Chinstrap Dream               46            18.9               195        4150
+2 Adelie    Torgersen           37.2          19.4               184        3900
+3 Chinstrap Dream               46.2          17.5               187        3650
 # ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
 </div>
 </div>
@@ -2386,14 +2405,14 @@ $ year              &lt;dbl&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <span id="cb150-2"><a href="#cb150-2"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">2</span>, <span class="at">by =</span> species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 8
-  species   island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-  &lt;chr&gt;     &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
-1 Adelie    Torgersen           39.7          18.4               190        3900
-2 Adelie    Biscoe              39.7          17.7               193        3200
-3 Gentoo    Biscoe              45.5          13.9               210        4200
-4 Gentoo    Biscoe              49.3          15.7               217        5850
-5 Chinstrap Dream               47            17.3               185        3700
-6 Chinstrap Dream               51.4          19                 201        3950
+  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 Adelie    Dream            40.7          17                 190        3725
+2 Adelie    Dream            37.5          18.9               179        2975
+3 Gentoo    Biscoe           47.5          14.2               209        4600
+4 Gentoo    Biscoe           50.8          15.7               226        5200
+5 Chinstrap Dream            51.4          19                 201        3950
+6 Chinstrap Dream            45.4          18.7               188        3525
 # ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
 </div>
 </div>
@@ -2514,13 +2533,13 @@ $ year              &lt;dbl&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <span id="cb162-2"><a href="#cb162-2"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 8
-  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-  &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
-1 Gentoo    Biscoe           47.5          14                 212        4875
-2 Adelie    Dream            39.6          18.8               190        4600
-3 Gentoo    Biscoe           44.9          13.8               212        4750
-4 Gentoo    Biscoe           47.5          15                 218        4950
-5 Chinstrap Dream            49.2          18.2               195        4400
+  species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
+1 Gentoo  Biscoe           51.1          16.5               225        5250
+2 Gentoo  Biscoe           46.5          14.5               213        4400
+3 Gentoo  Biscoe           52.1          17                 230        5550
+4 Adelie  Dream            39.7          17.9               193        4250
+5 Adelie  Biscoe           42.7          18.3               196        4075
 # ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
 </div>
 </div>
