@@ -126,7 +126,7 @@ library(tidyverse)
 <br>
 
 | Composante     | Fonction       | Explication                                                        |
-|----------------|----------------|-----------------------------------------|
+|----------------|----------------|--------------------------------------------------------------------|
 | **Data**       | `ggplot(data)` | *Les données brutes qu'on souhaite visualiser*                     |
 | **Aesthetics** | `aes()`        | *Associations esthétiques entre variables et propriétés visuelles* |
 | **Geometries** | `geom_*()`     | *Formes géométriques utilisées pour représenter les données*       |
@@ -136,7 +136,7 @@ library(tidyverse)
 <br>
 
 | Composante        | Fonction       | Explication                                                        |
-|----------------|----------------|----------------------------------------|
+|-------------------|----------------|--------------------------------------------------------------------|
 | **Data**          | `ggplot(data)` | *Les données brutes qu'on souhaite visualiser*                     |
 | **Aesthetics**    | `aes()`        | *Associations esthétiques entre variables et propriétés visuelles* |
 | **Geometries**    | `geom_*()`     | *Formes géométriques utilisées pour représenter les données*       |
@@ -171,7 +171,7 @@ library(palmerpenguins)
 ## 
 
 | Variable          | Description                                                           | Classe         |
-|----------------|----------------------------------------|----------------|
+|-------------------|-----------------------------------------------------------------------|----------------|
 | species           | espèce de pingouin (Adelie, Chinstrap et Gentoo)                      | Facteur        |
 | island            | île de l'archipel Palmer, en Antarctique (Biscoe, Dream ou Torgersen) | Facteur        |
 | bill_length_mm    | longueur du bec (mm)                                                  | Nombre décimal |
