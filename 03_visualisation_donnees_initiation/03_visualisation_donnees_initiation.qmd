@@ -126,7 +126,7 @@ library(tidyverse)
 <br>
 
 | Composante     | Fonction       | Explication                                                        |
-|----------------|----------------|--------------------------------------------------------------------|
+|--------------|--------------|--------------------------------------------|
 | **Data**       | `ggplot(data)` | *Les données brutes qu'on souhaite visualiser*                     |
 | **Aesthetics** | `aes()`        | *Associations esthétiques entre variables et propriétés visuelles* |
 | **Geometries** | `geom_*()`     | *Formes géométriques utilisées pour représenter les données*       |
@@ -136,7 +136,7 @@ library(tidyverse)
 <br>
 
 | Composante        | Fonction       | Explication                                                        |
-|-------------------|----------------|--------------------------------------------------------------------|
+|---------------|---------------|-------------------------------------------|
 | **Data**          | `ggplot(data)` | *Les données brutes qu'on souhaite visualiser*                     |
 | **Aesthetics**    | `aes()`        | *Associations esthétiques entre variables et propriétés visuelles* |
 | **Geometries**    | `geom_*()`     | *Formes géométriques utilisées pour représenter les données*       |
@@ -171,7 +171,7 @@ library(palmerpenguins)
 ## 
 
 | Variable          | Description                                                           | Classe         |
-|-------------------|-----------------------------------------------------------------------|----------------|
+|---------------|-------------------------------------------|---------------|
 | species           | espèce de pingouin (Adelie, Chinstrap et Gentoo)                      | Facteur        |
 | island            | île de l'archipel Palmer, en Antarctique (Biscoe, Dream ou Torgersen) | Facteur        |
 | bill_length_mm    | longueur du bec (mm)                                                  | Nombre décimal |
@@ -576,3 +576,149 @@ penguins |>
 ```
 :::
 :::
+
+## Paramètres globaux vs locaux
+
+<br>
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = bill_length_mm,
+             y = bill_depth_mm)
+         ) +
+    geom_point(aes(color = species),
+               alpha = 0.5)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = bill_length_mm,
+             y = bill_depth_mm,
+             color = species)
+         ) +
+    geom_point(alpha = 0.5)
+```
+:::
+:::
+
+## Ajouter des couches
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+ggplot(
+  penguins,
+  aes(x = bill_length_mm,
+      y = bill_depth_mm,
+      color = species)
+  ) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm")
+```
+
+## Encodage couleur global
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+ggplot(
+  penguins,
+  aes(x = bill_length_mm,
+      y = bill_depth_mm,
+      color = species)
+  ) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm")
+```
+
+## Encodage couleur local
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+ggplot(
+  penguins,
+  aes(x = bill_length_mm,
+      y = bill_depth_mm)
+  ) +
+  geom_point(aes(color = species),
+             alpha = 0.5) +
+  geom_smooth(method = "lm")
+```
+
+## Le paramètre `` `group` ``
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+ggplot(
+  penguins,
+  aes(x = bill_length_mm,
+      y = bill_depth_mm)
+  ) +
+  geom_point(aes(color = species),
+             alpha = 0.5) +
+  geom_smooth(aes(group = species),
+              method = "lm")
+```
+
+## Couleur et groupe comme paramètres globaux
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+ggplot(
+  penguins,
+  aes(x = bill_length_mm,
+      y = bill_depth_mm,
+      color = species,
+      group = species)
+  ) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm")
+```
+
+## Ecraser les paramètres esthétiques
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+ggplot(
+  penguins,
+  aes(x = bill_length_mm,
+      y = bill_depth_mm,
+      color = species,
+      group = species)
+  ) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm",
+              color = "black")
+```
