@@ -496,9 +496,9 @@
 <p><br></p>
 <table>
 <colgroup>
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 61%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 56%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -531,9 +531,9 @@
 <p><br></p>
 <table>
 <colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 58%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 55%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -588,9 +588,9 @@
 <h2></h2>
 <table>
 <colgroup>
-<col style="width: 20%">
-<col style="width: 58%">
-<col style="width: 20%">
+<col style="width: 22%">
+<col style="width: 55%">
+<col style="width: 22%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1179,6 +1179,60 @@
 <p><img data-src="03_visualisation_donnees_initiation_files/figure-revealjs/unnamed-chunk-31-1.png" width="960"></p>
 </div>
 </div>
+</div>
+</section>
+<section id="largument-position" class="slide level2">
+<h2>L’argument <code>position</code></h2>
+<p><br></p>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb31-2"><a href="#cb31-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> island,</span>
+<span id="cb31-3"><a href="#cb31-3"></a>             <span class="at">y =</span> body_mass_g,</span>
+<span id="cb31-4"><a href="#cb31-4"></a>             <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb31-5"><a href="#cb31-5"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<p><img data-src="03_visualisation_donnees_initiation_files/figure-revealjs/unnamed-chunk-32-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="largument-position-1" class="slide level2">
+<h2>L’argument <code>position</code></h2>
+<p><br></p>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb32-2"><a href="#cb32-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> island,</span>
+<span id="cb32-3"><a href="#cb32-3"></a>             <span class="at">y =</span> body_mass_g,</span>
+<span id="cb32-4"><a href="#cb32-4"></a>             <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb32-5"><a href="#cb32-5"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>,</span>
+<span id="cb32-6"><a href="#cb32-6"></a>             <span class="at">position =</span> <span class="st">"jitter"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<p><img data-src="03_visualisation_donnees_initiation_files/figure-revealjs/unnamed-chunk-33-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="largument-position-2" class="slide level2">
+<h2>L’argument <code>position</code></h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> island,</span>
+<span id="cb33-3"><a href="#cb33-3"></a>             <span class="at">y =</span> body_mass_g,</span>
+<span id="cb33-4"><a href="#cb33-4"></a>             <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb33-5"><a href="#cb33-5"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>,</span>
+<span id="cb33-6"><a href="#cb33-6"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb34-2"><a href="#cb34-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> island,</span>
+<span id="cb34-3"><a href="#cb34-3"></a>             <span class="at">y =</span> body_mass_g,</span>
+<span id="cb34-4"><a href="#cb34-4"></a>             <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb34-5"><a href="#cb34-5"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="footer footer-default">
 

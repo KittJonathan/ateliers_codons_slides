@@ -63,10 +63,68 @@ d |>
   complete(species_short, island, fill = list(n = 0))
 
 d |> 
+  group_by(species_short) |> 
   summarise(body_mass_g_avg = mean(body_mass_g, na.rm = TRUE),
-            .by = species_short)
+            flipper_length_mm_avg = mean(flipper_length_mm, na.rm = TRUE))
 
 d |> 
-  summarise(across(where(is.numeric), list(mean=mean, sd=sd), na.rm=TRUE),
-            .by = species_short) |> 
-  gt::gt()
+  group_by(species_short) |> 
+  summarise(
+    across(
+      .cols = c("body_mass_g", "flipper_length_mm"),
+      .fns = ~ mean(.x, na.rm = TRUE),
+      .names = "{.col}_avg"
+    )
+  )
+
+d |> 
+  group_by(species_short) |> 
+  summarise(
+    across(
+      .cols = c("body_mass_g", "flipper_length_mm"),
+      .fns = list(mean = ~mean(.x, na.rm = TRUE),
+                  sd = ~sd(.x, na.rm = TRUE)),
+      .names = "{.col}_{.fn}"
+    )
+  )
+
+# ️Transform the dataset ---------------------------------------------------
+
+d_long <- d |> 
+  select(species_short, bill_length_mm:body_mass_g) |> 
+  rowid_to_column(var = "penguin_id") |> 
+  pivot_longer(cols = -c(penguin_id, species_short),
+               names_to = "parameter",
+               values_to = "value")
+
+d_long |> 
+  pivot_wider(id_cols = c(penguin_id, species_short),
+              names_from = parameter,
+              values_from = value)
+
+# Joining datasets --------------------------------------------------------
+
+d1 <- d |> 
+  select(species_short, island, contains("bill")) |> 
+  rowid_to_column() |> 
+  slice(1:5)
+
+d2 <- d |> 
+  select(species_short, island, flipper_length_mm) |> 
+  rowid_to_column() |> 
+  slice(4:8)
+
+left_join(d1, d2)
+left_join(d2, d1)
+
+right_join(d1, d2)
+right_join(d2, d1)
+
+inner_join(d1, d2)
+inner_join(d2, d1)
+
+anti_join(d1, d2)
+anti_join(d2, d1)
+
+semi_join(d1, d2)
+semi_join(d2, d1)
