@@ -125,22 +125,12 @@ library(tidyverse)
 
 <br>
 
-| Composante     | Fonction       | Explication                                                        |
-|----------------|----------------|-----------------------------------------|
-| **Data**       | `ggplot(data)` | *Les données brutes qu'on souhaite visualiser*                     |
-| **Aesthetics** | `aes()`        | *Associations esthétiques entre variables et propriétés visuelles* |
-| **Geometries** | `geom_*()`     | *Formes géométriques utilisées pour représenter les données*       |
-
-## La grammaire de {ggplot2}
-
-<br>
-
-| Composante        | Fonction       | Explication                                                        |
-|----------------|----------------|----------------------------------------|
-| **Data**          | `ggplot(data)` | *Les données brutes qu'on souhaite visualiser*                     |
-| **Aesthetics**    | `aes()`        | *Associations esthétiques entre variables et propriétés visuelles* |
-| **Geometries**    | `geom_*()`     | *Formes géométriques utilisées pour représenter les données*       |
-| **Visual themes** | `theme_*()`    | *Apparence visuelle générale d'un graphique*                       |
+| Composante              | Fonction       | Explication                                                                                |
+|-----------------|-----------------|--------------------------------------|
+| **Données**             | `ggplot(data)` | *Les données à visualiser*                                                                 |
+| **Esthétique**          | `aes()`        | *Apparence esthétique (position, couleur, forme, taille, ...)*                             |
+| **Objets géométriques** | `geom_*()`     | *Formes géométriques utilisées pour représenter les données (points, lignes, barres, ...)* |
+| **Thème**               | `theme_*()`    | *Apparence globale du graphique (arrière-plan, quadrillage, ...)*                          |
 
 ## Le jeu de données `penguins` 🐧
 
@@ -171,7 +161,7 @@ library(palmerpenguins)
 ## 
 
 | Variable          | Description                                                           | Classe         |
-|----------------|----------------------------------------|----------------|
+|-----------------|--------------------------------------|-----------------|
 | species           | espèce de pingouin (Adelie, Chinstrap et Gentoo)                      | Facteur        |
 | island            | île de l'archipel Palmer, en Antarctique (Biscoe, Dream ou Torgersen) | Facteur        |
 | bill_length_mm    | longueur du bec (mm)                                                  | Nombre décimal |
@@ -193,7 +183,7 @@ library(palmerpenguins)
 
 ![](img/ggplot_help.png)
 
-## Data
+## Données
 
 <br>
 
@@ -204,19 +194,19 @@ library(palmerpenguins)
 ggplot(data = penguins)
 ```
 
-## Paramètres esthétiques
+## Esthétique
 
 <br>
 
-#### = associer des variables à des paramètres esthétiques
+#### = "mapping" de paramètres esthétiques sur des variables
 
 <br>
 
--   positions (`x`, `y`)
+-   position (`x`, `y`)
 
--   couleurs (`color` ou `colour`, `fill`)
+-   couleur (`color` ou `colour`, `fill`)
 
--   formes (`shape`, `linetype`)
+-   forme (`shape`, `linetype`)
 
 -   taille (`size`)
 
@@ -224,7 +214,7 @@ ggplot(data = penguins)
 
 -   groupes (`group`)
 
-## Paramètres esthétiques
+## Esthétique
 
 <br>
 
@@ -237,7 +227,7 @@ ggplot(data = penguins) +
       y = bill_length_mm)
 ```
 
-## Paramètres esthétiques
+## Esthétique
 
 <br>
 
@@ -252,7 +242,7 @@ ggplot(
 )
 ```
 
-## Paramètres esthétiques
+## Esthétique
 
 <br>
 
@@ -267,7 +257,7 @@ ggplot(
 )
 ```
 
-## Paramètres esthétiques
+## Esthétique
 
 <br>
 
@@ -282,11 +272,9 @@ penguins |>
   )
 ```
 
-# Couches géométriques
+## Objets géométriques
 
-## Geometries
-
-#### = interpréter les paramètres esthétiques comme représentations graphiques
+#### = représenter les données grâce à des formes géométriques
 
 <br>
 
@@ -296,11 +284,13 @@ penguins |>
 
 -   polygones
 
--   étiquettes de texte
+-   texte
 
 -   ...
 
-## Geometries
+# Nuage de points
+
+## `geom_point()`
 
 <br>
 
@@ -330,14 +320,14 @@ ggplot(
       y = bill_length_mm)
   ) +
   geom_point(
-    color = "blue",
+    color = "cyan4",
     alpha = 0.5,
-    shape = "X",
-    size = 4
+    shape = "Y",
+    size = 5
   )
 ```
 
-## Propriétés visuelles fixes ou mappées
+## Propriétés visuelles : fixées ou "mappées" ?
 
 <br>
 
@@ -353,7 +343,7 @@ ggplot(
       y = bill_length_mm)
   ) +
   geom_point(
-    color = "blue",
+    color = "cyan4",
     alpha = 0.5
   )
 ```
@@ -377,7 +367,7 @@ ggplot(
 :::
 :::
 
-## Mise en pratique - `aes()` et `geom_*()`
+## Mise en pratique - `geom_point()`
 
 <br>
 
@@ -391,11 +381,11 @@ ggplot(
 
 -   Testez différentes tailles de points
 
--   Mappez la variable `species` à la couleur des points
+-   Mappez la variable `species` sur la couleur des points
 
--   Et mappez la variable `body_mass_g` à la taille des points
+-   Mappez (en plus de l'étape précédente) la variable `body_mass_g` sur la taille des points
 
-## Mise en pratique - `aes()` et `geom_*()`
+## Mise en pratique - `geom_point()`
 
 <br>
 
@@ -411,7 +401,7 @@ ggplot(
   geom_point()
 ```
 
-## Mise en pratique - `aes()` et `geom_*()`
+## Mise en pratique - `geom_point()`
 
 <br>
 
@@ -445,7 +435,7 @@ ggplot(
 :::
 :::
 
-## Mise en pratique - `aes()` et `geom_*()`
+## Mise en pratique - `geom_point()`
 
 <br>
 
@@ -479,7 +469,7 @@ ggplot(
 :::
 :::
 
-## Mise en pratique - `aes()` et `geom_*()`
+## Mise en pratique - `geom_point()`
 
 <br>
 
@@ -518,7 +508,7 @@ ggplot(
 
 <br>
 
-L'argument `shape` peut prendre les valeurs suivantes :
+L'argument `shape` peut prendre les valeurs numériques suivantes :
 
 ![Source : [Albert's blog](https://blog.albertkuo.me/post/point-shape-options-in-ggplot/)](img/geom_point_shapes.png)
 
@@ -577,25 +567,11 @@ penguins |>
 :::
 :::
 
-## Paramètres globaux vs locaux
+## Propriétés visuelles : globales ou locales ?
 
 <br>
 
 ::: columns
-::: {.column width="50%"}
-```{r}
-#| echo: true
-#| eval: true
-#| output-location: default
-penguins |> 
-  ggplot(aes(x = bill_length_mm,
-             y = bill_depth_mm)
-         ) +
-    geom_point(aes(color = species),
-               alpha = 0.5)
-```
-:::
-
 ::: {.column width="50%"}
 ```{r}
 #| echo: true
@@ -609,9 +585,171 @@ penguins |>
     geom_point(alpha = 0.5)
 ```
 :::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = bill_length_mm,
+             y = bill_depth_mm)
+         ) +
+    geom_point(aes(color = species),
+               alpha = 0.5)
+```
+:::
 :::
 
-## Ajouter des couches
+# Histogramme
+
+## `geom_histogram()`
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+penguins |> 
+  ggplot(aes(x = body_mass_g)) +
+  geom_histogram()
+```
+
+## `geom_histogram()`
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+penguins |> 
+  ggplot(aes(x = body_mass_g)) +
+  geom_histogram(color = "white",
+                 fill = "purple")
+```
+
+## `geom_histogram()` - bins & binwidth
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| message: true
+#| warning: true
+#| output-location: column
+penguins |> 
+  ggplot(aes(x = body_mass_g)) +
+  geom_histogram(color = "white",
+                 fill = "purple")
+```
+
+-   `bins = …` permet de définir le nombre de classes (par défaut 30)
+
+-   `binwidth = …` permet de définir la largeur de chaque classe (unités définies par la variable représentée)
+
+## `geom_histogram()` - bins & binwidth
+
+<br>
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = body_mass_g)) +
+  geom_histogram(color = "white",
+                 fill = "purple",
+                 bins = 4)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = body_mass_g)) +
+  geom_histogram(color = "white",
+                 fill = "purple",
+                 binwidth = 500)
+```
+:::
+:::
+
+## `geom_histogram()` - couleurs mappées
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+penguins |> 
+  ggplot(aes(x = body_mass_g,
+             fill = species)) +
+  geom_histogram(color = "white")
+```
+
+# Boxplot
+
+## `geom_boxplot()`
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+penguins |> 
+  ggplot(aes(x = species,
+             y = body_mass_g)) +
+  geom_boxplot()
+```
+
+## `geom_boxplot()`
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+penguins |> 
+  ggplot(aes(x = species,
+             y = body_mass_g,
+             color = species,
+             fill = species)) +
+  geom_boxplot(alpha = 0.5)
+```
+
+## `geom_boxplot()` - supprimer la légende
+
+<br>
+
+Dans le cas présent, les noms d'espèces sont suffisamment différenciés (noms sur l'axe x + couleurs) pour se passer de la légende.
+
+Pour supprimer la légende d'une figure, utilisez l'argument `show.legend = FALSE`.
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+penguins |> 
+  ggplot(aes(x = species,
+             y = body_mass_g,
+             color = species,
+             fill = species)) +
+  geom_boxplot(alpha = 0.5,
+               show.legend = FALSE)
+```
+
+## Ajouter une couche
 
 <br>
 
@@ -626,17 +764,20 @@ ggplot(
       color = species)
   ) +
   geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm")
+  geom_smooth(method = "lm",
+              se = FALSE)
 ```
 
-## Encodage couleur global
+## Couleur : encodage global ou local ?
 
 <br>
 
+::: columns
+::: {.column width="50%"}
 ```{r}
 #| echo: true
 #| eval: true
-#| output-location: column
+#| output-location: default
 ggplot(
   penguins,
   aes(x = bill_length_mm,
@@ -644,17 +785,16 @@ ggplot(
       color = species)
   ) +
   geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm")
+  geom_smooth(method = "lm",
+              se = FALSE)
 ```
+:::
 
-## Encodage couleur local
-
-<br>
-
+::: {.column width="50%"}
 ```{r}
 #| echo: true
 #| eval: true
-#| output-location: column
+#| output-location: default
 ggplot(
   penguins,
   aes(x = bill_length_mm,
@@ -662,17 +802,22 @@ ggplot(
   ) +
   geom_point(aes(color = species),
              alpha = 0.5) +
-  geom_smooth(method = "lm")
+  geom_smooth(method = "lm",
+              se = FALSE)
 ```
+:::
+:::
 
 ## Le paramètre `` `group` ``
 
 <br>
 
+::: columns
+::: {.column width="50%"}
 ```{r}
 #| echo: true
 #| eval: true
-#| output-location: column
+#| output-location: default
 ggplot(
   penguins,
   aes(x = bill_length_mm,
@@ -681,17 +826,16 @@ ggplot(
   geom_point(aes(color = species),
              alpha = 0.5) +
   geom_smooth(aes(group = species),
-              method = "lm")
+              method = "lm",
+              se = FALSE)
 ```
+:::
 
-## Couleur et groupe comme paramètres globaux
-
-<br>
-
+::: {.column width="50%"}
 ```{r}
 #| echo: true
 #| eval: true
-#| output-location: column
+#| output-location: default
 ggplot(
   penguins,
   aes(x = bill_length_mm,
@@ -700,10 +844,13 @@ ggplot(
       group = species)
   ) +
   geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm")
+  geom_smooth(method = "lm",
+              se = FALSE)
 ```
+:::
+:::
 
-## Ecraser les paramètres esthétiques
+## Ecraser les paramètres globaux
 
 <br>
 
@@ -720,6 +867,7 @@ ggplot(
   ) +
   geom_point(alpha = 0.5) +
   geom_smooth(method = "lm",
+              se = FALSE,
               color = "black")
 ```
 
@@ -727,25 +875,25 @@ ggplot(
 
 <br>
 
+::: columns
+::: {.column width="50%"}
 ```{r}
 #| echo: true
 #| eval: true
-#| output-location: column
+#| output-location: default
 penguins |> 
   ggplot(aes(x = island,
              y = body_mass_g,
              color = species)) +
   geom_point(alpha = 0.3)
 ```
+:::
 
-## L'argument `position`
-
-<br>
-
+::: {.column width="50%"}
 ```{r}
 #| echo: true
 #| eval: true
-#| output-location: column
+#| output-location: default
 penguins |> 
   ggplot(aes(x = island,
              y = body_mass_g,
@@ -753,14 +901,19 @@ penguins |>
   geom_point(alpha = 0.3,
              position = "jitter")
 ```
+:::
+:::
 
 ## L'argument `position`
 
 <br>
 
+::: columns
+::: {.column width="50%"}
 ```{r}
 #| echo: true
-#| eval: false
+#| eval: true
+#| output-location: default
 penguins |> 
   ggplot(aes(x = island,
              y = body_mass_g,
@@ -768,13 +921,55 @@ penguins |>
   geom_point(alpha = 0.3,
              position = position_jitter())
 ```
+:::
 
+::: {.column width="50%"}
 ```{r}
 #| echo: true
-#| eval: false
+#| eval: true
+#| output-location: default
 penguins |> 
   ggplot(aes(x = island,
              y = body_mass_g,
              color = species)) +
   geom_jitter(alpha = 0.3)
 ```
+
+```{}
+```
+:::
+:::
+
+## L'argument `position`
+
+<br>
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = island,
+             y = body_mass_g,
+             color = species)) +
+  geom_jitter(alpha = 0.3,
+              width = 0.5)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = island,
+             y = body_mass_g,
+             color = species)) +
+  geom_jitter(alpha = 0.3,
+              width = 0.2)
+```
+:::
+:::
