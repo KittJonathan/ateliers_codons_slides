@@ -126,7 +126,7 @@ library(tidyverse)
 <br>
 
 | Composante              | Fonction       | Explication                                                                                |
-|-----------------|-----------------|--------------------------------------|
+|------------------|------------------|-------------------------------------|
 | **Données**             | `ggplot(data)` | *Les données à visualiser*                                                                 |
 | **Esthétique**          | `aes()`        | *Apparence esthétique (position, couleur, forme, taille, ...)*                             |
 | **Objets géométriques** | `geom_*()`     | *Formes géométriques utilisées pour représenter les données (points, lignes, barres, ...)* |
@@ -161,7 +161,7 @@ library(palmerpenguins)
 ## 
 
 | Variable          | Description                                                           | Classe         |
-|-----------------|--------------------------------------|-----------------|
+|------------------|-------------------------------------|------------------|
 | species           | espèce de pingouin (Adelie, Chinstrap et Gentoo)                      | Facteur        |
 | island            | île de l'archipel Palmer, en Antarctique (Biscoe, Dream ou Torgersen) | Facteur        |
 | bill_length_mm    | longueur du bec (mm)                                                  | Nombre décimal |
@@ -288,7 +288,7 @@ penguins |>
 
 -   ...
 
-# Nuage de points
+# Scatter plot
 
 ## `geom_point()`
 
@@ -749,107 +749,6 @@ penguins |>
                show.legend = FALSE)
 ```
 
-## Ajouter une couche
-
-<br>
-
-```{r}
-#| echo: true
-#| eval: true
-#| output-location: column
-ggplot(
-  penguins,
-  aes(x = bill_length_mm,
-      y = bill_depth_mm,
-      color = species)
-  ) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm",
-              se = FALSE)
-```
-
-## Couleur : encodage global ou local ?
-
-<br>
-
-::: columns
-::: {.column width="50%"}
-```{r}
-#| echo: true
-#| eval: true
-#| output-location: default
-ggplot(
-  penguins,
-  aes(x = bill_length_mm,
-      y = bill_depth_mm,
-      color = species)
-  ) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm",
-              se = FALSE)
-```
-:::
-
-::: {.column width="50%"}
-```{r}
-#| echo: true
-#| eval: true
-#| output-location: default
-ggplot(
-  penguins,
-  aes(x = bill_length_mm,
-      y = bill_depth_mm)
-  ) +
-  geom_point(aes(color = species),
-             alpha = 0.5) +
-  geom_smooth(method = "lm",
-              se = FALSE)
-```
-:::
-:::
-
-## Le paramètre `` `group` ``
-
-<br>
-
-::: columns
-::: {.column width="50%"}
-```{r}
-#| echo: true
-#| eval: true
-#| output-location: default
-ggplot(
-  penguins,
-  aes(x = bill_length_mm,
-      y = bill_depth_mm)
-  ) +
-  geom_point(aes(color = species),
-             alpha = 0.5) +
-  geom_smooth(aes(group = species),
-              method = "lm",
-              se = FALSE)
-```
-:::
-
-::: {.column width="50%"}
-```{r}
-#| echo: true
-#| eval: true
-#| output-location: default
-ggplot(
-  penguins,
-  aes(x = bill_length_mm,
-      y = bill_depth_mm,
-      color = species,
-      group = species)
-  ) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm",
-              se = FALSE)
-```
-:::
-:::
-
 ## Ecraser les paramètres globaux
 
 <br>
@@ -934,9 +833,6 @@ penguins |>
              color = species)) +
   geom_jitter(alpha = 0.3)
 ```
-
-```{}
-```
 :::
 :::
 
@@ -973,3 +869,520 @@ penguins |>
 ```
 :::
 :::
+
+# Barplot
+
+## `geom_bar()`
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+penguins |> 
+  ggplot(aes(x = species)) +
+  geom_bar()
+```
+
+## `geom_bar()`
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+penguins |> 
+  ggplot(aes(x = species,
+             fill = species)) +
+  geom_bar(width = 0.75,
+           show.legend = FALSE)
+```
+
+## `geom_bar()`
+
+<br>
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = species,
+             fill = island)) +
+  geom_bar(width = 0.75)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = island,
+             fill = species)) +
+  geom_bar(width = 0.75)
+```
+:::
+:::
+
+## `geom_bar()` versus `geom_col()`
+
+<br>
+
+Les objets géométriques `geom_bar()` et `geom_col()` permettent de créer des diagrammes en barres :
+
+-   avec **`geom_bar()`**, la hauteur des barres est proportionnelle au nombre d'observations de chaque groupe
+
+-   avec **`geom_col()`**, la hauteur des barres représente des valeurs existant des les données
+
+## `geom_bar()` versus `geom_col()`
+
+<br>
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = species,
+             fill = species)) +
+  geom_bar(width = 0.75,
+           show.legend = FALSE)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  count(species) |> 
+  ggplot(aes(x = species, y = n,
+             fill = species)) +
+  geom_col(width = 0.75,
+           show.legend = FALSE)
+```
+:::
+:::
+
+## `geom_bar()` versus `geom_col()`
+
+<br>
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = species,
+             fill = island)) +
+  geom_bar(width = 0.75)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  count(species, island) |> 
+  ggplot(aes(x = species, y = n,
+             fill = island)) +
+  geom_col(width = 0.75)
+```
+:::
+:::
+
+# Titres
+
+## `labs()`
+
+<br>
+
+`{ggplot2}` génère automatiquement des titres pour les axes, en fonction des noms des variables représentées.
+
+`labs()` permet de modifier ou supprimer ces titres, ainsi que d'ajouter au graphique :
+
+-   un titre
+
+-   un sous-titre
+
+-   une note
+
+## `labs()`
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: slide
+penguins |> 
+  ggplot(aes(x = flipper_length_mm,
+             y = bill_length_mm,
+             color = species)) +
+  geom_point() +
+  labs(x = "Longueur de l'aile (mm)",
+       y = "Longueur du bec (mm)",
+       title = "Longueur de l'aile et du bec",
+       subtitle = "chez 3 espèces de pingouins de l'archipel Palmer",
+       caption = "Source : package {palmerpenguins}")
+```
+
+## `labs()` et légende
+
+<br>
+
+labs() vous permet également de modifier le titre d'une légende :
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = flipper_length_mm,
+             y = bill_length_mm,
+             color = species)) +
+  geom_point() +
+  labs(color = "Nom de l'espèce")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = species,
+             fill = island)) +
+  geom_bar(width = 0.75) +
+  labs(fill = "Nom de l'île")
+```
+:::
+:::
+
+# Thèmes
+
+## `theme_*()`
+
+<br>
+
+Huit thèmes sont prédéfinis dans {ggplot2} et permettent de modifier l'apparence générale d'un graphique :
+
+<br>
+
+-   `theme_gray()` - le thème par défaut
+
+-   `theme_bw()`
+
+-   `theme_classic()`
+
+-   `theme_dark()`
+
+-   `theme_light()`
+
+-   `theme_linedraw()`
+
+-   `theme_minimal()`
+
+-   `theme_void()`
+
+## `theme_*()`
+
+<br>
+
+Pour utiliser l'un des thèmes prédéfinis :
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: false
+penguins |> 
+  ggplot(aes(x = flipper_length_mm,
+             y = bill_length_mm,
+             color = species)) +
+  geom_point() +
+  theme_*()
+```
+
+## `theme_gray()`
+
+<br>
+
+```{r}
+#| echo: false
+#| eval: true
+penguins |> 
+  ggplot(aes(x = flipper_length_mm,
+             y = bill_length_mm,
+             color = species)) +
+  geom_point() +
+  theme_gray()
+```
+
+## `theme_bw()`
+
+<br>
+
+```{r}
+#| echo: false
+#| eval: true
+penguins |> 
+  ggplot(aes(x = flipper_length_mm,
+             y = bill_length_mm,
+             color = species)) +
+  geom_point() +
+  theme_bw()
+```
+
+## `theme_classic()`
+
+<br>
+
+```{r}
+#| echo: false
+#| eval: true
+penguins |> 
+  ggplot(aes(x = flipper_length_mm,
+             y = bill_length_mm,
+             color = species)) +
+  geom_point() +
+  theme_classic()
+```
+
+## `theme_dark()`
+
+<br>
+
+```{r}
+#| echo: false
+#| eval: true
+penguins |> 
+  ggplot(aes(x = flipper_length_mm,
+             y = bill_length_mm,
+             color = species)) +
+  geom_point() +
+  theme_dark()
+```
+
+## `theme_light()`
+
+<br>
+
+```{r}
+#| echo: false
+#| eval: true
+penguins |> 
+  ggplot(aes(x = flipper_length_mm,
+             y = bill_length_mm,
+             color = species)) +
+  geom_point() +
+  theme_light()
+```
+
+## `theme_linedraw()`
+
+<br>
+
+```{r}
+#| echo: false
+#| eval: true
+penguins |> 
+  ggplot(aes(x = flipper_length_mm,
+             y = bill_length_mm,
+             color = species)) +
+  geom_point() +
+  theme_linedraw()
+```
+
+## `theme_minimal()`
+
+<br>
+
+```{r}
+#| echo: false
+#| eval: true
+penguins |> 
+  ggplot(aes(x = flipper_length_mm,
+             y = bill_length_mm,
+             color = species)) +
+  geom_point() +
+  theme_minimal()
+```
+
+## `theme_void()`
+
+<br>
+
+```{r}
+#| echo: false
+#| eval: true
+penguins |> 
+  ggplot(aes(x = flipper_length_mm,
+             y = bill_length_mm,
+             color = species)) +
+  geom_point() +
+  theme_void()
+```
+
+# Superposer des couches
+
+## `geom_smooth()`
+
+<br>
+
+La fonction `geom_smooth()` permet d'ajouter une droite de **régression linéaire** à un nuage de points :
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+ggplot(
+  penguins,
+  aes(x = bill_length_mm,
+      y = bill_depth_mm,
+      color = species)
+  ) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm",
+              se = FALSE)
+```
+
+## Couleur : encodage global ou local ?
+
+<br>
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+ggplot(
+  penguins,
+  aes(x = bill_length_mm,
+      y = bill_depth_mm,
+      color = species)
+  ) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm",
+              se = FALSE)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+ggplot(
+  penguins,
+  aes(x = bill_length_mm,
+      y = bill_depth_mm)
+  ) +
+  geom_point(aes(color = species),
+             alpha = 0.5) +
+  geom_smooth(method = "lm",
+              se = FALSE)
+```
+:::
+:::
+
+## Le paramètre `group`
+
+<br>
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+ggplot(
+  penguins,
+  aes(x = bill_length_mm,
+      y = bill_depth_mm)
+  ) +
+  geom_point(aes(color = species),
+             alpha = 0.5) +
+  geom_smooth(aes(group = species),
+              method = "lm",
+              se = FALSE)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+ggplot(
+  penguins,
+  aes(x = bill_length_mm,
+      y = bill_depth_mm,
+      color = species,
+      group = species)
+  ) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm",
+              se = FALSE)
+```
+:::
+:::
+
+## Ecraser les paramètres globaux
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+ggplot(
+  penguins,
+  aes(x = bill_length_mm,
+      y = bill_depth_mm,
+      color = species,
+      group = species)
+  ) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm",
+              se = FALSE,
+              color = "black")
+```
+
+## Combiner des objets géométriques
+
+<br>
+
+`{ggplot2}` permet de combiner différentes représentations visuelles sur un même graphique :
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+penguins |> 
+  ggplot(aes(x = species, 
+             y = body_mass_g,
+             color = species),
+         show.legend = FALSE) +
+  geom_point() +
+  geom_boxplot()
+```
