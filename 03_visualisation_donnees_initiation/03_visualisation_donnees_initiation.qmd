@@ -126,7 +126,7 @@ library(tidyverse)
 <br>
 
 | Composante              | Fonction       | Explication                                                                                |
-|------------------|------------------|-------------------------------------|
+|------------------|------------------|-----------------------------------|
 | **Données**             | `ggplot(data)` | *Les données à visualiser*                                                                 |
 | **Esthétique**          | `aes()`        | *Apparence esthétique (position, couleur, forme, taille, ...)*                             |
 | **Objets géométriques** | `geom_*()`     | *Formes géométriques utilisées pour représenter les données (points, lignes, barres, ...)* |
@@ -161,7 +161,7 @@ library(palmerpenguins)
 ## 
 
 | Variable          | Description                                                           | Classe         |
-|------------------|-------------------------------------|------------------|
+|------------------|-----------------------------------|------------------|
 | species           | espèce de pingouin (Adelie, Chinstrap et Gentoo)                      | Facteur        |
 | island            | île de l'archipel Palmer, en Antarctique (Biscoe, Dream ou Torgersen) | Facteur        |
 | bill_length_mm    | longueur du bec (mm)                                                  | Nombre décimal |
@@ -749,127 +749,6 @@ penguins |>
                show.legend = FALSE)
 ```
 
-## Ecraser les paramètres globaux
-
-<br>
-
-```{r}
-#| echo: true
-#| eval: true
-#| output-location: column
-ggplot(
-  penguins,
-  aes(x = bill_length_mm,
-      y = bill_depth_mm,
-      color = species,
-      group = species)
-  ) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm",
-              se = FALSE,
-              color = "black")
-```
-
-## L'argument `position`
-
-<br>
-
-::: columns
-::: {.column width="50%"}
-```{r}
-#| echo: true
-#| eval: true
-#| output-location: default
-penguins |> 
-  ggplot(aes(x = island,
-             y = body_mass_g,
-             color = species)) +
-  geom_point(alpha = 0.3)
-```
-:::
-
-::: {.column width="50%"}
-```{r}
-#| echo: true
-#| eval: true
-#| output-location: default
-penguins |> 
-  ggplot(aes(x = island,
-             y = body_mass_g,
-             color = species)) +
-  geom_point(alpha = 0.3,
-             position = "jitter")
-```
-:::
-:::
-
-## L'argument `position`
-
-<br>
-
-::: columns
-::: {.column width="50%"}
-```{r}
-#| echo: true
-#| eval: true
-#| output-location: default
-penguins |> 
-  ggplot(aes(x = island,
-             y = body_mass_g,
-             color = species)) +
-  geom_point(alpha = 0.3,
-             position = position_jitter())
-```
-:::
-
-::: {.column width="50%"}
-```{r}
-#| echo: true
-#| eval: true
-#| output-location: default
-penguins |> 
-  ggplot(aes(x = island,
-             y = body_mass_g,
-             color = species)) +
-  geom_jitter(alpha = 0.3)
-```
-:::
-:::
-
-## L'argument `position`
-
-<br>
-
-::: columns
-::: {.column width="50%"}
-```{r}
-#| echo: true
-#| eval: true
-#| output-location: default
-penguins |> 
-  ggplot(aes(x = island,
-             y = body_mass_g,
-             color = species)) +
-  geom_jitter(alpha = 0.3,
-              width = 0.5)
-```
-:::
-
-::: {.column width="50%"}
-```{r}
-#| echo: true
-#| eval: true
-#| output-location: default
-penguins |> 
-  ggplot(aes(x = island,
-             y = body_mass_g,
-             color = species)) +
-  geom_jitter(alpha = 0.3,
-              width = 0.2)
-```
-:::
-:::
-
 # Barplot
 
 ## `geom_bar()`
@@ -1242,6 +1121,28 @@ penguins |>
 
 # Superposer des couches
 
+## Combiner des objets géométriques
+
+<br>
+
+`{ggplot2}` permet de combiner différentes représentations visuelles sur un même graphique :
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: column
+penguins |> 
+  ggplot(aes(x = species, 
+             y = body_mass_g,
+             color = species),
+         show.legend = FALSE) +
+  geom_point() +
+  geom_boxplot()
+
+```
+
 ## `geom_smooth()`
 
 <br>
@@ -1366,23 +1267,280 @@ ggplot(
               color = "black")
 ```
 
-## Combiner des objets géométriques
+# Couleurs
+
+## Les couleurs dans R
 
 <br>
 
-`{ggplot2}` permet de combiner différentes représentations visuelles sur un même graphique :
+Dans R, les couleurs peuvent se préciser de trois manières :
+
+-   par leur **nom**
+
+-   par leur **code hexadécimal**
+
+-   par leur **code RVB**
+
+<br>
+
+La fonction `colors()` permet d'afficher la liste de toutes les couleurs existantes.
+
+```{r}
+#| echo: true
+#| eval: true
+head(colors())
+```
+
+## Les couleurs dans R
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: false
+# Nom
+penguins |> 
+  ggplot(aes(x = species)) +
+  geom_bar(fill = "darkblue")
+
+# Code hexadecimal
+penguins |> 
+  ggplot(aes(x = species)) +
+  geom_bar(fill = "#00008b")
+
+# Code RVB
+penguins |> 
+  ggplot(aes(x = species)) +
+  geom_bar(fill = rgb(red = 0, green = 0, blue = 139,
+                      maxColorValue = 255))
+```
+
+## Les palettes
+
+<br>
+
+R dispose de plusieurs palettes de couleurs (discrètes ou continues) :
+
+![](img/rcolorbrewer.png){fig-align="center"}
+
+## Les palettes
+
+<br>
+
+Les fonctions suivantes permettent d'utiliser une palette de couleurs :
+
+-   `scale_color_brewer(palette = …)` s'appliquera au paramètre `color` des objets géométriques
+
+-   `scale_fill_brewer(palette = …)` s'appliquera au paramètre `fill` des objets géométriques
+
+## Les palettes
+
+<br>
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = bill_length_mm,
+             y = bill_depth_mm,
+             color = species)) +
+  geom_point() +
+  scale_color_brewer(
+    palette = "Accent")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = species,
+             fill = species)) +
+  geom_bar(show.legend = FALSE) +
+  scale_fill_brewer(
+    palette = "Accent")
+```
+:::
+:::
+
+## Définir les couleurs
+
+<br>
+
+Vous pouvez définir manuellement les couleurs :
+
+-   en créant un vecteur de couleurs avec les valeurs associées
+
+-   en appelant ce vecteur dans la fonction `scale_*_manual`
+
+## Définir les couleurs
 
 <br>
 
 ```{r}
 #| echo: true
 #| eval: true
-#| output-location: column
-penguins |> 
-  ggplot(aes(x = species, 
-             y = body_mass_g,
-             color = species),
-         show.legend = FALSE) +
-  geom_point() +
-  geom_boxplot()
+custom.cols <- c("Adelie" = "darkorange",
+                 "Chinstrap" = "purple",
+                 "Gentoo" = "cyan4")
 ```
+
+<br>
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = bill_length_mm,
+             y = bill_depth_mm,
+             color = species)) +
+  geom_point() +
+  scale_color_manual(
+    values = custom.cols
+  )
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = species,
+             fill = species)) +
+  geom_bar(show.legend = FALSE) +
+  scale_fill_manual(
+    values = custom.cols)
+```
+:::
+:::
+
+## Définir les couleurs
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = bill_length_mm,
+             y = bill_depth_mm,
+             color = species)) +
+  geom_point() +
+  scale_color_manual(
+    values = c("Adelie" = "darkorange",
+               "Chinstrap" = "purple",
+               "Gentoo" = "cyan4"))
+```
+
+# L'argument `position`
+
+## L'argument `position`
+
+<br>
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = island,
+             y = body_mass_g,
+             color = species)) +
+  geom_point(alpha = 0.3)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = island,
+             y = body_mass_g,
+             color = species)) +
+  geom_point(alpha = 0.3,
+             position = "jitter")
+```
+:::
+:::
+
+## L'argument `position`
+
+<br>
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = island,
+             y = body_mass_g,
+             color = species)) +
+  geom_point(alpha = 0.3,
+             position = position_jitter())
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = island,
+             y = body_mass_g,
+             color = species)) +
+  geom_jitter(alpha = 0.3)
+```
+:::
+:::
+
+## L'argument `position`
+
+<br>
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = island,
+             y = body_mass_g,
+             color = species)) +
+  geom_jitter(alpha = 0.3,
+              width = 0.5)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = island,
+             y = body_mass_g,
+             color = species)) +
+  geom_jitter(alpha = 0.3,
+              width = 0.2)
+```
+:::
+:::
