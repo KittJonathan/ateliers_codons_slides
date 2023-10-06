@@ -126,7 +126,7 @@ library(tidyverse)
 <br>
 
 | Composante              | Fonction       | Explication                                                                                |
-|------------------|------------------|-----------------------------------|
+|-------------------|-------------------|-----------------------------------|
 | **Données**             | `ggplot(data)` | *Les données à visualiser*                                                                 |
 | **Esthétique**          | `aes()`        | *Apparence esthétique (position, couleur, forme, taille, ...)*                             |
 | **Objets géométriques** | `geom_*()`     | *Formes géométriques utilisées pour représenter les données (points, lignes, barres, ...)* |
@@ -161,7 +161,7 @@ library(palmerpenguins)
 ## 
 
 | Variable          | Description                                                           | Classe         |
-|------------------|-----------------------------------|------------------|
+|-------------------|-----------------------------------|-------------------|
 | species           | espèce de pingouin (Adelie, Chinstrap et Gentoo)                      | Facteur        |
 | island            | île de l'archipel Palmer, en Antarctique (Biscoe, Dream ou Torgersen) | Facteur        |
 | bill_length_mm    | longueur du bec (mm)                                                  | Nombre décimal |
@@ -1492,41 +1492,7 @@ penguins |>
   ggplot(aes(x = island,
              y = body_mass_g,
              color = species)) +
-  geom_point(alpha = 0.3,
-             position = position_jitter())
-```
-:::
-
-::: {.column width="50%"}
-```{r}
-#| echo: true
-#| eval: true
-#| output-location: default
-penguins |> 
-  ggplot(aes(x = island,
-             y = body_mass_g,
-             color = species)) +
   geom_jitter(alpha = 0.3)
-```
-:::
-:::
-
-## L'argument `position`
-
-<br>
-
-::: columns
-::: {.column width="50%"}
-```{r}
-#| echo: true
-#| eval: true
-#| output-location: default
-penguins |> 
-  ggplot(aes(x = island,
-             y = body_mass_g,
-             color = species)) +
-  geom_jitter(alpha = 0.3,
-              width = 0.5)
 ```
 :::
 
@@ -1544,3 +1510,140 @@ penguins |>
 ```
 :::
 :::
+
+## L'argument `position`
+
+<br>
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = year,
+             fill = island)) +
+  geom_bar(width = 0.75,
+           position = "stack")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = year,
+             fill = island)) +
+  geom_bar(width = 0.75,
+           position = "dodge")
+```
+:::
+:::
+
+## L'argument `position`
+
+<br>
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = body_mass_g,
+             fill = species)) +
+  geom_histogram(alpha = 0.5,
+                 position = "stack")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = body_mass_g,
+             fill = species)) +
+  geom_histogram(alpha = 0.5,
+                 position = "dodge")
+```
+:::
+:::
+
+# Exporter un graphique
+
+## Exporter un graphique
+
+<br>
+
+Pour exporter un graphique, il existe deux possibilités :
+
+-   exporter directement depuis l'onglet **Plots**
+
+-   utiliser la fonction **`ggsave()`**
+
+## Depuis l'onglet **Plots**
+
+<br>
+
+Quand vous exécutez le code permettant de créer un graphique, celui-ci s'affiche dans l'onglet Plots.
+
+En cliquant sur `Export`, trois options vous sont proposées :
+
+-   **Save as Image...**
+
+-   **Save as PDF...**
+
+-   **Copy to Clipboard...**
+
+En choisissant Save as Image... vous pouvez modifier les dimensions du graphique, choisir le format de fichier (`.png`, `.jpeg`, ...) et l'emplacement de sauvegarde.
+
+::: columns
+::: {.column width="50%"}
+![](img/export_from_plot_panel.png)
+:::
+
+::: {.column width="50%"}
+![](img/export_from_plot_panel_02.png)
+:::
+:::
+
+## `ggsave()`
+
+<br>
+
+La fonction `ggsave()` permet d'exporter une figure :
+
+-   stockez le code de la figure dans un objet
+
+```{r}
+#| echo: true
+#| eval: false
+#| output-location: default
+p <- penguins |> 
+  ggplot(aes(x = bill_length_mm,
+             y = bill_depth_mm,
+             color = species)) +
+  geom_point()
+```
+
+-   exportez l'objet
+
+```{r}
+#| echo: true
+#| eval: false
+#| output-location: default
+ggsave(
+  plot = p,
+  filename = "05-figs/bill_dimensions.png", 
+  dpi = 320,
+  height = 6,
+  width = 12)
+```
+
+L'argument `dpi` désigne la **résolution en pixels**.
