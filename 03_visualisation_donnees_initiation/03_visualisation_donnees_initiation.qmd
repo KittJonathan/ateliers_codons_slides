@@ -696,6 +696,84 @@ penguins |>
   geom_histogram(color = "white")
 ```
 
+## Mise en pratique - `geom_histogram()`
+
+<br>
+
+-   Représentez à l'aide d'un histogramme la distribution de la variable `flipper_length_mm`
+
+-   Choisissez une couleur faciltant la lecture de la figure
+
+-   Mappez la variable `species` sur la couleur de l'histogramme
+
+-   Modifiez les paramètres suivants :
+
+    -   Nombre de classes
+
+    -   Largeur des classes
+
+## Mise en pratique - `geom_histogram()`
+
+<br>
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = flipper_length_mm)) +
+  geom_histogram(color = "white",
+                 fill = "purple")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = flipper_length_mm,
+             fill = species)) +
+  geom_histogram(color = "white")
+```
+:::
+:::
+
+## Mise en pratique - `geom_histogram()`
+
+<br>
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = flipper_length_mm,
+             fill = species)) +
+  geom_histogram(color = "white",
+                 bins = 15)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = flipper_length_mm,
+             fill = species)) +
+  geom_histogram(color = "white",
+                 binwidth = 5)
+```
+:::
+:::
+
 # Boxplot
 
 ## `geom_boxplot()`
@@ -747,6 +825,30 @@ penguins |>
              fill = species)) +
   geom_boxplot(alpha = 0.5,
                show.legend = FALSE)
+```
+
+## Mise en pratique - `geom_boxplot()`
+
+<br>
+
+-   Représentez à l'aide d'un boxplot la variable `bill_depth_mm` en fonction de l'espèce
+
+-   Mappez la variable `species` sur la couleur de contour des boîtes
+
+-   Supprimez la légende
+
+## Mise en pratique - `geom_boxplot()`
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+penguins |> 
+  ggplot(aes(x = species, 
+             y = bill_depth_mm,
+             color = species)) +
+  geom_boxplot(show.legend = FALSE)
 ```
 
 # Barplot
@@ -883,6 +985,50 @@ penguins |>
 :::
 :::
 
+## Mise en pratique - `geom_bar()` versus `geom_col()`
+
+<br>
+
+-   Représentez à l'aide de la fonction `geom_bar()` le nombre d'individus observés par île
+
+-   Représentez à l'aide de `geom_col()` la moyenne de la masse en kg en fonction de l'espèce.
+
+    -   Pensez à utiliser la fonction `summarise()`
+
+## Mise en pratique - `geom_bar()` versus `geom_col()`
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = island)) +
+  geom_bar(color = "darkblue",
+           fill = "lightblue",
+           width = 0.75)
+```
+
+## Mise en pratique - `geom_bar()` versus `geom_col()`
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  group_by(species) |> 
+  summarise(body_mass_kg_mean = mean(body_mass_g / 1000,
+                                     na.rm = TRUE)) |> 
+  ggplot(aes(x = species,
+             y = body_mass_kg_mean)) +
+  geom_col(color = "darkblue",
+           fill = "lightblue",
+           width = 0.75)
+```
+
 # Titres
 
 ## `labs()`
@@ -953,6 +1099,42 @@ penguins |>
 ```
 :::
 :::
+
+## Mise en pratique - `labs()`
+
+<br>
+
+-   A l'aide d'un barplot, représentez le nombre d'individus par espèce
+
+-   Utilisez les couleurs suivantes :
+
+    -   variable `species` mappée sur la couleur de remplissage des barres
+
+    -   noir pour le contour des barres
+
+-   Ajustez la largeur des barres
+
+-   Ajoutez un titre, un sous-titre, une note et des titres aux axes du graphique
+
+## Mise en pratique - `labs()`
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: default
+penguins |> 
+  ggplot(aes(x = species)) +
+  geom_bar(aes(fill = species),
+           color = "black",
+           show.legend = FALSE) +
+  labs(title = "Nombre d'individus par espèce",
+       subtitle = "Pour trois espèces de pingouins de l'archipel Palmer",
+       caption = "Données : package {palmerpenguins}",
+       x = "",
+       y = "")
+```
 
 # Thèmes
 
@@ -1267,6 +1449,44 @@ ggplot(
               color = "black")
 ```
 
+## Mise en pratique - superposer des couches
+
+<br>
+
+-   Représentez à l'aide d'un scatter plot la longueur de l'aile en fonction de l'espèce
+
+-   Mappez la variable `species` à la couleur des points
+
+-   Ajouter des boxplots au graphique (sans leur associer de couleur)
+
+-   Utilisez le paramètre `alpha` pour rendre le graphique plus lisible
+
+-   Ajustez la largeur des boxplots
+
+-   Ajoutez des titres et choisissez un thème
+
+## Mise en pratique - superposer des couches
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: slide
+penguins |> 
+  ggplot(aes(x = species, y = flipper_length_mm)) +
+  geom_point(aes(color = species),
+             show.legend = FALSE) +
+  geom_boxplot(alpha = 0.5,
+               width = 0.25) +
+  labs(title = "Longueur des ailes",
+       subtitle = "Pour trois espèces de pingouins de l'archipel Palmer",
+       caption = "Données : package {palmerpenguins}",
+       x = "",
+       y = "Longueur des ailes (mm)") +
+  theme_light()
+```
+
 # Couleurs
 
 ## Les couleurs dans R
@@ -1443,6 +1663,47 @@ penguins |>
                "Gentoo" = "cyan4"))
 ```
 
+## Mise en pratique - couleurs
+
+<br>
+
+-   Représentez la longueur du bec en fonction de la hauteur du bec
+
+-   Mappez la variable `species` à la couleur des points
+
+-   Ajustez la taille et la transparence des points pour rendre le graphique plus lisible
+
+-   Utilisez les couleurs suivantes :
+
+    -   #D81B60 pour Adelie
+
+    -   #1E88E5 pour Chinstrap
+
+    -   #FFC107 pour Gentoo
+
+## Mise en pratique - couleurs
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: slide
+penguins |> 
+  ggplot(aes(x = bill_depth_mm,
+             y = bill_length_mm,
+             color = species)) +
+  geom_point(alpha = 0.5,
+             size = 2) +
+  scale_color_manual(
+    values = c(
+      "Adelie" = "#D81B60",
+      "Chinstrap" = "#1E88E5",
+      "Gentoo" = "#FFC107"
+      )
+  )
+```
+
 # L'argument `position`
 
 ## L'argument `position`
@@ -1574,6 +1835,40 @@ penguins |>
 ```
 :::
 :::
+
+## Mise en pratique - l'argument `position`
+
+<br>
+
+-   Représentez à l'aide de boxplots la masse en fonction de l'espèce
+
+    -   supprimez les données manquantes à l'aide de `drop_na()`
+
+-   Mappez le sexe à la couleur
+
+-   Ajoutez des nuages de points
+
+-   Utilisez `position = position_jitterdodge()` pour séparer les nuages de points
+
+-   Ajustez la transparence des points pour rendre le graphique plus lisible
+
+## Mise en pratique - l'argument `position`
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: true
+#| output-location: slide
+penguins |> 
+  drop_na() |> 
+  ggplot(aes(x = species,
+             y = body_mass_g,
+             color = sex)) +
+  geom_boxplot() +
+  geom_point(position = position_jitterdodge(),
+             alpha = 0.5)
+```
 
 # Exporter un graphique
 
