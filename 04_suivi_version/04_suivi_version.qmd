@@ -1,0 +1,158 @@
+---
+format:
+  revealjs:
+    theme: custom.scss
+    fontsize: 1.8em
+editor: visual
+title-slide-attributes: 
+  data-background-image: title.png
+  data-background-opacity: 50%
+---
+
+![](img/title.png)
+
+## Les ateliers codons
+
+<br>
+
+-   Des **créneaux réguliers** pour **découvrir** et **progresser**
+
+-   Deux parcours : **initiation** et **perfectionnement**
+
+-   Une **équipe d'animation**
+
+-   Des **supports** disponibles en ligne : [ateliers-codons.netlify.app/](https://ateliers-codons.netlify.app/)
+
+<br>
+
+#### Sources pour cet atelier :
+
+<br>
+
+-   [Happy Git with R](https://happygitwithr.com/)
+
+-   [Pro Git](https://git-scm.com/book/fr/v2)
+
+# Gestionnaire de version
+
+## Gestionnaire de version
+
+<br>
+
+> Un gestionnaire de version est un système qui **enregistre l'évolution d'un fichier ou d'un ensemble de fichiers au cours du temps** de manière à ce qu'on puisse **rappeler une version antérieure** d'un fichier à tout moment.
+>
+> *Pro Git*
+
+## Système de gestion de version
+
+<br>
+
+Un **système de gestion de version (VCS)** permet de :
+
+<br>
+
+-   ramener un fichier à un état précédent
+
+-   ramener le projet complet à un état précédent
+
+-   visualiser les changements au cours du temps
+
+-   voir qui a modifié quelquechose qui pourrait poser un problème
+
+-   voir qui a introduit un problème et quand
+
+-   ...
+
+## Les différents types de VCS
+
+<br>
+
+#### VCS local
+
+<br>
+
+::: columns
+::: {.column width="40%"}
+![](img/local_vcs.png)
+:::
+
+::: {.column width="60%"}
+-   Différences stockées sous forme de patches
+
+-   Ex : RCS
+
+👍Restitution possible d'un état antérieur
+
+👎Local uniquement
+:::
+:::
+
+## Les différents types de VCS
+
+<br>
+
+#### VCS centralisé
+
+<br>
+
+::: columns
+::: {.column width="40%"}
+![](img/centralised_vcs.png)
+:::
+
+::: {.column width="60%"}
+-   Un serveur central contient tous les fichiers
+
+-   Ex : CSV, Subversion, Perforce
+
+👍Collaboration
+
+👎Un seul lieu de stockage
+:::
+:::
+
+## Les différents types de VCS
+
+<br>
+
+#### VCS distribué
+
+<br>
+
+::: columns
+::: {.column width="40%"}
+![](img/distributed_vcs.png)
+:::
+
+::: {.column width="60%"}
+-   Le dépôt est dupliqué
+
+-   Ex : Git, Mercurial, Darcs
+
+👍Collaboration + copies multiples
+:::
+:::
+
+## Une brève histoire de Git
+
+<br>
+
+|      |                                                                                         |
+|------|-----------------------------------------------------------------------------------------|
+| 1991 | Modifications du noyau Linux transmises sous forme de patches et d'archives de fichiers |
+| 2002 | Utilisation d'un VCS distribué propriétaire, BitKeeper                                  |
+| 2005 | Fin de la gratuité de BitKeeper et développement de Git                                 |
+
+## Objectifs de Git
+
+<br>
+
+-   **vitesse**
+
+-   conception **simple**
+
+-   support pour les **développements non linéaires** (milliers de branches parallèles)
+
+-   gestion efficace des **projets d'envergure** tels que le noyau Linux
+
+# Git
