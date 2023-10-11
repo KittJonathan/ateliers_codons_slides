@@ -343,6 +343,7 @@
 <ul>
 <li><p><a href="https://happygitwithr.com/">Happy Git with R</a></p></li>
 <li><p><a href="https://git-scm.com/book/fr/v2">Pro Git</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=8JJ101D3knE&amp;t=436s">Git tutorial for beginners: learn Git in 1 hour</a></p></li>
 </ul>
 </section>
 <section>
@@ -358,6 +359,16 @@
 <p><em>Pro Git</em></p>
 </blockquote>
 </section>
+<section id="gestionnaire-de-version-2" class="slide level2">
+<h2>Gestionnaire de version</h2>
+<p><br></p>
+
+<img data-src="img/vcs_simple.png" class="r-stretch"></section>
+<section id="sans-gestion-de-version" class="slide level2">
+<h2>Sans gestion de version …</h2>
+<p><br></p>
+
+<img data-src="img/no_vcs.png" class="r-stretch quarto-figure-center"></section>
 <section id="système-de-gestion-de-version" class="slide level2">
 <h2>Système de gestion de version</h2>
 <p><br></p>
@@ -372,99 +383,150 @@
 <li><p>…</p></li>
 </ul>
 </section>
-<section id="les-différents-types-de-vcs" class="slide level2">
-<h2>Les différents types de VCS</h2>
+<section id="vcs-centralisé-vs.-vcs-distribué" class="slide level2">
+<h2>VCS centralisé vs.&nbsp;VCS distribué</h2>
 <p><br></p>
-<h4 id="vcs-local">VCS local</h4>
+
+<img data-src="img/centralised_vs_distributed_vcs.png" class="r-stretch quarto-figure-center"></section>
+<section id="pourquoi-utiliser-git" class="slide level2">
+<h2>Pourquoi utiliser Git ?</h2>
 <p><br></p>
-<div class="columns">
-<div class="column" style="width:40%;">
-<p><img data-src="img/local_vcs.png"></p>
-</div><div class="column" style="width:60%;">
 <ul>
-<li><p>Différences stockées sous forme de patches</p></li>
-<li><p>Ex : RCS</p></li>
+<li><p>Gratuit</p></li>
+<li><p>Open Source</p></li>
+<li><p>Très rapide</p></li>
+<li><p>Evolutif</p></li>
+<li><p>Création et fusion de branches</p></li>
 </ul>
-<p>👍Restitution possible d’un état antérieur</p>
-<p>👎Local uniquement</p>
-</div>
-</div>
 </section>
-<section id="les-différents-types-de-vcs-1" class="slide level2">
-<h2>Les différents types de VCS</h2>
-<p><br></p>
-<h4 id="vcs-centralisé">VCS centralisé</h4>
-<p><br></p>
-<div class="columns">
-<div class="column" style="width:40%;">
-<p><img data-src="img/centralised_vcs.png"></p>
-</div><div class="column" style="width:60%;">
-<ul>
-<li><p>Un serveur central contient tous les fichiers</p></li>
-<li><p>Ex : CSV, Subversion, Perforce</p></li>
-</ul>
-<p>👍Collaboration</p>
-<p>👎Un seul lieu de stockage</p>
-</div>
-</div>
-</section>
-<section id="les-différents-types-de-vcs-2" class="slide level2">
-<h2>Les différents types de VCS</h2>
-<p><br></p>
-<h4 id="vcs-distribué">VCS distribué</h4>
-<p><br></p>
-<div class="columns">
-<div class="column" style="width:40%;">
-<p><img data-src="img/distributed_vcs.png"></p>
-</div><div class="column" style="width:60%;">
-<ul>
-<li><p>Le dépôt est dupliqué</p></li>
-<li><p>Ex : Git, Mercurial, Darcs</p></li>
-</ul>
-<p>👍Collaboration + copies multiples</p>
-</div>
-</div>
-</section>
-<section id="une-brève-histoire-de-git" class="slide level2">
-<h2>Une brève histoire de Git</h2>
-<p><br></p>
-<table>
-<colgroup>
-<col style="width: 6%">
-<col style="width: 93%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>1991</td>
-<td>Modifications du noyau Linux transmises sous forme de patches et d’archives de fichiers</td>
-</tr>
-<tr class="even">
-<td>2002</td>
-<td>Utilisation d’un VCS distribué propriétaire, BitKeeper</td>
-</tr>
-<tr class="odd">
-<td>2005</td>
-<td>Fin de la gratuité de BitKeeper et développement de Git</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="objectifs-de-git" class="slide level2">
-<h2>Objectifs de Git</h2>
+<section id="comment-utiliser-git" class="slide level2">
+<h2>Comment utiliser Git ?</h2>
 <p><br></p>
 <ul>
-<li><p><strong>vitesse</strong></p></li>
-<li><p>conception <strong>simple</strong></p></li>
-<li><p>support pour les <strong>développements non linéaires</strong> (milliers de branches parallèles)</p></li>
-<li><p>gestion efficace des <strong>projets d’envergure</strong> tels que le noyau Linux</p></li>
+<li><p>En ligne de commande</p></li>
+<li><p>A l’aide d’un Environnement de Développement Intégré (IDE)</p>
+<ul>
+<li><p>RStudio</p></li>
+<li><p>VS Code</p></li>
+</ul></li>
+<li><p>A l’aide d’une Interface Utilisateur Graphique (GUI)</p>
+<ul>
+<li><p>Git Kraken</p></li>
+<li><p>Source Tree</p></li>
+</ul></li>
 </ul>
 </section></section>
-<section id="git" class="title-slide slide level1 center">
-<h1>Git</h1>
-<div class="footer footer-default">
+<section>
+<section id="installer-git" class="title-slide slide level1 center">
+<h1>Installer Git</h1>
+
+</section>
+<section id="vérifier-si-git-est-déjà-installé" class="slide level2">
+<h2>Vérifier si Git est déjà installé</h2>
+<p><br></p>
+<p>Ouvrez un terminal :</p>
+<ul>
+<li><p><strong>macOS</strong> : <code>Cmd</code> + <code>Espace</code> et tapez <code>terminal</code></p></li>
+<li><p><strong>Windows</strong> : dans la barre de recherche, tapez <code>cmd</code></p></li>
+</ul>
+<p><br></p>
+<p>Vous pouvez également ouvrir un terminal directement dans <strong>RStudio</strong> :</p>
+<ul>
+<li><p><code>Tools</code> &gt; <code>Teminal</code> &gt; <code>New Terminal</code></p></li>
+<li><p><code>Alt</code> + <code>Maj</code> + <code>R</code></p></li>
+<li><p>Cliquez sur l’onglet Teminal</p></li>
+</ul>
+
+<img data-src="img/rstudio_terminal.png" class="r-stretch"></section>
+<section id="vérifier-si-git-est-déjà-installé-1" class="slide level2">
+<h2>Vérifier si Git est déjà installé</h2>
+<p><br></p>
+<p>Dans le terminal, tapez les commandes suivantes :</p>
+<p><br></p>
+<ul>
+<li>Afficher l’emplacement de Git sur votre ordinateur :</li>
+</ul>
+<p><code>which git</code></p>
+<p><br></p>
+<ul>
+<li>Afficher la version de Git installée sur votre ordinateur :</li>
+</ul>
+<p><code>git --version</code></p>
+</section>
+<section id="installer-git-1" class="slide level2">
+<h2>Installer Git</h2>
+<p><br></p>
+
+<img data-src="img/download_git.png" class="r-stretch"></section></section>
+<section>
+<section id="configurer-git" class="title-slide slide level1 center">
+<h1>Configurer Git</h1>
+
+</section>
+<section id="configurer-git-1" class="slide level2">
+<h2>Configurer Git</h2>
+<p><br></p>
+<p>Quand vous utilisez Git pour la première fois, il vous faudra renseigner quelques informations :</p>
+<p><br></p>
+<ul>
+<li><p>Nom</p></li>
+<li><p>E-mail</p></li>
+<li><p>Editeur de texte par défaut</p></li>
+<li><p>Fin de ligne</p></li>
+</ul>
+</section>
+<section id="configurer-git-2" class="slide level2">
+<h2>Configurer Git</h2>
+<p><br></p>
+<p>La configuration de Git peut se faire à trois niveaux :</p>
+<p><br></p>
+<ul>
+<li><p><strong>System</strong> : tous les utilisateurs</p></li>
+<li><p><strong>Global</strong> : tous les répertoires de l’utilisateur</p></li>
+<li><p><strong>Local</strong> : répertoire courant</p></li>
+</ul>
+</section>
+<section id="configurer-git-3" class="slide level2">
+<h2>Configurer Git</h2>
+<p><br></p>
+
+<img data-src="img/git_config.png" class="r-stretch"></section>
+<section id="configurer-git---nom-et-e-mail" class="slide level2">
+<h2>Configurer Git - nom et e-mail</h2>
+<p><br></p>
+<p>Tapez les commandes suivantes dans le terminal :</p>
+<p><code>git config --global user.name "Prenom Nom"</code></p>
+<p><code>git config --global user.email prenom.nom@mail.com</code></p>
+</section>
+<section id="configurer-git---éditeur-de-texte-par-défaut" class="slide level2">
+<h2>Configurer Git - éditeur de texte par défaut</h2>
+<p><br></p>
+<p>Pour configurer l’éditeur de texte par défaut, copiez le chemin d’accès vers l’éditeur de votre choix (par ex. <em>Notepad ++</em>)</p>
+
+<img data-src="img/path_editor.png" class="r-stretch"><p><br></p>
+<p>Tapez ensuite la commande suivante (attention aux guillemets) :</p>
+<p><code>git config --global core.editor '"C:\Program Files\Notepad++\notepad++.exe"'</code></p>
+</section>
+<section id="configurer-git-4" class="slide level2">
+<h2>Configurer Git</h2>
+<p><br></p>
+<p>Vous pouvez ouvrir le fichier de configuration de Git (<code>.gitconfig</code>) :</p>
+<p><br></p>
+<ul>
+<li><p>Dans le terminal</p>
+<p><code>git config --global --list</code></p></li>
+<li><p>Dans l’éditeur de texte</p>
+<p><code>git config --global -e</code></p></li>
+</ul>
+</section>
+<section id="configurer-git---fin-de-ligne" class="slide level2">
+<h2>Configurer Git - fin de ligne</h2>
+<p><br></p>
+
+<img data-src="img/crlf.png" class="r-stretch"><div class="footer footer-default">
 
 </div>
-</section>
+</section></section>
     </div>
   </div>
 

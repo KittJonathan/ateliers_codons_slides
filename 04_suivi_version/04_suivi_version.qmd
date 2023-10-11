@@ -33,6 +33,8 @@ title-slide-attributes:
 
 -   [Pro Git](https://git-scm.com/book/fr/v2)
 
+-   [Git tutorial for beginners: learn Git in 1 hour](https://www.youtube.com/watch?v=8JJ101D3knE&t=436s)
+
 # Gestionnaire de version
 
 ## Gestionnaire de version
@@ -42,6 +44,18 @@ title-slide-attributes:
 > Un gestionnaire de version est un système qui **enregistre l'évolution d'un fichier ou d'un ensemble de fichiers au cours du temps** de manière à ce qu'on puisse **rappeler une version antérieure** d'un fichier à tout moment.
 >
 > *Pro Git*
+
+## Gestionnaire de version
+
+<br>
+
+![](img/vcs_simple.png)
+
+## Sans gestion de version ...
+
+<br>
+
+![](img/no_vcs.png){fig-align="center"}
 
 ## Système de gestion de version
 
@@ -63,96 +77,172 @@ Un **système de gestion de version (VCS)** permet de :
 
 -   ...
 
-## Les différents types de VCS
+## VCS centralisé vs. VCS distribué
 
 <br>
 
-#### VCS local
+![](img/centralised_vs_distributed_vcs.png){fig-align="center"}
+
+## Pourquoi utiliser Git ?
 
 <br>
 
-::: columns
-::: {.column width="40%"}
-![](img/local_vcs.png)
-:::
+-   Gratuit
 
-::: {.column width="60%"}
--   Différences stockées sous forme de patches
+-   Open Source
 
--   Ex : RCS
+-   Très rapide
 
-👍Restitution possible d'un état antérieur
+-   Evolutif
 
-👎Local uniquement
-:::
-:::
+-   Création et fusion de branches
 
-## Les différents types de VCS
+## Comment utiliser Git ?
 
 <br>
 
-#### VCS centralisé
+-   En ligne de commande
+
+-   A l'aide d'un Environnement de Développement Intégré (IDE)
+
+    -   RStudio
+
+    -   VS Code
+
+-   A l'aide d'une Interface Utilisateur Graphique (GUI)
+
+    -   Git Kraken
+
+    -   Source Tree
+
+# Installer Git
+
+## Vérifier si Git est déjà installé
 
 <br>
 
-::: columns
-::: {.column width="40%"}
-![](img/centralised_vcs.png)
-:::
+Ouvrez un terminal :
 
-::: {.column width="60%"}
--   Un serveur central contient tous les fichiers
+-   **macOS** : `Cmd` + `Espace` et tapez `terminal`
 
--   Ex : CSV, Subversion, Perforce
-
-👍Collaboration
-
-👎Un seul lieu de stockage
-:::
-:::
-
-## Les différents types de VCS
+-   **Windows** : dans la barre de recherche, tapez `cmd`
 
 <br>
 
-#### VCS distribué
+Vous pouvez également ouvrir un terminal directement dans **RStudio** :
+
+-   `Tools` \> `Teminal` \> `New Terminal`
+
+-   `Alt` + `Maj` + `R`
+
+-   Cliquez sur l'onglet Teminal
+
+![](img/rstudio_terminal.png)
+
+## Vérifier si Git est déjà installé
 
 <br>
 
-::: columns
-::: {.column width="40%"}
-![](img/distributed_vcs.png)
-:::
-
-::: {.column width="60%"}
--   Le dépôt est dupliqué
-
--   Ex : Git, Mercurial, Darcs
-
-👍Collaboration + copies multiples
-:::
-:::
-
-## Une brève histoire de Git
+Dans le terminal, tapez les commandes suivantes :
 
 <br>
 
-|      |                                                                                         |
-|------|-----------------------------------------------------------------------------------------|
-| 1991 | Modifications du noyau Linux transmises sous forme de patches et d'archives de fichiers |
-| 2002 | Utilisation d'un VCS distribué propriétaire, BitKeeper                                  |
-| 2005 | Fin de la gratuité de BitKeeper et développement de Git                                 |
+-   Afficher l'emplacement de Git sur votre ordinateur :
 
-## Objectifs de Git
+`which git`
 
 <br>
 
--   **vitesse**
+-   Afficher la version de Git installée sur votre ordinateur :
 
--   conception **simple**
+`git --version`
 
--   support pour les **développements non linéaires** (milliers de branches parallèles)
+## Installer Git
 
--   gestion efficace des **projets d'envergure** tels que le noyau Linux
+<br>
 
-# Git
+![](img/download_git.png)
+
+# Configurer Git
+
+## Configurer Git
+
+<br>
+
+Quand vous utilisez Git pour la première fois, il vous faudra renseigner quelques informations :
+
+<br>
+
+-   Nom
+
+-   E-mail
+
+-   Editeur de texte par défaut
+
+-   Fin de ligne
+
+## Configurer Git
+
+<br>
+
+La configuration de Git peut se faire à trois niveaux :
+
+<br>
+
+-   **System** : tous les utilisateurs
+
+-   **Global** : tous les répertoires de l'utilisateur
+
+-   **Local** : répertoire courant
+
+## Configurer Git
+
+<br>
+
+![](img/git_config.png)
+
+## Configurer Git - nom et e-mail
+
+<br>
+
+Tapez les commandes suivantes dans le terminal :
+
+`git config --global user.name "Prenom Nom"`
+
+`git config --global user.email prenom.nom@mail.com`
+
+## Configurer Git - éditeur de texte par défaut
+
+<br>
+
+Pour configurer l'éditeur de texte par défaut, copiez le chemin d'accès vers l'éditeur de votre choix (par ex. *Notepad ++*)
+
+![](img/path_editor.png)
+
+<br>
+
+Tapez ensuite la commande suivante (attention aux guillemets) :
+
+`git config --global core.editor '"C:\Program Files\Notepad++\notepad++.exe"'`
+
+## Configurer Git
+
+<br>
+
+Vous pouvez ouvrir le fichier de configuration de Git (`.gitconfig`) :
+
+<br>
+
+-   Dans le terminal
+
+    `git config --global --list`
+
+-   Dans l'éditeur de texte
+
+    `git config --global -e`
+
+## Configurer Git - fin de ligne
+
+<br>
+
+![](img/crlf.png)
