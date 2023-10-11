@@ -503,3 +503,153 @@ git commit -m "commit initial"
 <br>
 
 ![](img/workflow_13.png)
+
+## Quand faire un commit ?
+
+<br>
+
+![](img/commit_size.png)
+
+<br>
+
+**Un commit n'est pas un `Ctrl + S` !**
+
+## Que mettre dans un commit ?
+
+<br>
+
+Un même commit devrait contenir des modifications ou corrections qui vont ensemble.
+
+<br>
+
+![](img/commit_content.png)
+
+## Comment décrire un commit ?
+
+<br>
+
+-   Etre le plus explicite possible
+
+-   Choisir une convention et s'y tenir
+
+<br>
+
+![XKCD](img/git_commit_message.png)
+
+## Commit direct
+
+<br>
+
+Il est possible de faire un commit sans passer par l'étape d'ajout dans la zone d'index.
+
+-   La zone d'index permet de vérifier ce que l'on fait
+
+-   A éviter à moins d'être vraiment certain !
+
+<br>
+
+![](img/git_commit_am.png)
+
+## Commit direct
+
+<br>
+
+::: {.callout-note appearance="simple" icon="false"}
+`echo test >> file1.txt`
+
+`git commit -am "correction de bug"`
+:::
+
+<br>
+
+![](img/git_commit_am_2.png)
+
+## Supprimer un fichier
+
+<br>
+
+La commande `rm` permet de supprimer un fichier du répertoire.
+
+`rm file2.txt`
+
+<br>
+
+La commande `ls` permet de faire la liste des fichiers présents **dans le répertoire**.
+
+Pour faire la liste des fichiers présents dans la **zone d'index**, utilisez `git ls-files`.
+
+<br>
+
+![](img/ls_files.png)
+
+Le fichier supprimé est **toujours présent dans la zone d'index**.
+
+## Supprimer un fichier
+
+<br>
+
+::: {.callout-note appearance="simple" icon="false"}
+`rm file2.txt`
+:::
+
+<br>
+
+![](img/workflow_14.png)
+
+## Supprimer un fichier
+
+<br>
+
+Pour retirer de la zone d'index un fichier supprimé du répertoire, il faut procéder de la même façon que pour un commit "classique" :
+
+`git add file2.txt`
+
+<br>
+
+La commande `git ls-files` montre que le fichier n'est plus présent dans la zone d'index.
+
+## Supprimer un fichier
+
+<br>
+
+![](img/workflow_15.png)
+
+<br>
+
+Pour que cette modification soit effective, effectuons un comit :
+
+`git commit -m "suppression d'un fichier inutile"`
+
+## Supprimer un fichier
+
+<br>
+
+Pour supprimer un fichier à la fois du répertoire et de la zone d'index, utilisez la commande `git rm`.
+
+::: {.callout-note appearance="simple" icon="false"}
+`echo hello > file3.txt`
+
+`git add file3.txt`
+
+`git commit -m "creation d'un nouveau fichier"`
+:::
+
+<br>
+
+![](img/workflow_16.png)
+
+## Supprimer un fichier
+
+<br>
+
+Pour supprimer un fichier à la fois du répertoire et de la zone d'index, utilisez la commande `git rm`.
+
+::: {.callout-note appearance="simple" icon="false"}
+`git rm file3.txt`
+
+`git commit -am "suppression d'un fichier ajoute par erreur"`
+:::
+
+<br>
+
+![](img/workflow_17.png)

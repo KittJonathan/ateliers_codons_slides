@@ -761,7 +761,128 @@
 </div>
 <p><br></p>
 
-<img data-src="img/workflow_13.png" class="r-stretch"><div class="footer footer-default">
+<img data-src="img/workflow_13.png" class="r-stretch"></section>
+<section id="quand-faire-un-commit" class="slide level2">
+<h2>Quand faire un commit ?</h2>
+<p><br></p>
+
+<img data-src="img/commit_size.png" class="r-stretch"><p><br></p>
+<p><strong>Un commit n’est pas un <code>Ctrl + S</code> !</strong></p>
+</section>
+<section id="que-mettre-dans-un-commit" class="slide level2">
+<h2>Que mettre dans un commit ?</h2>
+<p><br></p>
+<p>Un même commit devrait contenir des modifications ou corrections qui vont ensemble.</p>
+<p><br></p>
+
+<img data-src="img/commit_content.png" class="r-stretch"></section>
+<section id="comment-décrire-un-commit" class="slide level2">
+<h2>Comment décrire un commit ?</h2>
+<p><br></p>
+<ul>
+<li><p>Etre le plus explicite possible</p></li>
+<li><p>Choisir une convention et s’y tenir</p></li>
+</ul>
+<p><br></p>
+
+<img data-src="img/git_commit_message.png" class="r-stretch quarto-figure-center"><p class="caption">XKCD</p></section>
+<section id="commit-direct" class="slide level2">
+<h2>Commit direct</h2>
+<p><br></p>
+<p>Il est possible de faire un commit sans passer par l’étape d’ajout dans la zone d’index.</p>
+<ul>
+<li><p>La zone d’index permet de vérifier ce que l’on fait</p></li>
+<li><p>A éviter à moins d’être vraiment certain !</p></li>
+</ul>
+<p><br></p>
+
+<img data-src="img/git_commit_am.png" class="r-stretch"></section>
+<section id="commit-direct-1" class="slide level2">
+<h2>Commit direct</h2>
+<p><br></p>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><code>echo test &gt;&gt; file1.txt</code></p>
+<p><code>git commit -am "correction de bug"</code></p>
+</div>
+</div>
+</div>
+<p><br></p>
+
+<img data-src="img/git_commit_am_2.png" class="r-stretch"></section>
+<section id="supprimer-un-fichier" class="slide level2">
+<h2>Supprimer un fichier</h2>
+<p><br></p>
+<p>La commande <code>rm</code> permet de supprimer un fichier du répertoire.</p>
+<p><code>rm file2.txt</code></p>
+<p><br></p>
+<p>La commande <code>ls</code> permet de faire la liste des fichiers présents <strong>dans le répertoire</strong>.</p>
+<p>Pour faire la liste des fichiers présents dans la <strong>zone d’index</strong>, utilisez <code>git ls-files</code>.</p>
+<p><br></p>
+
+<img data-src="img/ls_files.png" class="r-stretch"><p>Le fichier supprimé est <strong>toujours présent dans la zone d’index</strong>.</p>
+</section>
+<section id="supprimer-un-fichier-1" class="slide level2">
+<h2>Supprimer un fichier</h2>
+<p><br></p>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><code>rm file2.txt</code></p>
+</div>
+</div>
+</div>
+<p><br></p>
+
+<img data-src="img/workflow_14.png" class="r-stretch"></section>
+<section id="supprimer-un-fichier-2" class="slide level2">
+<h2>Supprimer un fichier</h2>
+<p><br></p>
+<p>Pour retirer de la zone d’index un fichier supprimé du répertoire, il faut procéder de la même façon que pour un commit “classique” :</p>
+<p><code>git add file2.txt</code></p>
+<p><br></p>
+<p>La commande <code>git ls-files</code> montre que le fichier n’est plus présent dans la zone d’index.</p>
+</section>
+<section id="supprimer-un-fichier-3" class="slide level2">
+<h2>Supprimer un fichier</h2>
+<p><br></p>
+
+<img data-src="img/workflow_15.png" class="r-stretch"><p><br></p>
+<p>Pour que cette modification soit effective, effectuons un comit :</p>
+<p><code>git commit -m "suppression d'un fichier inutile"</code></p>
+</section>
+<section id="supprimer-un-fichier-4" class="slide level2">
+<h2>Supprimer un fichier</h2>
+<p><br></p>
+<p>Pour supprimer un fichier à la fois du répertoire et de la zone d’index, utilisez la commande <code>git rm</code>.</p>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><code>echo hello &gt; file3.txt</code></p>
+<p><code>git add file3.txt</code></p>
+<p><code>git commit -m "creation d'un nouveau fichier"</code></p>
+</div>
+</div>
+</div>
+<p><br></p>
+
+<img data-src="img/workflow_16.png" class="r-stretch"></section>
+<section id="supprimer-un-fichier-5" class="slide level2">
+<h2>Supprimer un fichier</h2>
+<p><br></p>
+<p>Pour supprimer un fichier à la fois du répertoire et de la zone d’index, utilisez la commande <code>git rm</code>.</p>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><code>git rm file3.txt</code></p>
+<p><code>git commit -am "suppression d'un fichier ajoute par erreur"</code></p>
+</div>
+</div>
+</div>
+<p><br></p>
+
+<img data-src="img/workflow_17.png" class="r-stretch"><div class="footer footer-default">
 
 </div>
 </section></section>
