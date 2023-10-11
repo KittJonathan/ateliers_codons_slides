@@ -523,7 +523,245 @@
 <h2>Configurer Git - fin de ligne</h2>
 <p><br></p>
 
-<img data-src="img/crlf.png" class="r-stretch"><div class="footer footer-default">
+<img data-src="img/crlf.png" class="r-stretch"></section>
+<section id="configurer-git---fin-de-ligne-1" class="slide level2">
+<h2>Configurer Git - fin de ligne</h2>
+<p><br></p>
+
+<img data-src="img/core_autocrlf.png" class="r-stretch"><p><br></p>
+<table>
+<tbody>
+<tr class="odd">
+<td>Windows</td>
+<td><code>git config –global auto.crlf true</code></td>
+</tr>
+<tr class="even">
+<td>macOS / Linux</td>
+<td><code>git config –global auto.crlf input</code></td>
+</tr>
+</tbody>
+</table>
+</section></section>
+<section>
+<section id="obtenir-de-laide" class="title-slide slide level1 center">
+<h1>Obtenir de l’aide</h1>
+
+</section>
+<section id="obtenir-de-laide-1" class="slide level2">
+<h2>Obtenir de l’aide</h2>
+<p><br></p>
+<ul>
+<li><p>Dans un moteur de recherche, tapez <code>git config doc</code></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="img/git_config_help_1.png"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/git_config_help_2.png"></p>
+</div>
+</div></li>
+<li><p>Dans le terminal, tapez <code>git config --help</code></p></li>
+<li><p>Pour une version synthétique de l’aide, utilisez <code>git config -h</code></p></li>
+</ul>
+</section></section>
+<section>
+<section id="initialiser-un-dépôt-git" class="title-slide slide level1 center">
+<h1>Initialiser un dépôt Git</h1>
+
+</section>
+<section id="initialiser-un-dépôt-git-1" class="slide level2">
+<h2>Initialiser un dépôt Git</h2>
+<p><br></p>
+<ul>
+<li><p>Naviguez jusqu’à l’emplacement sur votre ordinateur où vous souhaitez créer un nouveau répertoire</p>
+<ul>
+<li><p>Utilisez la commande <code>cd</code> (change directory) pour naviguer</p></li>
+<li><p>Le répertoire actuel est noté “point” <code>.</code></p></li>
+<li><p>Pour revenir d’un niveau en arrière, utilisez <code>cd ..</code></p></li>
+</ul></li>
+<li><p>Créez un nouveau répertoire : <code>mkdir tuto_git</code></p>
+<ul>
+<li><code>mkdir</code> : make directory</li>
+</ul></li>
+<li><p>Placez-vous dans ce nouveau répertoire : <code>cd tuto_git</code></p></li>
+<li><p>Initialisez un dépôt Git dans ce répertoire : <code>git init</code></p></li>
+</ul>
+</section>
+<section id="initialiser-un-dépôt-git-2" class="slide level2">
+<h2>Initialiser un dépôt Git</h2>
+<p><br></p>
+
+<img data-src="img/git_init.png" class="r-stretch"><p><br></p>
+<p>Dans le répertoire <code>tuto_git</code>, un <strong>répertoire caché .<code>git</code></strong> a été créé.</p>
+</section>
+<section id="initialiser-un-dépôt-git-3" class="slide level2">
+<h2>Initialiser un dépôt Git</h2>
+<p><br></p>
+<p>Pour afficher le contenu d’un répertoire, utilisez la commande <code>ls</code> (list) :</p>
+<ul>
+<li><p>cette commande n’affiche pas les fichiers ou dossiers cachés</p></li>
+<li><p>utilisez <code>ls -a</code> (all) pour afficher tout le contenu du répertoire</p></li>
+</ul>
+
+<img data-src="img/git_init_2.png" width="200" class="r-stretch"><p><br></p>
+<p>Vous pouvez ouvrir ce répertoire <code>.git</code> à l’aide de la commande <code>open .git</code>.</p>
+</section>
+<section id="initialiser-un-dépôt-git-4" class="slide level2">
+<h2>Initialiser un dépôt Git</h2>
+<p><br></p>
+<p>Le répertoire caché <code>.git</code> contient toutes les informations nécessaires à Git pour suivre l’historique de votre dépôt.</p>
+<p>Si vous changez d’avis et souhaitez supprimer ce répertoire <code>.git</code>, utilisez la commande suivante :</p>
+
+<img data-src="img/rm_rf_git.png" class="r-stretch"></section></section>
+<section>
+<section id="le-workflow-git" class="title-slide slide level1 center">
+<h1>Le workflow Git</h1>
+
+</section>
+<section id="le-workflow-git-1" class="slide level2">
+<h2>Le workflow Git</h2>
+<p><br></p>
+
+<img data-src="img/git_basic_workflow.png" class="r-stretch"></section>
+<section id="créer-des-fichiers" class="slide level2">
+<h2>Créer des fichiers</h2>
+<p><br></p>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><code>echo hello &gt; file1.txt</code></p>
+<p><code>echo hello &gt; file2.txt</code></p>
+</div>
+</div>
+</div>
+<p><br></p>
+
+<img data-src="img/workflow_1.png" class="r-stretch"></section>
+<section id="afficher-létat-du-dépôt" class="slide level2">
+<h2>Afficher l’état du dépôt</h2>
+<p><br></p>
+<p>Pour afficher l’état du dépôt, utilisez la commande suivante :</p>
+<p><code>git status</code></p>
+<p><br></p>
+
+<img data-src="img/workflow_2.png" class="r-stretch"></section>
+<section id="ajouter-des-fichiers-à-lindex" class="slide level2">
+<h2>Ajouter des fichiers à l’index</h2>
+<p><br></p>
+<p>La commande <code>git add</code> permet d’ajouter des fichiers à la zone d’index :</p>
+<p><br></p>
+<ul>
+<li><p>en nommant les fichiers un par un :</p>
+<p><code>git add fichier1.txt fichier2.txt</code></p></li>
+<li><p>en utilisant un motif</p>
+<p><code>git add *.txt</code></p></li>
+<li><p>en ajoutant tous les fichiers du répertoire</p>
+<p><code>git add .</code></p></li>
+</ul>
+</section>
+<section id="ajouter-des-fichiers-à-lindex-1" class="slide level2">
+<h2>Ajouter des fichiers à l’index</h2>
+<p><br></p>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><code>git add file1.txt file2.txt</code></p>
+</div>
+</div>
+</div>
+<p><br></p>
+
+<img data-src="img/workflow_3.png" class="r-stretch"></section>
+<section id="ajouter-des-fichiers-à-lindex-2" class="slide level2">
+<h2>Ajouter des fichiers à l’index</h2>
+<p><br></p>
+
+<img data-src="img/workflow_4.png" class="r-stretch"></section>
+<section id="modifier-un-fichier" class="slide level2">
+<h2>Modifier un fichier</h2>
+<p><br></p>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><code>echo world &gt;&gt; file1.txt</code></p>
+</div>
+</div>
+</div>
+<p><br></p>
+
+<img data-src="img/workflow_5.png" class="r-stretch"></section>
+<section id="modifier-un-fichier-1" class="slide level2">
+<h2>Modifier un fichier</h2>
+<p><br></p>
+
+<img data-src="img/workflow_6.png" class="r-stretch"></section>
+<section id="modifier-un-fichier-2" class="slide level2">
+<h2>Modifier un fichier</h2>
+<p><br></p>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><code>git add file1.txt</code></p>
+</div>
+</div>
+</div>
+<p><br></p>
+
+<img data-src="img/workflow_7.png" class="r-stretch"></section>
+<section id="modifier-un-fichier-3" class="slide level2">
+<h2>Modifier un fichier</h2>
+<p><br></p>
+
+<img data-src="img/workflow_8.png" class="r-stretch"></section>
+<section id="sauvegarder-un-instantané" class="slide level2">
+<h2>Sauvegarder un instantané</h2>
+<p><br></p>
+<p>Pour créer un instanté du répertoire dans l’état actuel, utilisez la commande suivante :</p>
+<p><br></p>
+
+<img data-src="img/git_commit.png" class="r-stretch"><p><br></p>
+<p>Si vous avez besoin de taper un message plus long, la commande <code>git commit</code> ouvrira votre éditeur de texte.</p>
+</section>
+<section id="sauvegarder-un-instantané-1" class="slide level2">
+<h2>Sauvegarder un instantané</h2>
+<p><br></p>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>git commit -m “commit initial”</p>
+</div>
+</div>
+</div>
+<p><br></p>
+
+<img data-src="img/workflow_9.png" class="r-stretch"></section>
+<section id="sauvegarder-un-instantané-2" class="slide level2">
+<h2>Sauvegarder un instantané</h2>
+<p><br></p>
+
+<img data-src="img/workflow_10png.png" class="r-stretch"></section>
+<section id="sauvegarder-un-instantané-3" class="slide level2">
+<h2>Sauvegarder un instantané</h2>
+<p><br></p>
+
+<img data-src="img/workflow_11.png" class="r-stretch"></section>
+<section id="sauvegarder-un-instantané-4" class="slide level2">
+<h2>Sauvegarder un instantané</h2>
+<p><br></p>
+
+<img data-src="img/workflow_12.png" class="r-stretch"></section>
+<section id="sauvegarder-un-instantané-5" class="slide level2">
+<h2>Sauvegarder un instantané</h2>
+<p><br></p>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>git commit -m “commit initial”</p>
+</div>
+</div>
+</div>
+<p><br></p>
+
+<img data-src="img/workflow_13.png" class="r-stretch"><div class="footer footer-default">
 
 </div>
 </section></section>

@@ -246,3 +246,260 @@ Vous pouvez ouvrir le fichier de configuration de Git (`.gitconfig`) :
 <br>
 
 ![](img/crlf.png)
+
+## Configurer Git - fin de ligne
+
+<br>
+
+![](img/core_autocrlf.png)
+
+<br>
+
+|               |                                      |
+|---------------|--------------------------------------|
+| Windows       | `git config –global auto.crlf true`  |
+| macOS / Linux | `git config –global auto.crlf input` |
+
+# Obtenir de l'aide
+
+## Obtenir de l'aide
+
+<br>
+
+-   Dans un moteur de recherche, tapez `git config doc`
+
+    ::: columns
+    ::: {.column width="50%"}
+    ![](img/git_config_help_1.png)
+    :::
+
+    ::: {.column width="50%"}
+    ![](img/git_config_help_2.png)
+    :::
+    :::
+
+-   Dans le terminal, tapez `git config --help`
+
+-   Pour une version synthétique de l'aide, utilisez `git config -h`
+
+# Initialiser un dépôt Git
+
+## Initialiser un dépôt Git
+
+<br>
+
+-   Naviguez jusqu'à l'emplacement sur votre ordinateur où vous souhaitez créer un nouveau répertoire
+
+    -   Utilisez la commande `cd` (change directory) pour naviguer
+
+    -   Le répertoire actuel est noté "point" `.`
+
+    -   Pour revenir d'un niveau en arrière, utilisez `cd ..`
+
+-   Créez un nouveau répertoire : `mkdir tuto_git`
+
+    -   `mkdir` : make directory
+
+-   Placez-vous dans ce nouveau répertoire : `cd tuto_git`
+
+-   Initialisez un dépôt Git dans ce répertoire : `git init`
+
+## Initialiser un dépôt Git
+
+<br>
+
+![](img/git_init.png)
+
+<br>
+
+Dans le répertoire `tuto_git`, un **répertoire caché .`git`** a été créé.
+
+## Initialiser un dépôt Git
+
+<br>
+
+Pour afficher le contenu d'un répertoire, utilisez la commande `ls` (list) :
+
+-   cette commande n'affiche pas les fichiers ou dossiers cachés
+
+-   utilisez `ls -a` (all) pour afficher tout le contenu du répertoire
+
+![](img/git_init_2.png){width="200"}
+
+<br>
+
+Vous pouvez ouvrir ce répertoire `.git` à l'aide de la commande `open .git`.
+
+## Initialiser un dépôt Git
+
+<br>
+
+Le répertoire caché `.git` contient toutes les informations nécessaires à Git pour suivre l'historique de votre dépôt.
+
+Si vous changez d'avis et souhaitez supprimer ce répertoire `.git`, utilisez la commande suivante :
+
+![](img/rm_rf_git.png)
+
+# Le workflow Git
+
+## Le workflow Git
+
+<br>
+
+![](img/git_basic_workflow.png)
+
+## Créer des fichiers
+
+<br>
+
+::: {.callout-note appearance="simple" icon="false"}
+`echo hello > file1.txt`
+
+`echo hello > file2.txt`
+:::
+
+<br>
+
+![](img/workflow_1.png)
+
+## Afficher l'état du dépôt
+
+<br>
+
+Pour afficher l'état du dépôt, utilisez la commande suivante :
+
+`git status`
+
+<br>
+
+![](img/workflow_2.png)
+
+## Ajouter des fichiers à l'index
+
+<br>
+
+La commande `git add` permet d'ajouter des fichiers à la zone d'index :
+
+<br>
+
+-   en nommant les fichiers un par un :
+
+    `git add fichier1.txt fichier2.txt`
+
+-   en utilisant un motif
+
+    `git add *.txt`
+
+-   en ajoutant tous les fichiers du répertoire
+
+    `git add .`
+
+## Ajouter des fichiers à l'index
+
+<br>
+
+::: {.callout-note appearance="simple" icon="false"}
+`git add file1.txt file2.txt`
+:::
+
+<br>
+
+![](img/workflow_3.png)
+
+## Ajouter des fichiers à l'index
+
+<br>
+
+![](img/workflow_4.png)
+
+## Modifier un fichier
+
+<br>
+
+::: {.callout-note appearance="simple" icon="false"}
+`echo world >> file1.txt`
+:::
+
+<br>
+
+![](img/workflow_5.png)
+
+## Modifier un fichier
+
+<br>
+
+![](img/workflow_6.png)
+
+## Modifier un fichier
+
+<br>
+
+::: {.callout-note appearance="simple" icon="false"}
+`git add file1.txt`
+:::
+
+<br>
+
+![](img/workflow_7.png)
+
+## Modifier un fichier
+
+<br>
+
+![](img/workflow_8.png)
+
+## Sauvegarder un instantané
+
+<br>
+
+Pour créer un instanté du répertoire dans l'état actuel, utilisez la commande suivante :
+
+<br>
+
+![](img/git_commit.png)
+
+<br>
+
+Si vous avez besoin de taper un message plus long, la commande `git commit` ouvrira votre éditeur de texte.
+
+## Sauvegarder un instantané
+
+<br>
+
+::: {.callout-note appearance="simple" icon="false"}
+git commit -m "commit initial"
+:::
+
+<br>
+
+![](img/workflow_9.png)
+
+## Sauvegarder un instantané
+
+<br>
+
+![](img/workflow_10png.png)
+
+## Sauvegarder un instantané
+
+<br>
+
+![](img/workflow_11.png)
+
+## Sauvegarder un instantané
+
+<br>
+
+![](img/workflow_12.png)
+
+## Sauvegarder un instantané
+
+<br>
+
+::: {.callout-note appearance="simple" icon="false"}
+git commit -m "commit initial"
+:::
+
+<br>
+
+![](img/workflow_13.png)
