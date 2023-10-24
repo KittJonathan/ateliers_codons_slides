@@ -143,6 +143,14 @@ Vous pouvez également ouvrir un terminal directement dans **RStudio** :
 
 <br>
 
+Si Git est installé, vous pouvez utiliser **Git Bash** :
+
+![](img/git_bash_rstudio.png)
+
+## Vérifier si Git est déjà installé
+
+<br>
+
 Dans le terminal, tapez les commandes suivantes :
 
 <br>
@@ -157,6 +165,8 @@ Dans le terminal, tapez les commandes suivantes :
 
 `git --version`
 
+`git -v`
+
 ## Installer Git
 
 <br>
@@ -169,17 +179,19 @@ Dans le terminal, tapez les commandes suivantes :
 
 <br>
 
-Quand vous utilisez Git pour la première fois, il vous faudra renseigner quelques informations :
+Il est possible de configurer Git pour optimiser son utilisation.
+
+Pour le moment, nous allons renseigner les informations suivantes :
+
+-   nom d'utilisateur
+
+-   e-mail d'utilisateur
+
+-   éditeur de texte par défaut
 
 <br>
 
--   Nom
-
--   E-mail
-
--   Editeur de texte par défaut
-
--   Fin de ligne
+La configuration de Git s'effectue dans un fichier caché nommé **`.gitconfig`**, placé à la racine de votre répertoire d'utilisateur (votre "home").
 
 ## Configurer Git
 
@@ -221,7 +233,7 @@ Pour configurer l'éditeur de texte par défaut, copiez le chemin d'accès vers 
 
 <br>
 
-Tapez ensuite la commande suivante (attention aux guillemets) :
+Tapez ensuite la commande suivante (**attention aux guillemets**) :
 
 `git config --global core.editor '"C:\Program Files\Notepad++\notepad++.exe"'`
 
@@ -241,24 +253,11 @@ Vous pouvez ouvrir le fichier de configuration de Git (`.gitconfig`) :
 
     `git config --global -e`
 
-## Configurer Git - fin de ligne
+## Configurer Git
 
 <br>
 
-![](img/crlf.png)
-
-## Configurer Git - fin de ligne
-
-<br>
-
-![](img/core_autocrlf.png)
-
-<br>
-
-|               |                                      |
-|---------------|--------------------------------------|
-| Windows       | `git config –global auto.crlf true`  |
-| macOS / Linux | `git config –global auto.crlf input` |
+![](img/git_config_example.png)
 
 # Obtenir de l'aide
 
@@ -308,7 +307,7 @@ Vous pouvez ouvrir le fichier de configuration de Git (`.gitconfig`) :
 
 <br>
 
-![](img/git_init.png)
+![](img/git_init_3.png)
 
 <br>
 
@@ -324,7 +323,9 @@ Pour afficher le contenu d'un répertoire, utilisez la commande `ls` (list) :
 
 -   utilisez `ls -a` (all) pour afficher tout le contenu du répertoire
 
-![](img/git_init_2.png){width="200"}
+-   utilisez `ls -la` (list all) pour afficher tout le contenu sous forme de liste
+
+![](img/git_init_4.png)
 
 <br>
 
@@ -352,15 +353,21 @@ Si vous changez d'avis et souhaitez supprimer ce répertoire `.git`, utilisez la
 
 <br>
 
-::: {.callout-note appearance="simple" icon="false"}
-`echo hello > file1.txt`
+![](img/git_workflow_00.png)
 
-`echo hello > file2.txt`
-:::
+## Créer des fichiers
 
 <br>
 
-![](img/workflow_1.png)
+La commande `echo` permet d'ajouter du contenu dans un fichier :
+
+`echo hello > file1.txt`
+
+`echo hello > file2.txt`
+
+<br>
+
+![](img/git_workflow_01.png)
 
 ## Afficher l'état du dépôt
 
@@ -372,9 +379,9 @@ Pour afficher l'état du dépôt, utilisez la commande suivante :
 
 <br>
 
-![](img/workflow_2.png)
+![](img/git_workflow_02.png)
 
-## Ajouter des fichiers à l'index
+## Ajouter des fichiers à la zone d'index
 
 <br>
 
@@ -384,7 +391,7 @@ La commande `git add` permet d'ajouter des fichiers à la zone d'index :
 
 -   en nommant les fichiers un par un :
 
-    `git add fichier1.txt fichier2.txt`
+    `git add file1.txt file2.txt`
 
 -   en utilisant un motif
 
@@ -394,65 +401,78 @@ La commande `git add` permet d'ajouter des fichiers à la zone d'index :
 
     `git add .`
 
-## Ajouter des fichiers à l'index
+## Ajouter des fichiers à la zone d'index
 
 <br>
 
-::: {.callout-note appearance="simple" icon="false"}
 `git add file1.txt file2.txt`
-:::
 
 <br>
 
-![](img/workflow_3.png)
+![](img/git_workflow_03.png)
 
-## Ajouter des fichiers à l'index
+## Ajouter des fichiers à la zone d'index
 
 <br>
 
-![](img/workflow_4.png)
+![](img/git_workflow_04.png)
+
+## Configurer Git - fin de ligne
+
+<br>
+
+![](img/crlf.png)
+
+## Configurer Git - fin de ligne
+
+<br>
+
+![](img/core_autocrlf.png)
+
+|               |                                       |
+|---------------|---------------------------------------|
+| Windows       | `git config --global auto.crlf true`  |
+| macOS / Linux | `git config --global auto.crlf input` |
 
 ## Modifier un fichier
 
 <br>
 
-::: {.callout-note appearance="simple" icon="false"}
+L'opérateur `>>` permet d'ajouter une ligne dans un fichier existant :
+
 `echo world >> file1.txt`
-:::
 
 <br>
 
-![](img/workflow_5.png)
+![](img/git_workflow_05.png)
 
 ## Modifier un fichier
 
 <br>
 
-![](img/workflow_6.png)
+![](img/git_workflow_06.png)
 
 ## Modifier un fichier
 
 <br>
 
-::: {.callout-note appearance="simple" icon="false"}
 `git add file1.txt`
-:::
 
 <br>
 
-![](img/workflow_7.png)
+![](img/git_workflow_07.png)
 
 ## Modifier un fichier
 
 <br>
 
-![](img/workflow_8.png)
+![](img/git_workflow_08.png)
 
-## Sauvegarder un instantané
+## Sauvegarder un instantané de la zone d'index
 
 <br>
 
-Pour créer un instanté du répertoire dans l'état actuel, utilisez la commande suivante :
+Pour créer un instanté de la zone d'index, utilisez la commande suivante :
 
 <br>
 
@@ -462,35 +482,35 @@ Pour créer un instanté du répertoire dans l'état actuel, utilisez la command
 
 Si vous avez besoin de taper un message plus long, la commande `git commit` ouvrira votre éditeur de texte.
 
-## Sauvegarder un instantané
+## Sauvegarder un instantané de la zone d'index
 
 <br>
 
-::: {.callout-note appearance="simple" icon="false"}
-git commit -m "commit initial"
-:::
+`git commit -m "commit initial"`
 
 <br>
 
-![](img/workflow_9.png)
+![](img/git_workflow_09.png)
 
-## Sauvegarder un instantané
-
-<br>
-
-![](img/workflow_10png.png)
-
-## Sauvegarder un instantané
+## Sauvegarder un instantané de la zone d'index
 
 <br>
 
-![](img/workflow_11.png)
+![](img/git_workflow_10.png)
 
-## Sauvegarder un instantané
+## Sauvegarder un instantané de la zone d'index
 
 <br>
 
-![](img/workflow_12.png)
+![](img/git_workflow_11.png)
+
+<br>
+
+-   100644 : fichier "normal"
+
+-   100755 : fichier exécutable
+
+-   120000 : lien symbolique
 
 ## Sauvegarder un instantané
 

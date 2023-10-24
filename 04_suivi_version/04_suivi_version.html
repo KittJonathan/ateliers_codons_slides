@@ -441,6 +441,12 @@
 <section id="vérifier-si-git-est-déjà-installé-1" class="slide level2">
 <h2>Vérifier si Git est déjà installé</h2>
 <p><br></p>
+<p>Si Git est installé, vous pouvez utiliser <strong>Git Bash</strong> :</p>
+
+<img data-src="img/git_bash_rstudio.png" class="r-stretch"></section>
+<section id="vérifier-si-git-est-déjà-installé-2" class="slide level2">
+<h2>Vérifier si Git est déjà installé</h2>
+<p><br></p>
 <p>Dans le terminal, tapez les commandes suivantes :</p>
 <p><br></p>
 <ul>
@@ -452,6 +458,7 @@
 <li>Afficher la version de Git installée sur votre ordinateur :</li>
 </ul>
 <p><code>git --version</code></p>
+<p><code>git -v</code></p>
 </section>
 <section id="installer-git-1" class="slide level2">
 <h2>Installer Git</h2>
@@ -466,14 +473,15 @@
 <section id="configurer-git-1" class="slide level2">
 <h2>Configurer Git</h2>
 <p><br></p>
-<p>Quand vous utilisez Git pour la première fois, il vous faudra renseigner quelques informations :</p>
-<p><br></p>
+<p>Il est possible de configurer Git pour optimiser son utilisation.</p>
+<p>Pour le moment, nous allons renseigner les informations suivantes :</p>
 <ul>
-<li><p>Nom</p></li>
-<li><p>E-mail</p></li>
-<li><p>Editeur de texte par défaut</p></li>
-<li><p>Fin de ligne</p></li>
+<li><p>nom d’utilisateur</p></li>
+<li><p>e-mail d’utilisateur</p></li>
+<li><p>éditeur de texte par défaut</p></li>
 </ul>
+<p><br></p>
+<p>La configuration de Git s’effectue dans un fichier caché nommé <strong><code>.gitconfig</code></strong>, placé à la racine de votre répertoire d’utilisateur (votre “home”).</p>
 </section>
 <section id="configurer-git-2" class="slide level2">
 <h2>Configurer Git</h2>
@@ -504,7 +512,7 @@
 <p>Pour configurer l’éditeur de texte par défaut, copiez le chemin d’accès vers l’éditeur de votre choix (par ex. <em>Notepad ++</em>)</p>
 
 <img data-src="img/path_editor.png" class="r-stretch"><p><br></p>
-<p>Tapez ensuite la commande suivante (attention aux guillemets) :</p>
+<p>Tapez ensuite la commande suivante (<strong>attention aux guillemets</strong>) :</p>
 <p><code>git config --global core.editor '"C:\Program Files\Notepad++\notepad++.exe"'</code></p>
 </section>
 <section id="configurer-git-4" class="slide level2">
@@ -519,29 +527,11 @@
 <p><code>git config --global -e</code></p></li>
 </ul>
 </section>
-<section id="configurer-git---fin-de-ligne" class="slide level2">
-<h2>Configurer Git - fin de ligne</h2>
+<section id="configurer-git-5" class="slide level2">
+<h2>Configurer Git</h2>
 <p><br></p>
 
-<img data-src="img/crlf.png" class="r-stretch"></section>
-<section id="configurer-git---fin-de-ligne-1" class="slide level2">
-<h2>Configurer Git - fin de ligne</h2>
-<p><br></p>
-
-<img data-src="img/core_autocrlf.png" class="r-stretch"><p><br></p>
-<table>
-<tbody>
-<tr class="odd">
-<td>Windows</td>
-<td><code>git config –global auto.crlf true</code></td>
-</tr>
-<tr class="even">
-<td>macOS / Linux</td>
-<td><code>git config –global auto.crlf input</code></td>
-</tr>
-</tbody>
-</table>
-</section></section>
+<img data-src="img/git_config_example.png" class="r-stretch"></section></section>
 <section>
 <section id="obtenir-de-laide" class="title-slide slide level1 center">
 <h1>Obtenir de l’aide</h1>
@@ -590,7 +580,7 @@
 <h2>Initialiser un dépôt Git</h2>
 <p><br></p>
 
-<img data-src="img/git_init.png" class="r-stretch"><p><br></p>
+<img data-src="img/git_init_3.png" class="r-stretch"><p><br></p>
 <p>Dans le répertoire <code>tuto_git</code>, un <strong>répertoire caché .<code>git</code></strong> a été créé.</p>
 </section>
 <section id="initialiser-un-dépôt-git-3" class="slide level2">
@@ -600,9 +590,10 @@
 <ul>
 <li><p>cette commande n’affiche pas les fichiers ou dossiers cachés</p></li>
 <li><p>utilisez <code>ls -a</code> (all) pour afficher tout le contenu du répertoire</p></li>
+<li><p>utilisez <code>ls -la</code> (list all) pour afficher tout le contenu sous forme de liste</p></li>
 </ul>
 
-<img data-src="img/git_init_2.png" width="200" class="r-stretch"><p><br></p>
+<img data-src="img/git_init_4.png" class="r-stretch"><p><br></p>
 <p>Vous pouvez ouvrir ce répertoire <code>.git</code> à l’aide de la commande <code>open .git</code>.</p>
 </section>
 <section id="initialiser-un-dépôt-git-4" class="slide level2">
@@ -625,17 +616,17 @@
 <section id="créer-des-fichiers" class="slide level2">
 <h2>Créer des fichiers</h2>
 <p><br></p>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
+
+<img data-src="img/git_workflow_00.png" class="r-stretch"></section>
+<section id="créer-des-fichiers-1" class="slide level2">
+<h2>Créer des fichiers</h2>
+<p><br></p>
+<p>La commande <code>echo</code> permet d’ajouter du contenu dans un fichier :</p>
 <p><code>echo hello &gt; file1.txt</code></p>
 <p><code>echo hello &gt; file2.txt</code></p>
-</div>
-</div>
-</div>
 <p><br></p>
 
-<img data-src="img/workflow_1.png" class="r-stretch"></section>
+<img data-src="img/git_workflow_01.png" class="r-stretch"></section>
 <section id="afficher-létat-du-dépôt" class="slide level2">
 <h2>Afficher l’état du dépôt</h2>
 <p><br></p>
@@ -643,113 +634,113 @@
 <p><code>git status</code></p>
 <p><br></p>
 
-<img data-src="img/workflow_2.png" class="r-stretch"></section>
-<section id="ajouter-des-fichiers-à-lindex" class="slide level2">
-<h2>Ajouter des fichiers à l’index</h2>
+<img data-src="img/git_workflow_02.png" class="r-stretch"></section>
+<section id="ajouter-des-fichiers-à-la-zone-dindex" class="slide level2">
+<h2>Ajouter des fichiers à la zone d’index</h2>
 <p><br></p>
 <p>La commande <code>git add</code> permet d’ajouter des fichiers à la zone d’index :</p>
 <p><br></p>
 <ul>
 <li><p>en nommant les fichiers un par un :</p>
-<p><code>git add fichier1.txt fichier2.txt</code></p></li>
+<p><code>git add file1.txt file2.txt</code></p></li>
 <li><p>en utilisant un motif</p>
 <p><code>git add *.txt</code></p></li>
 <li><p>en ajoutant tous les fichiers du répertoire</p>
 <p><code>git add .</code></p></li>
 </ul>
 </section>
-<section id="ajouter-des-fichiers-à-lindex-1" class="slide level2">
-<h2>Ajouter des fichiers à l’index</h2>
+<section id="ajouter-des-fichiers-à-la-zone-dindex-1" class="slide level2">
+<h2>Ajouter des fichiers à la zone d’index</h2>
 <p><br></p>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
 <p><code>git add file1.txt file2.txt</code></p>
-</div>
-</div>
-</div>
 <p><br></p>
 
-<img data-src="img/workflow_3.png" class="r-stretch"></section>
-<section id="ajouter-des-fichiers-à-lindex-2" class="slide level2">
-<h2>Ajouter des fichiers à l’index</h2>
+<img data-src="img/git_workflow_03.png" class="r-stretch"></section>
+<section id="ajouter-des-fichiers-à-la-zone-dindex-2" class="slide level2">
+<h2>Ajouter des fichiers à la zone d’index</h2>
 <p><br></p>
 
-<img data-src="img/workflow_4.png" class="r-stretch"></section>
+<img data-src="img/git_workflow_04.png" class="r-stretch"></section>
+<section id="configurer-git---fin-de-ligne" class="slide level2">
+<h2>Configurer Git - fin de ligne</h2>
+<p><br></p>
+
+<img data-src="img/crlf.png" class="r-stretch"></section>
+<section id="configurer-git---fin-de-ligne-1" class="slide level2">
+<h2>Configurer Git - fin de ligne</h2>
+<p><br></p>
+
+<img data-src="img/core_autocrlf.png" class="r-stretch"><table>
+<tbody>
+<tr class="odd">
+<td>Windows</td>
+<td><code>git config --global auto.crlf true</code></td>
+</tr>
+<tr class="even">
+<td>macOS / Linux</td>
+<td><code>git config --global auto.crlf input</code></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="modifier-un-fichier" class="slide level2">
 <h2>Modifier un fichier</h2>
 <p><br></p>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
+<p>L’opérateur <code>&gt;&gt;</code> permet d’ajouter une ligne dans un fichier existant :</p>
 <p><code>echo world &gt;&gt; file1.txt</code></p>
-</div>
-</div>
-</div>
 <p><br></p>
 
-<img data-src="img/workflow_5.png" class="r-stretch"></section>
+<img data-src="img/git_workflow_05.png" class="r-stretch"></section>
 <section id="modifier-un-fichier-1" class="slide level2">
 <h2>Modifier un fichier</h2>
 <p><br></p>
 
-<img data-src="img/workflow_6.png" class="r-stretch"></section>
+<img data-src="img/git_workflow_06.png" class="r-stretch"></section>
 <section id="modifier-un-fichier-2" class="slide level2">
 <h2>Modifier un fichier</h2>
 <p><br></p>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
 <p><code>git add file1.txt</code></p>
-</div>
-</div>
-</div>
 <p><br></p>
 
-<img data-src="img/workflow_7.png" class="r-stretch"></section>
+<img data-src="img/git_workflow_07.png" class="r-stretch"></section>
 <section id="modifier-un-fichier-3" class="slide level2">
 <h2>Modifier un fichier</h2>
 <p><br></p>
 
-<img data-src="img/workflow_8.png" class="r-stretch"></section>
-<section id="sauvegarder-un-instantané" class="slide level2">
-<h2>Sauvegarder un instantané</h2>
+<img data-src="img/git_workflow_08.png" class="r-stretch"></section>
+<section id="sauvegarder-un-instantané-de-la-zone-dindex" class="slide level2">
+<h2>Sauvegarder un instantané de la zone d’index</h2>
 <p><br></p>
-<p>Pour créer un instanté du répertoire dans l’état actuel, utilisez la commande suivante :</p>
+<p>Pour créer un instanté de la zone d’index, utilisez la commande suivante :</p>
 <p><br></p>
 
 <img data-src="img/git_commit.png" class="r-stretch"><p><br></p>
 <p>Si vous avez besoin de taper un message plus long, la commande <code>git commit</code> ouvrira votre éditeur de texte.</p>
 </section>
-<section id="sauvegarder-un-instantané-1" class="slide level2">
-<h2>Sauvegarder un instantané</h2>
+<section id="sauvegarder-un-instantané-de-la-zone-dindex-1" class="slide level2">
+<h2>Sauvegarder un instantané de la zone d’index</h2>
 <p><br></p>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p>git commit -m “commit initial”</p>
-</div>
-</div>
-</div>
+<p><code>git commit -m "commit initial"</code></p>
 <p><br></p>
 
-<img data-src="img/workflow_9.png" class="r-stretch"></section>
-<section id="sauvegarder-un-instantané-2" class="slide level2">
-<h2>Sauvegarder un instantané</h2>
+<img data-src="img/git_workflow_09.png" class="r-stretch"></section>
+<section id="sauvegarder-un-instantané-de-la-zone-dindex-2" class="slide level2">
+<h2>Sauvegarder un instantané de la zone d’index</h2>
 <p><br></p>
 
-<img data-src="img/workflow_10png.png" class="r-stretch"></section>
-<section id="sauvegarder-un-instantané-3" class="slide level2">
-<h2>Sauvegarder un instantané</h2>
+<img data-src="img/git_workflow_10.png" class="r-stretch"></section>
+<section id="sauvegarder-un-instantané-de-la-zone-dindex-3" class="slide level2">
+<h2>Sauvegarder un instantané de la zone d’index</h2>
 <p><br></p>
 
-<img data-src="img/workflow_11.png" class="r-stretch"></section>
-<section id="sauvegarder-un-instantané-4" class="slide level2">
-<h2>Sauvegarder un instantané</h2>
-<p><br></p>
-
-<img data-src="img/workflow_12.png" class="r-stretch"></section>
-<section id="sauvegarder-un-instantané-5" class="slide level2">
+<img data-src="img/git_workflow_11.png" class="r-stretch"><p><br></p>
+<ul>
+<li><p>100644 : fichier “normal”</p></li>
+<li><p>100755 : fichier exécutable</p></li>
+<li><p>120000 : lien symbolique</p></li>
+</ul>
+</section>
+<section id="sauvegarder-un-instantané" class="slide level2">
 <h2>Sauvegarder un instantané</h2>
 <p><br></p>
 <div class="callout callout-note no-icon callout-style-simple">
