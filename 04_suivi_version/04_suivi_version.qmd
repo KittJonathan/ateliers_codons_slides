@@ -341,45 +341,59 @@ Si vous changez d'avis et souhaitez supprimer ce répertoire `.git`, utilisez la
 
 ![](img/rm_rf_git.png)
 
-# Le workflow Git
+# Créer un fichier
 
-## Le workflow Git
+## Créer un fichier
 
 <br>
 
-![](img/git_basic_workflow.png)
+La commande `echo` permet d'afficher du texte.
 
-## Créer des fichiers
+<br>
+
+Pour créer un fichier et ajouter du contenu, combinez la commande `echo` avec l'opérateur `>`.
+
+<br>
+
+![](img/create_file_01.png){fig-align="left"}
+
+## Créer un fichier
+
+<br>
+
+La commande `cat` permet d'afficher le contenu d'un fichier.
+
+<br>
+
+Les commandes `head` et `tail` permettent d'afficher les premières lignes ou les dernières lignes d'un fichier.
+
+<br>
+
+![](img/create_file_02.png){fig-align="left"}
+
+# Le workflow Git
+
+## Les trois zones
 
 <br>
 
 ![](img/git_workflow_00.png)
 
-## Créer des fichiers
+## Afficher l'état du répertoire
 
 <br>
 
-La commande `echo` permet d'ajouter du contenu dans un fichier :
+La commande `git status` permet d'afficher l'état actuel du répertoire de travail :
 
-`echo hello > file1.txt`
+`<br>`
 
-`echo hello > file2.txt`
+![](img/git_status_01.png){fig-align="left"}
 
-<br>
-
-![](img/git_workflow_01.png)
-
-## Afficher l'état du dépôt
+## Afficher l'état du répertoire
 
 <br>
 
-Pour afficher l'état du dépôt, utilisez la commande suivante :
-
-`git status`
-
-<br>
-
-![](img/git_workflow_02.png)
+![](img/workflow_git_01.png){fig-align="left"}
 
 ## Ajouter des fichiers à la zone d'index
 
@@ -391,13 +405,13 @@ La commande `git add` permet d'ajouter des fichiers à la zone d'index :
 
 -   en nommant les fichiers un par un :
 
-    `git add file1.txt file2.txt`
+    `git add file1.txt`
 
 -   en utilisant un motif
 
     `git add *.txt`
 
--   en ajoutant tous les fichiers du répertoire
+-   en ajoutant tous les fichiers du répertoire de travail
 
     `git add .`
 
@@ -405,17 +419,13 @@ La commande `git add` permet d'ajouter des fichiers à la zone d'index :
 
 <br>
 
-`git add file1.txt file2.txt`
+`git add file1.txt`
 
 <br>
 
-![](img/git_workflow_03.png)
+![](img/workflow_git_02.png){fig-align="left"}
 
-## Ajouter des fichiers à la zone d'index
-
-<br>
-
-![](img/git_workflow_04.png)
+![](img/workflow_git_03.png){fig-align="left"}
 
 ## Configurer Git - fin de ligne
 
@@ -444,13 +454,13 @@ L'opérateur `>>` permet d'ajouter une ligne dans un fichier existant :
 
 <br>
 
-![](img/git_workflow_05.png)
+![](img/workflow_git_04.png){fig-align="left"}
 
 ## Modifier un fichier
 
 <br>
 
-![](img/git_workflow_06.png)
+![](img/workflow_git_05.png){fig-align="left"}
 
 ## Modifier un fichier
 
@@ -460,13 +470,13 @@ L'opérateur `>>` permet d'ajouter une ligne dans un fichier existant :
 
 <br>
 
-![](img/git_workflow_07.png)
+![](img/workflow_git_06.png){fig-align="left"}
 
 ## Modifier un fichier
 
 <br>
 
-![](img/git_workflow_08.png)
+![](img/workflow_git_07.png){fig-align="left"}
 
 ## Sauvegarder un instantané de la zone d'index
 
@@ -486,23 +496,29 @@ Si vous avez besoin de taper un message plus long, la commande `git commit` ouvr
 
 <br>
 
-`git commit -m "commit initial"`
+`git commit -m "creation du fichier file1.txt"`
 
 <br>
 
-![](img/git_workflow_09.png)
+![](img/workflow_git_08.png){fig-align="left"}
 
 ## Sauvegarder un instantané de la zone d'index
 
 <br>
 
-![](img/git_workflow_10.png)
+![](img/workflow_git_09.png){fig-align="left"}
 
 ## Sauvegarder un instantané de la zone d'index
 
 <br>
 
-![](img/git_workflow_11.png)
+![](img/workflow_git_10.png){fig-align="left"}
+
+## Sauvegarder un instantané de la zone d'index
+
+<br>
+
+![](img/workflow_git_11.png){fig-align="left"}
 
 <br>
 
@@ -512,15 +528,15 @@ Si vous avez besoin de taper un message plus long, la commande `git commit` ouvr
 
 -   120000 : lien symbolique
 
-## Sauvegarder un instantané
+## Sauvegarder un instantané de la zone d'index
 
 <br>
 
-`git commit -m "commit initial"`
+`git commit -m "creation du fichier file1.txt"`
 
 <br>
 
-![](img/git_workflow_12.png)
+![](img/workflow_git_12.png){fig-align="left"}
 
 ## Les commits - quand ?
 
@@ -781,3 +797,215 @@ La commande `git restore --staged` permet de retirer un fichier de la zone d'ind
 <br>
 
 ![](img/git_workflow_27.png)
+
+## Déplacer ou renommer un fichier
+
+<br>
+
+La commande `mv` (pour move) permet de déplacer ou renommer un fichier.
+
+Commençons par supprimer le fichier `file4.txt` de notre répertoire de travail :
+
+`rm file4.txt`.
+
+<br>
+
+![](img/git_workflow_28.png)
+
+## Déplacer ou renommer un fichier
+
+<br>
+
+Renommons le fichier :
+
+`mv file1.txt file2.txt`
+
+<br>
+
+![](img/git_workflow_29.png)
+
+## Déplacer ou renommer un fichier
+
+<br>
+
+Ajoutons la suppression du fichier `file1.txt` à la zone d'index :
+
+`git add file1.txt`
+
+<br>
+
+![](img/git_workflow_30.png)
+
+## Déplacer ou renommer un fichier
+
+<br>
+
+Ajoutons le fichier `file2.txt` à la zone d'index :
+
+`git add file2.txt`
+
+<br>
+
+![](img/git_workflow_31.png)
+
+## Déplacer ou renommer un fichier
+
+<br>
+
+![](img/git_workflow_32.png)
+
+## Déplacer ou renommer un fichier
+
+<br>
+
+`git commit -m "file1.txt renomme file2.txt"`
+
+<br>
+
+![](img/git_workflow_33.png)
+
+## Déplacer ou renommer un fichier
+
+<br>
+
+La commande `git mv` permet de renommer un fichier **à la fois dans le répertoire de travail et dans la zone d'index** :
+
+<br>
+
+`git mv file2.txt file1.txt`
+
+<br>
+
+![](img/git_workflow_34.png)
+
+## Déplacer ou renommer un fichier
+
+<br>
+
+La commande `git mv` permet de renommer un fichier **à la fois dans le répertoire de travail et dans la zone d'index** :
+
+<br>
+
+`git commit -m "file2.txt renomme file1.txt"`
+
+<br>
+
+![](img/git_workflow_35.png)
+
+## Déplacer ou renommer un fichier
+
+<br>
+
+La commande `git mv` permet de renommer un fichier **à la fois dans le répertoire de travail et dans la zone d'index** :
+
+<br>
+
+![](img/git_workflow_36.png)
+
+# Ignorer des fichiers
+
+## Ignorer des fichiers
+
+<br>
+
+Il peut arriver que nous ne souhaitions pas tracer l'historique de certains fichiers (par exemple des fichiers de log).
+
+Ajoutons un fichier `logs` à la racine de notre répertoire :
+
+`touch logs`
+
+<br>
+
+![](img/git_workflow_37.png)
+
+## Ignorer des fichiers
+
+<br>
+
+Les fichiers à être ignorés par git peuvent être listés dans un fichier nommé .gitignore placé à la racine du répertoire de travail :
+
+`echo logs > .gitignore`
+
+`git add .gitignore`
+
+`git commit -m "ajout du fichier .gitignore"`
+
+![](img/git_workflow_38.png)
+
+## Ignorer des fichiers
+
+<br>
+
+Le site GitHub propose des templates de fichiers `.gitignore` pour différents langages de programmation : **https://github.com/github/gitignore**
+
+Aperçu du fichier `.gitignore` proposé pour R :
+
+![](img/git_workflow_39.png)
+
+## Ignorer des fichiers
+
+<br>
+
+Le fichier `.gitignore` permet d'ignorer uniquement les fichiers qui ne sont pas tracés par git.
+
+<br>
+
+Imaginons que nous ajoutons un fichier `bin` dans notre répertoire et que nous l'ajoutons à la zone d'index et au dépôt git :
+
+`touch bin`
+
+`git add .`
+
+`git commit -m "ajout du fichier bin"`
+
+## Ignorer des fichiers
+
+<br>
+
+Ajoutons le fichier `bin` à la liste des fichiers à ignorer :
+
+<br>
+
+`echo bin >> .gitignore`
+
+![](img/git_workflow_40.png)
+
+`git add .`
+
+`git commit -m "ajout de bin au fichier .gitignore"`
+
+## Ignorer des fichiers
+
+<br>
+
+Modifions le fichier bin :
+
+<br>
+
+`echo test > bin`
+
+![](img/git_workflow_41.png)
+
+Le fichier `bin`, qui a été ajouté à la liste des fichiers à ignorer, apparaît dans les fichiers modifiés !
+
+## Ignorer des fichiers
+
+<br>
+
+Pour retirer le fichier `bin` de la zone d'index sans le supprimer de la zone d'index, vous pouvez utiliser la commande `git rm --cached` :
+
+`git rm --cached bin`
+
+<br>
+
+Vérifions que le fichier `bin` est effectivement absent de la zone d'index :
+
+`git ls-files`
+
+`git status`
+
+<br>
+
+Validons la suppression du fichier bin du dépôt :
+
+`git commit -m "suppression du fichier bin du depot"`
