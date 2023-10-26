@@ -711,7 +711,7 @@
 <section id="sauvegarder-un-instantané-de-la-zone-dindex" class="slide level2">
 <h2>Sauvegarder un instantané de la zone d’index</h2>
 <p><br></p>
-<p>Pour créer un instanté de la zone d’index, utilisez la commande suivante :</p>
+<p>Pour créer un instantané de la zone d’index, utilisez la commande suivante :</p>
 <p><br></p>
 
 <img data-src="img/git_commit.png" class="r-stretch"><p><br></p>
@@ -743,33 +743,35 @@
 <section id="sauvegarder-un-instantané" class="slide level2">
 <h2>Sauvegarder un instantané</h2>
 <p><br></p>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p>git commit -m “commit initial”</p>
-</div>
-</div>
-</div>
+<p><code>git commit -m "commit initial"</code></p>
 <p><br></p>
 
-<img data-src="img/workflow_13.png" class="r-stretch"></section>
-<section id="quand-faire-un-commit" class="slide level2">
-<h2>Quand faire un commit ?</h2>
+<img data-src="img/git_workflow_12.png" class="r-stretch"></section>
+<section id="les-commits---quand" class="slide level2">
+<h2>Les commits - quand ?</h2>
 <p><br></p>
+<h4 id="un-commit-nest-pas-un-ctrl-s">Un commit n’est pas un Ctrl + S !</h4>
+<ul>
+<li><p>Un commit contient des <strong>modifications significatives</strong> que l’on souhaite sauvegarder</p></li>
+<li><p>Trouver le <strong>juste milieu</strong> entre un commit “trop petit” et un commit “trop grand”</p></li>
+</ul>
 
-<img data-src="img/commit_size.png" class="r-stretch"><p><br></p>
-<p><strong>Un commit n’est pas un <code>Ctrl + S</code> !</strong></p>
-</section>
-<section id="que-mettre-dans-un-commit" class="slide level2">
-<h2>Que mettre dans un commit ?</h2>
+<img data-src="img/commit_size.png" class="r-stretch"></section>
+<section id="les-commits---quoi" class="slide level2">
+<h2>Les commits - quoi ?</h2>
 <p><br></p>
-<p>Un même commit devrait contenir des modifications ou corrections qui vont ensemble.</p>
+<h4 id="ne-pas-mettre-dans-un-même-commit-des-mofications-qui-nont-rien-à-voir-les-unes-avec-les-autres.">Ne pas mettre dans un même commit des mofications qui n’ont rien à voir les unes avec les autres.</h4>
+<ul>
+<li><p>Un des principaux intérêts de Git est de pouvoir revenir à un état antérieur d’un fichier.</p></li>
+<li><p>Si les modifications concernent différentes parties de votre projet, utilisez des commits différents (intérêt de la zone d’index)</p></li>
+</ul>
 <p><br></p>
 
 <img data-src="img/commit_content.png" class="r-stretch"></section>
-<section id="comment-décrire-un-commit" class="slide level2">
-<h2>Comment décrire un commit ?</h2>
+<section id="les-commits---comment" class="slide level2">
+<h2>Les commits - comment ?</h2>
 <p><br></p>
+<h4 id="le-message-associé-à-un-commit-doit-décrire-ce-qui-a-été-fait-et-pourquoi.">Le message associé à un commit doit décrire ce qui a été fait et pourquoi.</h4>
 <ul>
 <li><p>Etre le plus explicite possible</p></li>
 <li><p>Choisir une convention et s’y tenir</p></li>
@@ -778,30 +780,21 @@
 
 <img data-src="img/git_commit_message.png" class="r-stretch quarto-figure-center"><p class="caption">XKCD</p></section>
 <section id="commit-direct" class="slide level2">
-<h2>Commit direct</h2>
+<h2>Commit “direct”</h2>
 <p><br></p>
-<p>Il est possible de faire un commit sans passer par l’étape d’ajout dans la zone d’index.</p>
-<ul>
-<li><p>La zone d’index permet de vérifier ce que l’on fait</p></li>
-<li><p>A éviter à moins d’être vraiment certain !</p></li>
-</ul>
+<p>Il est possible (mais <strong>pas toujours souhaitable</strong>) de faire un commit sans passer par l’étape d’ajout dans la zone d’index.</p>
 <p><br></p>
 
-<img data-src="img/git_commit_am.png" class="r-stretch"></section>
+<img data-src="img/git_commit_am.png" class="r-stretch"><p>Cette commande fonctionne pour les fichiers qui sont <strong>déjà suivis</strong> par Git (les fichiers qui existent dans la zone d’index).</p>
+</section>
 <section id="commit-direct-1" class="slide level2">
-<h2>Commit direct</h2>
+<h2>Commit “direct”</h2>
 <p><br></p>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
 <p><code>echo test &gt;&gt; file1.txt</code></p>
-<p><code>git commit -am "correction de bug"</code></p>
-</div>
-</div>
-</div>
+<p><code>git commit -am "ajout d'une ligne de texte dans file1.txt"</code></p>
 <p><br></p>
 
-<img data-src="img/git_commit_am_2.png" class="r-stretch"></section>
+<img data-src="img/git_workflow_13.png" class="r-stretch"></section>
 <section id="supprimer-un-fichier" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
@@ -809,71 +802,125 @@
 <p><code>rm file2.txt</code></p>
 <p><br></p>
 <p>La commande <code>ls</code> permet de faire la liste des fichiers présents <strong>dans le répertoire</strong>.</p>
-<p>Pour faire la liste des fichiers présents dans la <strong>zone d’index</strong>, utilisez <code>git ls-files</code>.</p>
-<p><br></p>
+<p>Pour lister les fichiers présents dans la <strong>zone d’index</strong>, utilisez <code>git ls-files</code>.</p>
 
-<img data-src="img/ls_files.png" class="r-stretch"><p>Le fichier supprimé est <strong>toujours présent dans la zone d’index</strong>.</p>
+<img data-src="img/git_workflow_14.png" class="r-stretch"><p>Le fichier supprimé est bien <strong>absent du répertoire de travail</strong> mais <strong>toujours présent dans la zone d’index</strong>.</p>
 </section>
 <section id="supprimer-un-fichier-1" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
 <p><code>rm file2.txt</code></p>
-</div>
-</div>
-</div>
 <p><br></p>
 
-<img data-src="img/workflow_14.png" class="r-stretch"></section>
+<img data-src="img/git_workflow_15.png" class="r-stretch"></section>
 <section id="supprimer-un-fichier-2" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
 <p>Pour retirer de la zone d’index un fichier supprimé du répertoire, il faut procéder de la même façon que pour un commit “classique” :</p>
+<p><br></p>
 <p><code>git add file2.txt</code></p>
 <p><br></p>
-<p>La commande <code>git ls-files</code> montre que le fichier n’est plus présent dans la zone d’index.</p>
+
+<img data-src="img/git_workflow_16.png" class="r-stretch"><p>Cette commande <strong>ajoute la suppression du fichier à la zone d’index</strong>.</p>
+<p><br></p>
 </section>
 <section id="supprimer-un-fichier-3" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
-
-<img data-src="img/workflow_15.png" class="r-stretch"><p><br></p>
-<p>Pour que cette modification soit effective, effectuons un comit :</p>
+<p>Pour que la suppression du fichier soit effective, effectuons un commit :</p>
 <p><code>git commit -m "suppression d'un fichier inutile"</code></p>
-</section>
+<p><br></p>
+
+<img data-src="img/git_workflow_17.png" class="r-stretch"></section>
 <section id="supprimer-un-fichier-4" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
-<p>Pour supprimer un fichier à la fois du répertoire et de la zone d’index, utilisez la commande <code>git rm</code>.</p>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p><code>echo hello &gt; file3.txt</code></p>
-<p><code>git add file3.txt</code></p>
-<p><code>git commit -m "creation d'un nouveau fichier"</code></p>
-</div>
-</div>
-</div>
+<p><code>git commit -m "suppression d'un fichier inutile"</code></p>
 <p><br></p>
 
-<img data-src="img/workflow_16.png" class="r-stretch"></section>
+<img data-src="img/git_workflow_18.png" class="r-stretch"></section>
 <section id="supprimer-un-fichier-5" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
-<p>Pour supprimer un fichier à la fois du répertoire et de la zone d’index, utilisez la commande <code>git rm</code>.</p>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p><code>git rm file3.txt</code></p>
-<p><code>git commit -am "suppression d'un fichier ajoute par erreur"</code></p>
-</div>
-</div>
-</div>
+<p>Il est possible de supprimer un fichier à la fois du répertoire de travail et de la zone d’index, à l’aide de la commande <code>git rm</code>.</p>
+<p><br></p>
+<p>La commande <code>touch</code> permet de créer un fichier vide :</p>
+<p><code>touch file3.txt</code></p>
 <p><br></p>
 
-<img data-src="img/workflow_17.png" class="r-stretch"><div class="footer footer-default">
+<img data-src="img/git_workflow_19.png" class="r-stretch"></section>
+<section id="supprimer-un-fichier-6" class="slide level2">
+<h2>Supprimer un fichier</h2>
+<p><br></p>
+<p>Il est possible de supprimer un fichier à la fois du répertoire de travail et de la zone d’index, à l’aide de la commande <code>git rm</code>.</p>
+<p><br></p>
+<p><code>git add file3.txt</code></p>
+<p><br></p>
+
+<img data-src="img/git_workflow_20.png" class="r-stretch"></section>
+<section id="supprimer-un-fichier-7" class="slide level2">
+<h2>Supprimer un fichier</h2>
+<p><br></p>
+<p>Il est possible de supprimer un fichier à la fois du répertoire de travail et de la zone d’index, à l’aide de la commande <code>git rm</code>.</p>
+<p><br></p>
+<p><code>git commit -m "creation du fichier file3.txt"</code></p>
+<p><br></p>
+
+<img data-src="img/git_workflow_21.png" class="r-stretch"></section>
+<section id="supprimer-un-fichier-8" class="slide level2">
+<h2>Supprimer un fichier</h2>
+<p><br></p>
+<p>Il est possible de supprimer un fichier à la fois du répertoire de travail et de la zone d’index, à l’aide de la commande <code>git rm</code>.</p>
+<p><br></p>
+<p><code>git rm file3.txt</code></p>
+<p><br></p>
+
+<img data-src="img/git_workflow_22.png" class="r-stretch"></section>
+<section id="supprimer-un-fichier-9" class="slide level2">
+<h2>Supprimer un fichier</h2>
+<p><br></p>
+<p>Il est possible de supprimer un fichier à la fois du répertoire de travail et de la zone d’index, à l’aide de la commande <code>git rm</code>.</p>
+<p><br></p>
+
+<img data-src="img/git_workflow_23.png" class="r-stretch"></section>
+<section id="supprimer-un-fichier-10" class="slide level2">
+<h2>Supprimer un fichier</h2>
+<p><br></p>
+<p>Il est possible de supprimer un fichier à la fois du répertoire de travail et de la zone d’index, à l’aide de la commande <code>git rm</code>.</p>
+<p><br></p>
+<p><code>git add file3.txt</code></p>
+<p><code>git commit -m "suppression du fichier file3.txt"</code></p>
+<p><br></p>
+
+<img data-src="img/git_workflow_24.png" class="r-stretch"></section>
+<section id="retirer-un-fichier-de-la-zone-dindex" class="slide level2">
+<h2>Retirer un fichier de la zone d’index</h2>
+<p><br></p>
+<p>Imaginons qu’un fichier a été ajouté à la zone d’index par erreur (par exemple en utilisant <code>git add .</code> ou <code>git add -A</code>).</p>
+<p><br></p>
+<p><code>touch file4.txt</code></p>
+<p><code>git add .</code></p>
+<p><br></p>
+
+<img data-src="img/git_workflow_25.png" class="r-stretch"></section>
+<section id="retirer-un-fichier-de-la-zone-dindex-1" class="slide level2">
+<h2>Retirer un fichier de la zone d’index</h2>
+<p><br></p>
+<p>Imaginons qu’un fichier a été ajouté à la zone d’index par erreur (par exemple en utilisant <code>git add .</code> ou <code>git add -A</code>).</p>
+<p>La commande <code>git restore --staged</code> permet de retirer un fichier de la zone d’index sans le supprimer du répertoire de travail.</p>
+<p><br></p>
+
+<img data-src="img/git_workflow_26.png" class="r-stretch"></section>
+<section id="retirer-un-fichier-de-la-zone-dindex-2" class="slide level2">
+<h2>Retirer un fichier de la zone d’index</h2>
+<p><br></p>
+<p>Imaginons qu’un fichier a été ajouté à la zone d’index par erreur (par exemple en utilisant <code>git add .</code> ou <code>git add -A</code>).</p>
+<p>La commande <code>git restore --staged</code> permet de retirer un fichier de la zone d’index sans le supprimer du répertoire de travail.</p>
+<p><br></p>
+<p><code>git restore --staged file4.txt</code></p>
+<p><br></p>
+
+<img data-src="img/git_workflow_27.png" class="r-stretch"><div class="footer footer-default">
 
 </div>
 </section></section>
