@@ -1049,3 +1049,225 @@ La commande `git rm --cached` permet de supprimer un fichier tracé de la zone d
 <br>
 
 ![](img/workflow_git_53.png){fig-align="left"}
+
+# Naviguer dans l'historique
+
+## Nettoyer le répertoire de travail
+
+<br>
+
+Supprimons le contenu de notre répertoire de travail :
+
+<br>
+
+`rm -rf .git`
+
+`rm .gitignore bin logs file1.txt`
+
+<br>
+
+<br>
+
+Initialisons un nouveau dépôt Git :
+
+<br>
+
+`git init`
+
+## Création d'un fichier
+
+<br>
+
+`touch file1`
+
+`git add .`
+
+`git commit -m "creation du fichier file1"`
+
+<br>
+
+![](img/history_01.png){fig-align="left"}
+
+## Modifications
+
+<br>
+
+`touch file2`
+
+`git add .`
+
+<br>
+
+![](img/history_02.png){fig-align="left"}
+
+## Modifications
+
+<br>
+
+`echo hello > file1`
+
+`echo hello > file2`
+
+<br>
+
+![](img/history_03.png){fig-align="left"}
+
+## Afficher l'état du répertoire
+
+<br>
+
+![](img/history_04.png){fig-align="left"}
+
+## Afficher l'état du répertoire
+
+<br>
+
+La commande `git status -s` (short) permet d'afficher un aperçu condensé de l'état du répertoire :
+
+<br>
+
+![](img/history_05.png){fig-align="left"}
+
+<br>
+
+Les deux colonnes à gauche du nom du fichier se lisent de la manière suivante :
+
+-   **zone d'index à gauche**
+
+-   **répertoire de travail à droite**
+
+## Afficher l'état du répertoire
+
+<br>
+
+`git add .`
+
+`git status -s`
+
+<br>
+
+![](img/history_06.png){fig-align="left"}
+
+## Commit 
+
+<br>
+
+`git commit -m "creation du fichier file2 + ajout de texte dans file1 et file2"`
+
+<br>
+
+![](img/history_07.png){fig-align="left"}
+
+## Une dernière modification
+
+<br>
+
+Ajoutons du texte dans le fichier file1 :
+
+`echo world >> file1`
+
+`git add .`
+
+`git commit -m "ajout de texte dans file1"`
+
+<br>
+
+![](img/history_08.png){fig-align="left"}
+
+## L'historique des commits 
+
+<br>
+
+La commande git log permet d'afficher l'historique des commits :
+
+`git log`
+
+<br>
+
+![](img/history_09.png){fig-align="left"}
+
+## L'historique des commits
+
+<br>
+
+![](img/history_10.png){fig-align="left"}
+
+## L'historique des commits
+
+<br>
+
+![](img/history_11.png){fig-align="left"}
+
+## L'historique des commits
+
+<br>
+
+Par défaut, **le dernier commit est affiché en premier**.
+
+<br>
+
+Pour inverser l'ordre des commits, utilisez l'option `--reverse` :
+
+`git log --reverse`
+
+![](img/history_12.png){fig-align="left"}
+
+## L'historique des commits
+
+<br>
+
+Pour un affichage condensé de l'historique, utilisez l'option `--oneline` :
+
+`git log --oneline`
+
+<br>
+
+![](img/history_13.png){fig-align="left"}
+
+## L'historique des commits
+
+<br>
+
+![](img/history_14.png){fig-align="left"}
+
+## Naviguer dans l'historique
+
+<br>
+
+La commande `git show` permet d'afficher le détail d'un commit :
+
+-   `git show <commit-id>`
+
+-   `git show HEAD~<n>` où n indique le nombre de commits à partir du dernier
+
+<br>
+
+![](img/history_15.png){fig-align="left"}
+
+## Naviguer dans l'historique
+
+<br>
+
+![](img/history_16.png){fig-align="left"}
+
+## Naviguer dans l'historique
+
+<br>
+
+![](img/history_19.png){fig-align="left"}
+
+## Naviguer dans l'historique
+
+<br>
+
+La commande suivante permet d'afficher pour un commit le contenu d'un fichier :
+
+-   `git show <commit-id>:<file>`
+
+-   `git show HEAD~<n>:<file>`
+
+## Naviguer dans l'historique
+
+<br>
+
+![](img/history_20.png){fig-align="left"}

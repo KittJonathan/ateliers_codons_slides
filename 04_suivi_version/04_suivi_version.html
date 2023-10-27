@@ -1122,7 +1122,168 @@
 <h2>Ignorer des fichiers</h2>
 <p><br></p>
 
-<img data-src="img/workflow_git_53.png" class="r-stretch quarto-figure-left"><div class="footer footer-default">
+<img data-src="img/workflow_git_53.png" class="r-stretch quarto-figure-left"></section></section>
+<section>
+<section id="naviguer-dans-lhistorique" class="title-slide slide level1 center">
+<h1>Naviguer dans l’historique</h1>
+
+</section>
+<section id="nettoyer-le-répertoire-de-travail" class="slide level2">
+<h2>Nettoyer le répertoire de travail</h2>
+<p><br></p>
+<p>Supprimons le contenu de notre répertoire de travail :</p>
+<p><br></p>
+<p><code>rm -rf .git</code></p>
+<p><code>rm .gitignore bin logs file1.txt</code></p>
+<p><br></p>
+<p><br></p>
+<p>Initialisons un nouveau dépôt Git :</p>
+<p><br></p>
+<p><code>git init</code></p>
+</section>
+<section id="création-dun-fichier" class="slide level2">
+<h2>Création d’un fichier</h2>
+<p><br></p>
+<p><code>touch file1</code></p>
+<p><code>git add .</code></p>
+<p><code>git commit -m "creation du fichier file1"</code></p>
+<p><br></p>
+
+<img data-src="img/history_01.png" class="r-stretch quarto-figure-left"></section>
+<section id="modifications" class="slide level2">
+<h2>Modifications</h2>
+<p><br></p>
+<p><code>touch file2</code></p>
+<p><code>git add .</code></p>
+<p><br></p>
+
+<img data-src="img/history_02.png" class="r-stretch quarto-figure-left"></section>
+<section id="modifications-1" class="slide level2">
+<h2>Modifications</h2>
+<p><br></p>
+<p><code>echo hello &gt; file1</code></p>
+<p><code>echo hello &gt; file2</code></p>
+<p><br></p>
+
+<img data-src="img/history_03.png" class="r-stretch quarto-figure-left"></section>
+<section id="afficher-létat-du-répertoire-2" class="slide level2">
+<h2>Afficher l’état du répertoire</h2>
+<p><br></p>
+
+<img data-src="img/history_04.png" class="r-stretch quarto-figure-left"></section>
+<section id="afficher-létat-du-répertoire-3" class="slide level2">
+<h2>Afficher l’état du répertoire</h2>
+<p><br></p>
+<p>La commande <code>git status -s</code> (short) permet d’afficher un aperçu condensé de l’état du répertoire :</p>
+<p><br></p>
+
+<img data-src="img/history_05.png" class="r-stretch quarto-figure-left"><p><br></p>
+<p>Les deux colonnes à gauche du nom du fichier se lisent de la manière suivante :</p>
+<ul>
+<li><p><strong>zone d’index à gauche</strong></p></li>
+<li><p><strong>répertoire de travail à droite</strong></p></li>
+</ul>
+</section>
+<section id="afficher-létat-du-répertoire-4" class="slide level2">
+<h2>Afficher l’état du répertoire</h2>
+<p><br></p>
+<p><code>git add .</code></p>
+<p><code>git status -s</code></p>
+<p><br></p>
+
+<img data-src="img/history_06.png" class="r-stretch quarto-figure-left"></section>
+<section id="commit" class="slide level2">
+<h2>Commit</h2>
+<p><br></p>
+<p><code>git commit -m "creation du fichier file2 + ajout de texte dans file1 et file2"</code></p>
+<p><br></p>
+
+<img data-src="img/history_07.png" class="r-stretch quarto-figure-left"></section>
+<section id="une-dernière-modification" class="slide level2">
+<h2>Une dernière modification</h2>
+<p><br></p>
+<p>Ajoutons du texte dans le fichier file1 :</p>
+<p><code>echo world &gt;&gt; file1</code></p>
+<p><code>git add .</code></p>
+<p><code>git commit -m "ajout de texte dans file1"</code></p>
+<p><br></p>
+
+<img data-src="img/history_08.png" class="r-stretch quarto-figure-left"></section>
+<section id="lhistorique-des-commits" class="slide level2">
+<h2>L’historique des commits</h2>
+<p><br></p>
+<p>La commande git log permet d’afficher l’historique des commits :</p>
+<p><code>git log</code></p>
+<p><br></p>
+
+<img data-src="img/history_09.png" class="r-stretch quarto-figure-left"></section>
+<section id="lhistorique-des-commits-1" class="slide level2">
+<h2>L’historique des commits</h2>
+<p><br></p>
+
+<img data-src="img/history_10.png" class="r-stretch quarto-figure-left"></section>
+<section id="lhistorique-des-commits-2" class="slide level2">
+<h2>L’historique des commits</h2>
+<p><br></p>
+
+<img data-src="img/history_11.png" class="r-stretch quarto-figure-left"></section>
+<section id="lhistorique-des-commits-3" class="slide level2">
+<h2>L’historique des commits</h2>
+<p><br></p>
+<p>Par défaut, <strong>le dernier commit est affiché en premier</strong>.</p>
+<p><br></p>
+<p>Pour inverser l’ordre des commits, utilisez l’option <code>--reverse</code> :</p>
+<p><code>git log --reverse</code></p>
+
+<img data-src="img/history_12.png" class="r-stretch quarto-figure-left"></section>
+<section id="lhistorique-des-commits-4" class="slide level2">
+<h2>L’historique des commits</h2>
+<p><br></p>
+<p>Pour un affichage condensé de l’historique, utilisez l’option <code>--oneline</code> :</p>
+<p><code>git log --oneline</code></p>
+<p><br></p>
+
+<img data-src="img/history_13.png" class="r-stretch quarto-figure-left"></section>
+<section id="lhistorique-des-commits-5" class="slide level2">
+<h2>L’historique des commits</h2>
+<p><br></p>
+
+<img data-src="img/history_14.png" class="r-stretch quarto-figure-left"></section>
+<section id="naviguer-dans-lhistorique-1" class="slide level2">
+<h2>Naviguer dans l’historique</h2>
+<p><br></p>
+<p>La commande <code>git show</code> permet d’afficher le détail d’un commit :</p>
+<ul>
+<li><p><code>git show &lt;commit-id&gt;</code></p></li>
+<li><p><code>git show HEAD~&lt;n&gt;</code> où n indique le nombre de commits à partir du dernier</p></li>
+</ul>
+<p><br></p>
+
+<img data-src="img/history_15.png" class="r-stretch quarto-figure-left"></section>
+<section id="naviguer-dans-lhistorique-2" class="slide level2">
+<h2>Naviguer dans l’historique</h2>
+<p><br></p>
+
+<img data-src="img/history_16.png" class="r-stretch quarto-figure-left"></section>
+<section id="naviguer-dans-lhistorique-3" class="slide level2">
+<h2>Naviguer dans l’historique</h2>
+<p><br></p>
+
+<img data-src="img/history_19.png" class="r-stretch quarto-figure-left"></section>
+<section id="naviguer-dans-lhistorique-4" class="slide level2">
+<h2>Naviguer dans l’historique</h2>
+<p><br></p>
+<p>La commande suivante permet d’afficher pour un commit le contenu d’un fichier :</p>
+<ul>
+<li><p><code>git show &lt;commit-id&gt;:&lt;file&gt;</code></p></li>
+<li><p><code>git show HEAD~&lt;n&gt;:&lt;file&gt;</code></p></li>
+</ul>
+</section>
+<section id="naviguer-dans-lhistorique-5" class="slide level2">
+<h2>Naviguer dans l’historique</h2>
+<p><br></p>
+
+<img data-src="img/history_20.png" class="r-stretch quarto-figure-left"><div class="footer footer-default">
 
 </div>
 </section></section>
