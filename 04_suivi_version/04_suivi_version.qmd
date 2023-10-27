@@ -425,6 +425,14 @@ La commande `git add` permet d'ajouter des fichiers à la zone d'index :
 
 ![](img/workflow_git_02.png){fig-align="left"}
 
+## Ajouter des fichiers à la zone d'index
+
+<br>
+
+`git add file1.txt`
+
+<br>
+
 ![](img/workflow_git_03.png){fig-align="left"}
 
 ## Configurer Git - fin de ligne
@@ -766,183 +774,161 @@ Il est possible de supprimer un fichier à la fois du répertoire de travail et 
 
 ![](img/workflow_git_26.png){fig-align="left"}
 
-## Retirer un fichier de la zone d'index
-
-<br>
-
-Imaginons qu'un fichier a été ajouté à la zone d'index par erreur (par exemple en utilisant `git add .` ou `git add -A`).
-
-<br>
-
-`touch file4.txt`
-
-`git add .`
-
-<br>
-
-![](img/git_workflow_25.png)
-
-## Retirer un fichier de la zone d'index
-
-<br>
-
-Imaginons qu'un fichier a été ajouté à la zone d'index par erreur (par exemple en utilisant `git add .` ou `git add -A`).
-
-La commande `git restore --staged` permet de retirer un fichier de la zone d'index sans le supprimer du répertoire de travail.
-
-<br>
-
-![](img/git_workflow_26.png)
-
-## Retirer un fichier de la zone d'index
-
-<br>
-
-Imaginons qu'un fichier a été ajouté à la zone d'index par erreur (par exemple en utilisant `git add .` ou `git add -A`).
-
-La commande `git restore --staged` permet de retirer un fichier de la zone d'index sans le supprimer du répertoire de travail.
-
-<br>
-
-`git restore --staged file4.txt`
-
-<br>
-
-![](img/git_workflow_27.png)
-
 ## Déplacer ou renommer un fichier
 
 <br>
 
-La commande `mv` (pour move) permet de déplacer ou renommer un fichier.
+La commande `mv` (move) permet de déplacer le contenu d'un fichier dans un autre (revient à renommer un fichier) :
 
-Commençons par supprimer le fichier `file4.txt` de notre répertoire de travail :
-
-`rm file4.txt`.
+`mv file1.txt file0.txt`
 
 <br>
 
-![](img/git_workflow_28.png)
+![](img/workflow_git_28.png){fig-align="left"}
 
 ## Déplacer ou renommer un fichier
 
 <br>
-
-Renommons le fichier :
-
-`mv file1.txt file2.txt`
-
-<br>
-
-![](img/git_workflow_29.png)
-
-## Déplacer ou renommer un fichier
-
-<br>
-
-Ajoutons la suppression du fichier `file1.txt` à la zone d'index :
 
 `git add file1.txt`
 
 <br>
 
-![](img/git_workflow_30.png)
+![](img/workflow_git_29.png){fig-align="left"}
 
 ## Déplacer ou renommer un fichier
 
 <br>
 
-Ajoutons le fichier `file2.txt` à la zone d'index :
-
-`git add file2.txt`
+`git add file0.txt`
 
 <br>
 
-![](img/git_workflow_31.png)
+![](img/workflow_git_30.png){fig-align="left"}
 
 ## Déplacer ou renommer un fichier
 
 <br>
 
-![](img/git_workflow_32.png)
+`git commit -m "fichier file1.txt renomme file0.txt"`
+
+<br>
+
+![](img/workflow_git_31.png){fig-align="left"}
 
 ## Déplacer ou renommer un fichier
 
 <br>
 
-`git commit -m "file1.txt renomme file2.txt"`
+Comme nous l'avons vu pour les commandes `rm` et `git rm`, la commande `git mv` permet d'appliquer la commande `mv` au répertoire de travail et à la zone d'index.
 
 <br>
 
-![](img/git_workflow_33.png)
+`git mv file0.txt file1.txt`
+
+<br>
+
+![](img/workflow_git_32.png){fig-align="left"}
 
 ## Déplacer ou renommer un fichier
 
 <br>
 
-La commande `git mv` permet de renommer un fichier **à la fois dans le répertoire de travail et dans la zone d'index** :
+`git commit -m "fichier file0.txt renomme file1.txt"`
 
 <br>
 
-`git mv file2.txt file1.txt`
-
-<br>
-
-![](img/git_workflow_34.png)
-
-## Déplacer ou renommer un fichier
-
-<br>
-
-La commande `git mv` permet de renommer un fichier **à la fois dans le répertoire de travail et dans la zone d'index** :
-
-<br>
-
-`git commit -m "file2.txt renomme file1.txt"`
-
-<br>
-
-![](img/git_workflow_35.png)
-
-## Déplacer ou renommer un fichier
-
-<br>
-
-La commande `git mv` permet de renommer un fichier **à la fois dans le répertoire de travail et dans la zone d'index** :
-
-<br>
-
-![](img/git_workflow_36.png)
+![](img/workflow_git_33.png){fig-align="left"}
 
 # Ignorer des fichiers
 
-## Ignorer des fichiers
+## Retirer un fichier de la zone d'index
 
 <br>
 
-Il peut arriver que nous ne souhaitions pas tracer l'historique de certains fichiers (par exemple des fichiers de log).
+Imaginons que nous avons ajouté un fichier de logs à la zone d'index par erreur (peut arriver en utilisant `git add .` ou `git add -A`) :
 
-Ajoutons un fichier `logs` à la racine de notre répertoire :
+<br>
 
 `touch logs`
 
 <br>
 
-![](img/git_workflow_37.png)
+![](img/workflow_git_34.png){fig-align="left"}
+
+## Retirer un fichier de la zone d'index
+
+<br>
+
+Imaginons que nous avons ajouté un fichier de logs à la zone d'index par erreur (peut arriver en utilisant `git add .` ou `git add -A`) :
+
+<br>
+
+`git add .`
+
+<br>
+
+![](img/workflow_git_35.png){fig-align="left"}
+
+## Retirer un fichier de la zone d'index
+
+<br>
+
+![](img/workflow_git_36.png){fig-align="left"}
+
+## Retirer un fichier de la zone d'index
+
+<br>
+
+`git restore --staged logs`
+
+<br>
+
+![](img/workflow_git_37.png){fig-align="left"}
+
+## Retirer un fichier de la zone d'index
+
+<br>
+
+![](img/workflow_git_38.png){fig-align="left"}
 
 ## Ignorer des fichiers
 
 <br>
 
-Les fichiers à être ignorés par git peuvent être listés dans un fichier nommé .gitignore placé à la racine du répertoire de travail :
+Pour qu'un fichier du répertoire de travail **ne soit pas tracé** par Git, il faut l'ajouter dans un fichier nommé `.gitignore` placé à la racine du répertoire :
 
 `echo logs > .gitignore`
 
+<br>
+
+![](img/workflow_git_39.png){fig-align="left"}
+
+## Ignorer des fichiers
+
+<br>
+
 `git add .gitignore`
 
-`git commit -m "ajout du fichier .gitignore"`
+<br>
 
-![](img/git_workflow_38.png)
+![](img/workflow_git_40.png){fig-align="left"}
+
+## Ignorer des fichiers
+
+<br>
+
+`git commit -m "creation du fichier logs et ajout de ce fichier dans .gitignore"`
+
+<br>
+
+![](img/workflow_git_41.png){fig-align="left"}
+
+## Ignorer des fichiers
+
+<br>
+
+![](img/workflow_git_42.png){fig-align="left"}
 
 ## Ignorer des fichiers
 
@@ -962,62 +948,104 @@ Le fichier `.gitignore` permet d'ignorer uniquement les fichiers qui ne sont pas
 
 <br>
 
-Imaginons que nous ajoutons un fichier `bin` dans notre répertoire et que nous l'ajoutons à la zone d'index et au dépôt git :
-
 `touch bin`
 
-`git add .`
+<br>
 
-`git commit -m "ajout du fichier bin"`
+![](img/workflow_git_43.png){fig-align="left"}
 
 ## Ignorer des fichiers
 
 <br>
 
-Ajoutons le fichier `bin` à la liste des fichiers à ignorer :
+`git add .`
+
+<br>
+
+![](img/workflow_git_44.png){fig-align="left"}
+
+## Ignorer des fichiers
+
+<br>
+
+`git commit -m "creation du fichier bin"`
+
+<br>
+
+![](img/workflow_git_45.png){fig-align="left"}
+
+## Ignorer des fichiers
 
 <br>
 
 `echo bin >> .gitignore`
 
-![](img/git_workflow_40.png)
+<br>
 
-`git add .`
-
-`git commit -m "ajout de bin au fichier .gitignore"`
+![](img/workflow_git_46.png){fig-align="left"}
 
 ## Ignorer des fichiers
 
 <br>
 
-Modifions le fichier bin :
+`git add .`
+
+<br>
+
+![](img/workflow_git_47.png){fig-align="left"}
+
+## Ignorer des fichiers
+
+<br>
+
+`git commit -m "ajout du fichier bin dans .gitignore"`
+
+<br>
+
+![](img/workflow_git_48.png){fig-align="left"}
+
+## Ignorer des fichiers
 
 <br>
 
 `echo test > bin`
 
-![](img/git_workflow_41.png)
+<br>
 
-Le fichier `bin`, qui a été ajouté à la liste des fichiers à ignorer, apparaît dans les fichiers modifiés !
+![](img/workflow_git_49.png){fig-align="left"}
 
 ## Ignorer des fichiers
 
 <br>
 
-Pour retirer le fichier `bin` de la zone d'index sans le supprimer de la zone d'index, vous pouvez utiliser la commande `git rm --cached` :
+![](img/workflow_git_52.png){fig-align="left"}
+
+Le fichier `bin` est toujours tracé !
+
+## Ignorer des fichiers
+
+<br>
+
+La commande `git rm --cached` permet de supprimer un fichier tracé de la zone d'index :
 
 `git rm --cached bin`
 
 <br>
 
-Vérifions que le fichier `bin` est effectivement absent de la zone d'index :
+![](img/workflow_git_50.png){fig-align="left"}
 
-`git ls-files`
-
-`git status`
+## Ignorer des fichiers
 
 <br>
 
-Validons la suppression du fichier bin du dépôt :
-
 `git commit -m "suppression du fichier bin du depot"`
+
+<br>
+
+![](img/workflow_git_51.png){fig-align="left"}
+
+## Ignorer des fichiers
+
+<br>
+
+![](img/workflow_git_53.png){fig-align="left"}
