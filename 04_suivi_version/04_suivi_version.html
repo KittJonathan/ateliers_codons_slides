@@ -813,108 +813,122 @@
 <h2>Commit “direct”</h2>
 <p><br></p>
 <p><code>echo test &gt;&gt; file1.txt</code></p>
-<p><code>git commit -am "ajout d'une ligne de texte dans file1.txt"</code></p>
 <p><br></p>
 
-<img data-src="img/git_workflow_13.png" class="r-stretch"></section>
+<img data-src="img/workflow_git_13.png" class="r-stretch quarto-figure-left"></section>
+<section id="commit-direct-2" class="slide level2">
+<h2>Commit “direct”</h2>
+<p><br></p>
+<p><code>git commit -am "ajout d'une ligne dans file1.txt"</code></p>
+<p><br></p>
+
+<img data-src="img/workflow_git_14.png" class="r-stretch quarto-figure-left"></section>
 <section id="supprimer-un-fichier" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
-<p>La commande <code>rm</code> permet de supprimer un fichier du répertoire.</p>
+<p>La commande <code>touch</code> permet de créer un fichier vide :</p>
+<p><br></p>
+<p><code>touch file2.txt</code></p>
+<p><br></p>
+
+<img data-src="img/workflow_git_15.png" class="r-stretch quarto-figure-left"></section>
+<section id="supprimer-un-fichier-1" class="slide level2">
+<h2>Supprimer un fichier</h2>
+<p><br></p>
+<p><code>git add .</code></p>
+<p><br></p>
+
+<img data-src="img/workflow_git_16.png" class="r-stretch quarto-figure-left"></section>
+<section id="supprimer-un-fichier-2" class="slide level2">
+<h2>Supprimer un fichier</h2>
+<p><br></p>
+<p><code>git commit -m "ajout du fichier vide file2.txt"</code></p>
+<p><br></p>
+
+<img data-src="img/workflow_git_17.png" class="r-stretch quarto-figure-left"></section>
+<section id="supprimer-un-fichier-3" class="slide level2">
+<h2>Supprimer un fichier</h2>
+<p><br></p>
+<p>La commande <code>rm</code> permet de supprimer un fichier du répertoire de travail.</p>
 <p><code>rm file2.txt</code></p>
 <p><br></p>
 <p>La commande <code>ls</code> permet de faire la liste des fichiers présents <strong>dans le répertoire</strong>.</p>
 <p>Pour lister les fichiers présents dans la <strong>zone d’index</strong>, utilisez <code>git ls-files</code>.</p>
-
-<img data-src="img/git_workflow_14.png" class="r-stretch"><p>Le fichier supprimé est bien <strong>absent du répertoire de travail</strong> mais <strong>toujours présent dans la zone d’index</strong>.</p>
+<p><br></p>
+<p>Le fichier est <strong>supprimé du répertoire de travail mais pas de la zone d’index</strong>.</p>
 </section>
-<section id="supprimer-un-fichier-1" class="slide level2">
+<section id="supprimer-un-fichier-4" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
 <p><code>rm file2.txt</code></p>
 <p><br></p>
 
-<img data-src="img/git_workflow_15.png" class="r-stretch"></section>
-<section id="supprimer-un-fichier-2" class="slide level2">
+<img data-src="img/workflow_git_18.png" class="r-stretch quarto-figure-left"></section>
+<section id="supprimer-un-fichier-5" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
-<p>Pour retirer de la zone d’index un fichier supprimé du répertoire, il faut procéder de la même façon que pour un commit “classique” :</p>
+
+<img data-src="img/workflow_git_19.png" class="r-stretch quarto-figure-left"></section>
+<section id="supprimer-un-fichier-6" class="slide level2">
+<h2>Supprimer un fichier</h2>
+<p><br></p>
+<p>Pour retirer de la zone d’index un fichier supprimé du répertoire de travail, il faut procéder de la même façon que pour un commit “classique” :</p>
 <p><br></p>
 <p><code>git add file2.txt</code></p>
 <p><br></p>
 
-<img data-src="img/git_workflow_16.png" class="r-stretch"><p>Cette commande <strong>ajoute la suppression du fichier à la zone d’index</strong>.</p>
-<p><br></p>
+<img data-src="img/workflow_git_20.png" class="r-stretch quarto-figure-left"><p><br></p>
+<p>Cette commande <strong>ajoute la suppression du fichier à la zone d’index</strong>.</p>
 </section>
-<section id="supprimer-un-fichier-3" class="slide level2">
-<h2>Supprimer un fichier</h2>
-<p><br></p>
-<p>Pour que la suppression du fichier soit effective, effectuons un commit :</p>
-<p><code>git commit -m "suppression d'un fichier inutile"</code></p>
-<p><br></p>
-
-<img data-src="img/git_workflow_17.png" class="r-stretch"></section>
-<section id="supprimer-un-fichier-4" class="slide level2">
-<h2>Supprimer un fichier</h2>
-<p><br></p>
-<p><code>git commit -m "suppression d'un fichier inutile"</code></p>
-<p><br></p>
-
-<img data-src="img/git_workflow_18.png" class="r-stretch"></section>
-<section id="supprimer-un-fichier-5" class="slide level2">
-<h2>Supprimer un fichier</h2>
-<p><br></p>
-<p>Il est possible de supprimer un fichier à la fois du répertoire de travail et de la zone d’index, à l’aide de la commande <code>git rm</code>.</p>
-<p><br></p>
-<p>La commande <code>touch</code> permet de créer un fichier vide :</p>
-<p><code>touch file3.txt</code></p>
-<p><br></p>
-
-<img data-src="img/git_workflow_19.png" class="r-stretch"></section>
-<section id="supprimer-un-fichier-6" class="slide level2">
-<h2>Supprimer un fichier</h2>
-<p><br></p>
-<p>Il est possible de supprimer un fichier à la fois du répertoire de travail et de la zone d’index, à l’aide de la commande <code>git rm</code>.</p>
-<p><br></p>
-<p><code>git add file3.txt</code></p>
-<p><br></p>
-
-<img data-src="img/git_workflow_20.png" class="r-stretch"></section>
 <section id="supprimer-un-fichier-7" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
-<p>Il est possible de supprimer un fichier à la fois du répertoire de travail et de la zone d’index, à l’aide de la commande <code>git rm</code>.</p>
-<p><br></p>
-<p><code>git commit -m "creation du fichier file3.txt"</code></p>
+<p><code>git commit -m "suppression du fichier file2.txt"</code></p>
 <p><br></p>
 
-<img data-src="img/git_workflow_21.png" class="r-stretch"></section>
+<img data-src="img/workflow_git_21.png" class="r-stretch quarto-figure-left"></section>
 <section id="supprimer-un-fichier-8" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
 <p>Il est possible de supprimer un fichier à la fois du répertoire de travail et de la zone d’index, à l’aide de la commande <code>git rm</code>.</p>
 <p><br></p>
-<p><code>git rm file3.txt</code></p>
+<p><code>touch file3.txt</code></p>
 <p><br></p>
 
-<img data-src="img/git_workflow_22.png" class="r-stretch"></section>
+<img data-src="img/workflow_git_22.png" class="r-stretch quarto-figure-left"></section>
 <section id="supprimer-un-fichier-9" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
-<p>Il est possible de supprimer un fichier à la fois du répertoire de travail et de la zone d’index, à l’aide de la commande <code>git rm</code>.</p>
+<p><code>git add file3.txt</code></p>
 <p><br></p>
 
-<img data-src="img/git_workflow_23.png" class="r-stretch"></section>
+<img data-src="img/workflow_git_23.png" class="r-stretch quarto-figure-left"></section>
 <section id="supprimer-un-fichier-10" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
-<p>Il est possible de supprimer un fichier à la fois du répertoire de travail et de la zone d’index, à l’aide de la commande <code>git rm</code>.</p>
+<p><code>git commit -m "creation du fichier vide file3.txt"</code></p>
 <p><br></p>
-<p><code>git add file3.txt</code></p>
+
+<img data-src="img/workflow_git_24.png" class="r-stretch quarto-figure-left"></section>
+<section id="supprimer-un-fichier-11" class="slide level2">
+<h2>Supprimer un fichier</h2>
+<p><br></p>
+<p><code>git rm file3.txt</code></p>
+<p><br></p>
+
+<img data-src="img/workflow_git_25.png" class="r-stretch quarto-figure-left"></section>
+<section id="supprimer-un-fichier-12" class="slide level2">
+<h2>Supprimer un fichier</h2>
+<p><br></p>
+
+<img data-src="img/workflow_git_27.png" class="r-stretch quarto-figure-left"></section>
+<section id="supprimer-un-fichier-13" class="slide level2">
+<h2>Supprimer un fichier</h2>
+<p><br></p>
 <p><code>git commit -m "suppression du fichier file3.txt"</code></p>
 <p><br></p>
 
-<img data-src="img/git_workflow_24.png" class="r-stretch"></section>
+<img data-src="img/workflow_git_26.png" class="r-stretch quarto-figure-left"></section>
 <section id="retirer-un-fichier-de-la-zone-dindex" class="slide level2">
 <h2>Retirer un fichier de la zone d’index</h2>
 <p><br></p>

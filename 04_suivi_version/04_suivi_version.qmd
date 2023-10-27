@@ -596,17 +596,59 @@ Cette commande fonctionne pour les fichiers qui sont **déjà suivis** par Git (
 
 `echo test >> file1.txt`
 
-`git commit -am "ajout d'une ligne de texte dans file1.txt"`
+<br>
+
+![](img/workflow_git_13.png){fig-align="left"}
+
+## Commit "direct"
 
 <br>
 
-![](img/git_workflow_13.png)
+`git commit -am "ajout d'une ligne dans file1.txt"`
+
+<br>
+
+![](img/workflow_git_14.png){fig-align="left"}
 
 ## Supprimer un fichier
 
 <br>
 
-La commande `rm` permet de supprimer un fichier du répertoire.
+La commande `touch` permet de créer un fichier vide :
+
+<br>
+
+`touch file2.txt`
+
+<br>
+
+![](img/workflow_git_15.png){fig-align="left"}
+
+## Supprimer un fichier
+
+<br>
+
+`git add .`
+
+<br>
+
+![](img/workflow_git_16.png){fig-align="left"}
+
+## Supprimer un fichier
+
+<br>
+
+`git commit -m "ajout du fichier vide file2.txt"`
+
+<br>
+
+![](img/workflow_git_17.png){fig-align="left"}
+
+## Supprimer un fichier
+
+<br>
+
+La commande `rm` permet de supprimer un fichier du répertoire de travail.
 
 `rm file2.txt`
 
@@ -616,9 +658,9 @@ La commande `ls` permet de faire la liste des fichiers présents **dans le répe
 
 Pour lister les fichiers présents dans la **zone d'index**, utilisez `git ls-files`.
 
-![](img/git_workflow_14.png)
+<br>
 
-Le fichier supprimé est bien **absent du répertoire de travail** mais **toujours présent dans la zone d'index**.
+Le fichier est **supprimé du répertoire de travail mais pas de la zone d'index**.
 
 ## Supprimer un fichier
 
@@ -628,13 +670,19 @@ Le fichier supprimé est bien **absent du répertoire de travail** mais **toujou
 
 <br>
 
-![](img/git_workflow_15.png)
+![](img/workflow_git_18.png){fig-align="left"}
 
 ## Supprimer un fichier
 
 <br>
 
-Pour retirer de la zone d'index un fichier supprimé du répertoire, il faut procéder de la même façon que pour un commit "classique" :
+![](img/workflow_git_19.png){fig-align="left"}
+
+## Supprimer un fichier
+
+<br>
+
+Pour retirer de la zone d'index un fichier supprimé du répertoire de travail, il faut procéder de la même façon que pour un commit "classique" :
 
 <br>
 
@@ -642,33 +690,21 @@ Pour retirer de la zone d'index un fichier supprimé du répertoire, il faut pro
 
 <br>
 
-![](img/git_workflow_16.png)
+![](img/workflow_git_20.png){fig-align="left"}
+
+<br>
 
 Cette commande **ajoute la suppression du fichier à la zone d'index**.
 
-<br>
-
 ## Supprimer un fichier
 
 <br>
 
-Pour que la suppression du fichier soit effective, effectuons un commit :
-
-`git commit -m "suppression d'un fichier inutile"`
+`git commit -m "suppression du fichier file2.txt"`
 
 <br>
 
-![](img/git_workflow_17.png)
-
-## Supprimer un fichier
-
-<br>
-
-`git commit -m "suppression d'un fichier inutile"`
-
-<br>
-
-![](img/git_workflow_18.png)
+![](img/workflow_git_21.png){fig-align="left"}
 
 ## Supprimer un fichier
 
@@ -677,20 +713,14 @@ Pour que la suppression du fichier soit effective, effectuons un commit :
 Il est possible de supprimer un fichier à la fois du répertoire de travail et de la zone d'index, à l'aide de la commande `git rm`.
 
 <br>
-
-La commande `touch` permet de créer un fichier vide :
 
 `touch file3.txt`
 
 <br>
 
-![](img/git_workflow_19.png)
+![](img/workflow_git_22.png){fig-align="left"}
 
 ## Supprimer un fichier
-
-<br>
-
-Il est possible de supprimer un fichier à la fois du répertoire de travail et de la zone d'index, à l'aide de la commande `git rm`.
 
 <br>
 
@@ -698,27 +728,19 @@ Il est possible de supprimer un fichier à la fois du répertoire de travail et 
 
 <br>
 
-![](img/git_workflow_20.png)
+![](img/workflow_git_23.png){fig-align="left"}
 
 ## Supprimer un fichier
 
 <br>
 
-Il est possible de supprimer un fichier à la fois du répertoire de travail et de la zone d'index, à l'aide de la commande `git rm`.
+`git commit -m "creation du fichier vide file3.txt"`
 
 <br>
 
-`git commit -m "creation du fichier file3.txt"`
-
-<br>
-
-![](img/git_workflow_21.png)
+![](img/workflow_git_24.png){fig-align="left"}
 
 ## Supprimer un fichier
-
-<br>
-
-Il est possible de supprimer un fichier à la fois du répertoire de travail et de la zone d'index, à l'aide de la commande `git rm`.
 
 <br>
 
@@ -726,33 +748,23 @@ Il est possible de supprimer un fichier à la fois du répertoire de travail et 
 
 <br>
 
-![](img/git_workflow_22.png)
+![](img/workflow_git_25.png){fig-align="left"}
 
 ## Supprimer un fichier
 
 <br>
 
-Il est possible de supprimer un fichier à la fois du répertoire de travail et de la zone d'index, à l'aide de la commande `git rm`.
-
-<br>
-
-![](img/git_workflow_23.png)
+![](img/workflow_git_27.png){fig-align="left"}
 
 ## Supprimer un fichier
 
 <br>
-
-Il est possible de supprimer un fichier à la fois du répertoire de travail et de la zone d'index, à l'aide de la commande `git rm`.
-
-<br>
-
-`git add file3.txt`
 
 `git commit -m "suppression du fichier file3.txt"`
 
 <br>
 
-![](img/git_workflow_24.png)
+![](img/workflow_git_26.png){fig-align="left"}
 
 ## Retirer un fichier de la zone d'index
 
