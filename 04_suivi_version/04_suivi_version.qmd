@@ -470,6 +470,18 @@ L'opérateur `>>` permet d'ajouter une ligne dans un fichier existant :
 
 ![](img/workflow_git_05.png){fig-align="left"}
 
+## Modifier un fichier 
+
+<br>
+
+La commande git diff permet de comparer le répertoire de travail à la zone d'index :
+
+`git diff`
+
+<br>
+
+![](img/history_19.png){fig-align="left"}
+
 ## Modifier un fichier
 
 <br>
@@ -641,6 +653,16 @@ La commande `touch` permet de créer un fichier vide :
 <br>
 
 ![](img/workflow_git_16.png){fig-align="left"}
+
+## Supprimer un fichier
+
+<br>
+
+La commande `git diff --staged` (ou `git diff --cached`) permet de comparer la zone d'index au dernier commit :
+
+<br>
+
+![](img/git_diff_01.png){fig-align="left"}
 
 ## Supprimer un fichier
 
@@ -1148,7 +1170,7 @@ Les deux colonnes à gauche du nom du fichier se lisent de la manière suivante 
 
 ![](img/history_06.png){fig-align="left"}
 
-## Commit 
+## Commit
 
 <br>
 
@@ -1174,7 +1196,7 @@ Ajoutons du texte dans le fichier file1 :
 
 ![](img/history_08.png){fig-align="left"}
 
-## L'historique des commits 
+## L'historique des commits
 
 <br>
 
@@ -1249,12 +1271,6 @@ La commande `git show` permet d'afficher le détail d'un commit :
 <br>
 
 ![](img/history_16.png){fig-align="left"}
-
-## Naviguer dans l'historique
-
-<br>
-
-![](img/history_19.png){fig-align="left"}
 
 ## Naviguer dans l'historique
 

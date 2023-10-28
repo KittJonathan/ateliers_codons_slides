@@ -714,11 +714,19 @@
 <section id="modifier-un-fichier-2" class="slide level2">
 <h2>Modifier un fichier</h2>
 <p><br></p>
+<p>La commande git diff permet de comparer le répertoire de travail à la zone d’index :</p>
+<p><code>git diff</code></p>
+<p><br></p>
+
+<img data-src="img/history_19.png" class="r-stretch quarto-figure-left"></section>
+<section id="modifier-un-fichier-3" class="slide level2">
+<h2>Modifier un fichier</h2>
+<p><br></p>
 <p><code>git add file1.txt</code></p>
 <p><br></p>
 
 <img data-src="img/workflow_git_06.png" class="r-stretch quarto-figure-left"></section>
-<section id="modifier-un-fichier-3" class="slide level2">
+<section id="modifier-un-fichier-4" class="slide level2">
 <h2>Modifier un fichier</h2>
 <p><br></p>
 
@@ -840,11 +848,18 @@
 <section id="supprimer-un-fichier-2" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
+<p>La commande <code>git diff --staged</code> (ou <code>git diff --cached</code>) permet de comparer la zone d’index au dernier commit :</p>
+<p><br></p>
+
+<img data-src="img/git_diff_01.png" class="r-stretch quarto-figure-left"></section>
+<section id="supprimer-un-fichier-3" class="slide level2">
+<h2>Supprimer un fichier</h2>
+<p><br></p>
 <p><code>git commit -m "ajout du fichier vide file2.txt"</code></p>
 <p><br></p>
 
 <img data-src="img/workflow_git_17.png" class="r-stretch quarto-figure-left"></section>
-<section id="supprimer-un-fichier-3" class="slide level2">
+<section id="supprimer-un-fichier-4" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
 <p>La commande <code>rm</code> permet de supprimer un fichier du répertoire de travail.</p>
@@ -855,19 +870,19 @@
 <p><br></p>
 <p>Le fichier est <strong>supprimé du répertoire de travail mais pas de la zone d’index</strong>.</p>
 </section>
-<section id="supprimer-un-fichier-4" class="slide level2">
+<section id="supprimer-un-fichier-5" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
 <p><code>rm file2.txt</code></p>
 <p><br></p>
 
 <img data-src="img/workflow_git_18.png" class="r-stretch quarto-figure-left"></section>
-<section id="supprimer-un-fichier-5" class="slide level2">
+<section id="supprimer-un-fichier-6" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
 
 <img data-src="img/workflow_git_19.png" class="r-stretch quarto-figure-left"></section>
-<section id="supprimer-un-fichier-6" class="slide level2">
+<section id="supprimer-un-fichier-7" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
 <p>Pour retirer de la zone d’index un fichier supprimé du répertoire de travail, il faut procéder de la même façon que pour un commit “classique” :</p>
@@ -878,14 +893,14 @@
 <img data-src="img/workflow_git_20.png" class="r-stretch quarto-figure-left"><p><br></p>
 <p>Cette commande <strong>ajoute la suppression du fichier à la zone d’index</strong>.</p>
 </section>
-<section id="supprimer-un-fichier-7" class="slide level2">
+<section id="supprimer-un-fichier-8" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
 <p><code>git commit -m "suppression du fichier file2.txt"</code></p>
 <p><br></p>
 
 <img data-src="img/workflow_git_21.png" class="r-stretch quarto-figure-left"></section>
-<section id="supprimer-un-fichier-8" class="slide level2">
+<section id="supprimer-un-fichier-9" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
 <p>Il est possible de supprimer un fichier à la fois du répertoire de travail et de la zone d’index, à l’aide de la commande <code>git rm</code>.</p>
@@ -894,33 +909,33 @@
 <p><br></p>
 
 <img data-src="img/workflow_git_22.png" class="r-stretch quarto-figure-left"></section>
-<section id="supprimer-un-fichier-9" class="slide level2">
+<section id="supprimer-un-fichier-10" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
 <p><code>git add file3.txt</code></p>
 <p><br></p>
 
 <img data-src="img/workflow_git_23.png" class="r-stretch quarto-figure-left"></section>
-<section id="supprimer-un-fichier-10" class="slide level2">
+<section id="supprimer-un-fichier-11" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
 <p><code>git commit -m "creation du fichier vide file3.txt"</code></p>
 <p><br></p>
 
 <img data-src="img/workflow_git_24.png" class="r-stretch quarto-figure-left"></section>
-<section id="supprimer-un-fichier-11" class="slide level2">
+<section id="supprimer-un-fichier-12" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
 <p><code>git rm file3.txt</code></p>
 <p><br></p>
 
 <img data-src="img/workflow_git_25.png" class="r-stretch quarto-figure-left"></section>
-<section id="supprimer-un-fichier-12" class="slide level2">
+<section id="supprimer-un-fichier-13" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
 
 <img data-src="img/workflow_git_27.png" class="r-stretch quarto-figure-left"></section>
-<section id="supprimer-un-fichier-13" class="slide level2">
+<section id="supprimer-un-fichier-14" class="slide level2">
 <h2>Supprimer un fichier</h2>
 <p><br></p>
 <p><code>git commit -m "suppression du fichier file3.txt"</code></p>
@@ -1268,18 +1283,13 @@
 <section id="naviguer-dans-lhistorique-3" class="slide level2">
 <h2>Naviguer dans l’historique</h2>
 <p><br></p>
-
-<img data-src="img/history_19.png" class="r-stretch quarto-figure-left"></section>
-<section id="naviguer-dans-lhistorique-4" class="slide level2">
-<h2>Naviguer dans l’historique</h2>
-<p><br></p>
 <p>La commande suivante permet d’afficher pour un commit le contenu d’un fichier :</p>
 <ul>
 <li><p><code>git show &lt;commit-id&gt;:&lt;file&gt;</code></p></li>
 <li><p><code>git show HEAD~&lt;n&gt;:&lt;file&gt;</code></p></li>
 </ul>
 </section>
-<section id="naviguer-dans-lhistorique-5" class="slide level2">
+<section id="naviguer-dans-lhistorique-4" class="slide level2">
 <h2>Naviguer dans l’historique</h2>
 <p><br></p>
 
