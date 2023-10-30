@@ -470,7 +470,7 @@ L'opérateur `>>` permet d'ajouter une ligne dans un fichier existant :
 
 ![](img/workflow_git_05.png){fig-align="left"}
 
-## Modifier un fichier 
+## Modifier un fichier
 
 <br>
 
@@ -579,10 +579,6 @@ Si vous avez besoin de taper un message plus long, la commande `git commit` ouvr
 -   Un des principaux intérêts de Git est de pouvoir revenir à un état antérieur d'un fichier.
 
 -   Si les modifications concernent différentes parties de votre projet, utilisez des commits différents (intérêt de la zone d'index)
-
-<br>
-
-![](img/commit_content.png)
 
 ## Les commits - comment ?
 
