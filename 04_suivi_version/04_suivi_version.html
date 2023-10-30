@@ -1157,7 +1157,7 @@
 <section id="création-dun-fichier" class="slide level2">
 <h2>Création d’un fichier</h2>
 <p><br></p>
-<p><code>touch file1</code></p>
+<p><code>echo hello &gt; file1</code></p>
 <p><code>git add .</code></p>
 <p><code>git commit -m "creation du fichier file1"</code></p>
 <p><br></p>
@@ -1260,6 +1260,14 @@
 <section id="lhistorique-des-commits-5" class="slide level2">
 <h2>L’historique des commits</h2>
 <p><br></p>
+<p>Pour un affichage détaillé, utilisez l’option <code>-p</code>:</p>
+<p><code>git log -p</code></p>
+<p><br></p>
+
+<img data-src="img/history_21.png" class="r-stretch quarto-figure-left"></section>
+<section id="lhistorique-des-commits-6" class="slide level2">
+<h2>L’historique des commits</h2>
+<p><br></p>
 
 <img data-src="img/history_14.png" class="r-stretch quarto-figure-left"></section>
 <section id="naviguer-dans-lhistorique-1" class="slide level2">
@@ -1291,7 +1299,178 @@
 <h2>Naviguer dans l’historique</h2>
 <p><br></p>
 
-<img data-src="img/history_20.png" class="r-stretch quarto-figure-left"><div class="footer footer-default">
+<img data-src="img/history_20.png" class="r-stretch quarto-figure-left"></section></section>
+<section>
+<section id="corriger-les-erreurs" class="title-slide slide level1 center">
+<h1>Corriger les erreurs</h1>
+
+</section>
+<section id="git-restore" class="slide level2">
+<h2><code>git restore</code></h2>
+<p><br></p>
+<p>Imaginons que du texte a été ajouté à un fichier, et que nous souhaitons annuler cette modification :</p>
+<p><br></p>
+<p><code>echo test &gt;&gt; file2</code></p>
+<p><code>git restore file2</code></p>
+</section>
+<section id="git-restore-1" class="slide level2">
+<h2><code>git restore</code></h2>
+<p><br></p>
+
+<img data-src="img/undoing_changes_01.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-restore-2" class="slide level2">
+<h2><code>git restore</code></h2>
+<p><br></p>
+<p>Le fichier file2 a été supprimé par erreur.</p>
+<p>La commande git restore permet de restaurer le fichier supprimé.</p>
+<p><br></p>
+<p><code>rm file2</code></p>
+<p><code>git restore file2</code></p>
+</section>
+<section id="git-restore-3" class="slide level2">
+<h2><code>git restore</code></h2>
+<p><br></p>
+
+<img data-src="img/undoing_changes_02.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-restore-4" class="slide level2">
+<h2><code>git restore</code></h2>
+<p><br></p>
+<p>Pour ignorer l’ensemble des modifications depuis le dernier commits, utilisez la commande <code>git restore .</code> :</p>
+<p><br></p>
+<p><code>echo erreur &gt;&gt; file1</code></p>
+<p><code>rm file2</code></p>
+<p><code>git restore .</code></p>
+</section>
+<section id="git-restore-5" class="slide level2">
+<h2><code>git restore</code></h2>
+<p><br></p>
+
+<img data-src="img/undoing_changes_03.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-commit---amend" class="slide level2">
+<h2><code>git commit --amend</code></h2>
+<p><br></p>
+<p>Imaginons que le message associé à notre dernier commit contient des erreurs :</p>
+<p><br></p>
+<p><code>echo world &gt;&gt; file2</code></p>
+<p><code>git add file2</code></p>
+<p><code>git commit -m "ajou d txte dns fl2"</code></p>
+<p><br></p>
+
+<img data-src="img/undoing_changes_04.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-commit---amend-1" class="slide level2">
+<h2><code>git commit --amend</code></h2>
+<p><br></p>
+<p>La commande <code>git commit --amend -m</code> permet de corriger le message :</p>
+<p><code>git commit --amend -m "ajout de texte dans file2"</code></p>
+<p><br></p>
+
+<img data-src="img/undoing_changes_05.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-commit---amend-2" class="slide level2">
+<h2><code>git commit --amend</code></h2>
+<p><br></p>
+<p>Imaginons que nous avons oublié d’ajouter un fichier à la zone d’index avant de faire un commit :</p>
+<p><code>touch file3 file4</code></p>
+<p><code>git add file3</code></p>
+<p><code>git commit -m "creation des fichiers vides file3 et file4"</code></p>
+<p><br></p>
+
+<img data-src="img/undoing_changes_06.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-commit---amend-3" class="slide level2">
+<h2><code>git commit --amend</code></h2>
+<p><br></p>
+<p>Ajoutons le fichier oublié dans la zone d’index :</p>
+<p><code>git add file4</code></p>
+<p><br></p>
+<p>La commande suivante permet de corriger le dernier commit sans modifier le message associé :</p>
+<p><code>git commit -- amend --no-edit</code></p>
+</section>
+<section id="git-commit---amend-4" class="slide level2">
+<h2><code>git commit --amend</code></h2>
+<p><br></p>
+
+<img data-src="img/undoing_changes_07.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-revert" class="slide level2">
+<h2><code>git revert</code></h2>
+<p><br></p>
+<p>Dans un éditeur de texte, inversons les deux lignes dans file2 (“hello world” devient “world hello”).</p>
+<p><br></p>
+<p>Ajoutons la modification à l’index et créons un commit :</p>
+<p><code>git add file2</code></p>
+<p><code>git commit -m "inversion de deux lignes dans file2"</code></p>
+</section>
+<section id="git-revert-1" class="slide level2">
+<h2><code>git revert</code></h2>
+<p><br></p>
+<p>La commande <code>git revert &lt;commit-id&gt;</code> permet de créer un nouveau commit contenant la modification inverse :</p>
+<p><br></p>
+
+<img data-src="img/undoing_changes_08.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-reset" class="slide level2">
+<h2><code>git reset</code></h2>
+<p><br></p>
+<p>La commande <code>git reset</code> permet de revenir à un commit précédent :</p>
+<p><br></p>
+<p>Avant le “reset”</p>
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="img/git_revert_before.png"></p>
+</figure>
+</div>
+<p><br></p>
+<p>Après le “reset”</p>
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="img/git_revert_after.png"></p>
+</figure>
+</div>
+</section>
+<section id="git-reset-1" class="slide level2">
+<h2><code>git reset</code></h2>
+<p><br></p>
+<p>Pour revenir à un commit antérieur, utilisez <code>git reset --hard &lt;commit -id&gt;</code> :</p>
+<p><br></p>
+
+<img data-src="img/undoing_changes_09.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-reset-2" class="slide level2">
+<h2><code>git reset</code></h2>
+<p><br></p>
+<p>L’option <code>--hard</code> utilisée avec <code>git reset</code> supprime les modifications locales associées aux commits “supprimés”.</p>
+<p>Pour revenir à un commit précédent tout en conservant les modifications locales associées aux commits supprimés, vous pouvez utiliser l’option <code>--mixed</code> :</p>
+<p><br></p>
+<p><code>touch file3 file4</code></p>
+<p><code>git add .</code></p>
+<p><code>git commit -m "creation des fichiers vides file3 et file4"</code></p>
+</section>
+<section id="git-reset-3" class="slide level2">
+<h2><code>git reset</code></h2>
+<p><br></p>
+
+<img data-src="img/undoing_changes_10.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-restore---source" class="slide level2">
+<h2><code>git restore --source</code></h2>
+<p><br></p>
+<p>Imaginons qu’un fichier contienne une erreur, et nous souhaitons rétablir un état antérieur pour ce fichier seulement :</p>
+<p><br></p>
+<p><code>echo erreur &gt;&gt; file2</code></p>
+<p><code>git add file2</code></p>
+<p><code>git commit -m "ajout de texte dans file2 - ERREUR"</code></p>
+</section>
+<section id="git-restore---source-1" class="slide level2">
+<h2><code>git restore --source</code></h2>
+<p><br></p>
+<p>Pour rétablir l’état antérieur d’un seul fichier, utilisez la commande <code>git restore</code> avec l’option <code>--source &lt;commit-id&gt;</code> :</p>
+<p><br></p>
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="img/undoing_changes_11a.png"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="img/undoing_changes_11b.png"></p>
+</figure>
+</div>
+<div class="footer footer-default">
 
 </div>
 </section></section>

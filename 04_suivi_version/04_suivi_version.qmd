@@ -1096,7 +1096,7 @@ Initialisons un nouveau dépôt Git :
 
 <br>
 
-`touch file1`
+`echo hello > file1`
 
 `git add .`
 
@@ -1246,6 +1246,18 @@ Pour un affichage condensé de l'historique, utilisez l'option `--oneline` :
 
 <br>
 
+Pour un affichage détaillé, utilisez l'option `-p`:
+
+`git log -p`
+
+<br>
+
+![](img/history_21.png){fig-align="left"}
+
+## L'historique des commits
+
+<br>
+
 ![](img/history_14.png){fig-align="left"}
 
 ## Naviguer dans l'historique
@@ -1283,3 +1295,229 @@ La commande suivante permet d'afficher pour un commit le contenu d'un fichier :
 <br>
 
 ![](img/history_20.png){fig-align="left"}
+
+# Corriger les erreurs
+
+## `git restore`
+
+<br>
+
+Imaginons que du texte a été ajouté à un fichier, et que nous souhaitons annuler cette modification :
+
+<br>
+
+`echo test >> file2`
+
+`git restore file2`
+
+## `git restore`
+
+<br>
+
+![](img/undoing_changes_01.png){fig-align="left"}
+
+## `git restore`
+
+<br>
+
+Le fichier file2 a été supprimé par erreur.
+
+La commande git restore permet de restaurer le fichier supprimé.
+
+<br>
+
+`rm file2`
+
+`git restore file2`
+
+## `git restore`
+
+<br>
+
+![](img/undoing_changes_02.png){fig-align="left"}
+
+## `git restore`
+
+<br>
+
+Pour ignorer l'ensemble des modifications depuis le dernier commits, utilisez la commande `git restore .` :
+
+<br>
+
+`echo erreur >> file1`
+
+`rm file2`
+
+`git restore .`
+
+## `git restore`
+
+<br>
+
+![](img/undoing_changes_03.png){fig-align="left"}
+
+## `git commit --amend`
+
+<br>
+
+Imaginons que le message associé à notre dernier commit contient des erreurs :
+
+<br>
+
+`echo world >> file2`
+
+`git add file2`
+
+`git commit -m "ajou d txte dns fl2"`
+
+<br>
+
+![](img/undoing_changes_04.png){fig-align="left"}
+
+## `git commit --amend`
+
+<br>
+
+La commande `git commit --amend -m` permet de corriger le message :
+
+`git commit --amend -m "ajout de texte dans file2"`
+
+<br>
+
+![](img/undoing_changes_05.png){fig-align="left"}
+
+## `git commit --amend`
+
+<br>
+
+Imaginons que nous avons oublié d'ajouter un fichier à la zone d'index avant de faire un commit :
+
+`touch file3 file4`
+
+`git add file3`
+
+`git commit -m "creation des fichiers vides file3 et file4"`
+
+<br>
+
+![](img/undoing_changes_06.png){fig-align="left"}
+
+## `git commit --amend`
+
+<br>
+
+Ajoutons le fichier oublié dans la zone d'index :
+
+`git add file4`
+
+<br>
+
+La commande suivante permet de corriger le dernier commit sans modifier le message associé :
+
+`git commit -- amend --no-edit`
+
+## `git commit --amend`
+
+<br>
+
+![](img/undoing_changes_07.png){fig-align="left"}
+
+## `git revert`
+
+<br>
+
+Dans un éditeur de texte, inversons les deux lignes dans file2 ("hello world" devient "world hello").
+
+<br>
+
+Ajoutons la modification à l'index et créons un commit :
+
+`git add file2`
+
+`git commit -m "inversion de deux lignes dans file2"`
+
+## `git revert`
+
+<br>
+
+La commande `git revert <commit-id>` permet de créer un nouveau commit contenant la modification inverse :
+
+<br>
+
+![](img/undoing_changes_08.png){fig-align="left"}
+
+## `git reset`
+
+<br>
+
+La commande `git reset` permet de revenir à un commit précédent :
+
+<br>
+
+Avant le "reset"
+
+![](img/git_revert_before.png){fig-align="left"}
+
+<br>
+
+Après le "reset"
+
+![](img/git_revert_after.png){fig-align="left"}
+
+## `git reset`
+
+<br>
+
+Pour revenir à un commit antérieur, utilisez `git reset --hard <commit -id>` :
+
+<br>
+
+![](img/undoing_changes_09.png){fig-align="left"}
+
+## `git reset`
+
+<br>
+
+L'option `--hard` utilisée avec `git reset` supprime les modifications locales associées aux commits "supprimés".
+
+Pour revenir à un commit précédent tout en conservant les modifications locales associées aux commits supprimés, vous pouvez utiliser l'option `--mixed` :
+
+<br>
+
+`touch file3 file4`
+
+`git add .`
+
+`git commit -m "creation des fichiers vides file3 et file4"`
+
+## `git reset`
+
+<br>
+
+![](img/undoing_changes_10.png){fig-align="left"}
+
+## `git restore --source`
+
+<br>
+
+Imaginons qu'un fichier contienne une erreur, et nous souhaitons rétablir un état antérieur pour ce fichier seulement :
+
+<br>
+
+`echo erreur >> file2`
+
+`git add file2`
+
+`git commit -m "ajout de texte dans file2 - ERREUR"`
+
+## `git restore --source`
+
+<br>
+
+Pour rétablir l'état antérieur d'un seul fichier, utilisez la commande `git restore` avec l'option `--source <commit-id>` :
+
+<br>
+
+![](img/undoing_changes_11a.png){fig-align="left"}
+
+![](img/undoing_changes_11b.png){fig-align="left"}
