@@ -1157,7 +1157,7 @@
 <section id="création-dun-fichier" class="slide level2">
 <h2>Création d’un fichier</h2>
 <p><br></p>
-<p><code>echo hello &gt; file1</code></p>
+<p><code>touch file1</code></p>
 <p><code>git add .</code></p>
 <p><code>git commit -m "creation du fichier file1"</code></p>
 <p><br></p>
@@ -1470,7 +1470,41 @@
 <p><img data-src="img/undoing_changes_11b.png"></p>
 </figure>
 </div>
-<div class="footer footer-default">
+</section>
+<section id="git-restore---source-2" class="slide level2">
+<h2><code>git restore --source</code></h2>
+<p><br></p>
+
+<img data-src="img/undoing_changes_12.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-reflog" class="slide level2">
+<h2><code>git reflog</code></h2>
+<p><br></p>
+<p>Imaginons que nous supprimons par erreur le dernier commit :</p>
+<p><br></p>
+<p><code>touch file3 file4</code></p>
+<p><code>git add .</code></p>
+<p><code>git commit -m "creation de deux fichiers vides file3 et file4"</code></p>
+</section>
+<section id="git-reflog-1" class="slide level2">
+<h2><code>git reflog</code></h2>
+<p><br></p>
+
+<img data-src="img/undoing_changes_13.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-reflog-2" class="slide level2">
+<h2><code>git reflog</code></h2>
+<p><br></p>
+<p>La commande <code>git reflog</code> affiche l’intégralité des commandes, y compris les suppressions de commits.</p>
+<p><br></p>
+
+<img data-src="img/undoing_changes_14.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-reflog-3" class="slide level2">
+<h2><code>git reflog</code></h2>
+<p><br></p>
+<p>La commande <code>git reset --hard</code> permet de restaurer le dernier commit :</p>
+<p><code>git reset --hard &lt;commit-id&gt;</code></p>
+<p><br></p>
+
+<img data-src="img/undoing_changes_15.png" class="r-stretch quarto-figure-left"><div class="footer footer-default">
 
 </div>
 </section></section>

@@ -1096,7 +1096,7 @@ Initialisons un nouveau dépôt Git :
 
 <br>
 
-`echo hello > file1`
+`touch file1`
 
 `git add .`
 
@@ -1521,3 +1521,51 @@ Pour rétablir l'état antérieur d'un seul fichier, utilisez la commande `git r
 ![](img/undoing_changes_11a.png){fig-align="left"}
 
 ![](img/undoing_changes_11b.png){fig-align="left"}
+
+## `git restore --source`
+
+<br>
+
+![](img/undoing_changes_12.png){fig-align="left"}
+
+## `git reflog`
+
+<br>
+
+Imaginons que nous supprimons par erreur le dernier commit :
+
+<br>
+
+`touch file3 file4`
+
+`git add .`
+
+`git commit -m "creation de deux fichiers vides file3 et file4"`
+
+## `git reflog`
+
+<br>
+
+![](img/undoing_changes_13.png){fig-align="left"}
+
+## `git reflog`
+
+<br>
+
+La commande `git reflog` affiche l'intégralité des commandes, y compris les suppressions de commits.
+
+<br>
+
+![](img/undoing_changes_14.png){fig-align="left"}
+
+## `git reflog`
+
+<br>
+
+La commande `git reset --hard` permet de restaurer le dernier commit :
+
+`git reset --hard <commit-id>`
+
+<br>
+
+![](img/undoing_changes_15.png){fig-align="left"}
