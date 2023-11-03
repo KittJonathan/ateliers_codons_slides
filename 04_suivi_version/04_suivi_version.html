@@ -1137,145 +1137,6 @@
 
 <img data-src="img/workflow_git_53.png" class="r-stretch quarto-figure-left"></section></section>
 <section>
-<section id="les-branches" class="title-slide slide level1 center">
-<h1>Les branches</h1>
-
-</section>
-<section id="les-branches-1" class="slide level2">
-<h2>Les branches</h2>
-<p><br></p>
-<p>Une branche permet de diverger de la ligne principale de notre dépôt et de travailler sans impacter cette ligne principale.</p>
-<p><br></p>
-
-<img data-src="img/git_branch_01.png" class="r-stretch quarto-figure-left"></section>
-<section id="créer-une-branche" class="slide level2">
-<h2>Créer une branche</h2>
-<p><br></p>
-<p>Commençons par nettoyer notre répertoire :</p>
-<p><code>rm file1 file2</code></p>
-<p><code>rm -rf .git</code></p>
-<p><br></p>
-<p>Initialisons un nouveau dépôt :</p>
-<p><code>git init</code></p>
-</section>
-<section id="créer-une-branche-1" class="slide level2">
-<h2>Créer une branche</h2>
-<p><br></p>
-<p>Ajoutons un fichier vide :</p>
-<p><code>touch file1</code></p>
-<p><code>git add .</code></p>
-<p><code>git commit -m "creation du fichier vide file1"</code></p>
-<p><br></p>
-<p>Modifions ce fichier :</p>
-<p><code>echo hello &gt; file1</code></p>
-<p><code>git commit -am "ajout de hello dans file1"</code></p>
-</section>
-<section id="créer-une-branche-2" class="slide level2">
-<h2>Créer une branche</h2>
-<p><br></p>
-<div class="quarto-figure quarto-figure-left">
-<figure>
-<p><img data-src="img/git_branch_02.png"></p>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-left">
-<figure>
-<p><img data-src="img/git_branch_03.png"></p>
-</figure>
-</div>
-</section>
-<section id="créer-une-branche-3" class="slide level2">
-<h2>Créer une branche</h2>
-<p><br></p>
-<p>La commande <code>git branch &lt;name&gt;</code> permet de créer une nouvelle branche.</p>
-<p><br></p>
-<p>Par défaut, la nouvelle branche diverge de la branche principale au niveau du <strong>commit le plus récent (HEAD)</strong>.</p>
-</section>
-<section id="créer-une-branche-4" class="slide level2">
-<h2>Créer une branche</h2>
-<p><br></p>
-
-<img data-src="img/git_branch_04.png" class="r-stretch quarto-figure-left"></section>
-<section id="créer-une-branche-5" class="slide level2">
-<h2>Créer une branche</h2>
-<p><br></p>
-<p>La commande <code>git branch &lt;name&gt; &lt;commit-id&gt;</code> permet de créer une nouvelle branche à partir d’un commit précis.</p>
-</section>
-<section id="créer-une-branche-6" class="slide level2">
-<h2>Créer une branche</h2>
-<p><br></p>
-
-<img data-src="img/git_branch_05.png" class="r-stretch quarto-figure-left"></section>
-<section id="changer-de-branche" class="slide level2">
-<h2>Changer de branche</h2>
-<p><br></p>
-<p>La commande <code>git branch</code> affiche la liste des branches existantes.</p>
-<p>Pour vous placer sur une autre branche, utilisez une des commandes suivantes :</p>
-<ul>
-<li><p><code>git switch &lt;name&gt;</code></p></li>
-<li><p><code>git checkout &lt;name&gt;</code></p></li>
-</ul>
-<p><br></p>
-
-<img data-src="img/git_branch_06.png" class="r-stretch quarto-figure-left"></section>
-<section id="renommer-une-branche" class="slide level2">
-<h2>Renommer une branche</h2>
-<p><br></p>
-<p>Pour renommer la branche actuelle, utilisez la commande suivante :</p>
-<p><code>git branch -m &lt;new-name&gt;</code></p>
-<p><br></p>
-<p>Pour renommer une autre branche, précisez le nom de la branche concernée :</p>
-<p><code>git branch &lt;old-name&gt; &lt;new-name&gt;</code></p>
-<p><br></p>
-
-<img data-src="img/git_branch_07.png" class="r-stretch quarto-figure-left"></section>
-<section id="travailler-sur-une-branche" class="slide level2">
-<h2>Travailler sur une branche</h2>
-<p><br></p>
-<p>Plaçons-nous sur la branche <code>feat</code> et modifions le fichier :</p>
-<p><code>git switch feat</code></p>
-<p><code>echo world &gt;&gt; file1</code></p>
-<p><code>git add .</code></p>
-<p><code>git commit -m "ajout de world dans file1"</code></p>
-</section>
-<section id="travailler-sur-une-branche-1" class="slide level2">
-<h2>Travailler sur une branche</h2>
-<p><br></p>
-
-<img data-src="img/git_branch_10.png" class="r-stretch quarto-figure-left"></section>
-<section id="comparer-deux-branches" class="slide level2">
-<h2>Comparer deux branches</h2>
-<p><br></p>
-<p>Pour comparer deux branches, utilisez la commande suivante (utilisable avec l’option <code>--oneline</code>) :</p>
-<p><code>git log &lt;branch 1&gt;..&lt;branch 2&gt;</code></p>
-<p><br></p>
-
-<img data-src="img/git_branch_08.png" class="r-stretch quarto-figure-left"></section>
-<section id="fusionner-les-branches" class="slide level2">
-<h2>Fusionner les branches</h2>
-<p><br></p>
-<p>Pour “rappatrier” sur la branche principale les modifications apportées sur une autre branche, procédez de la manière suivante :</p>
-<ul>
-<li><p>placez-vous sur la branche dans laquelle vous voulez inclure les modifications (à l’aide de <code>git switch)</code></p></li>
-<li><p>utilisez la commande <code>git merge &lt;name&gt;</code> pour inclure les modifications</p></li>
-</ul>
-<p><br></p>
-
-<img data-src="img/git_branch_09.png" class="r-stretch quarto-figure-left"></section>
-<section id="fusionner-les-branches-1" class="slide level2">
-<h2>Fusionner les branches</h2>
-<p><br></p>
-
-<img data-src="img/git_branch_11.png" class="r-stretch quarto-figure-left"></section>
-<section id="supprimer-une-branche" class="slide level2">
-<h2>Supprimer une branche</h2>
-<p><br></p>
-<p>Pour supprimer une branche, utilisez la commande suivante :</p>
-<p><code>git branch -d &lt;name&gt;</code></p>
-<p><br></p>
-
-<img data-src="img/git_branch_12.png" class="r-stretch quarto-figure-left"></section></section>
-<section>
 <section id="naviguer-dans-lhistorique" class="title-slide slide level1 center">
 <h1>Naviguer dans l’historique</h1>
 
@@ -1439,6 +1300,145 @@
 <p><br></p>
 
 <img data-src="img/history_20.png" class="r-stretch quarto-figure-left"></section></section>
+<section>
+<section id="les-branches" class="title-slide slide level1 center">
+<h1>Les branches</h1>
+
+</section>
+<section id="les-branches-1" class="slide level2">
+<h2>Les branches</h2>
+<p><br></p>
+<p>Une branche permet de diverger de la ligne principale de notre dépôt et de travailler sans impacter cette ligne principale.</p>
+<p><br></p>
+
+<img data-src="img/git_branch_01.png" class="r-stretch quarto-figure-left"></section>
+<section id="créer-une-branche" class="slide level2">
+<h2>Créer une branche</h2>
+<p><br></p>
+<p>Commençons par nettoyer notre répertoire :</p>
+<p><code>rm file1 file2</code></p>
+<p><code>rm -rf .git</code></p>
+<p><br></p>
+<p>Initialisons un nouveau dépôt :</p>
+<p><code>git init</code></p>
+</section>
+<section id="créer-une-branche-1" class="slide level2">
+<h2>Créer une branche</h2>
+<p><br></p>
+<p>Ajoutons un fichier vide :</p>
+<p><code>touch file1</code></p>
+<p><code>git add .</code></p>
+<p><code>git commit -m "creation du fichier vide file1"</code></p>
+<p><br></p>
+<p>Modifions ce fichier :</p>
+<p><code>echo hello &gt; file1</code></p>
+<p><code>git commit -am "ajout de hello dans file1"</code></p>
+</section>
+<section id="créer-une-branche-2" class="slide level2">
+<h2>Créer une branche</h2>
+<p><br></p>
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="img/git_branch_02.png"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="img/git_branch_03.png"></p>
+</figure>
+</div>
+</section>
+<section id="créer-une-branche-3" class="slide level2">
+<h2>Créer une branche</h2>
+<p><br></p>
+<p>La commande <code>git branch &lt;name&gt;</code> permet de créer une nouvelle branche.</p>
+<p><br></p>
+<p>Par défaut, la nouvelle branche diverge de la branche principale au niveau du <strong>commit le plus récent (HEAD)</strong>.</p>
+</section>
+<section id="créer-une-branche-4" class="slide level2">
+<h2>Créer une branche</h2>
+<p><br></p>
+
+<img data-src="img/git_branch_04.png" class="r-stretch quarto-figure-left"></section>
+<section id="créer-une-branche-5" class="slide level2">
+<h2>Créer une branche</h2>
+<p><br></p>
+<p>La commande <code>git branch &lt;name&gt; &lt;commit-id&gt;</code> permet de créer une nouvelle branche à partir d’un commit précis.</p>
+</section>
+<section id="créer-une-branche-6" class="slide level2">
+<h2>Créer une branche</h2>
+<p><br></p>
+
+<img data-src="img/git_branch_05.png" class="r-stretch quarto-figure-left"></section>
+<section id="changer-de-branche" class="slide level2">
+<h2>Changer de branche</h2>
+<p><br></p>
+<p>La commande <code>git branch</code> affiche la liste des branches existantes.</p>
+<p>Pour vous placer sur une autre branche, utilisez une des commandes suivantes :</p>
+<ul>
+<li><p><code>git switch &lt;name&gt;</code></p></li>
+<li><p><code>git checkout &lt;name&gt;</code></p></li>
+</ul>
+<p><br></p>
+
+<img data-src="img/git_branch_06.png" class="r-stretch quarto-figure-left"></section>
+<section id="renommer-une-branche" class="slide level2">
+<h2>Renommer une branche</h2>
+<p><br></p>
+<p>Pour renommer la branche actuelle, utilisez la commande suivante :</p>
+<p><code>git branch -m &lt;new-name&gt;</code></p>
+<p><br></p>
+<p>Pour renommer une autre branche, précisez le nom de la branche concernée :</p>
+<p><code>git branch &lt;old-name&gt; &lt;new-name&gt;</code></p>
+<p><br></p>
+
+<img data-src="img/git_branch_07.png" class="r-stretch quarto-figure-left"></section>
+<section id="travailler-sur-une-branche" class="slide level2">
+<h2>Travailler sur une branche</h2>
+<p><br></p>
+<p>Plaçons-nous sur la branche <code>feat</code> et modifions le fichier :</p>
+<p><code>git switch feat</code></p>
+<p><code>echo world &gt;&gt; file1</code></p>
+<p><code>git add .</code></p>
+<p><code>git commit -m "ajout de world dans file1"</code></p>
+</section>
+<section id="travailler-sur-une-branche-1" class="slide level2">
+<h2>Travailler sur une branche</h2>
+<p><br></p>
+
+<img data-src="img/git_branch_10.png" class="r-stretch quarto-figure-left"></section>
+<section id="comparer-deux-branches" class="slide level2">
+<h2>Comparer deux branches</h2>
+<p><br></p>
+<p>Pour comparer deux branches, utilisez la commande suivante (utilisable avec l’option <code>--oneline</code>) :</p>
+<p><code>git log &lt;branch 1&gt;..&lt;branch 2&gt;</code></p>
+<p><br></p>
+
+<img data-src="img/git_branch_08.png" class="r-stretch quarto-figure-left"></section>
+<section id="fusionner-les-branches" class="slide level2">
+<h2>Fusionner les branches</h2>
+<p><br></p>
+<p>Pour “rappatrier” sur la branche principale les modifications apportées sur une autre branche, procédez de la manière suivante :</p>
+<ul>
+<li><p>placez-vous sur la branche dans laquelle vous voulez inclure les modifications (à l’aide de <code>git switch)</code></p></li>
+<li><p>utilisez la commande <code>git merge &lt;name&gt;</code> pour inclure les modifications</p></li>
+</ul>
+<p><br></p>
+
+<img data-src="img/git_branch_09.png" class="r-stretch quarto-figure-left"></section>
+<section id="fusionner-les-branches-1" class="slide level2">
+<h2>Fusionner les branches</h2>
+<p><br></p>
+
+<img data-src="img/git_branch_11.png" class="r-stretch quarto-figure-left"></section>
+<section id="supprimer-une-branche" class="slide level2">
+<h2>Supprimer une branche</h2>
+<p><br></p>
+<p>Pour supprimer une branche, utilisez la commande suivante :</p>
+<p><code>git branch -d &lt;name&gt;</code></p>
+<p><br></p>
+
+<img data-src="img/git_branch_12.png" class="r-stretch quarto-figure-left"></section></section>
 <section>
 <section id="corriger-les-erreurs" class="title-slide slide level1 center">
 <h1>Corriger les erreurs</h1>

@@ -1068,188 +1068,6 @@ La commande `git rm --cached` permet de supprimer un fichier tracé de la zone d
 
 ![](img/workflow_git_53.png){fig-align="left"}
 
-# Les branches
-
-## Les branches
-
-<br>
-
-Une branche permet de diverger de la ligne principale de notre dépôt et de travailler sans impacter cette ligne principale.
-
-<br>
-
-![](img/git_branch_01.png){fig-align="left"}
-
-## Créer une branche
-
-<br>
-
-Commençons par nettoyer notre répertoire :
-
-`rm file1 file2`
-
-`rm -rf .git`
-
-<br>
-
-Initialisons un nouveau dépôt :
-
-`git init`
-
-## Créer une branche
-
-<br>
-
-Ajoutons un fichier vide :
-
-`touch file1`
-
-`git add .`
-
-`git commit -m "creation du fichier vide file1"`
-
-<br>
-
-Modifions ce fichier :
-
-`echo hello > file1`
-
-`git commit -am "ajout de hello dans file1"`
-
-## Créer une branche
-
-<br>
-
-![](img/git_branch_02.png){fig-align="left"}
-
-![](img/git_branch_03.png){fig-align="left"}
-
-## Créer une branche
-
-<br>
-
-La commande `git branch <name>` permet de créer une nouvelle branche.
-
-<br>
-
-Par défaut, la nouvelle branche diverge de la branche principale au niveau du **commit le plus récent (HEAD)**.
-
-## Créer une branche
-
-<br>
-
-![](img/git_branch_04.png){fig-align="left"}
-
-## Créer une branche
-
-<br>
-
-La commande `git branch <name> <commit-id>` permet de créer une nouvelle branche à partir d'un commit précis.
-
-## Créer une branche
-
-<br>
-
-![](img/git_branch_05.png){fig-align="left"}
-
-## Changer de branche
-
-<br>
-
-La commande `git branch` affiche la liste des branches existantes.
-
-Pour vous placer sur une autre branche, utilisez une des commandes suivantes :
-
--   `git switch <name>`
-
--   `git checkout <name>`
-
-<br>
-
-![](img/git_branch_06.png){fig-align="left"}
-
-## Renommer une branche
-
-<br>
-
-Pour renommer la branche actuelle, utilisez la commande suivante :
-
-`git branch -m <new-name>`
-
-<br>
-
-Pour renommer une autre branche, précisez le nom de la branche concernée :
-
-`git branch <old-name> <new-name>`
-
-<br>
-
-![](img/git_branch_07.png){fig-align="left"}
-
-## Travailler sur une branche
-
-<br>
-
-Plaçons-nous sur la branche `feat` et modifions le fichier :
-
-`git switch feat`
-
-`echo world >> file1`
-
-`git add .`
-
-`git commit -m "ajout de world dans file1"`
-
-## Travailler sur une branche
-
-<br>
-
-![](img/git_branch_10.png){fig-align="left"}
-
-## Comparer deux branches
-
-<br>
-
-Pour comparer deux branches, utilisez la commande suivante (utilisable avec l'option `--oneline`) :
-
-`git log <branch 1>..<branch 2>`
-
-<br>
-
-![](img/git_branch_08.png){fig-align="left"}
-
-## Fusionner les branches
-
-<br>
-
-Pour "rappatrier" sur la branche principale les modifications apportées sur une autre branche, procédez de la manière suivante :
-
--   placez-vous sur la branche dans laquelle vous voulez inclure les modifications (à l'aide de `git switch)`
-
--   utilisez la commande `git merge <name>` pour inclure les modifications
-
-<br>
-
-![](img/git_branch_09.png){fig-align="left"}
-
-## Fusionner les branches
-
-<br>
-
-![](img/git_branch_11.png){fig-align="left"}
-
-## Supprimer une branche
-
-<br>
-
-Pour supprimer une branche, utilisez la commande suivante :
-
-`git branch -d <name>`
-
-<br>
-
-![](img/git_branch_12.png){fig-align="left"}
-
 # Naviguer dans l'historique
 
 ## Nettoyer le répertoire de travail
@@ -1477,6 +1295,188 @@ La commande suivante permet d'afficher pour un commit le contenu d'un fichier :
 <br>
 
 ![](img/history_20.png){fig-align="left"}
+
+# Les branches
+
+## Les branches
+
+<br>
+
+Une branche permet de diverger de la ligne principale de notre dépôt et de travailler sans impacter cette ligne principale.
+
+<br>
+
+![](img/git_branch_01.png){fig-align="left"}
+
+## Créer une branche
+
+<br>
+
+Commençons par nettoyer notre répertoire :
+
+`rm file1 file2`
+
+`rm -rf .git`
+
+<br>
+
+Initialisons un nouveau dépôt :
+
+`git init`
+
+## Créer une branche
+
+<br>
+
+Ajoutons un fichier vide :
+
+`touch file1`
+
+`git add .`
+
+`git commit -m "creation du fichier vide file1"`
+
+<br>
+
+Modifions ce fichier :
+
+`echo hello > file1`
+
+`git commit -am "ajout de hello dans file1"`
+
+## Créer une branche
+
+<br>
+
+![](img/git_branch_02.png){fig-align="left"}
+
+![](img/git_branch_03.png){fig-align="left"}
+
+## Créer une branche
+
+<br>
+
+La commande `git branch <name>` permet de créer une nouvelle branche.
+
+<br>
+
+Par défaut, la nouvelle branche diverge de la branche principale au niveau du **commit le plus récent (HEAD)**.
+
+## Créer une branche
+
+<br>
+
+![](img/git_branch_04.png){fig-align="left"}
+
+## Créer une branche
+
+<br>
+
+La commande `git branch <name> <commit-id>` permet de créer une nouvelle branche à partir d'un commit précis.
+
+## Créer une branche
+
+<br>
+
+![](img/git_branch_05.png){fig-align="left"}
+
+## Changer de branche
+
+<br>
+
+La commande `git branch` affiche la liste des branches existantes.
+
+Pour vous placer sur une autre branche, utilisez une des commandes suivantes :
+
+-   `git switch <name>`
+
+-   `git checkout <name>`
+
+<br>
+
+![](img/git_branch_06.png){fig-align="left"}
+
+## Renommer une branche
+
+<br>
+
+Pour renommer la branche actuelle, utilisez la commande suivante :
+
+`git branch -m <new-name>`
+
+<br>
+
+Pour renommer une autre branche, précisez le nom de la branche concernée :
+
+`git branch <old-name> <new-name>`
+
+<br>
+
+![](img/git_branch_07.png){fig-align="left"}
+
+## Travailler sur une branche
+
+<br>
+
+Plaçons-nous sur la branche `feat` et modifions le fichier :
+
+`git switch feat`
+
+`echo world >> file1`
+
+`git add .`
+
+`git commit -m "ajout de world dans file1"`
+
+## Travailler sur une branche
+
+<br>
+
+![](img/git_branch_10.png){fig-align="left"}
+
+## Comparer deux branches
+
+<br>
+
+Pour comparer deux branches, utilisez la commande suivante (utilisable avec l'option `--oneline`) :
+
+`git log <branch 1>..<branch 2>`
+
+<br>
+
+![](img/git_branch_08.png){fig-align="left"}
+
+## Fusionner les branches
+
+<br>
+
+Pour "rappatrier" sur la branche principale les modifications apportées sur une autre branche, procédez de la manière suivante :
+
+-   placez-vous sur la branche dans laquelle vous voulez inclure les modifications (à l'aide de `git switch)`
+
+-   utilisez la commande `git merge <name>` pour inclure les modifications
+
+<br>
+
+![](img/git_branch_09.png){fig-align="left"}
+
+## Fusionner les branches
+
+<br>
+
+![](img/git_branch_11.png){fig-align="left"}
+
+## Supprimer une branche
+
+<br>
+
+Pour supprimer une branche, utilisez la commande suivante :
+
+`git branch -d <name>`
+
+<br>
+
+![](img/git_branch_12.png){fig-align="left"}
 
 # Corriger les erreurs
 
