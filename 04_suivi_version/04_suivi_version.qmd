@@ -1450,7 +1450,7 @@ Pour comparer deux branches, utilisez la commande suivante (utilisable avec l'op
 
 <br>
 
-Pour "rappatrier" sur la branche principale les modifications apportées sur une autre branche, procédez de la manière suivante :
+Pour "rapatrier" sur la branche principale les modifications apportées sur une autre branche, procédez de la manière suivante :
 
 -   placez-vous sur la branche dans laquelle vous voulez inclure les modifications (à l'aide de `git switch)`
 
@@ -1480,6 +1480,66 @@ Pour supprimer une branche, utilisez la commande suivante :
 
 # Corriger les erreurs
 
+## Corriger les erreurs
+
+<br>
+
+Nettoyons notre répertoire :
+
+`rm file1`
+
+`rm -rf .git`
+
+<br>
+
+Initialisons un dépôt git :
+
+`git init`
+
+## Corriger les erreurs
+
+<br>
+
+Créons un fichier vide :
+
+<br>
+
+`touch file1`
+
+`git add file1`
+
+`git commit -m "creation du fichier file1"`
+
+## Corriger les erreurs
+
+<br>
+
+Créons un deuxième fichier vide et ajoutons du texte aux deux fichiers :
+
+<br>
+
+`touch file2`
+
+`echo hello > file1`
+
+`echo hello > file2`
+
+`git add .`
+
+`git commit -m "creation du fichier file2 + ajout de texte dans file1 et file2"`
+
+## Corriger les erreurs
+
+<br>
+
+Ajoutons du texte dans file1 :
+
+<br>
+
+`echo world >> file1`
+
+`git commit -am "ajout de texte dans file1"`
+
 ## `git restore`
 
 <br>
@@ -1504,7 +1564,7 @@ Imaginons que du texte a été ajouté à un fichier, et que nous souhaitons ann
 
 Le fichier file2 a été supprimé par erreur.
 
-La commande git restore permet de restaurer le fichier supprimé.
+La commande `git restore` permet de restaurer le fichier supprimé.
 
 <br>
 
@@ -1522,7 +1582,7 @@ La commande git restore permet de restaurer le fichier supprimé.
 
 <br>
 
-Pour ignorer l'ensemble des modifications depuis le dernier commits, utilisez la commande `git restore .` :
+Pour ignorer l'ensemble des modifications depuis le dernier commit, utilisez la commande `git restore .` :
 
 <br>
 
@@ -1751,3 +1811,115 @@ La commande `git reset --hard` permet de restaurer le dernier commit :
 <br>
 
 ![](img/undoing_changes_15.png){fig-align="left"}
+
+# Les conflits
+
+## Les conflits
+
+<br>
+
+Nettoyons notre répertoire :
+
+<br>
+
+`rm file*`
+
+`rm -rf .git`
+
+<br>
+
+Initialisons un nouveau dépôt git :
+
+`git init`
+
+## Les conflits
+
+<br>
+
+Créons un fichier avec du contenu :
+
+<br>
+
+`echo "texte A" > file1`
+
+`git add .`
+
+`git commit -m "texte A dans file1 sur branche master"`
+
+## Les conflits
+
+<br>
+
+Créons une nouvelle branche et modifions le contenu du fichier sur cette branche :
+
+<br>
+
+`git branch feat`
+
+`git switch feat`
+
+<br>
+
+Notez que les deux commandes ci-dessus peuvent être regroupées :
+
+`git switch -c feat` (`-c` pour create)
+
+<br>
+
+`echo "texte B" > file1`
+
+`git commit -am "texte B dans file1 sur branche feat"`
+
+## Les conflits
+
+<br>
+
+Revenons sur la branche **master** et ajoutons du contenu :
+
+<br>
+
+`git switch master`
+
+`echo "texte C" >> file1`
+
+`git commit -am "texte C dans file1 sur branche master"`
+
+## Les conflits
+
+<br>
+
+Essayons de "rapatrier" la branche feat à l'aide d'un merge :
+
+<br>
+
+`git merge feat`
+
+<br>
+
+Un message d'erreur s'affiche dans le terminal
+
+![](img/merge_conflict_01.png){fig-align="left"}
+
+## Les conflits
+
+<br>
+
+Ouvrons le fichier contenant le conflit :
+
+<br>
+
+![](img/merge_conflict_02.png){fig-align="left"}
+
+## Les conflits
+
+<br>
+
+Corrigeons le texte pour résoudre le conflit et sauvegardons les modifications :
+
+![](img/merge_conflict_03.png){fig-align="left"}
+
+<br>
+
+`git add file1`
+
+`git commit -m "resolution de conflit dans file1 sur branche master"`
