@@ -29,9 +29,11 @@ title-slide-attributes:
 
 <br>
 
--   [Happy Git with R](https://happygitwithr.com/)
-
 -   [Pro Git](https://git-scm.com/book/fr/v2)
+
+-   [Free Code Camp](https://www.youtube.com/@freecodecamp)
+
+-   [Tech With Tim](https://www.youtube.com/watch?v=DVRQoVRzMIY&t=2145s)
 
 -   [Git tutorial for beginners: learn Git in 1 hour](https://www.youtube.com/watch?v=8JJ101D3knE&t=436s)
 
@@ -67,13 +69,11 @@ Un **système de gestion de version (VCS)** permet de :
 
 -   ramener un fichier à un état précédent
 
--   ramener le projet complet à un état précédent
-
 -   visualiser les changements au cours du temps
 
--   voir qui a modifié quelquechose qui pourrait poser un problème
+-   repérer le moment où une erreur a été introduite
 
--   voir qui a introduit un problème et quand
+-   collaborer sur un projet
 
 -   ...
 
@@ -1440,7 +1440,7 @@ Plaçons-nous sur la branche `feat` et modifions le fichier :
 
 Pour comparer deux branches, utilisez la commande suivante (utilisable avec l'option `--oneline`) :
 
-`git log <branch 1>..<branch 2>`
+`git log <autre branche>..<branche actuelle>`
 
 <br>
 
@@ -1464,6 +1464,12 @@ Pour "rapatrier" sur la branche principale les modifications apportées sur une 
 
 <br>
 
+![](img/git_branch_13.png){fig-align="left"}
+
+## Fusionner les branches
+
+<br>
+
 ![](img/git_branch_11.png){fig-align="left"}
 
 ## Supprimer une branche
@@ -1477,6 +1483,104 @@ Pour supprimer une branche, utilisez la commande suivante :
 <br>
 
 ![](img/git_branch_12.png){fig-align="left"}
+
+# `git merge` vs `git rebase`
+
+## `git merge` vs `git rebase`
+
+<br>
+
+Nettoyons le répertoire :
+
+<br>
+
+`rm file1`
+
+`rm -rf .git/`
+
+<br>
+
+Initialisons un nouveau dépôt :
+
+`git init`
+
+## `git merge` vs `git rebase`
+
+<br>
+
+![](img/merge_vs_rebase_01.png){fig-align="left"}
+
+## `git merge` vs `git rebase`
+
+<br>
+
+![](img/merge_vs_rebase_02.png){fig-align="left"}
+
+## `git merge` vs `git rebase`
+
+<br>
+
+![](img/merge_vs_rebase_03.png){fig-align="left"}
+
+## `git merge` vs `git rebase`
+
+<br>
+
+![](img/merge_vs_rebase_04.png){fig-align="left"}
+
+## `git merge` vs `git rebase`
+
+<br>
+
+![](img/merge_vs_rebase_05.png){fig-align="left"}
+
+## `git merge` vs `git rebase`
+
+<br>
+
+![](img/merge_vs_rebase_06.png){fig-align="left"}
+
+## `git merge` vs `git rebase`
+
+<br>
+
+![](img/merge_vs_rebase_07.png){fig-align="left"}
+
+## `git merge` vs `git rebase`
+
+<br>
+
+![](img/merge_vs_rebase_08.png)
+
+## `git merge` vs `git rebase`
+
+<br>
+
+![](img/merge_vs_rebase_09.png){fig-align="left"}
+
+## `git merge` vs `git rebase`
+
+<br>
+
+![](img/merge_vs_rebase_10.png){fig-align="left"}
+
+## `git merge` vs `git rebase`
+
+<br>
+
+![](img/merge_vs_rebase_11.png){fig-align="left"}
+
+## `git merge` vs `git rebase`
+
+<br>
+
+![](img/merge_vs_rebase_12.png){fig-align="left"}
+
+## `git merge` vs `git rebase`
+
+<br>
+
+![](img/merge_vs_rebase_13.png){fig-align="left"}
 
 # Corriger les erreurs
 

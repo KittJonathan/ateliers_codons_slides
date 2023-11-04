@@ -341,8 +341,9 @@
 <h4 id="sources-pour-cet-atelier">Sources pour cet atelier :</h4>
 <p><br></p>
 <ul>
-<li><p><a href="https://happygitwithr.com/">Happy Git with R</a></p></li>
 <li><p><a href="https://git-scm.com/book/fr/v2">Pro Git</a></p></li>
+<li><p><a href="https://www.youtube.com/@freecodecamp">Free Code Camp</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=DVRQoVRzMIY&amp;t=2145s">Tech With Tim</a></p></li>
 <li><p><a href="https://www.youtube.com/watch?v=8JJ101D3knE&amp;t=436s">Git tutorial for beginners: learn Git in 1 hour</a></p></li>
 </ul>
 </section>
@@ -376,10 +377,9 @@
 <p><br></p>
 <ul>
 <li><p>ramener un fichier à un état précédent</p></li>
-<li><p>ramener le projet complet à un état précédent</p></li>
 <li><p>visualiser les changements au cours du temps</p></li>
-<li><p>voir qui a modifié quelquechose qui pourrait poser un problème</p></li>
-<li><p>voir qui a introduit un problème et quand</p></li>
+<li><p>repérer le moment où une erreur a été introduite</p></li>
+<li><p>collaborer sur un projet</p></li>
 <li><p>…</p></li>
 </ul>
 </section>
@@ -1411,7 +1411,7 @@
 <h2>Comparer deux branches</h2>
 <p><br></p>
 <p>Pour comparer deux branches, utilisez la commande suivante (utilisable avec l’option <code>--oneline</code>) :</p>
-<p><code>git log &lt;branch 1&gt;..&lt;branch 2&gt;</code></p>
+<p><code>git log &lt;autre branche&gt;..&lt;branche actuelle&gt;</code></p>
 <p><br></p>
 
 <img data-src="img/git_branch_08.png" class="r-stretch quarto-figure-left"></section>
@@ -1430,6 +1430,11 @@
 <h2>Fusionner les branches</h2>
 <p><br></p>
 
+<img data-src="img/git_branch_13.png" class="r-stretch quarto-figure-left"></section>
+<section id="fusionner-les-branches-2" class="slide level2">
+<h2>Fusionner les branches</h2>
+<p><br></p>
+
 <img data-src="img/git_branch_11.png" class="r-stretch quarto-figure-left"></section>
 <section id="supprimer-une-branche" class="slide level2">
 <h2>Supprimer une branche</h2>
@@ -1439,6 +1444,87 @@
 <p><br></p>
 
 <img data-src="img/git_branch_12.png" class="r-stretch quarto-figure-left"></section></section>
+<section>
+<section id="git-merge-vs-git-rebase" class="title-slide slide level1 center">
+<h1><code>git merge</code> vs <code>git rebase</code></h1>
+
+</section>
+<section id="git-merge-vs-git-rebase-1" class="slide level2">
+<h2><code>git merge</code> vs <code>git rebase</code></h2>
+<p><br></p>
+<p>Nettoyons le répertoire :</p>
+<p><br></p>
+<p><code>rm file1</code></p>
+<p><code>rm -rf .git/</code></p>
+<p><br></p>
+<p>Initialisons un nouveau dépôt :</p>
+<p><code>git init</code></p>
+</section>
+<section id="git-merge-vs-git-rebase-2" class="slide level2">
+<h2><code>git merge</code> vs <code>git rebase</code></h2>
+<p><br></p>
+
+<img data-src="img/merge_vs_rebase_01.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-merge-vs-git-rebase-3" class="slide level2">
+<h2><code>git merge</code> vs <code>git rebase</code></h2>
+<p><br></p>
+
+<img data-src="img/merge_vs_rebase_02.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-merge-vs-git-rebase-4" class="slide level2">
+<h2><code>git merge</code> vs <code>git rebase</code></h2>
+<p><br></p>
+
+<img data-src="img/merge_vs_rebase_03.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-merge-vs-git-rebase-5" class="slide level2">
+<h2><code>git merge</code> vs <code>git rebase</code></h2>
+<p><br></p>
+
+<img data-src="img/merge_vs_rebase_04.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-merge-vs-git-rebase-6" class="slide level2">
+<h2><code>git merge</code> vs <code>git rebase</code></h2>
+<p><br></p>
+
+<img data-src="img/merge_vs_rebase_05.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-merge-vs-git-rebase-7" class="slide level2">
+<h2><code>git merge</code> vs <code>git rebase</code></h2>
+<p><br></p>
+
+<img data-src="img/merge_vs_rebase_06.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-merge-vs-git-rebase-8" class="slide level2">
+<h2><code>git merge</code> vs <code>git rebase</code></h2>
+<p><br></p>
+
+<img data-src="img/merge_vs_rebase_07.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-merge-vs-git-rebase-9" class="slide level2">
+<h2><code>git merge</code> vs <code>git rebase</code></h2>
+<p><br></p>
+
+<img data-src="img/merge_vs_rebase_08.png" class="r-stretch"></section>
+<section id="git-merge-vs-git-rebase-10" class="slide level2">
+<h2><code>git merge</code> vs <code>git rebase</code></h2>
+<p><br></p>
+
+<img data-src="img/merge_vs_rebase_09.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-merge-vs-git-rebase-11" class="slide level2">
+<h2><code>git merge</code> vs <code>git rebase</code></h2>
+<p><br></p>
+
+<img data-src="img/merge_vs_rebase_10.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-merge-vs-git-rebase-12" class="slide level2">
+<h2><code>git merge</code> vs <code>git rebase</code></h2>
+<p><br></p>
+
+<img data-src="img/merge_vs_rebase_11.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-merge-vs-git-rebase-13" class="slide level2">
+<h2><code>git merge</code> vs <code>git rebase</code></h2>
+<p><br></p>
+
+<img data-src="img/merge_vs_rebase_12.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-merge-vs-git-rebase-14" class="slide level2">
+<h2><code>git merge</code> vs <code>git rebase</code></h2>
+<p><br></p>
+
+<img data-src="img/merge_vs_rebase_13.png" class="r-stretch quarto-figure-left"></section></section>
 <section>
 <section id="corriger-les-erreurs" class="title-slide slide level1 center">
 <h1>Corriger les erreurs</h1>
