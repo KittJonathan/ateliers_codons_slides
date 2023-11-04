@@ -342,9 +342,10 @@
 <p><br></p>
 <ul>
 <li><p><a href="https://git-scm.com/book/fr/v2">Pro Git</a></p></li>
+<li><p><a href="https://www.youtube.com/@ColtSteeleCode">Colt Steele</a></p></li>
 <li><p><a href="https://www.youtube.com/@freecodecamp">Free Code Camp</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=8JJ101D3knE">Programming with Mosh</a></p></li>
 <li><p><a href="https://www.youtube.com/watch?v=DVRQoVRzMIY&amp;t=2145s">Tech With Tim</a></p></li>
-<li><p><a href="https://www.youtube.com/watch?v=8JJ101D3knE&amp;t=436s">Git tutorial for beginners: learn Git in 1 hour</a></p></li>
 </ul>
 </section>
 <section>
@@ -1301,231 +1302,6 @@
 
 <img data-src="img/history_20.png" class="r-stretch quarto-figure-left"></section></section>
 <section>
-<section id="les-branches" class="title-slide slide level1 center">
-<h1>Les branches</h1>
-
-</section>
-<section id="les-branches-1" class="slide level2">
-<h2>Les branches</h2>
-<p><br></p>
-<p>Une branche permet de diverger de la ligne principale de notre dépôt et de travailler sans impacter cette ligne principale.</p>
-<p><br></p>
-
-<img data-src="img/git_branch_01.png" class="r-stretch quarto-figure-left"></section>
-<section id="créer-une-branche" class="slide level2">
-<h2>Créer une branche</h2>
-<p><br></p>
-<p>Commençons par nettoyer notre répertoire :</p>
-<p><code>rm file1 file2</code></p>
-<p><code>rm -rf .git</code></p>
-<p><br></p>
-<p>Initialisons un nouveau dépôt :</p>
-<p><code>git init</code></p>
-</section>
-<section id="créer-une-branche-1" class="slide level2">
-<h2>Créer une branche</h2>
-<p><br></p>
-<p>Ajoutons un fichier vide :</p>
-<p><code>touch file1</code></p>
-<p><code>git add .</code></p>
-<p><code>git commit -m "creation du fichier vide file1"</code></p>
-<p><br></p>
-<p>Modifions ce fichier :</p>
-<p><code>echo hello &gt; file1</code></p>
-<p><code>git commit -am "ajout de hello dans file1"</code></p>
-</section>
-<section id="créer-une-branche-2" class="slide level2">
-<h2>Créer une branche</h2>
-<p><br></p>
-<div class="quarto-figure quarto-figure-left">
-<figure>
-<p><img data-src="img/git_branch_02.png"></p>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-left">
-<figure>
-<p><img data-src="img/git_branch_03.png"></p>
-</figure>
-</div>
-</section>
-<section id="créer-une-branche-3" class="slide level2">
-<h2>Créer une branche</h2>
-<p><br></p>
-<p>La commande <code>git branch &lt;name&gt;</code> permet de créer une nouvelle branche.</p>
-<p><br></p>
-<p>Par défaut, la nouvelle branche diverge de la branche principale au niveau du <strong>commit le plus récent (HEAD)</strong>.</p>
-</section>
-<section id="créer-une-branche-4" class="slide level2">
-<h2>Créer une branche</h2>
-<p><br></p>
-
-<img data-src="img/git_branch_04.png" class="r-stretch quarto-figure-left"></section>
-<section id="créer-une-branche-5" class="slide level2">
-<h2>Créer une branche</h2>
-<p><br></p>
-<p>La commande <code>git branch &lt;name&gt; &lt;commit-id&gt;</code> permet de créer une nouvelle branche à partir d’un commit précis.</p>
-</section>
-<section id="créer-une-branche-6" class="slide level2">
-<h2>Créer une branche</h2>
-<p><br></p>
-
-<img data-src="img/git_branch_05.png" class="r-stretch quarto-figure-left"></section>
-<section id="changer-de-branche" class="slide level2">
-<h2>Changer de branche</h2>
-<p><br></p>
-<p>La commande <code>git branch</code> affiche la liste des branches existantes.</p>
-<p>Pour vous placer sur une autre branche, utilisez une des commandes suivantes :</p>
-<ul>
-<li><p><code>git switch &lt;name&gt;</code></p></li>
-<li><p><code>git checkout &lt;name&gt;</code></p></li>
-</ul>
-<p><br></p>
-
-<img data-src="img/git_branch_06.png" class="r-stretch quarto-figure-left"></section>
-<section id="renommer-une-branche" class="slide level2">
-<h2>Renommer une branche</h2>
-<p><br></p>
-<p>Pour renommer la branche actuelle, utilisez la commande suivante :</p>
-<p><code>git branch -m &lt;new-name&gt;</code></p>
-<p><br></p>
-<p>Pour renommer une autre branche, précisez le nom de la branche concernée :</p>
-<p><code>git branch &lt;old-name&gt; &lt;new-name&gt;</code></p>
-<p><br></p>
-
-<img data-src="img/git_branch_07.png" class="r-stretch quarto-figure-left"></section>
-<section id="travailler-sur-une-branche" class="slide level2">
-<h2>Travailler sur une branche</h2>
-<p><br></p>
-<p>Plaçons-nous sur la branche <code>feat</code> et modifions le fichier :</p>
-<p><code>git switch feat</code></p>
-<p><code>echo world &gt;&gt; file1</code></p>
-<p><code>git add .</code></p>
-<p><code>git commit -m "ajout de world dans file1"</code></p>
-</section>
-<section id="travailler-sur-une-branche-1" class="slide level2">
-<h2>Travailler sur une branche</h2>
-<p><br></p>
-
-<img data-src="img/git_branch_10.png" class="r-stretch quarto-figure-left"></section>
-<section id="comparer-deux-branches" class="slide level2">
-<h2>Comparer deux branches</h2>
-<p><br></p>
-<p>Pour comparer deux branches, utilisez la commande suivante (utilisable avec l’option <code>--oneline</code>) :</p>
-<p><code>git log &lt;autre branche&gt;..&lt;branche actuelle&gt;</code></p>
-<p><br></p>
-
-<img data-src="img/git_branch_08.png" class="r-stretch quarto-figure-left"></section>
-<section id="fusionner-les-branches" class="slide level2">
-<h2>Fusionner les branches</h2>
-<p><br></p>
-<p>Pour “rapatrier” sur la branche principale les modifications apportées sur une autre branche, procédez de la manière suivante :</p>
-<ul>
-<li><p>placez-vous sur la branche dans laquelle vous voulez inclure les modifications (à l’aide de <code>git switch)</code></p></li>
-<li><p>utilisez la commande <code>git merge &lt;name&gt;</code> pour inclure les modifications</p></li>
-</ul>
-<p><br></p>
-
-<img data-src="img/git_branch_09.png" class="r-stretch quarto-figure-left"></section>
-<section id="fusionner-les-branches-1" class="slide level2">
-<h2>Fusionner les branches</h2>
-<p><br></p>
-
-<img data-src="img/git_branch_13.png" class="r-stretch quarto-figure-left"></section>
-<section id="fusionner-les-branches-2" class="slide level2">
-<h2>Fusionner les branches</h2>
-<p><br></p>
-
-<img data-src="img/git_branch_11.png" class="r-stretch quarto-figure-left"></section>
-<section id="supprimer-une-branche" class="slide level2">
-<h2>Supprimer une branche</h2>
-<p><br></p>
-<p>Pour supprimer une branche, utilisez la commande suivante :</p>
-<p><code>git branch -d &lt;name&gt;</code></p>
-<p><br></p>
-
-<img data-src="img/git_branch_12.png" class="r-stretch quarto-figure-left"></section></section>
-<section>
-<section id="git-merge-vs-git-rebase" class="title-slide slide level1 center">
-<h1><code>git merge</code> vs <code>git rebase</code></h1>
-
-</section>
-<section id="git-merge-vs-git-rebase-1" class="slide level2">
-<h2><code>git merge</code> vs <code>git rebase</code></h2>
-<p><br></p>
-<p>Nettoyons le répertoire :</p>
-<p><br></p>
-<p><code>rm file1</code></p>
-<p><code>rm -rf .git/</code></p>
-<p><br></p>
-<p>Initialisons un nouveau dépôt :</p>
-<p><code>git init</code></p>
-</section>
-<section id="git-merge-vs-git-rebase-2" class="slide level2">
-<h2><code>git merge</code> vs <code>git rebase</code></h2>
-<p><br></p>
-
-<img data-src="img/merge_vs_rebase_01.png" class="r-stretch quarto-figure-left"></section>
-<section id="git-merge-vs-git-rebase-3" class="slide level2">
-<h2><code>git merge</code> vs <code>git rebase</code></h2>
-<p><br></p>
-
-<img data-src="img/merge_vs_rebase_02.png" class="r-stretch quarto-figure-left"></section>
-<section id="git-merge-vs-git-rebase-4" class="slide level2">
-<h2><code>git merge</code> vs <code>git rebase</code></h2>
-<p><br></p>
-
-<img data-src="img/merge_vs_rebase_03.png" class="r-stretch quarto-figure-left"></section>
-<section id="git-merge-vs-git-rebase-5" class="slide level2">
-<h2><code>git merge</code> vs <code>git rebase</code></h2>
-<p><br></p>
-
-<img data-src="img/merge_vs_rebase_04.png" class="r-stretch quarto-figure-left"></section>
-<section id="git-merge-vs-git-rebase-6" class="slide level2">
-<h2><code>git merge</code> vs <code>git rebase</code></h2>
-<p><br></p>
-
-<img data-src="img/merge_vs_rebase_05.png" class="r-stretch quarto-figure-left"></section>
-<section id="git-merge-vs-git-rebase-7" class="slide level2">
-<h2><code>git merge</code> vs <code>git rebase</code></h2>
-<p><br></p>
-
-<img data-src="img/merge_vs_rebase_06.png" class="r-stretch quarto-figure-left"></section>
-<section id="git-merge-vs-git-rebase-8" class="slide level2">
-<h2><code>git merge</code> vs <code>git rebase</code></h2>
-<p><br></p>
-
-<img data-src="img/merge_vs_rebase_07.png" class="r-stretch quarto-figure-left"></section>
-<section id="git-merge-vs-git-rebase-9" class="slide level2">
-<h2><code>git merge</code> vs <code>git rebase</code></h2>
-<p><br></p>
-
-<img data-src="img/merge_vs_rebase_08.png" class="r-stretch"></section>
-<section id="git-merge-vs-git-rebase-10" class="slide level2">
-<h2><code>git merge</code> vs <code>git rebase</code></h2>
-<p><br></p>
-
-<img data-src="img/merge_vs_rebase_09.png" class="r-stretch quarto-figure-left"></section>
-<section id="git-merge-vs-git-rebase-11" class="slide level2">
-<h2><code>git merge</code> vs <code>git rebase</code></h2>
-<p><br></p>
-
-<img data-src="img/merge_vs_rebase_10.png" class="r-stretch quarto-figure-left"></section>
-<section id="git-merge-vs-git-rebase-12" class="slide level2">
-<h2><code>git merge</code> vs <code>git rebase</code></h2>
-<p><br></p>
-
-<img data-src="img/merge_vs_rebase_11.png" class="r-stretch quarto-figure-left"></section>
-<section id="git-merge-vs-git-rebase-13" class="slide level2">
-<h2><code>git merge</code> vs <code>git rebase</code></h2>
-<p><br></p>
-
-<img data-src="img/merge_vs_rebase_12.png" class="r-stretch quarto-figure-left"></section>
-<section id="git-merge-vs-git-rebase-14" class="slide level2">
-<h2><code>git merge</code> vs <code>git rebase</code></h2>
-<p><br></p>
-
-<img data-src="img/merge_vs_rebase_13.png" class="r-stretch quarto-figure-left"></section></section>
-<section>
 <section id="corriger-les-erreurs" class="title-slide slide level1 center">
 <h1>Corriger les erreurs</h1>
 
@@ -1769,79 +1545,222 @@
 
 <img data-src="img/undoing_changes_15.png" class="r-stretch quarto-figure-left"></section></section>
 <section>
-<section id="les-conflits" class="title-slide slide level1 center">
-<h1>Les conflits</h1>
+<section id="les-branches" class="title-slide slide level1 center">
+<h1>Les branches</h1>
 
 </section>
-<section id="les-conflits-1" class="slide level2">
-<h2>Les conflits</h2>
+<section id="les-branches-1" class="slide level2">
+<h2>Les branches</h2>
 <p><br></p>
-<p>Nettoyons notre répertoire :</p>
+<p>Une branche permet de diverger de la ligne principale de notre dépôt et de travailler sans impacter cette ligne principale.</p>
 <p><br></p>
-<p><code>rm file*</code></p>
-<p><code>rm -rf .git</code></p>
+
+<img data-src="img/git_branch_01.png" class="r-stretch quarto-figure-left"></section>
+<section id="créer-une-branche" class="slide level2">
+<h2>Créer une branche</h2>
 <p><br></p>
-<p>Initialisons un nouveau dépôt git :</p>
+<p>Commençons par nettoyer notre répertoire :</p>
+<p><code>rm file1 file2</code></p>
+<p><code>rm -rf .git/</code></p>
+<p><br></p>
+<p>Initialisons un nouveau dépôt :</p>
 <p><code>git init</code></p>
 </section>
-<section id="les-conflits-2" class="slide level2">
-<h2>Les conflits</h2>
-<p><br></p>
-<p>Créons un fichier avec du contenu :</p>
-<p><br></p>
-<p><code>echo "texte A" &gt; file1</code></p>
-<p><code>git add .</code></p>
-<p><code>git commit -m "texte A dans file1 sur branche master"</code></p>
-</section>
-<section id="les-conflits-3" class="slide level2">
-<h2>Les conflits</h2>
-<p><br></p>
-<p>Créons une nouvelle branche et modifions le contenu du fichier sur cette branche :</p>
-<p><br></p>
-<p><code>git branch feat</code></p>
-<p><code>git switch feat</code></p>
-<p><br></p>
-<p>Notez que les deux commandes ci-dessus peuvent être regroupées :</p>
-<p><code>git switch -c feat</code> (<code>-c</code> pour create)</p>
-<p><br></p>
-<p><code>echo "texte B" &gt; file1</code></p>
-<p><code>git commit -am "texte B dans file1 sur branche feat"</code></p>
-</section>
-<section id="les-conflits-4" class="slide level2">
-<h2>Les conflits</h2>
-<p><br></p>
-<p>Revenons sur la branche <strong>master</strong> et ajoutons du contenu :</p>
-<p><br></p>
-<p><code>git switch master</code></p>
-<p><code>echo "texte C" &gt;&gt; file1</code></p>
-<p><code>git commit -am "texte C dans file1 sur branche master"</code></p>
-</section>
-<section id="les-conflits-5" class="slide level2">
-<h2>Les conflits</h2>
-<p><br></p>
-<p>Essayons de “rapatrier” la branche feat à l’aide d’un merge :</p>
-<p><br></p>
-<p><code>git merge feat</code></p>
-<p><br></p>
-<p>Un message d’erreur s’affiche dans le terminal</p>
-
-<img data-src="img/merge_conflict_01.png" class="r-stretch quarto-figure-left"></section>
-<section id="les-conflits-6" class="slide level2">
-<h2>Les conflits</h2>
-<p><br></p>
-<p>Ouvrons le fichier contenant le conflit :</p>
+<section id="créer-une-branche-1" class="slide level2">
+<h2>Créer une branche</h2>
 <p><br></p>
 
-<img data-src="img/merge_conflict_02.png" class="r-stretch quarto-figure-left"></section>
-<section id="les-conflits-7" class="slide level2">
-<h2>Les conflits</h2>
+<img data-src="img/merge_rebase_01.png" class="r-stretch quarto-figure-left"></section>
+<section id="créer-une-branche-2" class="slide level2">
+<h2>Créer une branche</h2>
 <p><br></p>
-<p>Corrigeons le texte pour résoudre le conflit et sauvegardons les modifications :</p>
+<p>Pour créer une nouvelle branche, utilisez les commandes suivantes :</p>
+<ul>
+<li><p><code>git branch &lt;nouvelle-branche&gt;</code> (crée la nouvelle branche)</p></li>
+<li><p><code>git switch &lt;nouvelle-branche&gt;</code> (se déplace sur la nouvelle branche)</p></li>
+</ul>
+<p><br></p>
+<p>Vous pouvez également utiliser les commandes suivantes :</p>
+<ul>
+<li><p><code>git switch -c &lt;nouvelle-branche&gt;</code> (<code>-c</code> : create)</p></li>
+<li><p><code>git checkout -b &lt;nouvelle-branche&gt;</code> (<code>-b</code> : branch)</p></li>
+</ul>
+</section>
+<section id="créer-une-branche-3" class="slide level2">
+<h2>Créer une branche</h2>
+<p><br></p>
 
-<img data-src="img/merge_conflict_03.png" class="r-stretch quarto-figure-left"><p><br></p>
-<p><code>git add file1</code></p>
-<p><code>git commit -m "resolution de conflit dans file1 sur branche master"</code></p>
-<div class="footer footer-default">
+<img data-src="img/merge_rebase_02.png" class="r-stretch quarto-figure-left"></section>
+<section id="renommer-une-branche" class="slide level2">
+<h2>Renommer une branche</h2>
+<p><br></p>
+<p>Pour renommer la branche actuelle (HEAD) :</p>
+<p><code>git branch -m &lt;nouveau-nom&gt;</code></p>
+<p><br></p>
+<p>Pour renommer une autre branche :</p>
+<p><code>git branch -m &lt;ancien-nom&gt; &lt;nouveau-nom&gt;</code></p>
+<p><br></p>
+<p>La commande <code>git branch</code> permet de lister les branches et d’indiquer la branche actuelle.</p>
+</section>
+<section id="renommer-une-branche-1" class="slide level2">
+<h2>Renommer une branche</h2>
+<p><br></p>
+
+<img data-src="img/merge_rebase_03.png" class="r-stretch quarto-figure-left"></section>
+<section id="travailler-sur-une-branche" class="slide level2">
+<h2>Travailler sur une branche</h2>
+<p><br></p>
+
+<img data-src="img/merge_rebase_04.png" class="r-stretch quarto-figure-left"></section>
+<section id="comparer-deux-branches" class="slide level2">
+<h2>Comparer deux branches</h2>
+<p><br></p>
+<p>Pour comparer deux branches, vous pouvez utiliser <code>git log</code> (avec l’option <code>--oneline</code> si vous le souhaitez) en précisant le nom de la branche à afficher :</p>
+<p><br></p>
+
+<img data-src="img/merge_rebase_05.png" class="r-stretch quarto-figure-left"></section>
+<section id="comparer-deux-branches-1" class="slide level2">
+<h2>Comparer deux branches</h2>
+<p><br></p>
+<p>La commande <code>git log</code> permet d’afficher la différence entre deux branches :</p>
+<p><code>git log &lt;autre-branche&gt;..&lt;branche-actuelle&gt;</code></p>
+<p><br></p>
+
+<img data-src="img/merge_rebase_06.png" class="r-stretch quarto-figure-left"></section>
+<section id="fusionner-les-branches" class="slide level2">
+<h2>Fusionner les branches</h2>
+<p><br></p>
+<p>La commande <code>git merge &lt;branche&gt;</code> permet de “rapatrier” les modifications apportées sur une autre branche (feat) sur la branche principale (master).</p>
+
+<img data-src="img/merge_rebase_07.png" class="r-stretch quarto-figure-left"></section>
+<section id="fusionner-les-branches-1" class="slide level2">
+<h2>Fusionner les branches</h2>
+<p><br></p>
+
+<img data-src="img/merge_rebase_08.png" class="r-stretch quarto-figure-left"></section>
+<section id="supprimer-une-branche" class="slide level2">
+<h2>Supprimer une branche</h2>
+<p><br></p>
+<p>Pour supprimer une branche, utilisez la commande suivante :</p>
+<p><code>git branch -d &lt;name&gt;</code></p>
+<p><br></p>
+
+<img data-src="img/merge_rebase_09.png" class="r-stretch quarto-figure-left"></section>
+<section id="supprimer-une-branche-1" class="slide level2">
+<h2>Supprimer une branche</h2>
+<p><br></p>
+
+<img data-src="img/merge_rebase_10.png" class="r-stretch quarto-figure-left"></section>
+<section id="le-merge-commit" class="slide level2">
+<h2>Le merge commit</h2>
+<p><br></p>
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="img/merge_rebase_11.png"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="img/merge_rebase_12.png"></p>
+</figure>
+</div>
+</section>
+<section id="le-merge-commit-1" class="slide level2">
+<h2>Le merge commit</h2>
+<p><br></p>
+
+<img data-src="img/merge_rebase_13.png" class="r-stretch quarto-figure-left"></section>
+<section id="le-merge-commit-2" class="slide level2">
+<h2>Le merge commit</h2>
+<p><br></p>
+
+<img data-src="img/merge_rebase_14.png" class="r-stretch quarto-figure-left"></section>
+<section id="le-merge-commit-3" class="slide level2">
+<h2>Le merge commit</h2>
+<p><br></p>
+
+<img data-src="img/merge_rebase_15.png" class="r-stretch quarto-figure-left"></section>
+<section id="le-merge-commit-4" class="slide level2">
+<h2>Le merge commit</h2>
+<p><br></p>
+
+<img data-src="img/merge_rebase_16.png" class="r-stretch quarto-figure-left"></section>
+<section id="le-merge-commit-5" class="slide level2">
+<h2>Le merge commit</h2>
+<p><br></p>
+
+<img data-src="img/merge_rebase_17.png" class="r-stretch quarto-figure-left"></section>
+<section id="le-conflit" class="slide level2">
+<h2>Le conflit</h2>
+<p><br></p>
+
+<img data-src="img/merge_rebase_18.png" class="r-stretch quarto-figure-left"></section>
+<section id="le-conflit-1" class="slide level2">
+<h2>Le conflit</h2>
+<p><br></p>
+
+<img data-src="img/merge_rebase_19.png" class="r-stretch quarto-figure-left"></section>
+<section id="le-conflit-2" class="slide level2">
+<h2>Le conflit</h2>
+<p><br></p>
+
+<img data-src="img/merge_rebase_20.png" class="r-stretch quarto-figure-left"></section>
+<section id="le-conflit-3" class="slide level2">
+<h2>Le conflit</h2>
+<p><br></p>
+
+<img data-src="img/merge_rebase_21.png" class="r-stretch quarto-figure-left"></section>
+<section id="le-conflit-4" class="slide level2">
+<h2>Le conflit</h2>
+<p><br></p>
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="img/merge_rebase_22.png"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="img/merge_rebase_23.png"></p>
+</figure>
+</div>
+</section>
+<section id="git-rebase" class="slide level2">
+<h2><code>git rebase</code></h2>
+<p><br></p>
+<p>Si l’avancement du travail diffère entre deux branches, l’historique peut vite devenir compliqué à suivre …</p>
+<p><br></p>
+
+<img data-src="img/merge_rebase_24.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-rebase-1" class="slide level2">
+<h2><code>git rebase</code></h2>
+<p><br></p>
+
+<img data-src="img/merge_rebase_25.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-rebase-2" class="slide level2">
+<h2><code>git rebase</code></h2>
+<p><br></p>
+
+<img data-src="img/merge_rebase_13.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-rebase-3" class="slide level2">
+<h2><code>git rebase</code></h2>
+<p><br></p>
+
+<img data-src="img/merge_rebase_14.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-rebase-4" class="slide level2">
+<h2><code>git rebase</code></h2>
+<p><br></p>
+
+<img data-src="img/merge_rebase_15.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-rebase-5" class="slide level2">
+<h2><code>git rebase</code></h2>
+<p><br></p>
+
+<img data-src="img/merge_rebase_26.png" class="r-stretch quarto-figure-left"></section>
+<section id="git-rebase-6" class="slide level2">
+<h2><code>git rebase</code></h2>
+<p><br></p>
+
+<img data-src="img/merge_rebase_27.png" class="r-stretch quarto-figure-left"><div class="footer footer-default">
 
 </div>
 </section></section>

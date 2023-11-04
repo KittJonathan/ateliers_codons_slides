@@ -31,11 +31,13 @@ title-slide-attributes:
 
 -   [Pro Git](https://git-scm.com/book/fr/v2)
 
+-   [Colt Steele](https://www.youtube.com/@ColtSteeleCode)
+
 -   [Free Code Camp](https://www.youtube.com/@freecodecamp)
 
--   [Tech With Tim](https://www.youtube.com/watch?v=DVRQoVRzMIY&t=2145s)
+-   [Programming with Mosh](https://www.youtube.com/watch?v=8JJ101D3knE)
 
--   [Git tutorial for beginners: learn Git in 1 hour](https://www.youtube.com/watch?v=8JJ101D3knE&t=436s)
+-   [Tech With Tim](https://www.youtube.com/watch?v=DVRQoVRzMIY&t=2145s)
 
 # Gestionnaire de version
 
@@ -1296,292 +1298,6 @@ La commande suivante permet d'afficher pour un commit le contenu d'un fichier :
 
 ![](img/history_20.png){fig-align="left"}
 
-# Les branches
-
-## Les branches
-
-<br>
-
-Une branche permet de diverger de la ligne principale de notre dépôt et de travailler sans impacter cette ligne principale.
-
-<br>
-
-![](img/git_branch_01.png){fig-align="left"}
-
-## Créer une branche
-
-<br>
-
-Commençons par nettoyer notre répertoire :
-
-`rm file1 file2`
-
-`rm -rf .git`
-
-<br>
-
-Initialisons un nouveau dépôt :
-
-`git init`
-
-## Créer une branche
-
-<br>
-
-Ajoutons un fichier vide :
-
-`touch file1`
-
-`git add .`
-
-`git commit -m "creation du fichier vide file1"`
-
-<br>
-
-Modifions ce fichier :
-
-`echo hello > file1`
-
-`git commit -am "ajout de hello dans file1"`
-
-## Créer une branche
-
-<br>
-
-![](img/git_branch_02.png){fig-align="left"}
-
-![](img/git_branch_03.png){fig-align="left"}
-
-## Créer une branche
-
-<br>
-
-La commande `git branch <name>` permet de créer une nouvelle branche.
-
-<br>
-
-Par défaut, la nouvelle branche diverge de la branche principale au niveau du **commit le plus récent (HEAD)**.
-
-## Créer une branche
-
-<br>
-
-![](img/git_branch_04.png){fig-align="left"}
-
-## Créer une branche
-
-<br>
-
-La commande `git branch <name> <commit-id>` permet de créer une nouvelle branche à partir d'un commit précis.
-
-## Créer une branche
-
-<br>
-
-![](img/git_branch_05.png){fig-align="left"}
-
-## Changer de branche
-
-<br>
-
-La commande `git branch` affiche la liste des branches existantes.
-
-Pour vous placer sur une autre branche, utilisez une des commandes suivantes :
-
--   `git switch <name>`
-
--   `git checkout <name>`
-
-<br>
-
-![](img/git_branch_06.png){fig-align="left"}
-
-## Renommer une branche
-
-<br>
-
-Pour renommer la branche actuelle, utilisez la commande suivante :
-
-`git branch -m <new-name>`
-
-<br>
-
-Pour renommer une autre branche, précisez le nom de la branche concernée :
-
-`git branch <old-name> <new-name>`
-
-<br>
-
-![](img/git_branch_07.png){fig-align="left"}
-
-## Travailler sur une branche
-
-<br>
-
-Plaçons-nous sur la branche `feat` et modifions le fichier :
-
-`git switch feat`
-
-`echo world >> file1`
-
-`git add .`
-
-`git commit -m "ajout de world dans file1"`
-
-## Travailler sur une branche
-
-<br>
-
-![](img/git_branch_10.png){fig-align="left"}
-
-## Comparer deux branches
-
-<br>
-
-Pour comparer deux branches, utilisez la commande suivante (utilisable avec l'option `--oneline`) :
-
-`git log <autre branche>..<branche actuelle>`
-
-<br>
-
-![](img/git_branch_08.png){fig-align="left"}
-
-## Fusionner les branches
-
-<br>
-
-Pour "rapatrier" sur la branche principale les modifications apportées sur une autre branche, procédez de la manière suivante :
-
--   placez-vous sur la branche dans laquelle vous voulez inclure les modifications (à l'aide de `git switch)`
-
--   utilisez la commande `git merge <name>` pour inclure les modifications
-
-<br>
-
-![](img/git_branch_09.png){fig-align="left"}
-
-## Fusionner les branches
-
-<br>
-
-![](img/git_branch_13.png){fig-align="left"}
-
-## Fusionner les branches
-
-<br>
-
-![](img/git_branch_11.png){fig-align="left"}
-
-## Supprimer une branche
-
-<br>
-
-Pour supprimer une branche, utilisez la commande suivante :
-
-`git branch -d <name>`
-
-<br>
-
-![](img/git_branch_12.png){fig-align="left"}
-
-# `git merge` vs `git rebase`
-
-## `git merge` vs `git rebase`
-
-<br>
-
-Nettoyons le répertoire :
-
-<br>
-
-`rm file1`
-
-`rm -rf .git/`
-
-<br>
-
-Initialisons un nouveau dépôt :
-
-`git init`
-
-## `git merge` vs `git rebase`
-
-<br>
-
-![](img/merge_vs_rebase_01.png){fig-align="left"}
-
-## `git merge` vs `git rebase`
-
-<br>
-
-![](img/merge_vs_rebase_02.png){fig-align="left"}
-
-## `git merge` vs `git rebase`
-
-<br>
-
-![](img/merge_vs_rebase_03.png){fig-align="left"}
-
-## `git merge` vs `git rebase`
-
-<br>
-
-![](img/merge_vs_rebase_04.png){fig-align="left"}
-
-## `git merge` vs `git rebase`
-
-<br>
-
-![](img/merge_vs_rebase_05.png){fig-align="left"}
-
-## `git merge` vs `git rebase`
-
-<br>
-
-![](img/merge_vs_rebase_06.png){fig-align="left"}
-
-## `git merge` vs `git rebase`
-
-<br>
-
-![](img/merge_vs_rebase_07.png){fig-align="left"}
-
-## `git merge` vs `git rebase`
-
-<br>
-
-![](img/merge_vs_rebase_08.png)
-
-## `git merge` vs `git rebase`
-
-<br>
-
-![](img/merge_vs_rebase_09.png){fig-align="left"}
-
-## `git merge` vs `git rebase`
-
-<br>
-
-![](img/merge_vs_rebase_10.png){fig-align="left"}
-
-## `git merge` vs `git rebase`
-
-<br>
-
-![](img/merge_vs_rebase_11.png){fig-align="left"}
-
-## `git merge` vs `git rebase`
-
-<br>
-
-![](img/merge_vs_rebase_12.png){fig-align="left"}
-
-## `git merge` vs `git rebase`
-
-<br>
-
-![](img/merge_vs_rebase_13.png){fig-align="left"}
-
 # Corriger les erreurs
 
 ## Corriger les erreurs
@@ -1916,114 +1632,260 @@ La commande `git reset --hard` permet de restaurer le dernier commit :
 
 ![](img/undoing_changes_15.png){fig-align="left"}
 
-# Les conflits
+# Les branches
 
-## Les conflits
-
-<br>
-
-Nettoyons notre répertoire :
+## Les branches
 
 <br>
 
-`rm file*`
-
-`rm -rf .git`
+Une branche permet de diverger de la ligne principale de notre dépôt et de travailler sans impacter cette ligne principale.
 
 <br>
 
-Initialisons un nouveau dépôt git :
+![](img/git_branch_01.png){fig-align="left"}
+
+## Créer une branche
+
+<br>
+
+Commençons par nettoyer notre répertoire :
+
+`rm file1 file2`
+
+`rm -rf .git/`
+
+<br>
+
+Initialisons un nouveau dépôt :
 
 `git init`
 
-## Les conflits
+## Créer une branche
 
 <br>
 
-Créons un fichier avec du contenu :
+![](img/merge_rebase_01.png){fig-align="left"}
+
+## Créer une branche
 
 <br>
 
-`echo "texte A" > file1`
+Pour créer une nouvelle branche, utilisez les commandes suivantes :
 
-`git add .`
+-   `git branch <nouvelle-branche>` (crée la nouvelle branche)
 
-`git commit -m "texte A dans file1 sur branche master"`
-
-## Les conflits
+-   `git switch <nouvelle-branche>` (se déplace sur la nouvelle branche)
 
 <br>
 
-Créons une nouvelle branche et modifions le contenu du fichier sur cette branche :
+Vous pouvez également utiliser les commandes suivantes :
+
+-   `git switch -c <nouvelle-branche>` (`-c` : create)
+
+-   `git checkout -b <nouvelle-branche>` (`-b` : branch)
+
+## Créer une branche
 
 <br>
 
-`git branch feat`
+![](img/merge_rebase_02.png){fig-align="left"}
 
-`git switch feat`
-
-<br>
-
-Notez que les deux commandes ci-dessus peuvent être regroupées :
-
-`git switch -c feat` (`-c` pour create)
+## Renommer une branche
 
 <br>
 
-`echo "texte B" > file1`
+Pour renommer la branche actuelle (HEAD) :
 
-`git commit -am "texte B dans file1 sur branche feat"`
-
-## Les conflits
+`git branch -m <nouveau-nom>`
 
 <br>
 
-Revenons sur la branche **master** et ajoutons du contenu :
+Pour renommer une autre branche :
+
+`git branch -m <ancien-nom> <nouveau-nom>`
 
 <br>
 
-`git switch master`
+La commande `git branch` permet de lister les branches et d'indiquer la branche actuelle.
 
-`echo "texte C" >> file1`
-
-`git commit -am "texte C dans file1 sur branche master"`
-
-## Les conflits
+## Renommer une branche
 
 <br>
 
-Essayons de "rapatrier" la branche feat à l'aide d'un merge :
+![](img/merge_rebase_03.png){fig-align="left"}
+
+## Travailler sur une branche
 
 <br>
 
-`git merge feat`
+![](img/merge_rebase_04.png){fig-align="left"}
+
+## Comparer deux branches
 
 <br>
 
-Un message d'erreur s'affiche dans le terminal
-
-![](img/merge_conflict_01.png){fig-align="left"}
-
-## Les conflits
+Pour comparer deux branches, vous pouvez utiliser `git log` (avec l'option `--oneline` si vous le souhaitez) en précisant le nom de la branche à afficher :
 
 <br>
 
-Ouvrons le fichier contenant le conflit :
+![](img/merge_rebase_05.png){fig-align="left"}
+
+## Comparer deux branches
 
 <br>
 
-![](img/merge_conflict_02.png){fig-align="left"}
+La commande `git log` permet d'afficher la différence entre deux branches :
 
-## Les conflits
-
-<br>
-
-Corrigeons le texte pour résoudre le conflit et sauvegardons les modifications :
-
-![](img/merge_conflict_03.png){fig-align="left"}
+`git log <autre-branche>..<branche-actuelle>`
 
 <br>
 
-`git add file1`
+![](img/merge_rebase_06.png){fig-align="left"}
 
-`git commit -m "resolution de conflit dans file1 sur branche master"`
+## Fusionner les branches
+
+<br>
+
+La commande `git merge <branche>` permet de "rapatrier" les modifications apportées sur une autre branche (feat) sur la branche principale (master).
+
+![](img/merge_rebase_07.png){fig-align="left"}
+
+## Fusionner les branches
+
+<br>
+
+![](img/merge_rebase_08.png){fig-align="left"}
+
+## Supprimer une branche
+
+<br>
+
+Pour supprimer une branche, utilisez la commande suivante :
+
+`git branch -d <name>`
+
+<br>
+
+![](img/merge_rebase_09.png){fig-align="left"}
+
+## Supprimer une branche
+
+<br>
+
+![](img/merge_rebase_10.png){fig-align="left"}
+
+## Le merge commit
+
+<br>
+
+![](img/merge_rebase_11.png){fig-align="left"}
+
+![](img/merge_rebase_12.png){fig-align="left"}
+
+## Le merge commit
+
+<br>
+
+![](img/merge_rebase_13.png){fig-align="left"}
+
+## Le merge commit
+
+<br>
+
+![](img/merge_rebase_14.png){fig-align="left"}
+
+## Le merge commit
+
+<br>
+
+![](img/merge_rebase_15.png){fig-align="left"}
+
+## Le merge commit
+
+<br>
+
+![](img/merge_rebase_16.png){fig-align="left"}
+
+## Le merge commit
+
+<br>
+
+![](img/merge_rebase_17.png){fig-align="left"}
+
+## Le conflit
+
+<br>
+
+![](img/merge_rebase_18.png){fig-align="left"}
+
+## Le conflit
+
+<br>
+
+![](img/merge_rebase_19.png){fig-align="left"}
+
+## Le conflit
+
+<br>
+
+![](img/merge_rebase_20.png){fig-align="left"}
+
+## Le conflit
+
+<br>
+
+![](img/merge_rebase_21.png){fig-align="left"}
+
+## Le conflit
+
+<br>
+
+![](img/merge_rebase_22.png){fig-align="left"}
+
+![](img/merge_rebase_23.png){fig-align="left"}
+
+## `git rebase`
+
+<br>
+
+Si l'avancement du travail diffère entre deux branches, l'historique peut vite devenir compliqué à suivre ...
+
+<br>
+
+![](img/merge_rebase_24.png){fig-align="left"}
+
+## `git rebase`
+
+<br>
+
+![](img/merge_rebase_25.png){fig-align="left"}
+
+## `git rebase`
+
+<br>
+
+![](img/merge_rebase_13.png){fig-align="left"}
+
+## `git rebase`
+
+<br>
+
+![](img/merge_rebase_14.png){fig-align="left"}
+
+## `git rebase`
+
+<br>
+
+![](img/merge_rebase_15.png){fig-align="left"}
+
+## `git rebase`
+
+<br>
+
+![](img/merge_rebase_26.png){fig-align="left"}
+
+## `git rebase`
+
+<br>
+
+![](img/merge_rebase_27.png){fig-align="left"}
